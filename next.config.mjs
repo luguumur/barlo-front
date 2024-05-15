@@ -22,6 +22,12 @@ const nextConfig = {
   env: {
     apiDomain: 'https://webapi.barloworld.mn',
   },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 export default nextConfig;

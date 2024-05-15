@@ -4,15 +4,12 @@ import axios from 'axios';
 
 type Repo = {
   name: string
-  stargazers_count: number
 }
  
 export const getServerSideProps = (async () => {
-  // Fetch data from external API
-  const res = await fetch('https://api.github.com/repos/vercel/next.js')
-  const repo: Repo = await res.json()
-  // Pass data to the page via props
-  return { props: { repo } }
+  return { props: { repo: {
+    name : "home"
+  } } }
 }) satisfies GetServerSideProps<{ repo: Repo }>
  
 export default function Deals({
