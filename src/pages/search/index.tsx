@@ -118,13 +118,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     Object.entries(queryParams).forEach(([key, value], index) => {
         if ( value!="all"){
             if (index > 0) filterParam += ', ';
-            filterParam += `"${key == "condition" ? "clvng1q8t00006vk64asepsji" : key == "location" ? "clvng290z00026vk6y7g1zcdv" : key == "model" ? "clvng290z00026vk6y7g1zcdv" : key == "owner" ? "clvng1v3k00016vk6acetabj5" : ""}": "${value}"`;
+            filterParam += `"${key == "condition" ? "clvng1q8t00006vk64asepsji" : key == "location" ? "clx2rkyy60003w3hvmr8tg2e5" : key == "model" ? "clx2rlgzv0005w3hvkqzb1fyo" : key == "owner" ? "clx2rl7l30004w3hv38mtjjbq" : ""}": "${value}"`;
         }
     });
     filterParam += '}';
 
     const finalUrl = `${apiUrl}?filter=${(filterParam)}`;
-
+    console.log(finalUrl)
     let filterconfig = {
         method: 'get',
         maxBodyLength: Infinity,

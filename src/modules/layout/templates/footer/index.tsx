@@ -1,4 +1,5 @@
 import FooterNav from "@modules/layout/components/footer-nav"
+import { GetStaticPropsContext } from "next";
 
 const Footer = () => {
   return (
@@ -24,3 +25,12 @@ const Footer = () => {
 }
 
 export default Footer
+
+
+export async function getStaticProps({locale}: GetStaticPropsContext) {
+  return {
+      props: {
+          messages: (await import(`../../../../../messages/${locale}.json`)).default
+      }
+  };
+}

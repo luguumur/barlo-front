@@ -11,6 +11,9 @@ type Props = {
 }
 
 const QuickSearch: React.FC<Props> = ({ model, owner, location }) => {
+    // console.log(model)
+    // console.log(owner)
+    // console.log(location)
     const t = useTranslations("Search");
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const router = useRouter()

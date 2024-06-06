@@ -21,9 +21,14 @@ import Slider from "react-slick"
 import DetailsTab from "@modules/layout/components/detail-tabs"
 import { GetStaticPropsContext } from "next"
 import { MenuData } from "@/data/home"
+import Image from 'next/image'
 
 type EquipmentTemplateProps = {
   equipment: any
+}
+
+const imageLoader = ({ src, width } : {src:any, width:any}) => {
+  return `${process.env.apiDomain}/file/${src}`
 }
 
 const EquipmentTemplate: React.FC<EquipmentTemplateProps> = ({ equipment }) => {
@@ -36,10 +41,11 @@ const EquipmentTemplate: React.FC<EquipmentTemplateProps> = ({ equipment }) => {
     customPaging: function(i:any) {
       return (
         <a>
-          <img src={`https://webapi.barloworld.mn/file/${equipmentDetail.img_path}`} />
+          <img src={`https://webapi.barloworld.mn/file/${equipmentDetail.data.images[i].path}?thumb=1`} />
         </a>
       );
     },
+    arrows: false,
     dots: true,
     dotsClass: "slick-dots slick-thumb",
     infinite: true,
@@ -53,9 +59,15 @@ const EquipmentTemplate: React.FC<EquipmentTemplateProps> = ({ equipment }) => {
       title: 'icon-camera',
       image: (
         <Slider {...settings}>
-            <img src={`https://webapi.barloworld.mn/file/${equipmentDetail.img_path}`} alt="" className="img-responsive entered lazyloaded" data-lazy-src={equipmentDetail.image} data-ll-status="loaded"/>
-            <img src={`https://webapi.barloworld.mn/file/${equipmentDetail.img_path}`} alt="" className="img-responsive entered lazyloaded" data-lazy-src={equipmentDetail.image} data-ll-status="loaded"/>
-            <img src={`https://webapi.barloworld.mn/file/${equipmentDetail.img_path}`} alt="" className="img-responsive entered lazyloaded" data-lazy-src={equipmentDetail.image} data-ll-status="loaded"/>
+            {equipmentDetail.data.images.map((item:any, index:any) => (
+              <Image key={index}
+                loader={imageLoader} 
+                src={item.path} 
+                alt={item.product_id} 
+                width={600}
+                height={500}
+                className="img-responsive"/>
+            ))}
         </Slider>
       ),
       content: (
@@ -66,7 +78,7 @@ const EquipmentTemplate: React.FC<EquipmentTemplateProps> = ({ equipment }) => {
     },
     {
       title: 'icon-play',
-      image: equipmentDetail.youtube,
+      image: equipmentDetail.data.video_link,
       content: (
         <div>
         </div>
@@ -74,7 +86,7 @@ const EquipmentTemplate: React.FC<EquipmentTemplateProps> = ({ equipment }) => {
     },
     {
       title: 'icon-360',
-      image: equipmentDetail.view,
+      image: equipmentDetail.data.model_3d,
       content: (
         <div>
         </div>
@@ -84,35 +96,19 @@ const EquipmentTemplate: React.FC<EquipmentTemplateProps> = ({ equipment }) => {
   const detailsTab = [
     {
       title: 'Specifications',
-      image: (
-        <div>
-          asd
-        </div>
-      ),
-      content: equipmentDetail.attribute_values,
+      image: {},
+      content: equipmentDetail.data.attribute_values,
     },
     {
       title: 'Benefits and Features',
-      image: (
-        <div>
-          asd
-        </div>
-      ),
-      content: equipmentDetail.description,
+      image: {},
+      content: equipmentDetail.data.description,
     },
-    {
-      title: 'Related Attachments',
-      image: (
-        <div>
-          asd
-        </div>
-      ),
-      content: (
-        <div>
-        Under construction
-        </div>
-      ),
-    },
+    // {
+    //   title: 'Related Attachments',
+    //   image:  {},
+    //   content: {},
+    // },
     // {
     //   title: 'Compare Models',
     //   image: (
@@ -129,7 +125,7 @@ const EquipmentTemplate: React.FC<EquipmentTemplateProps> = ({ equipment }) => {
   ];
   return (
     <>
-    <PageHeader title={equipmentDetail.name}/>
+    <PageHeader title={equipmentDetail.data.name}/>
     <article className="page-body container post-7 page type-page status-publish hentry" id="page-body">
       <div className="row test ">
         <main className="page-content col-md-9 col-md-push-3">

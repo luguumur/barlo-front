@@ -1,9 +1,15 @@
 "use client"
+import { useRouter } from 'next/router';
 // components/Carousel.tsx
 import React, { useEffect, useRef } from 'react';
 import Slider from 'react-slick';
-
-const TestiCarousel: React.FC = () => {
+type Props = {
+  testi?: any
+  locale?: any
+  description?: string | null
+  image?: string | null
+}
+const TestiCarousel: React.FC<Props> = ({ testi, description, image }) => {
   const sliderRef = useRef<Slider | null>(null);
 
   useEffect(() => {
@@ -47,37 +53,41 @@ const TestiCarousel: React.FC = () => {
       }
     ]
   };
-
+  const {locale, locales, route, asPath} = useRouter();
   return (
-    <Slider {...settings} className='p-0'>
-    <div className='h-[400px]'>
-        <div className="home-testimonials-slider-item-column z-10">
-            <h4>“Cat бол Дэлхийн брэнд учраас операторын ажиллах орчныг дээд зэргээр хангасан...”</h4>
-            <h5 className='pb-5'>
-            <span className="title-wrap">
-                <span>—</span> “Эрдэнэс Таван Толгой” ХК-н Оператор - Ц.Мөнхбат </span>
-            </h5>
+    <div className="home-testimonials clearfix">
+      <div className="home-testimonials-wrapper clearfix">
+        <div className="home-testimonials-banner hidden-md-down">
+          <img width="831" height="625" src="/assets/img/test.jpg" className="img-responsive entered lazyloaded" alt="" data-lazy-src="/assets/img/test.jpg" data-ll-status="loaded"/>
         </div>
-    </div>
-    <div className='h-[400px]'>
-        <div className="home-testimonials-slider-item-column z-10">
-            <h4>“Найдвартай ажиллагаанд итгэлтэй байдаг. Чухал ид ачаалалтай үед эвдэрч саатах ямар ч асуудал гардаггүй учраас би бусдад Барловорлд компанийг санал болгодог...”</h4>
-            <h5 className='pb-5'>
-            <span className="title-wrap">
-                <span>—</span> “Эвт Чулуу” ХХК Ерөнхий Захирал - Б.Баяржаргал </span>
-            </h5>
+        <div className="home-testimonials-right-panel">
+          <div className="home-testimonials-header">
+            <h2>
+              <span>Hear From</span> Our Customers
+            </h2>
+          </div>
+          <div className="home-testimonials-slider-wrapper">
+            <div className="home-testimonials-slider home-testimonials-slider-homepage slick-initialized slick-slider">
+            <Slider {...settings} className='p-0'>
+            {testi?.map((item:any, index:any) => (
+              <div key={index} className='h-[400px]'>
+                  <div className="home-testimonials-slider-item-column z-10">
+                      <h4>“{locale === "mn" ? item.title : item.title_en}”</h4>
+                      <h5 className='pb-5'>
+                      <span className="title-wrap">
+                          <span>—</span> {locale === "mn" ? item.subtitle : item.subtitle_en} </span>
+                      </h5>
+                  </div>
+              </div>
+            ))}
+              
+            </Slider>
+            </div>
+            <a href="/testimonials" target="_self" className="btn btn-primary"> Read all testimonials </a>
+          </div>
         </div>
+      </div>
     </div>
-    <div className='h-[400px]'>
-        <div className="home-testimonials-slider-item-column z-10">
-            <h4>“Парк шинэчлэлтийн хүрээнд Тендер сонгон шалгаруулалтаар бид хамгийн сайн чанартай техник авахаар Барловорлд Монголиа ХХК-г сонгосон...”</h4>
-            <h5 className='pb-5'>
-            <span className="title-wrap">
-                <span>—</span> “Цемент шохой” ТӨХК Геологи, Уул Уурхайн Хэлтсийн Дарга Б.Ууганбаяр </span>
-            </h5>
-        </div>
-    </div>
-    </Slider>
   );
 };
 

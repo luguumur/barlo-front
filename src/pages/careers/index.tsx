@@ -101,19 +101,13 @@ const Careers = () => {
                                     </div>
                                 </div>
                                 <div className="row form-row">
-                                    <div className="col-sm-4 form-field">
+                                    <div className="col-sm-6 form-field">
                                         <label>Phone</label>
                                         <span className="wpcf7-form-control-wrap" data-name="phone">
                                         <input size={40} className="wpcf7-form-control wpcf7-tel wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-tel" aria-required="true" aria-invalid="false" value="" type="tel" name="phone"/>
                                         </span>
                                     </div>
-                                    <div className="col-sm-4 form-field">
-                                        <label>Zip</label>
-                                        <span className="wpcf7-form-control-wrap" data-name="zip">
-                                        <input className="wpcf7-form-control wpcf7-number wpcf7-validates-as-required wpcf7-validates-as-number" min="00000" max="99999" aria-required="true" aria-invalid="false" value="" type="number" name="zip"/>
-                                        </span>
-                                    </div>
-                                    <div className="col-sm-4 form-field">
+                                    <div className="col-sm-6 form-field">
                                     <label>Years of Experience</label>
                                     <span className="wpcf7-form-control-wrap" data-name="experience">
                                     <input className="wpcf7-form-control wpcf7-number wpcf7-validates-as-required wpcf7-validates-as-number" min="0" max="99" aria-required="true" aria-invalid="false" value="" type="number" name="experience"/>
@@ -154,7 +148,6 @@ const Careers = () => {
                                         </span>
                                     </div>
                                 </div>
-                               
                                 <div className="row form-row">
                                     <div className="col-sm-5 form-field">
                                         <button className="button button--primary button--block" type="submit">Submit</button>

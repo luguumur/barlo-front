@@ -304,7 +304,7 @@ var FX = (function(FX, $) {
         // FX.VideoPopUp.init();
         // FX.ImagePopUp.init();
         // FX.UsedFilterSearch.init();
-        FX.StickyPageHeader.init();
+        // FX.StickyPageHeader.init();
         // FX.CategorySelect.init();
         // FX.EqualHeights.init();
         // if ($('.tab-link').length) {

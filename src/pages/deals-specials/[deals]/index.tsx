@@ -1,4 +1,7 @@
 import PageHeader from "@modules/layout/components/page-header"
+import axios from "axios";
+import https from "https";
+import { GetServerSideProps, GetStaticPropsContext } from "next";
 
 const New = () => {
     return (
@@ -118,3 +121,27 @@ const New = () => {
   }
   
 export default New
+
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const id = context.params?.id
+  const instance = axios.create({
+    httpsAgent: new https.Agent({  
+      rejectUnauthorized: false
+    })
+  });
+  let detailConfig = {
+      method: 'get',
+      maxBodyLength: Infinity,
+      url: `${process.env.apiDomain}/deals/${id}`,
+      headers: { }
+    };
+  
+  const detail = await instance.request(detailConfig)
+  return {
+      props: {
+          detail: detail.data,
+          messages: (await import(`../../../../messages/${context.locale}.json`)).default
+      },
+  };
+};

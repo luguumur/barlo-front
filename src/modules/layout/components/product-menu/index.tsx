@@ -1,0 +1,62 @@
+"use client"
+
+import { useMobileMenu } from "@lib/context/mobile-menu-context"
+import Hamburger from "@modules/common/components/hamburger"
+import CartDropdown from "@modules/layout/components/cart-dropdown"
+import DropdownMenu from "@modules/layout/components/dropdown-menu"
+import MobileMenu from "@modules/mobile-menu/templates"
+import clsx from "clsx"
+import Link from "next/link"
+import { useParams, usePathname } from "next/navigation"
+import { useEffect, useState } from "react"
+import Image from "next/image"
+import mainlogo from "../../../../../public/logo.jpg"
+import { Field, Form, Formik } from 'formik'
+import FormField from '../../components/form/field';
+import { useTranslations } from "next-intl";
+import LanguageSwitcher from "@modules/layout/components/i18n/LanguageSwitcher"
+import { toast } from 'react-toastify';
+
+import axios from 'axios';
+import { GetStaticPropsContext } from "next"
+
+type Props = {
+    title?: string,
+    menu?: any,
+}
+
+interface FormData {
+  name: string;
+  email: string;
+}
+
+const Beside = (props: Props) => {
+  const pathname = usePathname()
+    
+  return (
+    <aside className="page-sidebar  col-md-3 col-md-pull-9">
+        <div className="widget widget-sublist-pages">
+            <h5>{props.title}</h5>
+            <nav className="sublist-pages">
+                <ul id="menu-main-navigation-1" className="menu">
+                    {props.menu.map((item: any, index: any) => (
+                      <li key={index} id={`menu-item-${item.id}`} className={`menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children ${item.handle == pathname ? 'current-menu-item page_item current_page_item' : ''}`}>
+                          <a href={item.handle}>item.title</a>
+                      </li>
+                    ))}
+                </ul>
+            </nav>
+        </div>
+    </aside>
+  )
+}
+
+export default Beside
+
+export async function getStaticProps({locale}: GetStaticPropsContext) {
+  return {
+    props: {
+      messages: (await import(`../../../../../messages/${locale}.json`)).default
+    }
+  };
+}

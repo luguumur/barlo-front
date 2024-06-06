@@ -12,6 +12,7 @@ import axios from 'axios';
 import https from "https";
 import OfferCarousel from '@/modules/layout/components/offer-carousel';
 import Carousel from '@/modules/layout/components/carousel';
+import TestiCarousel from '@/modules/layout/components/testimonials-carousel';
 
 export async function getServerSideProps({ locale }: GetStaticPropsContext) {
 
@@ -30,7 +31,6 @@ export async function getServerSideProps({ locale }: GetStaticPropsContext) {
   };
 
   const deals = await instance.request(config)
-  console.log(deals.data)
 
   let heroconfig = {
     method: 'get',
@@ -41,11 +41,10 @@ export async function getServerSideProps({ locale }: GetStaticPropsContext) {
   };
 
   const hero = await instance.request(heroconfig)
-
   let modelConfig = {
     method: 'get',
     maxBodyLength: Infinity,
-    url: `${process.env.apiDomain}/store/attribute-values?attribute_id=clvng1q8t00006vk64asepsji`,
+    url: `${process.env.apiDomain}/store/attribute-values?attribute_id=clx2rlgzv0005w3hvkqzb1fyo`,
     headers: { }
   };
 
@@ -54,7 +53,7 @@ export async function getServerSideProps({ locale }: GetStaticPropsContext) {
   let ownerConfig = {
     method: 'get',
     maxBodyLength: Infinity,
-    url: `${process.env.apiDomain}/store/attribute-values?attribute_id=clvng1v3k00016vk6acetabj5`,
+    url: `${process.env.apiDomain}/store/attribute-values?attribute_id=clx2rl7l30004w3hv38mtjjbq`,
     headers: { }
   };
 
@@ -63,12 +62,20 @@ export async function getServerSideProps({ locale }: GetStaticPropsContext) {
   let locationConfig = {
     method: 'get',
     maxBodyLength: Infinity,
-    url: `${process.env.apiDomain}/store/attribute-values?attribute_id=clvng2eqz00036vk692y2nug2`,
+    url: `${process.env.apiDomain}/store/attribute-values?attribute_id=clx2rkyy60003w3hvmr8tg2e5`,
     headers: { }
   };
 
   const location = await instance.request(locationConfig)
 
+  let testiConfig = {
+    method: 'get',
+    maxBodyLength: Infinity,
+    url: `${process.env.apiDomain}/testimonials`,
+    headers: { }
+  };
+
+  const testi = await instance.request(testiConfig)
   return {
     props: {
       deals: deals?.data,
@@ -76,6 +83,7 @@ export async function getServerSideProps({ locale }: GetStaticPropsContext) {
       model: model?.data,
       owner: owner?.data,
       location: location?.data,
+      testi: testi?.data,
       locale: locale,
       messages: (await import(`../../messages/${locale}.json`)).default,
     }
@@ -85,7 +93,7 @@ export async function getServerSideProps({ locale }: GetStaticPropsContext) {
 
 export default function Index({
   deals,
-  hero,model,owner,location,locale,
+  hero,model,owner,location,locale,testi,
   messages,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const t = useTranslations('Index');
@@ -98,7 +106,7 @@ export default function Index({
       <OfferCarousel deals={deals} locale={locale}/>
       <Specials />
       <About />
-      <Testimonials />
+      <TestiCarousel testi={testi} locale={locale}/>
       <Cta />
     </>
   );

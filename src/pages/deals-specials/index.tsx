@@ -6,16 +6,9 @@ type Repo = {
   name: string
 }
  
-export const getServerSideProps = (async () => {
-  return { props: { repo: {
-    name : "home"
-  } } }
-}) satisfies GetServerSideProps<{ repo: Repo }>
- 
 export default function Deals({
   repo,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
-  console.log(repo)
   return (
     <>
         <PageHeader title="deals & specials"/>
@@ -83,3 +76,12 @@ export default function Deals({
       </>
   )
 }
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  
+  return {
+      props: {
+          messages: (await import(`../../../messages/${context.locale}.json`)).default
+      },
+  };
+};

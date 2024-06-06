@@ -8,7 +8,6 @@ import { GetStaticPropsContext } from "next";
 const About = () => {
 
     const t = useTranslations('Home');
-    console.log(t)
     return (
         <>
         <Head title={t("title")}></Head>

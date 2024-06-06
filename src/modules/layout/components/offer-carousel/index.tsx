@@ -17,7 +17,6 @@ const OfferCarousel: React.FC<Props> = ({ deals, description, locale, image }) =
   const sliderRef = useRef<Slider | null>(null);
 
   useEffect(() => {
-    // Access the slick slider instance via the ref and configure it here
     if (sliderRef.current) {
       sliderRef.current.slickPlay();
     }
@@ -52,7 +51,7 @@ const OfferCarousel: React.FC<Props> = ({ deals, description, locale, image }) =
                           </div>
                           <div className="home-deals-content">
                               <h3>{locale == "mn" ? deal.title : deal.title_en}</h3>
-                              <p>{deal.description}</p>
+                              <p>{deal.subtitle}</p>
                               <a href={`/deals-specials/${deal.id}`} className="btn btn-primary" tabIndex={index}>VIEW DEAL</a>
                           </div>
                         </div>

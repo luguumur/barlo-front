@@ -5,11 +5,11 @@ import {useTranslations} from 'next-intl';
 export default function LocaleSwitcher() {
   const t = useTranslations('LocaleSwitcher');
 
-  const {locale, locales, route} = useRouter();
+  const {locale, locales, route, asPath} = useRouter();
   const otherLocale = locales?.find((cur) => cur !== locale);
 
   return (
-    <Link href={route} locale={otherLocale} className='!text-[#fc0]'>
+    <Link href={asPath} locale={otherLocale} className='!text-[#fc0]'>
       {t('switchLocale', {locale: otherLocale})}
     </Link>
   );

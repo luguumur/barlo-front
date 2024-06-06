@@ -12,7 +12,6 @@ import { Testimonials } from "@/data/testimonials";
 const Parts: InferGetServerSidePropsType<typeof getServerSideProps> = (props: any) => {
     const t = useTranslations("Menu");
     const data = props.data
-    console.log(data)
     return (
         <>
             <PageHeader title={t('testimonials')} image="https://thompsonmachinery.com/content/uploads/2022/06/cta-banner-image-1536x306.jpg"/>

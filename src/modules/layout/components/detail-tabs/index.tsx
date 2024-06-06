@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 type Tab = {
   title: string;
-  image: React.ReactNode;
+  image: any;
   content: any;
 };
 
@@ -17,16 +17,17 @@ const DetailsTab: React.FC<TabsProps> = ({ tabs }) => {
   const changeTab = (index: number) => {
     setActiveTab(index);
   };
-
+  let lastGroupName = '';
   return (
     <>
       <div className='tabs__nav-wrapper clearfix'>
         <ul className='tabs__nav cleafix js-tabs p-0'>
           {tabs.map((tab, index) => (
             <li key={index} onClick={() => changeTab(index)} className={index === activeTab ? 'tab-link active' : 'tab-link'}>
-              <a href={`#`+tab.title} title="Photos" data-type="image">
+              {/* <a href={`#`+tab.title} title="Photos" data-type="image">
                 {tab.title}
-              </a>
+              </a> */}
+              <span>{tab.title}</span>
             </li>
           ))}
         </ul>
@@ -34,14 +35,22 @@ const DetailsTab: React.FC<TabsProps> = ({ tabs }) => {
           <div className="product__specs tabs__tab active" id="specs">
             <div className="specs specs--list">
               {tabs[activeTab].title == "Specifications" &&
-                tabs[activeTab].content ? tabs[activeTab].content?.map((tab:any, index:any) => (
-                  <dl className="clearfix flush--top" key={index}>
-                    <div className="specs__row clearfix">
-                      <dt>{tab.group_id}</dt>
-                      <dd data-english="C1.1" data-metric=""> {tab.string_value} </dd>
+                tabs[activeTab].content?.map((tab:any, index:any) => {
+                  const showGroupName = tab.group.name !== lastGroupName;
+                  lastGroupName = tab.group.name;
+          
+                  return (
+                    <div key={index}>
+                      {showGroupName && <h4>{tab.group.name}</h4>}
+                      <dl className="clearfix flush--top">
+                        <div className="specs__row clearfix">
+                          <dt>{tab.attribute.name}</dt>
+                          <dd data-english="C1.1" data-metric="">{tab.string_value}</dd>
+                        </div>
+                      </dl>
                     </div>
-                  </dl>
-                )) : ""
+                  );
+                })
               }
               {
                 tabs[activeTab].title == "Benefits and Features" &&

@@ -5,7 +5,6 @@ import Hamburger from "@modules/common/components/hamburger"
 import CartDropdown from "@modules/layout/components/cart-dropdown"
 import DropdownMenu from "@modules/layout/components/dropdown-menu"
 import MobileMenu from "@modules/mobile-menu/templates"
-import DesktopSearchModal from "@modules/search/templates/desktop-search-modal"
 import clsx from "clsx"
 import Link from "next/link"
 import { useParams, usePathname } from "next/navigation"
@@ -18,6 +17,7 @@ import { useTranslations } from "next-intl";
 import LanguageSwitcher from "@modules/layout/components/i18n/LanguageSwitcher"
 
 import { HeaderData } from "@data/menu"
+import { GetStaticPropsContext } from "next"
 // import { dictionary } from '@lang/content';
 
 
@@ -57,8 +57,6 @@ const Nav = () => {
 
   const { toggle } = useMobileMenu()
   const onSubmit = async (values: any, { setSubmitting }: any) => {
-    // console.log(values)
-
     setSubmitting(false);
   };
   return (
@@ -81,6 +79,7 @@ const Nav = () => {
             </div>
             <div className="col-xxs-5 col-xs-6 col-sm-8 col-md-9 text--right pull--right header-top-right-section">
               <div className="header-right-top">
+                <a className="button page-header--phone phone-number hidden-xxs hidden-xs" href="tel:97670187588">+976 7018-7588</a>
                 <div className="page-header--search">
                   <button className="js-mobile-trigger-button--search mobile-trigger-button mobile-trigger-button--search hidden-md hidden-lg">
                     <span className="icon-search"></span>
@@ -95,16 +94,16 @@ const Nav = () => {
                 <nav className="nav--top-menu hidden-xxs hidden-xs hidden-sm">
                   <ul id="menu-top-menu" className="menu">
                     <li id="menu-item-186" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-186">
-                      <a href="/">&nbsp;</a>
+                      <Link href="/">&nbsp;</Link>
                     </li>
                     <li  className="menu-item menu-item-type-post_type menu-item-object-page menu-item-105843">
-                      <a href="/about-us">{homet("about")}</a>
+                      <Link href="/about-us">{homet("about")}</Link>
                     </li>
                     <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-105843">
-                      <a href="/careers">{t("careers")}</a>
+                      <Link href="/careers">{t("careers")}</Link>
                     </li>
                     <li id="menu-item-5639" className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-5639">
-                      <a href="/deals-specials" aria-current="page">{homet("specials")}</a>
+                      <Link href="/deals-specials" aria-current="page">{homet("specials")}</Link>
                     </li>
                     {/* <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item">
                       <Link href="/account">{homet("account")}</Link>
@@ -129,19 +128,19 @@ const Nav = () => {
                 <ul id="menu-main-navigation" className="menu">
                   {HeaderData.map((item, index) => (
                   <li key={item.id} id={`menu-item-${item.id}`} className={`menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-${item.id}`}>
-                    <a href={item.handle}>{t(`${item.title}`)}</a>
-                    {item.submenu && (
+                    <Link href={item.handle}>{t(`${item.title}`)}</Link>
+                    {/* {item.submenu && (
                       <>
                         <span className="sub-menu-toggle icon-chevron-down hidden-md hidden-lg"></span>
                         <ul className="sub-menu">
                         {item.sub.map((item: any, i: any) => (
                           <li key={i} id={`menu-item-${item.id}`} className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-${item.id}`}>
-                            <a href={item.handle}>{t(`${item.title}`)}</a>
+                            <Link href={item.handle}>{t(`${item.title}`)}</Link>
                           </li>
                         ))}
                         </ul>
                       </>
-                    )}
+                    )} */}
                   </li>
                   ))}
                 </ul>
@@ -156,3 +155,11 @@ const Nav = () => {
 }
 
 export default Nav
+
+export async function getStaticProps({locale}: GetStaticPropsContext) {
+  return {
+      props: {
+          messages: (await import(`../../../../../messages/${locale}.json`)).default
+      }
+  };
+}

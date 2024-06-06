@@ -9,30 +9,29 @@ import { ServiceData } from "@/data/service";
 import { Technology } from "@/data/technology";
 import { Testimonials } from "@/data/testimonials";
 import { News } from "@/data/news";
+import axios from 'axios';
+import https from "https";
+import { useRouter } from "next/router";
 
 const Parts: InferGetServerSidePropsType<typeof getServerSideProps> = (props: any) => {
     const t = useTranslations("Menu");
     const data = props.data
-    console.log(data)
+    const {locale, locales, route, asPath} = useRouter();
     return (
         <>
-            <PageHeader title={t('testimonials')} image="https://thompsonmachinery.com/content/uploads/2022/06/cta-banner-image-1536x306.jpg"/>
+            <PageHeader title={data.title} image="https://thompsonmachinery.com/content/uploads/2022/06/cta-banner-image-1536x306.jpg"/>
             <article className="page-body container post-7 page type-page status-publish hentry" id="page-body">
                 <div className="row test ">
-                
                     <main className="page-content col-md-9 col-md-push-3" >
-                    <div className="post__date-categories">            <span>{data.date}
-	</span>            
-	            
-	<span className="pull--right push--right"><b>Categories:</b> <span className="categories"> 
-		<a href="" rel="category tag">{data.date}</a>			
-		</span>
-	</span>        
-	        
-</div>
-<div dangerouslySetInnerHTML={{ __html: data.content }}>
-
-</div>
+                        <div className="post__date-categories">            
+                            <span>{data.created_at.split("T")[0]}</span>            
+                            <span className="pull--right push--right"><b>Categories:</b> <span className="categories"> 
+                                <b>{locale === "mn" ? data.category.name : data.category.name_en}</b>		
+                                </span>
+                            </span>        
+                        </div>
+                        <div dangerouslySetInnerHTML={{ __html: locale === "mn" ? data.content : data.content_en }}>
+                        </div>
                     </main>
                     
                     <aside className="page-sidebar  col-md-3 col-md-pull-9">
@@ -124,10 +123,24 @@ const Parts: InferGetServerSidePropsType<typeof getServerSideProps> = (props: an
 export default Parts
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-    const testi = News.find(tes => String(tes.id) == context?.params?.id);
+    const id = context?.params?.id
+    const instance = axios.create({
+        httpsAgent: new https.Agent({  
+          rejectUnauthorized: false
+        })
+      });
+      
+      let config = {
+        method: 'get',
+        rejectUnauthorized: false,
+        maxBodyLength: Infinity,
+        url: `${process.env.apiDomain}/news/${id}`,
+        headers: { }
+      };
+    const news = await instance.request(config)
     return {
       props: {
-          data: testi,
+          data: news.data,
           messages: (await import(`../../../../messages/${context.locale}.json`)).default
       },
     };
