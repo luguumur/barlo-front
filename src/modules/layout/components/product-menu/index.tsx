@@ -19,6 +19,7 @@ import { toast } from 'react-toastify';
 
 import axios from 'axios';
 import { GetStaticPropsContext } from "next"
+import { useRouter } from "next/router"
 
 type Props = {
     title?: string,
@@ -31,8 +32,10 @@ interface FormData {
 }
 
 const Beside = (props: Props) => {
+  console.log(props)
   const pathname = usePathname()
     
+  const {locale, locales, route, asPath} = useRouter();
   return (
     <aside className="page-sidebar  col-md-3 col-md-pull-9">
         <div className="widget widget-sublist-pages">
@@ -41,7 +44,7 @@ const Beside = (props: Props) => {
                 <ul id="menu-main-navigation-1" className="menu">
                     {props.menu.map((item: any, index: any) => (
                       <li key={index} id={`menu-item-${item.id}`} className={`menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children ${item.handle == pathname ? 'current-menu-item page_item current_page_item' : ''}`}>
-                          <a href={item.handle}>item.title</a>
+                          <a href={item.id}>{locale === "mn" ? item.name : item.name_en}</a>
                       </li>
                     ))}
                 </ul>

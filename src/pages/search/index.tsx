@@ -10,8 +10,10 @@ import { EquipmentData } from "../../data/equipment"
 import PageHeader from "@modules/layout/components/page-header"
 import axios from 'axios';
 import https from 'https';
+import Link from "next/link"
 
 const Search: InferGetServerSidePropsType<typeof getServerSideProps> = (props: any) => {
+    console.log(props)
     const result = props.equipment;
     const menut = useTranslations("Menu");
     const equipmentt = useTranslations("Equipment");
@@ -26,7 +28,7 @@ const Search: InferGetServerSidePropsType<typeof getServerSideProps> = (props: a
     <>
     <PageHeader title={equipmentt(`equipmentSearch`)}/>
         <article className="page-body container position--relative min-h-[600px] post type-post status-publish format-standard has-post-thumbnail hentry category-events" id="page-body">
-            <div className="equipment-search-wrap mb-[1400px]">
+            <div className="equipment-search-wrap">
                 <div className="equipment-search-wrap--background soft push--bottom">
                     <h5 className="js-equipment-search-title">Filter Your Search <span className="visible-xxs-inline-block push--left">▾</span>
                     </h5>
@@ -34,19 +36,17 @@ const Search: InferGetServerSidePropsType<typeof getServerSideProps> = (props: a
                         <div className="form-row row">
                             <div className="col-xs-6 col-md-12 push--bottom">
                                 <div className="quick-search-options-box">
-                                    <input type="radio" name="condition" value="new" id="new" defaultChecked/>
+                                    <input type="radio" name="condition" value="new" id="new" defaultChecked={props.condition === "new"}/>
                                     <label htmlFor="new">{t("new")}</label>
-                                    <input type="radio" name="condition" value="used" id="used"/>
+                                    <input type="radio" name="condition" value="used" id="used" defaultChecked={props.condition === "used"}/>
                                     <label htmlFor="used">{t("used")}</label>
                                 </div>
-                                
                             </div>
                             <div className="col-xs-6 col-md-12 push--bottom">
                                 <label htmlFor="type">{t("model")}</label>
                                 <select className="select-option" name="model" id="model">
-                                    <option value="all">{t("all")}</option>
                                     {props.modelList.map((item:any, index:any) => (
-                                        <option key={index} value={item.string_value}>{item.string_value}</option>
+                                        <option key={index} value={item.string_value === props.model ? item.string_value : "all"}>{item.string_value === props.model ? item.string_value : t("all")}</option>
                                     ))}
                                 </select>
                             </div>
@@ -55,16 +55,15 @@ const Search: InferGetServerSidePropsType<typeof getServerSideProps> = (props: a
                                 <select className="select-option" name="owner" id="owner">
                                     <option value="all">{t("all")}</option>
                                     {props.ownerList.map((item:any, index:any) => (
-                                        <option key={index} value={item.string_value}>{item.string_value}</option>
+                                        <option key={index} value={item.string_value === props.owner ? item.string_value : "all"}>{item.string_value === props.owner ? item.string_value : t("all")}</option>
                                     ))}
                                 </select>
                             </div>
                             <div className="col-xs-6 col-md-12 push--bottom">
                                 <label htmlFor="type">{t("location")}</label>
                                 <select className="select-option" name="location" id="location">
-                                    <option value="all">{t("all")}</option>
                                     {props.locationList.map((item:any, index:any) => (
-                                        <option key={index} value={item.string_value} selected={item.string_value === props.location}>{item.string_value}</option>
+                                        <option key={index} value={item.string_value === props.location ? item.string_value : "all"}>{item.string_value === props.location ? item.string_value : t("all")}</option>
                                     ))}
                                 </select>
                             </div>
@@ -72,40 +71,39 @@ const Search: InferGetServerSidePropsType<typeof getServerSideProps> = (props: a
                     </form>
                 </div>
             </div>
-        <div className="row test ">
-            <main className="page-content col-md-9 col-md-push-3">
-                <div>
-                <div className="facetwp-template">
-                {result.map((item:any, index: any) => (
-                    <a key={index} className="card card--product js-cat-filterable test" data-type="excavators" href={"/detail/"+item.id}>
-                        <figure className="card__primary-info">
-                            <img src={`https://webapi.barloworld.mn/file/${item.img_path}`} alt="" className="img-responsive entered lazyloaded" data-lazy-src={item.image}  data-ll-status="loaded"/>
-                        </figure>
-                        <figcaption className="card__secondary-info">
-                            <h4 className="card__title">{item.title}</h4>
-                            <dl className="product-stats-summary clearfix">
-                            <div className="product-stats-summary__row">
-                                <dt>Name</dt>
-                                <dd>{item.name}</dd>
-                            </div>
-                            <div className="product-stats-summary__row">
-                                <dt>Category</dt>
-                                <dd>{item.category.name}</dd>
-                            </div>
-                            <div className="product-stats-summary__row">
-                                <dt>{item.attribute_values[0].attribute.name}</dt>
-                                <dd >{item.attribute_values[0].string_value} </dd>
-                            </div>
-                            </dl>
-                            <button className="button button--primary text--left">View Details</button>
-                        </figcaption>
-                    </a>
-                ))}
-                </div>
-                </div>
-            </main>
-           
-        </div>
+            <div className="row test ">
+                <main className="page-content col-md-9 col-md-push-3">
+                    <div>
+                    <div className="facetwp-template">
+                    {result.map((item:any, index: any) => (
+                        <Link key={index} className="card card--product js-cat-filterable test" href={"/detail/"+item.id}>
+                            <figure className="card__primary-info">
+                                <img src={`https://webapi.barloworld.mn/file/${item.img_path}`} alt="" className="img-responsive entered lazyloaded" data-lazy-src={item.image}  data-ll-status="loaded"/>
+                            </figure>
+                            <figcaption className="card__secondary-info">
+                                <h4 className="card__title">{item.title}</h4>
+                                <dl className="product-stats-summary clearfix">
+                                <div className="product-stats-summary__row">
+                                    <dt>Name</dt>
+                                    <dd>{item.name}</dd>
+                                </div>
+                                <div className="product-stats-summary__row">
+                                    <dt>Category</dt>
+                                    <dd>{item.category.name}</dd>
+                                </div>
+                                <div className="product-stats-summary__row">
+                                    <dt>{item.attribute_values[0].attribute.name}</dt>
+                                    <dd >{item.attribute_values[0].string_value} </dd>
+                                </div>
+                                </dl>
+                                <button className="button button--primary text--left">View Details</button>
+                            </figcaption>
+                        </Link>
+                    ))}
+                    </div>
+                    </div>
+                </main>
+            </div>
     </article>
     </>
   )
@@ -132,9 +130,10 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         }
     });
     filterParam += '}';
-
+    console.log(filterParam)
     const finalUrl = `${apiUrl}?filter=${(filterParam)}`;
 
+    console.log(finalUrl)
     let filterconfig = {
         method: 'get',
         maxBodyLength: Infinity,
