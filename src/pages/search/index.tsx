@@ -3,7 +3,7 @@ import { GetServerSideProps, GetStaticPropsContext, InferGetServerSidePropsType,
 import { notFound, useSearchParams } from "next/navigation"
  
 
-import React, { useEffect, useState } from "react"
+import React, { FormEvent, useEffect, useState } from "react"
 import { useTranslations } from "next-intl"
 import { HeaderData } from "@data/menu"
 import { EquipmentData } from "../../data/equipment"
@@ -15,45 +15,63 @@ const Search: InferGetServerSidePropsType<typeof getServerSideProps> = (props: a
     const result = props.equipment;
     const menut = useTranslations("Menu");
     const equipmentt = useTranslations("Equipment");
-    // const [selectedItemId, setSelectedItemId] = useState<number | null>(null);
-    // const [selectedItem, setSelectedItem] = useState<Item | null>(null);
-    // const [searchTerm, setSearchTerm] = useState<string>('');
-    // const [selectedType, setSelectedType] = useState<string | null>(null);
-    // const [selectedPriceRange, setSelectedPriceRange] = useState<number | null>(null);
-
-    // const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    //     const id = parseInt(e.target.value, 10);
-    //     setSelectedItemId(id);
-
-    //     const selectedItem = items.find(item => item.id === id) || null;
-    //     setSelectedItem(selectedItem);
-    // };
-
-    // const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    //     setSearchTerm(e.target.value);
-    //     setSelectedItem(null); // Reset selected item when searching
-    // };
-
-    // const handleTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    //     const type = e.target.value;
-    //     setSelectedType(type);
-    //     setSelectedItem(null); // Reset selected item when changing type
-    // };
-
-    // const handlePriceRangeChange = (price: number) => {
-    //     setSelectedPriceRange(price);
-    //     setSelectedItem(null); // Reset selected item when changing price range
-    // };
-
-    // const filteredItems = items.filter(item =>
-    //     item.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
-    //     (selectedType ? item.type === selectedType : true) &&
-    //     (selectedPriceRange ? item.price <= selectedPriceRange : true)
-    // );
+   
+    const t = useTranslations("Search");
+    const [isLoading, setIsLoading] = useState<boolean>(false)
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+        setIsLoading(true)
+        e.preventDefault()
+    }
     return (
     <>
     <PageHeader title={equipmentt(`equipmentSearch`)}/>
-    <article className="page-body container post-7 page type-page status-publish hentry" id="page-body">
+        <article className="page-body container position--relative min-h-[600px] post type-post status-publish format-standard has-post-thumbnail hentry category-events" id="page-body">
+            <div className="equipment-search-wrap mb-[1400px]">
+                <div className="equipment-search-wrap--background soft push--bottom">
+                    <h5 className="js-equipment-search-title">Filter Your Search <span className="visible-xxs-inline-block push--left">▾</span>
+                    </h5>
+                    <form className="js-search-form front" onSubmit={handleSubmit}>
+                        <div className="form-row row">
+                            <div className="col-xs-6 col-md-12 push--bottom">
+                                <div className="quick-search-options-box">
+                                    <input type="radio" name="condition" value="new" id="new" defaultChecked/>
+                                    <label htmlFor="new">{t("new")}</label>
+                                    <input type="radio" name="condition" value="used" id="used"/>
+                                    <label htmlFor="used">{t("used")}</label>
+                                </div>
+                                
+                            </div>
+                            <div className="col-xs-6 col-md-12 push--bottom">
+                                <label htmlFor="type">{t("model")}</label>
+                                <select className="select-option" name="model" id="model">
+                                    <option value="all">{t("all")}</option>
+                                    {props.modelList.map((item:any, index:any) => (
+                                        <option key={index} value={item.string_value}>{item.string_value}</option>
+                                    ))}
+                                </select>
+                            </div>
+                            <div className="col-xs-6 col-md-12 push--bottom">
+                                <label htmlFor="type">{t("owner")}</label>
+                                <select className="select-option" name="owner" id="owner">
+                                    <option value="all">{t("all")}</option>
+                                    {props.ownerList.map((item:any, index:any) => (
+                                        <option key={index} value={item.string_value}>{item.string_value}</option>
+                                    ))}
+                                </select>
+                            </div>
+                            <div className="col-xs-6 col-md-12 push--bottom">
+                                <label htmlFor="type">{t("location")}</label>
+                                <select className="select-option" name="location" id="location">
+                                    <option value="all">{t("all")}</option>
+                                    {props.locationList.map((item:any, index:any) => (
+                                        <option key={index} value={item.string_value} selected={item.string_value === props.location}>{item.string_value}</option>
+                                    ))}
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         <div className="row test ">
             <main className="page-content col-md-9 col-md-push-3">
                 <div>
@@ -75,7 +93,7 @@ const Search: InferGetServerSidePropsType<typeof getServerSideProps> = (props: a
                                 <dd>{item.category.name}</dd>
                             </div>
                             <div className="product-stats-summary__row">
-                                <dt>Net Power</dt>
+                                <dt>{item.attribute_values[0].attribute.name}</dt>
                                 <dd >{item.attribute_values[0].string_value} </dd>
                             </div>
                             </dl>
@@ -86,15 +104,7 @@ const Search: InferGetServerSidePropsType<typeof getServerSideProps> = (props: a
                 </div>
                 </div>
             </main>
-            <div className="equipment-search-wrap">
-            <div className="equipment-search-wrap--background soft push--bottom">
-                <h5 className="js-equipment-search-title">Filter Your Search <span className="visible-xxs-inline-block push--left">▾</span>
-                </h5>
-                <div>
-                    
-                </div>
-            </div>
-            </div>
+           
         </div>
     </article>
     </>
@@ -118,13 +128,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     Object.entries(queryParams).forEach(([key, value], index) => {
         if ( value!="all"){
             if (index > 0) filterParam += ', ';
-            filterParam += `"${key == "condition" ? "clvng1q8t00006vk64asepsji" : key == "location" ? "clx2rkyy60003w3hvmr8tg2e5" : key == "model" ? "clx2rlgzv0005w3hvkqzb1fyo" : key == "owner" ? "clx2rl7l30004w3hv38mtjjbq" : ""}": "${value}"`;
+            filterParam += `"${key == "condition" ? "clvng1q8t00006vk64asepsji" : key == "location" ? "clwactkq600056j9zrtau9gxa" : key == "model" ? "clx2rlgzv0005w3hvkqzb1fyo" : key == "owner" ? "clx2rl7l30004w3hv38mtjjbq" : ""}": "${value}"`;
         }
     });
     filterParam += '}';
 
     const finalUrl = `${apiUrl}?filter=${(filterParam)}`;
-    console.log(finalUrl)
+
     let filterconfig = {
         method: 'get',
         maxBodyLength: Infinity,
@@ -134,13 +144,43 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     
     const equipment = await instance.request(filterconfig)
 
+    let modelConfig = {
+        method: 'get',
+        maxBodyLength: Infinity,
+        url: `${process.env.apiDomain}/store/attribute-values?attribute_id=clx2rlgzv0005w3hvkqzb1fyo`,
+        headers: { }
+      };
+    
+      const model = await instance.request(modelConfig)
+    
+      let ownerConfig = {
+        method: 'get',
+        maxBodyLength: Infinity,
+        url: `${process.env.apiDomain}/store/attribute-values?attribute_id=clx2rl7l30004w3hv38mtjjbq`,
+        headers: { }
+      };
+    
+      const owner = await instance.request(ownerConfig)
+    
+      let locationConfig = {
+        method: 'get',
+        maxBodyLength: Infinity,
+        url: `${process.env.apiDomain}/store/attribute-values?attribute_id=clx2rkyy60003w3hvmr8tg2e5`,
+        headers: { }
+      };
+    
+      const location = await instance.request(locationConfig)
+
     return {
         props: {
             equipment: equipment.data,
             condition: queryParams.condition,
             model: queryParams.model,
+            modelList: model?.data,
             owner: queryParams.owner,
+            ownerList: owner?.data,
             location: queryParams.location,
+            locationList: location?.data,
             messages: (await import(`../../../messages/${context.locale}.json`)).default
         },
     };

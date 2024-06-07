@@ -23,7 +23,7 @@ const QuickSearch: React.FC<Props> = ({ model, owner, location }) => {
         setIsLoading(true)
         e.preventDefault()
         try {
-            console.log(e.currentTarget)
+            // console.log(e.currentTarget)
             const formData = new FormData(e.currentTarget)
             
             const rawFormData = {
@@ -32,7 +32,7 @@ const QuickSearch: React.FC<Props> = ({ model, owner, location }) => {
                 owner: formData.get('owner'),
                 location: formData.get('location'),
             }
-            console.log(rawFormData)
+            // console.log(rawFormData)
             setIsLoading(false)
             router.push(`/search?condition=${rawFormData.condition}&model=${rawFormData.model}&owner=${rawFormData.owner}&location=${rawFormData.location}`)
         } catch (error) {
@@ -65,7 +65,7 @@ const QuickSearch: React.FC<Props> = ({ model, owner, location }) => {
                                     <select className="select-option" name="model" id="model">
                                         <option value="all">{t("all")}</option>
                                         {model.map((item:any, index:any) => (
-                                            <option key={index} value={item.attribute_id}>{item.string_value}</option>
+                                            <option key={index} value={item.string_value}>{item.string_value}</option>
                                         ))}
                                     </select>
                                 </div>
@@ -74,7 +74,7 @@ const QuickSearch: React.FC<Props> = ({ model, owner, location }) => {
                                     <select className="select-option"  name="owner" id="owner">
                                         <option value="all">{t("all")}</option>
                                         {owner.map((item:any, index:any) => (
-                                            <option key={index} value={item.attribute_id}>{item.string_value}</option>
+                                            <option key={index} value={item.string_value}>{item.string_value}</option>
                                         ))}
                                     </select>
                                 </div>
@@ -83,7 +83,7 @@ const QuickSearch: React.FC<Props> = ({ model, owner, location }) => {
                                     <select className="select-option" name="location" id="location">
                                         <option value="all">{t("all")}</option>
                                         {location.map((item:any, index:any) => (
-                                            <option key={index} value={item.attribute_id}>{item.string_value}</option>
+                                            <option key={index} value={item.string_value}>{item.string_value}</option>
                                         ))}
                                     </select>
                                 </div>
