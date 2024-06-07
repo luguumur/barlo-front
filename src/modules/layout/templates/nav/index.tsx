@@ -61,20 +61,15 @@ const Nav = () => {
   };
   return (
     <>
-    <div className="mobile-search-form clearfix">
-      <form className="search-form" action="/" method="get" role="search">
-        
-      </form>    
-    </div>
     <header className="page-header sticky-page-header active" id="page-header">
       <div className="page-header__bottom-row">
         <div className="container">
           <div className="row">
             <div className="col-xxs-7 col-xs-6 col-sm-4 col-md-3">
               <div className="page-header--logo">
-                <a href="/">
-                  <img width="209" height="51" className="site-logo entered lazyloaded" src="/logo.jpg" alt="Thompson Machinery" data-lazy-src="/logo.jpg" data-ll-status="loaded"/>
-                </a>
+                <Link href="/">
+                  <img width="209" height="51" className="site-logo entered lazyloaded" src="/logo.jpg" alt="Barloworld Mongolia" data-lazy-src="/logo.jpg" data-ll-status="loaded"/>
+                </Link>
               </div>
             </div>
             <div className="col-xxs-5 col-xs-6 col-sm-8 col-md-9 text--right pull--right header-top-right-section">

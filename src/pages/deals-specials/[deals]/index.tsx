@@ -44,7 +44,7 @@ const New = () => {
                 <p>&nbsp;</p>
                 
                 <hr/>
-                <p>*These offers are valid September 1, 2023 – December 31, 2023 and are subject to additional terms and conditions. Offer only valid for new Thompson Machinery customers or current Thompson customers who have not purchased a new machine in 5 or more years. Contact your Thompson sales representative for additional information.</p>
+                <p>*These offers are valid September 1, 2023 – December 31, 2023 and are subject to additional terms and conditions. Offer only valid for new  customers or current Thompson customers who have not purchased a new machine in 5 or more years. Contact your Thompson sales representative for additional information.</p>
                 <p>&nbsp;</p>
                 <div className="blog-share-icons">
                     <ul className="pull--left hard--left">

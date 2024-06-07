@@ -11,10 +11,31 @@ import "../styles/globals.css"
 import '../styles/icons.css';
 import '../styles/main.css';
 import PageLayout from './components/PageLayout';
+import NProgress from 'nprogress';
+import '../styles/nprogress-custom.css';
+import { Router } from 'next/router';
 
 axios.defaults.httpAgent = new https.Agent({
   rejectUnauthorized: false,
 })
+
+Router.events.on('routeChangeStart', (url, { shallow }) => {
+  if (!shallow) {
+    NProgress.start();
+  }
+});
+
+Router.events.on('routeChangeComplete', (url, { shallow }) => {
+  if (!shallow) {
+    NProgress.done();
+  }
+});
+
+Router.events.on('routeChangeError', (url, { shallow }) => {
+  if (!shallow) {
+    NProgress.done();
+  }
+});
 export default function App({Component, pageProps}: AppProps) {
   const router = useRouter();
   const timeZone = 'Asia/Ulaanbaatar';

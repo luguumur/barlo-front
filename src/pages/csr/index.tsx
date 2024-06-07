@@ -36,32 +36,9 @@ const Testimonial = ({ params }: Props) => {
                     <img width="300" height="200" src={item.image}className="alignleft img-responsive wp-post-image" alt="" decoding="async" sizes="(max-width: 300px) 100vw, 300px" /> 
                         {item.desc}
                     <p>
-                        <a className="button button--primary" href={`/news/${item.id}`} title="Read the full article entitled 'Thompson Machinery partners with The Nashville Jr. Predators'"> Read More </a>
+                        <a className="button button--primary" href={`/news/${item.id}`} title={item.title}> Read More </a>
                     </p>
                 </div>
-                {/* <h5 className="post__metadata--comments-link"></h5>
-                <div className="blog-share-icons">
-                <ul className="pull--left hard--left">
-                    <li>
-                    <h4>Share:</h4>
-                    </li>
-                    <li>
-                    <a className="js-social-share icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://thompsonmachinery.com/jrpredators/&amp;title=Thompson Machinery partners with The Nashville Jr. Predators"></a>
-                    </li>
-                    <li>
-                    <a className="js-social-share icon-twitter" href="https://twitter.com/intent/tweet?status=Thompson Machinery partners with The Nashville Jr. Predators+https://thompsonmachinery.com/jrpredators/"></a>
-                    </li>
-                    <li>
-                    <a className="js-social-share icon-linkedin2" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://thompsonmachinery.com/jrpredators/&amp;title=Thompson Machinery partners with The Nashville Jr. Predators&amp;source=https://thompsonmachinery.com"></a>
-                    </li>
-                    <li>
-                    <a className="js-social-share icon-google-plus" href="https://plus.google.com/share?url=https://thompsonmachinery.com/jrpredators/"></a>
-                    </li>
-                    <li>
-                    <a className="js-social-share icon-mail" href="mailto:?subject=Thompson Machinery partners with The Nashville Jr. Predators&amp;body=https://thompsonmachinery.com/jrpredators/"></a>
-                    </li>
-                </ul>
-                </div> */}
             </div>
             ))}
         </main>
