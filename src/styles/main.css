@@ -9950,7 +9950,7 @@ ul.error-page {
 .img-responsive {
     display: block;
     max-width: 100%;
-    height: auto !important
+    height: auto 
 }
 
 .img-rounded {

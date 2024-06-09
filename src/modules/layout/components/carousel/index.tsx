@@ -74,6 +74,7 @@ const Carousel: React.FC<Props> = ({ hero, description, image }) => {
                 loader={imageLoader} 
                 src={deal.imageurl} 
                 alt={deal.title} 
+                priority
                 fill
                 style={{objectFit:"cover"}}
                 className="lazyloaded homepage-masthead-bg"/>

@@ -33,6 +33,7 @@ const Types: InferGetServerSidePropsType<typeof getServerSideProps> = (props: an
                         <div className="card-image">
                           {item.img_path && 
                           <Image 
+                            priority
                             loader={imageLoader} 
                             src={item.img_path} 
                             alt={item.name} 

@@ -34,6 +34,7 @@ const Types: InferGetServerSidePropsType<typeof getServerSideProps> = (props: an
                         <Image 
                           loader={imageLoader} 
                           src={item.img_path} 
+                          priority
                           alt={item.name} 
                           width={600}
                           height={500}

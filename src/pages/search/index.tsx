@@ -76,7 +76,7 @@ const Search: InferGetServerSidePropsType<typeof getServerSideProps> = (props: a
                     <div>
                     <div className="facetwp-template">
                     {result.map((item:any, index: any) => (
-                        <Link key={index} className="card card--product js-cat-filterable test" href={"/detail/"+item.id}>
+                        <Link key={index} className="card card--product js-cat-filterable test" href={"/equipment/"+props.condition+"/"+item.category_id+"/"+item.id}>
                             <figure className="card__primary-info">
                                 <img src={`https://webapi.barloworld.mn/file/${item.img_path}`} alt="" className="img-responsive entered lazyloaded" data-lazy-src={item.image}  data-ll-status="loaded"/>
                             </figure>

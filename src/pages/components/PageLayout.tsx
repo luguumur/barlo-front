@@ -17,9 +17,7 @@ export default function PageLayout({children, title}: Props) {
   return (
     <>
       <Nav/>
-        <Suspense fallback={ <Loading />}>
-          {children}
-        </Suspense>
+        {children}
         <ToastContainer position="top-right" autoClose={3000} className="font-light text-[13px]" />
       <Footer/>
     </>

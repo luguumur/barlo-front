@@ -64,6 +64,7 @@ const EquipmentTemplate: React.FC<EquipmentTemplateProps> = ({ equipment }) => {
                 loader={imageLoader} 
                 src={item.path} 
                 alt={item.product_id} 
+                priority
                 width={600}
                 height={500}
                 className="img-responsive"/>

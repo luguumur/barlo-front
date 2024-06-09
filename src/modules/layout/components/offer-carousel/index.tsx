@@ -47,7 +47,7 @@ const OfferCarousel: React.FC<Props> = ({ deals, description, locale, image }) =
                     <div className="home-deals-item slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style={{"width":"1314px","position":"relative","left":"0px","top":"0px","zIndex":"999","opacity":"1"}} tabIndex={0} role="option" aria-describedby="slick-slide10">
                         <div className="home-deals-item-box clearfix">
                           <div className="home-deals-image">
-                              <Image loader={imageLoader} src={deal.img_path} width={500} height={500} alt={deal.title} className="img-responsive entered lazyloaded"></Image>
+                              <Image loader={imageLoader} priority src={deal.img_path} width={500} height={500} alt={deal.title} className="img-responsive entered lazyloaded"></Image>
                           </div>
                           <div className="home-deals-content">
                               <h3>{locale == "mn" ? deal.title : deal.title_en}</h3>
