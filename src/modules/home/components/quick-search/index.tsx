@@ -2,15 +2,19 @@
 
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/router";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 
 type Props = {
     model?: any
     owner?: any
     location?: any
 }
+import $ from 'jquery';
 
 const QuickSearch: React.FC<Props> = ({ model, owner, location }) => {
+    useEffect(() => {
+        ($(".select-option")as any).selectric();
+    }, []);
     // console.log(model)
     // console.log(owner)
     // console.log(location)
@@ -71,7 +75,7 @@ const QuickSearch: React.FC<Props> = ({ model, owner, location }) => {
                                 </div>
                                 <div className="quick-search-field">
                                     <label htmlFor="hours">{t("owner")}</label>
-                                    <select className="select-option"  name="owner" id="owner">
+                                    <select className="select-option" name="owner" id="owner">
                                         <option value="all">{t("all")}</option>
                                         {owner.map((item:any, index:any) => (
                                             <option key={index} value={item.string_value}>{item.string_value}</option>

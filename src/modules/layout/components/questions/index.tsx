@@ -29,7 +29,7 @@ const Questions = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     try {
       e.preventDefault();
-      const response = await axios.post(`/api/lead`, {
+      const response = await axios.post(`/api/questions`, {
         headers: {
           'Content-Type': 'application/json', // Example header
         },

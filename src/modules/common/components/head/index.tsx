@@ -1,4 +1,5 @@
 import NextHead from "next/head"
+import Script from "next/script"
 import React, { useEffect } from "react"
 
 type HeadProps = {

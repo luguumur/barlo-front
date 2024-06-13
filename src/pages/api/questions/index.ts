@@ -1,33 +1,28 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
 import axios from 'axios';
-import https from "https";
 export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse
   ) {
-    const instance = axios.create({
-      httpsAgent: new https.Agent({  
-        rejectUnauthorized: false
-      })
-    });
     try {
         if (req.method === 'POST'){
             try {
               const { data } = req.body;
-              console.log(data)
+              
               let config = {
                 method: 'post',
                 maxBodyLength: Infinity,
-                url: 'http://webapi.barloworld.mn/email-subscriptions',
+                url: 'https://ej498jdb4k.execute-api.ap-southeast-1.amazonaws.com/prod/lead/create',
                 headers: { 
+                  'x-api-key': 'woLpyQc02j4uUtLJj8OIy4oHXCTKnsQT6PklmPOj', 
                   'Content-Type': 'application/json'
                 },
-                data : JSON.stringify(data)
+                data : data
               };
               
-              const response = await instance.request(config)
-
+              const response = await axios.request(config)
+              
               if (response) {
                   res.status(200).json({ message: 'Success!.' });
               } else {

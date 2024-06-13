@@ -89,7 +89,7 @@ const Nav = () => {
                 <nav className="nav--top-menu hidden-xxs hidden-xs hidden-sm">
                   <ul id="menu-top-menu" className="menu">
                     <li id="menu-item-186" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-186">
-                      <Link href="/">&nbsp;</Link>
+                      <Link href="/"/>
                     </li>
                     <li  className="menu-item menu-item-type-post_type menu-item-object-page menu-item-105843">
                       <Link href="/about-us">{homet("about")}</Link>
@@ -100,12 +100,6 @@ const Nav = () => {
                     <li id="menu-item-5639" className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-5639">
                       <Link href="/deals-specials" aria-current="page">{homet("specials")}</Link>
                     </li>
-                    {/* <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item">
-                      <Link href="/account">{homet("account")}</Link>
-                    </li>
-                    <li>
-                    <CartDropdown />
-                    </li> */}
                     <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item">
                       <LanguageSwitcher />
                     </li>
@@ -123,8 +117,10 @@ const Nav = () => {
                 <ul id="menu-main-navigation" className="menu">
                   {HeaderData.map((item, index) => (
                   <li key={item.id} id={`menu-item-${item.id}`} className={`menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-${item.id}`}>
-                    <Link href={item.handle}>{t(`${item.title}`)}</Link>
-                    {/* {item.submenu && (
+                    <div>
+                      <Link href={item.handle}>{t(`${item.title}`)}</Link>
+                    </div>
+                    {item.submenu && (
                       <>
                         <span className="sub-menu-toggle icon-chevron-down hidden-md hidden-lg"></span>
                         <ul className="sub-menu">
@@ -135,7 +131,7 @@ const Nav = () => {
                         ))}
                         </ul>
                       </>
-                    )} */}
+                    )}
                   </li>
                   ))}
                 </ul>

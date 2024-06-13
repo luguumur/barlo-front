@@ -11,6 +11,11 @@ import PageLayout from './components/PageLayout';
 import NProgress from 'nprogress';
 import '../styles/nprogress-custom.css';
 import { Router } from 'next/router';
+import { useEffect } from 'react';
+import { Forms } from './components/Fx';
+import 'selectric';
+// import 'magnific-popup/dist/magnific-popup.css';
+// import 'jquery-selectric/public/selectric.css';
 
 Router.events.on('routeChangeStart', (url, { shallow }) => {
   if (!shallow) {
@@ -30,10 +35,23 @@ Router.events.on('routeChangeError', (url, { shallow }) => {
   }
 });
 
+declare global {
+  interface Window {
+    $: typeof import('jquery'); // This will declare a global $ variable as jQuery
+  }
+}
+
 export default function App({Component, pageProps}: AppProps) {
   const router = useRouter();
   const timeZone = 'Asia/Ulaanbaatar';
   
+  useEffect(() => {
+    // Load jQuery globally
+    if (typeof window !== 'undefined') {
+      window.$ = require('jquery');
+    }
+  }, []);
+
   return (
     <>
       <NextIntlClientProvider
@@ -47,10 +65,6 @@ export default function App({Component, pageProps}: AppProps) {
           </PageLayout>
         </Providers>
       </NextIntlClientProvider>
-
-      <Script src="/js/jquery.js" strategy="beforeInteractive"/>
-      <Script src="/js/jquery.selectric.js" strategy="beforeInteractive"/>
-      <Script src="/js/main.js"/>
     </>
   );
 }

@@ -67,7 +67,7 @@ const EquipmentTemplate: React.FC<EquipmentTemplateProps> = ({ equipment }) => {
                 priority
                 width={600}
                 height={500}
-                className="img-responsive"/>
+                className="img-responsive js-image-popup"/>
             ))}
         </Slider>
       ),
@@ -136,7 +136,7 @@ const EquipmentTemplate: React.FC<EquipmentTemplateProps> = ({ equipment }) => {
             <div className="product__overview"></div>
           </div>
           <div className="col-xs-6 col-md-5">
-            <a href="#" className="button button--primary button--block">Request a Quote</a>
+            <Link href={`/quote?equipment=${equipmentDetail.data.name}`} className="button button--primary button--block">Request a Quote</Link>
             <ul className="product__actions">
               <li>
                 <a href="#" target="_blank" rel="nofollow">

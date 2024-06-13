@@ -42,34 +42,6 @@ var FX = (function(FX, $) {
             })
         }
     };
-    FX.Promo = {
-        init: function() {
-            if (!$('.js-promo').length)
-                return;
-            $(window).on('scroll', this.windowScrolled);
-            $('body').on('click', '.js-promo-close', this.close)
-        },
-        windowScrolled: function(event) {
-            if (Cookies.get('PromoSubscribed'))
-                return;
-            if (!Cookies.get('PromoClosed')) {
-                $('.js-promo').removeClass('hidden')
-            }
-        },
-        close: function(event) {
-            event.preventDefault();
-            Cookies.set('PromoClosed', '1', {
-                expires: 7
-            });
-            $('.js-promo').addClass('hidden')
-        },
-        subscribed: function() {
-            Cookies.set('PromoSubscribed', '1', {
-                expires: 365
-            });
-            $('.js-promo-content').html('<p>Your Discount-code</p><h3 class="discount-code">THOMPSONTEST</h3><a href="#" class="email-promo-popup__close-link js-promo-close">Close</a>')
-        }
-    };
     FX.MobileNavigation = {
         init: function() {
             $(".js-mobile-trigger-button--menu").click(function() {
@@ -105,16 +77,6 @@ var FX = (function(FX, $) {
     FX.Forms = {
         init: function() {
             $('.select-option').selectric();
-            $('#add_attachment').on('change', 'input[type="checkbox"]', function(event) {
-                $('.js-add-attachment').toggleClass('hidden')
-            })
-        }
-    };
-    FX.UsedFilterSearch = {
-        init: function() {
-            $(".js-equipment-search-title").on('click', function() {
-                $(".js-search-form").toggleClass("active")
-            })
         }
     };
     FX.ExternalLinks = {
@@ -327,3 +289,4 @@ var FX = (function(FX, $) {
     });
     return FX
 }(FX || {}, jQuery))
+console.log('main.js loaded');

@@ -12,7 +12,10 @@
     "axios": "^1.6.8",
     "clsx": "^1.1.1",
     "formik": "^2.4.2",
+    "jquery": "^3.7.1",
+    "jquery-selectric": "^0.2.0",
     "macy": "^2.5.1",
+    "magnific-popup": "^1.2.0",
     "next": "14.1.4",
     "next-intl": "^3.10.0",
     "next-sitemap": "^4.2.3",
@@ -20,9 +23,11 @@
     "react": "^18",
     "react-dom": "^18",
     "react-slick": "^0.30.2",
-    "react-toastify": "^10.0.5"
+    "react-toastify": "^10.0.5",
+    "selectric": "^1.13.0"
   },
   "devDependencies": {
+    "@types/jquery": "^3.5.30",
     "@types/node": "^20",
     "@types/nprogress": "^0.2.3",
     "@types/react": "^18",

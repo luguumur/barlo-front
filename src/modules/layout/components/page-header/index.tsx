@@ -29,7 +29,7 @@ const PageHeader = (props: Props) => {
                 </span>
                 </div>
             </div>
-            </header>
+        </header>
         </>
     )
 }

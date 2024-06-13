@@ -86,7 +86,8 @@
     "location":"Location",
     "testimonials":"testimonials",
     "csr":"Corporate social responsibility",
-    "news":"News"
+    "news":"News",
+    "requestaquote":"Request a quote"
   },
   "Search":{
     "main": "SEARCH FOR EQUIPMENT",

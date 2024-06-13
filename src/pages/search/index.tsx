@@ -1,7 +1,6 @@
 "use client"
 import { GetServerSideProps, GetStaticPropsContext, InferGetServerSidePropsType, Metadata } from "next"
 import { notFound, useSearchParams } from "next/navigation"
- 
 
 import React, { FormEvent, useEffect, useState } from "react"
 import { useTranslations } from "next-intl"
@@ -12,12 +11,13 @@ import axios from 'axios';
 import https from 'https';
 import Link from "next/link"
 
+import $ from 'jquery';
 const Search: InferGetServerSidePropsType<typeof getServerSideProps> = (props: any) => {
-    console.log(props)
+    useEffect(() => {
+        ($(".select-option")as any).selectric();
+    }, []);
     const result = props.equipment;
-    const menut = useTranslations("Menu");
     const equipmentt = useTranslations("Equipment");
-   
     const t = useTranslations("Search");
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -45,8 +45,9 @@ const Search: InferGetServerSidePropsType<typeof getServerSideProps> = (props: a
                             <div className="col-xs-6 col-md-12 push--bottom">
                                 <label htmlFor="type">{t("model")}</label>
                                 <select className="select-option" name="model" id="model">
+                                    <option value="all">{t("all")}</option>
                                     {props.modelList.map((item:any, index:any) => (
-                                        <option key={index} value={item.string_value === props.model ? item.string_value : "all"}>{item.string_value === props.model ? item.string_value : t("all")}</option>
+                                        <option key={index} value={item.string_value}>{item.string_value}</option>
                                     ))}
                                 </select>
                             </div>
@@ -55,15 +56,16 @@ const Search: InferGetServerSidePropsType<typeof getServerSideProps> = (props: a
                                 <select className="select-option" name="owner" id="owner">
                                     <option value="all">{t("all")}</option>
                                     {props.ownerList.map((item:any, index:any) => (
-                                        <option key={index} value={item.string_value === props.owner ? item.string_value : "all"}>{item.string_value === props.owner ? item.string_value : t("all")}</option>
+                                        <option key={index} value={item.string_value}>{item.string_value}</option>
                                     ))}
                                 </select>
                             </div>
                             <div className="col-xs-6 col-md-12 push--bottom">
                                 <label htmlFor="type">{t("location")}</label>
                                 <select className="select-option" name="location" id="location">
+                                    <option value="all">{t("all")}</option>
                                     {props.locationList.map((item:any, index:any) => (
-                                        <option key={index} value={item.string_value === props.location ? item.string_value : "all"}>{item.string_value === props.location ? item.string_value : t("all")}</option>
+                                        <option key={index} value={item.string_value}>{item.string_value}</option>
                                     ))}
                                 </select>
                             </div>
@@ -92,8 +94,8 @@ const Search: InferGetServerSidePropsType<typeof getServerSideProps> = (props: a
                                     <dd>{item.category.name}</dd>
                                 </div>
                                 <div className="product-stats-summary__row">
-                                    <dt>{item.attribute_values[0].attribute.name}</dt>
-                                    <dd >{item.attribute_values[0].string_value} </dd>
+                                    <dt>{item.attribute_values.length > 0 ? item.attribute_values[0].attribute.name : ""}</dt>
+                                    <dd >{item.attribute_values.length > 0 ? item.attribute_values[0].string_value : ""} </dd>
                                 </div>
                                 </dl>
                                 <button className="button button--primary text--left">View Details</button>
@@ -119,25 +121,30 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
           rejectUnauthorized: false
         })
     });
-    // let url = `https://webapi.barloworld.mn/store/products?filter={"clvng1q8t00006vk64asepsji": "NEW", "clvng290z00026vk6y7g1zcdv":"ULAANBAATAR"}`
-    const apiUrl = `${process.env.apiDomain}/store/products`;
-
-    let filterParam = '{';
+    let apiUrl = `${process.env.apiDomain}/store/products`;
+    const filterParam:any = {};
     Object.entries(queryParams).forEach(([key, value], index) => {
-        if ( value!="all"){
-            if (index > 0) filterParam += ', ';
-            filterParam += `"${key == "condition" ? "clvng1q8t00006vk64asepsji" : key == "location" ? "clwactkq600056j9zrtau9gxa" : key == "model" ? "clx2rlgzv0005w3hvkqzb1fyo" : key == "owner" ? "clx2rl7l30004w3hv38mtjjbq" : ""}": "${value}"`;
-        }
+        if (value !== 'all' && key !== 'condition') {
+            const mapping:any = {
+              'location': 'clwactkq600056j9zrtau9gxa',
+              'model': 'clx2rlgzv0005w3hvkqzb1fyo',
+              'owner': 'clx2rl7l30004w3hv38mtjjbq'
+            };
+            filterParam[mapping[key]] = value;
+          }
     });
-    filterParam += '}';
-    console.log(filterParam)
-    const finalUrl = `${apiUrl}?filter=${(filterParam)}`;
-
-    console.log(finalUrl)
+    let urlParams = [];
+    if (queryParams.condition) {
+    urlParams.push(`type=${queryParams.condition}`);
+    }
+    if (Object.keys(filterParam).length > 0) {
+    urlParams.push(`filter=${encodeURIComponent(JSON.stringify(filterParam))}`);
+    }
+    apiUrl = `${apiUrl}?${urlParams.join('&')}`;
     let filterconfig = {
         method: 'get',
         maxBodyLength: Infinity,
-        url: finalUrl,
+        url: apiUrl,
         headers: { }
     };
     
@@ -169,7 +176,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       };
     
       const location = await instance.request(locationConfig)
-
     return {
         props: {
             equipment: equipment.data,
