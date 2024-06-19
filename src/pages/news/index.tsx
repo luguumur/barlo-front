@@ -54,7 +54,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         messages: (await import(`../../../messages/${context.locale}.json`)).default
       },
   };
- 
 };
 
 const NewsPage: InferGetServerSidePropsType<typeof getServerSideProps> = (props: any) => {

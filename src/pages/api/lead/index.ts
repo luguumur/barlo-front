@@ -9,7 +9,7 @@ export default async function handler(
         if (req.method === 'POST'){
             try {
               const { data } = req.body;
-              console.log(data)
+              console.log(JSON.parse(data))
               let config = {
                 method: 'post',
                 maxBodyLength: Infinity,
@@ -18,7 +18,7 @@ export default async function handler(
                   'x-api-key': 'woLpyQc02j4uUtLJj8OIy4oHXCTKnsQT6PklmPOj', 
                   'Content-Type': 'application/json'
                 },
-                data : data
+                data : JSON.parse(data)
               };
               
               const response = await axios.request(config)

@@ -19,7 +19,7 @@ export default async function handler(
               let config = {
                 method: 'post',
                 maxBodyLength: Infinity,
-                url: 'http://webapi.barloworld.mn/email-subscriptions',
+                url: 'https://webapi.barloworld.mn/email-subscriptions',
                 headers: { 
                   'Content-Type': 'application/json'
                 },

@@ -1,11 +1,12 @@
 import PageHeader from "@modules/layout/components/page-header"
 import { GetStaticPropsContext } from "next";
 import { useTranslations } from "next-intl";
-import { toast } from 'react-toastify';
 
 import axios from 'axios';
 import { useEffect, useState } from "react";
 import { useRouter } from 'next/router';
+import NProgress from 'nprogress';
+import { toast } from 'react-toastify';
 
 interface FormData {
     firstName: string;
@@ -36,9 +37,8 @@ const RequestAQuote = () => {
         machine : ''
     }
    
-
-      const [formData, setFormData] = useState<FormData>(initialData);
-      useEffect(() => {
+    const [formData, setFormData] = useState<FormData>(initialData);
+    useEffect(() => {
         if (equipment) {
           setFormData((prevData) => ({
             ...prevData,
@@ -46,15 +46,16 @@ const RequestAQuote = () => {
           }));
           console.log(formData)
         }
-      }, [equipment]);
-      const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    }, [equipment]);
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
         setFormData((prevFormData) => ({
         ...prevFormData,
         [name]: value,
-      }));
-      };
-      const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    }));
+    };
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        NProgress.start();
         try {
           e.preventDefault();
           const response = await axios.post(`/api/lead`, {
@@ -73,24 +74,25 @@ const RequestAQuote = () => {
             })
           });
           if(response.status == 200){
+            NProgress.done();
             toast.success(`Амжилттай илгээгдлээ. Баярлалаа`);
           } else {
-            // toast.error(`Алдаа гарлаа.`);
-            toast.success(`Амжилттай илгээгдлээ. Баярлалаа`);
+            NProgress.done();
+            toast.error(`Алдаа гарлаа.`);
+            // toast.success(`Амжилттай илгээгдлээ. Баярлалаа`);
           }
         } catch (error:any) {
           console.log(error)
-        //   toast.error(`error`);
-          toast.success(`Амжилттай илгээгдлээ. Баярлалаа`);
+          NProgress.done();
+          toast.error(`error`);
         }
-      };
+    };
     return (
         <>
         <header className="masthead text--center clearfix" id="masthead">
             <div className="masthead-background">
                 <h1> Quote </h1>
                 <div className="masthead-dark-overlay">
-                    <img width="589" height="336" className="masthead-overlay-left entered lazyloaded" src="https://thompsonmachinery.com/content/uploads/2021/10/masthead-graphic-left.png" data-lazy-src="/content/uploads/2021/10/masthead-graphic-left.png" data-ll-status="loaded"/>
                     <img width="588" height="336" className="masthead-overlay-right entered lazyloaded" src="https://thompsonmachinery.com/content/uploads/2021/10/masthead-graphic-right.png" data-lazy-src="/content/uploads/2021/10/masthead-graphic-right.png" data-ll-status="loaded"/>
                     <span className="masthead-overlay-color"></span>
                 </div>
@@ -120,7 +122,7 @@ const RequestAQuote = () => {
                             <p role="status" aria-live="polite" aria-atomic="true"></p>
                             <ul></ul>
                             </div>
-                            <form onSubmit={handleSubmit} className="wpcf7-form init" id="quoteForm" aria-label="Contact form"  data-status="init">
+                            <form onSubmit={handleSubmit} className="wpcf7-form init" id="quoteForm" aria-label="Quote form"  data-status="init">
                                 <div className="row">
                                     <div className="col-md-6 form-row">
                                         <label>First Name*</label>
@@ -138,15 +140,15 @@ const RequestAQuote = () => {
                                 <div className="row">
                                     <div className="col-md-6 form-row">
                                         <label>Title*</label>
-                                        <span className="wpcf7-form-control-wrap" data-name="state">
+                                        <span className="wpcf7-form-control-wrap" data-name="title">
                                         <input type="text" name="title" value={formData.title} onChange={handleChange} className="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" required/>
                                         </span>
                                     </div>
                                     <div className="col-sm-6 form-field">
                                     <label>State*</label>
-                                    <span className="wpcf7-form-control-wrap" data-name="subject">
+                                    <span className="wpcf7-form-control-wrap" data-name="state">
                                         <div className="selectric-wrapper selectric-wpcf7-form-control selectric-wpcf7-select">
-                                            <select className="wpcf7-form-control wpcf7-select" name="state" value={formData.phone} onChange={handleChange}>
+                                            <select className="wpcf7-form-control wpcf7-select" name="state" value={formData.state} onChange={handleChange}>
                                                 <option value="Ulaanbaatar">Ulaanbaatar</option>
                                             </select>
                                         </div>
@@ -181,7 +183,7 @@ const RequestAQuote = () => {
                                     <div className="col-md-12 form-row">
                                         <label>Message</label>
                                         <span className="wpcf7-form-control-wrap" data-name="message">
-                                            <textarea value={formData.message} onChange={handleChange} className="wpcf7-form-control wpcf7-textarea textarea-short" aria-invalid="false" name="message" required></textarea>
+                                            <textarea value={formData.message} onChange={handleChange} className="wpcf7-form-control wpcf7-textarea textarea-short" aria-invalid="false" name="message"></textarea>
                                         </span>
                                     </div>
                                 </div>

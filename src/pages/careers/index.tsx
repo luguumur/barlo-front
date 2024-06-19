@@ -4,10 +4,72 @@ import { HeaderData } from "@data/menu";
 import { useTranslations } from "next-intl";
 import Management from "../management";
 import { GetStaticPropsContext } from "next";
+import NProgress from 'nprogress';
+import { toast } from 'react-toastify';
+import axios from 'axios';
+import { useState } from "react";
 
+interface FormData {
+    name: string;
+    email: string;
+    phone: string;
+    subject: string;
+    year_of_experience: string;
+    text: string;
+    other: string;
+}
+  
 const Careers = () => {
 
     const t = useTranslations("Menu");
+    const initialData = {
+        email : '',
+        name : '',
+        phone : '',
+        subject : '',
+        year_of_experience : '',
+        text : '',
+        other : ''
+      }
+      const [formData, setFormData] = useState<FormData>(initialData);
+      const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setFormData((prevFormData) => ({
+        ...prevFormData,
+        [name]: value,
+      }));
+      };
+      const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        NProgress.start();
+        try {
+          e.preventDefault();
+          const response = await axios.post(`/api/questions`, {
+            headers: {
+              'Content-Type': 'application/json', // Example header
+            },
+            data: JSON.stringify({
+              "name": formData['name'],
+              "email": formData['email'],
+              "phone": formData['phone'],
+              "year_of_experience": formData['year_of_experience'],
+              "subject": formData['subject'],
+              "text": formData['text'],
+              "other": formData['other'],
+            })
+          });
+          if(response.status == 200){
+            NProgress.done();
+            toast.success(`Амжилттай илгээгдлээ. Баярлалаа`);
+          } else {
+            NProgress.done();
+            toast.error(`Мэдээлэл олдохгүй байна.`);
+          }
+        } catch (error:any) {
+          console.log(error)
+          toast.error(`error`);
+          NProgress.done();
+        }
+      };
     return (
         <>
         <PageHeader title={t(`careers`)}/>
@@ -74,29 +136,27 @@ const Careers = () => {
                             </div>
                         </div>
                     </section>
-                    <section className="pt-5">
+                    {/* <section className="pt-5">
                         <p>Listings are current as of Apr 16, 2024 06:45 PM</p>
                         <h2 className="job-app-title">Connect with a Recruiter</h2>
                         <div className="wpcf7 js" id="wpcf7-f30538-p105561-o1" lang="en-US" dir="ltr">
-                        
                             <div className="screen-reader-response">
                                 <p role="status" aria-live="polite" aria-atomic="true"></p>
                                 <ul></ul>
                             </div>
-                            
-                            <form action="/thompson-careers/#wpcf7-f30538-p105561-o1" method="post" className="wpcf7-form init" aria-label="Contact form" noValidate={false} data-status="init">
+                            <form onSubmit={handleSubmit} className="wpcf7-form init" id="hrForm" aria-label="Hr form"  data-status="init">
                                 <div className="pb-2">Fill out the form below to request more information and a member of our team will be in touch with you shortly.</div>
                                 <div className="row form-row">
                                     <div className="col-sm-6 form-field">
                                         <label>Name</label>
-                                        <span className="wpcf7-form-control-wrap" data-name="your-name">
-                                        <input size={40} className="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" value="" type="text" name="your-name"/>
+                                        <span className="wpcf7-form-control-wrap" data-name="name">
+                                        <input type="text" name="name" value={formData.name} onChange={handleChange} size={40} className="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false"/>
                                         </span>
                                     </div>
                                     <div className="col-sm-6 form-field">
                                         <label>Email</label>
                                         <span className="wpcf7-form-control-wrap" data-name="email">
-                                        <input size={40} className="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email" aria-required="true" aria-invalid="false" value="" type="email" name="email"/>
+                                        <input type="email" name="email" value={formData.email} onChange={handleChange} size={40} className="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email" aria-required="true" aria-invalid="false"/>
                                         </span>
                                     </div>
                                 </div>
@@ -104,14 +164,14 @@ const Careers = () => {
                                     <div className="col-sm-6 form-field">
                                         <label>Phone</label>
                                         <span className="wpcf7-form-control-wrap" data-name="phone">
-                                        <input size={40} className="wpcf7-form-control wpcf7-tel wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-tel" aria-required="true" aria-invalid="false" value="" type="tel" name="phone"/>
+                                            <input type="text" name="phone" value={formData.phone} onChange={handleChange} size={40} className="wpcf7-form-control wpcf7-tel wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-tel" aria-required="true" aria-invalid="false"/>
                                         </span>
                                     </div>
                                     <div className="col-sm-6 form-field">
-                                    <label>Years of Experience</label>
-                                    <span className="wpcf7-form-control-wrap" data-name="experience">
-                                    <input className="wpcf7-form-control wpcf7-number wpcf7-validates-as-required wpcf7-validates-as-number" min="0" max="99" aria-required="true" aria-invalid="false" value="" type="number" name="experience"/>
-                                    </span>
+                                        <label>Years of Experience</label>
+                                        <span className="wpcf7-form-control-wrap" data-name="year_of_experience">
+                                            <input type="text" name="year_of_experience" value={formData.year_of_experience} onChange={handleChange} className="wpcf7-form-control wpcf7-number wpcf7-validates-as-required wpcf7-validates-as-number" min="0" max="99" aria-required="true" aria-invalid="false"/>
+                                        </span>
                                     </div>
                                 </div>
                                 <div className="row form-row">
@@ -156,7 +216,7 @@ const Careers = () => {
                                 <div className="wpcf7-response-output" aria-hidden="true"></div>
                             </form>
                         </div>
-                    </section>
+                    </section> */}
                 </main>
                 <Beside menu={HeaderData} title={t(`careers`)} translate="Menu"/>
             </div>

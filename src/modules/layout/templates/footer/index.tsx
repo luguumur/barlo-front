@@ -2,6 +2,7 @@ import FooterNav from "@modules/layout/components/footer-nav"
 import { GetStaticPropsContext } from "next";
 import { useState } from "react";
 import { toast } from 'react-toastify';
+import NProgress from 'nprogress';
 
 import axios from 'axios';
 interface FormData {
@@ -20,6 +21,7 @@ const Footer = () => {
   }));
   };
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    NProgress.start();
     try {
       e.preventDefault();
       const response = await axios.post(`/api/email`, {
@@ -32,12 +34,15 @@ const Footer = () => {
       });
       if(response.status == 200){
         toast.success(`Амжилттай илгээгдлээ. Баярлалаа`);
+        NProgress.done();
       } else {
         toast.error(`Мэдээлэл олдохгүй байна.`);
+        NProgress.done();
       }
     } catch (error:any) {
       console.log(error)
       toast.error(`error`);
+      NProgress.done();
     }
   };
   return (

@@ -15,10 +15,11 @@ export default async function handler(
         if (req.method === 'POST'){
             try {
               const { data } = req.body;
+              console.log(data)
               let config = {
                 method: 'post',
                 maxBodyLength: Infinity,
-                url: 'https://webapi.barloworld.mn/questions',
+                url: 'https://webapi.barloworld.mn/contacts',
                 headers: { 
                   'Content-Type': 'application/json'
                 },

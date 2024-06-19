@@ -12,6 +12,8 @@ import { News } from "@/data/news";
 import axios from 'axios';
 import https from "https";
 import { useRouter } from "next/router";
+import Questions from "@/modules/layout/components/questions";
+import NewsBeside from "@/modules/layout/components/news-menu";
 
 const Parts: InferGetServerSidePropsType<typeof getServerSideProps> = (props: any) => {
     const t = useTranslations("Menu");
@@ -34,86 +36,7 @@ const Parts: InferGetServerSidePropsType<typeof getServerSideProps> = (props: an
                         </div>
                     </main>
                     
-                    <aside className="page-sidebar  col-md-3 col-md-pull-9">
-                    <div className="widget-even widget-2 .page-sidebar .textwidget .sidebar-events widget widget_text" id="text-5">
-                        <h6 className="heading-title accent">Upcoming Events</h6>
-                        <div className="textwidget">
-                        <p>
-                            <a href="http://TMCat.com/events">View Upcoming Events</a>
-                        </p>
-                        </div>
-                    </div>
-                    <div className="widget-odd widget-3 widget widget_categories" id="categories-3">
-                        <h6 className="heading-title accent">Categories</h6>
-                        <ul className="!pt-5">
-                        <li className="cat-item cat-item-866">
-                            <a href="">Customer Days</a>
-                        </li>
-                        <li className="cat-item cat-item-633">
-                            <a href="">Events</a>
-                        </li>
-                        <li className="cat-item cat-item-632">
-                            <a href="">News</a>
-                        </li>
-                        </ul>
-                    </div>
-                        <div className="widget-odd widget-2 widget widget_black_studio_tinymce" id="black-studio-tinymce-2">
-                        <h6 className="heading-title accent">
-                            <b>Questions?</b>
-                            <span>Get In Touch Today</span>
-                        </h6>
-                        <div className="textwidget">
-                            <p></p>
-                            <div className="wpcf7 js" id="wpcf7-f233-p7-o1" lang="en-US" dir="ltr">
-                            <div className="screen-reader-response">
-                                <p role="status" aria-live="polite" aria-atomic="true"></p>
-                                <ul></ul>
-                            </div>
-                            <form action="/used/#wpcf7-f233-p7-o1" method="post" className="wpcf7-form init" id="sidebarForm" aria-label="Contact form"  data-status="init">
-                                <div className="row">
-                                <div className="col-xs-6 col-md-12 form-row">
-                                    <label>Your Name*</label>
-                                    <span className="wpcf7-form-control-wrap" data-name="your-name">
-                                    <input  className="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" type="text" name="your-name"/>
-                                    </span>
-                                </div>
-                                <div className="col-xs-6 col-md-12 form-row">
-                                    <label>Email*</label>
-                                    <span className="wpcf7-form-control-wrap" data-name="email">
-                                    <input  className="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email" aria-required="true" aria-invalid="false" type="email" name="email"/>
-                                    </span>
-                                </div>
-                                </div>
-                                <div className="row">
-                                <div className="col-md-12 form-row">
-                                    <label>Message</label>
-                                    <span className="wpcf7-form-control-wrap" data-name="message">
-                                    <textarea  className="wpcf7-form-control wpcf7-textarea textarea-short" aria-invalid="false" name="message"></textarea>
-                                    </span>
-                                </div>
-                                </div>
-                                <div className="form-row">
-                                <input name="imahuman" className="imahuman" type="hidden"/>
-                                <noscript>
-                                    <div className="row no-js-hidden-captcha">
-                                    <label htmlFor="captcha">Is fire hot or cold?</label>
-                                    <input name="captcha" className="hidden-captcha" type="text" />
-                                    </div>
-                                </noscript>
-                                </div>
-                                <input className="wpcf7-form-control wpcf7-currentpage" type="hidden" name="currentpage" />
-                                <div className="row">
-                                <div className="col-xs-6 col-md-12 form-row">
-                                    <button className="button button--primary button--block" type="submit" disabled>Submit</button>
-                                </div>
-                                </div>
-                                <div className="wpcf7-response-output" aria-hidden="true"></div>
-                            </form>
-                            </div>
-                            <p></p>
-                        </div>
-                        </div>
-                    </aside>
+                    <NewsBeside category={props.category}/>
                 </div>
             </article>
         </>
@@ -138,9 +61,19 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         headers: { }
       };
     const news = await instance.request(config)
+      console.log(news.data)
+    let cateconfig = {
+        method: 'get',
+        rejectUnauthorized: false,
+        maxBodyLength: Infinity,
+        url: `${process.env.apiDomain}/news-category`,
+        headers: { }
+    };
+    const newsCategory = await instance.request(cateconfig)
     return {
       props: {
           data: news.data,
+          category: newsCategory?.data,
           messages: (await import(`../../../../messages/${context.locale}.json`)).default
       },
     };

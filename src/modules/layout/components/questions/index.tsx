@@ -1,10 +1,11 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { toast } from 'react-toastify';
 
-import axios from 'axios';
 import { GetStaticPropsContext } from "next"
+import NProgress from 'nprogress';
+import { toast } from 'react-toastify';
+import axios from 'axios';
 
 interface FormData {
   name: string;
@@ -27,6 +28,7 @@ const Questions = () => {
   }));
   };
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    NProgress.start();
     try {
       e.preventDefault();
       const response = await axios.post(`/api/questions`, {
@@ -40,13 +42,16 @@ const Questions = () => {
         })
       });
       if(response.status == 200){
+        NProgress.done();
         toast.success(`Амжилттай илгээгдлээ. Баярлалаа`);
       } else {
+        NProgress.done();
         toast.error(`Мэдээлэл олдохгүй байна.`);
       }
     } catch (error:any) {
       console.log(error)
       toast.error(`error`);
+      NProgress.done();
     }
   };
   return (
@@ -62,7 +67,7 @@ const Questions = () => {
             <p role="status" aria-live="polite" aria-atomic="true"></p>
             <ul></ul>
           </div>
-          <form onSubmit={handleSubmit} className="wpcf7-form init" id="sidebarForm" aria-label="Contact form"  data-status="init">
+          <form onSubmit={handleSubmit} className="wpcf7-form init" id="sidebarForm" aria-label="Question form"  data-status="init">
             <div className="row">
               <div className="col-xs-6 col-md-12 form-row">
                 <label>Your Name*</label>
@@ -85,10 +90,6 @@ const Questions = () => {
                 </span>
               </div>
             </div>
-            <div className="form-row">
-              <input name="imahuman" className="imahuman" type="hidden"/>
-            </div>
-            <input className="wpcf7-form-control wpcf7-currentpage" type="hidden" name="currentpage" />
             <div className="row">
               <div className="col-xs-6 col-md-12 form-row">
                 <button className="button button--primary button--block" type="submit">Submit</button>
