@@ -12,7 +12,6 @@ import NProgress from 'nprogress';
 import '../styles/nprogress-custom.css';
 import { Router } from 'next/router';
 import { useEffect } from 'react';
-import { Forms } from './components/Fx';
 import 'selectric';
 // import 'magnific-popup/dist/magnific-popup.css';
 // import 'jquery-selectric/public/selectric.css';

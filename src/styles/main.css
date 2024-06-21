@@ -110,6 +110,7 @@
     content: "\e91b"
 }
 
+
 * {
     box-sizing: border-box
 }
@@ -11196,7 +11197,7 @@ ul li:before {
 
 #social-media-sidebar {
     position: fixed;
-    top: 20vh;
+    top: 40vh;
     left: 0;
     z-index: 999;
 }
@@ -11207,25 +11208,45 @@ ul li:before {
     line-height: 50px;
     font-size: 25px;
     color: #fff;
-    box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.7);
+    /* box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.7); */
     transition: 0.2s;
+    cursor: pointer;
   }
+.social-media-sidebar li:before {
+    content:none;
+    display:none;
+}
+
+.social-media-sidebar li{
+    padding: 14px;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .side-social:hover {
 width: 60px;
 transition: 0.2s;
+border-top-right-radius: 5px;
+border-bottom-right-radius: 5px;
 }
 
 .facebook {
-background: #3b5998;
+    background: #1578f2;
+    border-top-right-radius: 5px;
 }
 
-.twitter {
-background: #55acee;
+.messenger {
+background: #1578f2;
+border-bottom-right-radius: 5px;
 }
 
-.youtube {
-background: #bb0000;
+.whatsup {
+background: #4ec247;
+}
+
+.facetime {
+background: #6df857;
 }
 
 .instagram {
@@ -11361,4 +11382,7 @@ background: #dd4b39;
 
 .job-app-title + .wpcf7 .wpcf7-form .wpcf7-free-text{
     max-width: 300px;
+}
+.grecaptcha-badge {
+    z-index: 9999;
 }

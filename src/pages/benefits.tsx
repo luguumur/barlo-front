@@ -2,15 +2,11 @@ import Beside from "@modules/layout/components/beside-menu";
 import PageHeader from "@modules/layout/components/page-header"
 import { HeaderData } from "@data/menu";
 import { useTranslations } from "next-intl";
-import Management from "../management";
-import { GetServerSideProps, GetStaticPropsContext, InferGetServerSidePropsType } from "next";
+import { GetStaticPropsContext } from "next";
 import NProgress from 'nprogress';
 import { toast } from 'react-toastify';
-import { useState } from "react";
 import axios from 'axios';
-import https from "https";
-import Link from "next/link";
-import { useRouter } from "next/router";
+import { useState } from "react";
 
 interface FormData {
     name: string;
@@ -22,11 +18,9 @@ interface FormData {
     other: string;
 }
   
-const careerPage: InferGetServerSidePropsType<typeof getServerSideProps> = (props: any) => {
-    console.log(props.data)
-    const t = useTranslations("Menu");
-    const {locale, locales, route, asPath} = useRouter();
+const Careers = () => {
 
+    const t = useTranslations("Menu");
     const initialData = {
         email : '',
         name : '',
@@ -77,22 +71,10 @@ const careerPage: InferGetServerSidePropsType<typeof getServerSideProps> = (prop
       };
     return (
         <>
-        <PageHeader title={t(`careers`)}/>
+        <PageHeader title={t(`benefits`)}/>
         <article className="page-body container post-19 page type-page status-publish hentry" id="page-body">
             <div className="row test ">
                 <main className="page-content col-md-9 col-md-push-3">
-                    <h2>Манай баг хамт олон</h2>
-                    {/* <p>"Барловорлд Монголия" ХХК нь Катерпиллар корпорацийн Монгол дахь албан ёсны дилер юм.1996 онд байгуулагдсанаасаа хойш "Барловорлд Монголия" ХХК нь Монголын уул уурхай, эрчим хүч, барилга, зам барилга, дэд бүтэц болон хөдөө аж ахуйн салбарт дэвшилтэт технологи, шинэ техник тоног төхөөрөмжүүдийг нэвтрүүлсээр ирлээ.Нэмж хэлэхэд бид уул уурхай, байгалийн хий, газрын тос, дэд бүтэц,</p><p> хөдөө аж ахуй болон бусад салбарт өргөн хэрэглэгддэг хийн компрессорын үйлдвэрлэгч Sullair, барилгын тоног төхөөрөмж ба цахилгаан үүсгүүрийн Multiquip, Miller брендын гагнуурын аппарат, Godwin Pump усны насос, Genie өргөгч төхөөрөмж, </p><p>Allmаnd brothers-ын шөнийн зөөврийн гэрэл ба өрмийн машин, SEM брендийн дугуйт ачигч, Thawzall хөрс халаагч болон бусад олон тоног төхөөрөмжүүдийг Монголд нийлүүлж, эдгээр компаниудын албан ёсны төлөөлөгчөөр ажилладаг. Мөн бид хүнд даацын дугуйн дэлхийд алдартай Michellin компанийн Монгол дахь албан ёсны дилер юм."Барловорлд Монголия" ХХК нь олон улсын хүрээнд Катерпилларын Шилдэг Дилер болж чадсанаар “Тусгаар Улсуудын Хамтын Нөхөрлөл болон Монгол” дахь Катерпилларын бүс нутгийн хэмжээнд Тэргүүний дилерийн үзүүлэлтээрээ 6 дахь жилдээ манлайлж байна. Түүнчлэн Монгол Улсын засгийн газар, Монголын худалдаа аж үйлдвэрийн тэнхимээс хамтран улс орны эдийн засаг, бизнесийн хөгжилд жинтэй хувь нэмэр оруулж буй аж ахуйн нэгжүүдийн шалгаруулалтад 16рт шалгарсан. "Барловорлд Монголия" ХХК нь шинэ технологи, шинэ бүтээгдэхүүн болон үйлчилгээг зах зээлд нэвтрүүлэгч бизнесийн туршлагатай тэргүүлэгч компани юм.</p> */}
-                    <ul >
-                        <li>Үйлчилгээ дэмжих газар</li>
-                        <li>Борлуулалт дэмжих газар</li>
-                        <li>Санхүүгийн газар</li>
-                        <li>Хуулийн хэлтэс</li>
-                        <li>Борлуулалт ба Түрээсийн газар</li>
-                        <li>Аналитик Инновацийн газар</li>
-                        <li>Бизнес эрсдлийн газар</li>
-                    </ul>
-             
                     <section className="pt-5">
                     <h2>Бидэнтэй нэгдэх шалтгаанууд</h2>
                     <ul>
@@ -125,26 +107,7 @@ const careerPage: InferGetServerSidePropsType<typeof getServerSideProps> = (prop
                         </li>
                     </ul>
                     </section>
-                    <section className="pt-5">
-                        <h2>Сонгон шалгаруулалтын үе шатууд</h2>
-                        <p>Анкетын сонгон шалгаруулалт-&gt; Ярилцлагууд -&gt; Англи хэлний сорил/ Оюуны ерөнхий чадварын сорил -&gt; Шийдвэр гаргалт</p>
-                        <img src="/Picture1.png" alt="" />
-                    </section>
-                    <section className="pt-5">
-                        <h2>Нээлттэй ажлын байр</h2>
-                        <div className="positions">
-                            {props.data.map((item:any, index: any) => ( 
-                                <div key={index} className="row position" data-location="La Vergne, TN">
-                                    <div className="col-xxs-12">
-                                        <Link href={"/careers/"+item.id} className="position-link">
-                                        {locale === "mn" ? item.title : item.title_en} 
-                                        </Link>
-                                        <span className="position-location"> -{item.location}</span>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </section>
+                    
                     {/* <section className="pt-5">
                         <p>Listings are current as of Apr 16, 2024 06:45 PM</p>
                         <h2 className="job-app-title">Connect with a Recruiter</h2>
@@ -234,27 +197,12 @@ const careerPage: InferGetServerSidePropsType<typeof getServerSideProps> = (prop
     )
 }
 
-export default careerPage
+export default Careers
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-    const instance = axios.create({
-      httpsAgent: new https.Agent({  
-        rejectUnauthorized: false
-      })
-    });
-    
-    let config = {
-      method: 'get',
-      rejectUnauthorized: false,
-      maxBodyLength: Infinity,
-      url: `${process.env.apiDomain}/jobs`,
-      headers: { }
-    };
-    const careers = await instance.request(config)
+export async function getStaticProps({locale}: GetStaticPropsContext) {
     return {
         props: {
-          data: careers?.data,
-          messages: (await import(`../../../messages/${context.locale}.json`)).default
-        },
+            messages: (await import(`../../messages/${locale}.json`)).default
+        }
     };
-  };
+}

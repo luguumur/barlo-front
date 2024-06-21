@@ -3,12 +3,14 @@ import { GetStaticPropsContext } from "next";
 import { useState } from "react";
 import { toast } from 'react-toastify';
 import NProgress from 'nprogress';
+import { GoogleReCaptchaProvider, useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 import axios from 'axios';
 interface FormData {
   email: string;
 }
 const Footer = () => {
+  const { executeRecaptcha } = useGoogleReCaptcha();
   const initialData = {
     email : '',
   }
@@ -21,29 +23,55 @@ const Footer = () => {
   }));
   };
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    NProgress.start();
-    try {
-      e.preventDefault();
-      const response = await axios.post(`/api/email`, {
-        headers: {
-          'Content-Type': 'application/json', // Example header
-        },
-        data: JSON.stringify({
-          "email": formData['email']
-        })
-      });
-      if(response.status == 200){
-        toast.success(`Амжилттай илгээгдлээ. Баярлалаа`);
-        NProgress.done();
-      } else {
-        toast.error(`Мэдээлэл олдохгүй байна.`);
-        NProgress.done();
-      }
-    } catch (error:any) {
-      console.log(error)
-      toast.error(`error`);
-      NProgress.done();
+    e.preventDefault();
+    if (!executeRecaptcha) {
+      console.log("not available to execute recaptcha")
+      return;
     }
+    const gRecaptchaToken = await executeRecaptcha('inquirySubmit');
+    console.log(gRecaptchaToken)
+    const response = await axios({
+      method: "post",
+      url: "/api/recaptchaSubmit",
+      data: {
+        gRecaptchaToken,
+      },
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (response?.data?.success === true) {
+      console.log(`Success with score: ${response?.data?.score}`);
+    } else {
+      console.log(`Failure with score: ${response?.data?.score}`);
+    }
+
+
+    // NProgress.start();
+    // try {
+    //   e.preventDefault();
+    //   const response = await axios.post(`/api/email`, {
+    //     headers: {
+    //       'Content-Type': 'application/json', // Example header
+    //     },
+    //     data: JSON.stringify({
+    //       "email": formData['email']
+    //     })
+    //   });
+    //   if(response.status == 200){
+    //     toast.success(`Амжилттай илгээгдлээ. Баярлалаа`);
+    //     NProgress.done();
+    //   } else {
+    //     toast.error(`Мэдээлэл олдохгүй байна.`);
+    //     NProgress.done();
+    //   }
+    // } catch (error:any) {
+    //   console.log(error)
+    //   toast.error(`error`);
+    //   NProgress.done();
+    // }
   };
   return (
     <footer>

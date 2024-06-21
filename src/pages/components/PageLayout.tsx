@@ -11,6 +11,7 @@ import Loading from '@/modules/layout/components/loading';
 import Script from 'next/script';
 import router from 'next/router';
 import Providers from '@/providers';
+import GoogleCaptchaWrapper from '../googleCaptchaWrapper';
 type Props = {
   children?: ReactNode;
   title?: string;
@@ -20,10 +21,13 @@ export default function PageLayout({children, title}: Props) {
  
   return (
     <>
-      <Nav/>
-        {children}
-        <ToastContainer position="top-right" autoClose={3000} className="font-light text-[13px]" />
-      <Footer/>
+      <GoogleCaptchaWrapper>
+        <Nav/>
+            {children}
+            <Sidebar/>
+          <ToastContainer position="top-right" autoClose={3000} className="font-light text-[13px]" />
+        <Footer/>
+      </GoogleCaptchaWrapper>
     </>
   );
 }

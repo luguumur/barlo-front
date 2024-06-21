@@ -23,7 +23,7 @@ const About = () => {
                         <div className="row js-equal-heights">
                         <div className="col-sm-6">
                             <div className="image-cards-box">
-                            <a href="/">
+                            <a href="/history">
                                 <div className="card-image"></div>
                                 <div className="image-card-content js-equal-heights-item h-[98px]">
                                 <div className="image-card-btn">
@@ -39,7 +39,7 @@ const About = () => {
                         </div>
                         <div className="col-sm-6">
                             <div className="image-cards-box">
-                            <a href="/">
+                            <a href="/news">
                                 <div className="card-image"></div>
                                 <div className="image-card-content js-equal-heights-item h-[98px]">
                                 <div className="image-card-btn">
@@ -55,7 +55,7 @@ const About = () => {
                         </div>
                         <div className="col-sm-6">
                             <div className="image-cards-box">
-                            <a href="/">
+                            <a href="/testimonials">
                                 <div className="card-image"></div>
                                 <div className="image-card-content js-equal-heights-item h-[98px]">
                                 <div className="image-card-btn">
@@ -71,7 +71,7 @@ const About = () => {
                         </div>
                         <div className="col-sm-6">
                             <div className="image-cards-box">
-                            <a href="/">
+                            <a href="/careers">
                                 <div className="card-image"></div>
                                 <div className="image-card-content js-equal-heights-item h-[98px]">
                                 <div className="image-card-btn">
@@ -87,7 +87,7 @@ const About = () => {
                         </div>
                         <div className="col-sm-6">
                             <div className="image-cards-box">
-                            <a href="/">
+                            <a href="/benefits">
                                 <div className="card-image"></div>
                                 <div className="image-card-content js-equal-heights-item h-[98px]">
                                 <div className="image-card-btn">
