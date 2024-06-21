@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import Markdown from 'react-markdown';
 
 type Tab = {
   title: string;
@@ -14,6 +15,8 @@ type TabsProps = {
 };
 
 const Tabs: React.FC<TabsProps> = ({ tabs }) => {
+  console.log(tabs)
+
   const [activeTab, setActiveTab] = useState(0);
   const {locale, locales, route, asPath} = useRouter();
 
@@ -28,8 +31,8 @@ const Tabs: React.FC<TabsProps> = ({ tabs }) => {
       <div className="row detail-box ">
         <div className='col-xxs-12' >
           {tabs[activeTab].title == 'icon-camera' && tabs[activeTab].image}
-          {tabs[activeTab].title == 'icon-play' && tabs[activeTab].image && <div dangerouslySetInnerHTML={{ __html: tabs[activeTab].image as string}} />}
-          {tabs[activeTab].title == 'icon-360' && tabs[activeTab].image && <div dangerouslySetInnerHTML={{ __html: tabs[activeTab].image as string}} />}
+          {tabs[activeTab].title == 'icon-play' && tabs[activeTab].image && <Markdown>{tabs[activeTab].image as string}</Markdown>}
+          {tabs[activeTab].title == 'icon-360' && tabs[activeTab].image && <Markdown>{tabs[activeTab].image as string}</Markdown>}
         </div>
       </div>
       <div className='tabs tabs--small media-tabs push-xxs--top flush-xs--top js-media-tabs'>

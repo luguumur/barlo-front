@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import axios from "axios";
 import https from "https";
 import { useRouter } from "next/router";
+import Markdown from 'react-markdown'
 
 const Job: InferGetServerSidePropsType<typeof getServerSideProps> = (props: any) => {
     const t = useTranslations("Menu");
@@ -16,8 +17,7 @@ const Job: InferGetServerSidePropsType<typeof getServerSideProps> = (props: any)
         <article className="page-body container post-19 page type-position status-publish hentry" id="page-body">
             <div className="row test ">
                 <main className="page-content col-md-9 col-md-push-3">
-                <div dangerouslySetInnerHTML={{ __html: locale === "mn" ? props.job.description : props.job.description_en }}>
-                </div>
+                  <Markdown>{locale === "mn" ? props.job.description : props.job.description_en }</Markdown>
                 </main>
                 <Beside menu={HeaderData} title={t('home')} translate="Menu"/>
             </div>

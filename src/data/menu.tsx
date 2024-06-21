@@ -5,21 +5,21 @@ export const HeaderData = [
       title: 'new',
       handle: '/equipment/new',
       sub: [
-        {
-          title: 'construction',
-          image: 'https://www.barloworld.mn/images/slider/2016-09-20-10-04-58wae_Unknown.jpeg',
-          handle: '/equipment/new/construction',
-        },
-        {
-          title: 'under',
-          image: 'https://www.barloworld.mn/images/menu/59e412dc6ac37_AD45B_UG_Haulage_Web.jpg',
-          handle: '/equipment/new/under',
-        },
-        {
-          title: 'paving',
-          image: 'https://www.barloworld.mn/images/slider/2016-09-20-10-06-03wae_Unknown.jpeg',
-          handle: '/equipment/new/paving',
-        }
+        // {
+        //   title: 'construction',
+        //   image: 'https://www.barloworld.mn/images/slider/2016-09-20-10-04-58wae_Unknown.jpeg',
+        //   handle: '/equipment/new/construction',
+        // },
+        // {
+        //   title: 'under',
+        //   image: 'https://www.barloworld.mn/images/menu/59e412dc6ac37_AD45B_UG_Haulage_Web.jpg',
+        //   handle: '/equipment/new/under',
+        // },
+        // {
+        //   title: 'paving',
+        //   image: 'https://www.barloworld.mn/images/slider/2016-09-20-10-06-03wae_Unknown.jpeg',
+        //   handle: '/equipment/new/paving',
+        // }
       ],
    },
    {
@@ -28,11 +28,11 @@ export const HeaderData = [
       submenu: true,
       handle: '/equipment/rent',
       sub: [
-        {
-          title: 'under',
-          image: 'https://www.barloworld.mn/images/products/2015-03-01-07-59-39wae_13.jpg',
-          handle: '/equipment/rent/under',
-        }
+        // {
+        //   title: 'under',
+        //   image: 'https://www.barloworld.mn/images/products/2015-03-01-07-59-39wae_13.jpg',
+        //   handle: '/equipment/rent/under',
+        // }
       ]
    },
    {
@@ -41,11 +41,11 @@ export const HeaderData = [
       submenu: true,
       handle: '/equipment/used',
       sub: [
-        {
-          title: 'paving',
-          image: 'https://thompsonmachinery.com/content/uploads/2015/07/menu-used-cat-machines.jpg.webp',
-          handle: '/equipment/used/paving',
-        }
+        // {
+        //   title: 'paving',
+        //   image: 'https://thompsonmachinery.com/content/uploads/2015/07/menu-used-cat-machines.jpg.webp',
+        //   handle: '/equipment/used/paving',
+        // }
       ]
    },
    {

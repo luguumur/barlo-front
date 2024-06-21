@@ -36,17 +36,16 @@ const EquipmentTemplate: React.FC<EquipmentTemplateProps> = ({ equipment }) => {
   const equipmentt = useTranslations("Equipment");
 
   const equipmentDetail = equipment
-  console.log(equipmentDetail)
   const settings = {
-    customPaging: function(i:any) {
-      return (
-        <a>
-          <img src={`https://webapi.barloworld.mn/file/${equipmentDetail.data.images[i].path}?thumb=1`} />
-        </a>
-      );
-    },
+    // customPaging: function(i:any) {
+    //   return (
+    //     <a>
+    //       <img src={`https://webapi.barloworld.mn/file/${equipmentDetail.data.images[i].path}?thumb=1`} />
+    //     </a>
+    //   );
+    // },
     arrows: false,
-    dots: true,
+    dots: false,
     dotsClass: "slick-dots slick-thumb",
     infinite: true,
     speed: 500,
@@ -59,6 +58,13 @@ const EquipmentTemplate: React.FC<EquipmentTemplateProps> = ({ equipment }) => {
       title: 'icon-camera',
       image: (
         <Slider {...settings}>
+            <Image loader={imageLoader} 
+                src={equipmentDetail.data.img_path} 
+                alt={equipmentDetail.data.name} 
+                priority
+                width={600}
+                height={500}
+                className="img-responsive js-image-popup"/>
             {equipmentDetail.data.images.map((item:any, index:any) => (
               <Image key={index}
                 loader={imageLoader} 

@@ -9,9 +9,12 @@ import { ServiceData } from "@/data/service";
 import { Technology } from "@/data/technology";
 import { Testimonials } from "@/data/testimonials";
 import { News } from "@/data/news";
+import Markdown from "react-markdown";
+import { useRouter } from "next/router";
 
 const Parts: InferGetServerSidePropsType<typeof getServerSideProps> = (props: any) => {
     const t = useTranslations("Menu");
+    const {locale, locales, route, asPath} = useRouter();
     const data = props.data
     return (
         <>
@@ -29,9 +32,9 @@ const Parts: InferGetServerSidePropsType<typeof getServerSideProps> = (props: an
 	</span>        
 	        
 </div>
-<div dangerouslySetInnerHTML={{ __html: data.content }}>
-
-</div>
+<div className="page-content col-md-9 col-md-push-3">
+                        {data.content && <Markdown>{locale === "mn" ? data.content : data.content_en }</Markdown>}
+                    </div>
                     </main>
                     
                     <aside className="page-sidebar  col-md-3 col-md-pull-9">

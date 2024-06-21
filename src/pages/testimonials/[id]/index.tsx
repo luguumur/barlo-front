@@ -11,6 +11,7 @@ import { Testimonials } from "@/data/testimonials";
 import axios from "axios";
 import https from "https";
 import { useRouter } from "next/router";
+import Markdown from "react-markdown";
 
 const Parts: InferGetServerSidePropsType<typeof getServerSideProps> = (props: any) => {
     const t = useTranslations("Menu");
@@ -21,7 +22,8 @@ const Parts: InferGetServerSidePropsType<typeof getServerSideProps> = (props: an
             <PageHeader title={t('testimonials')} image="https://thompsonmachinery.com/content/uploads/2022/06/cta-banner-image-1536x306.jpg"/>
             <article className="page-body container post-7 page type-page status-publish hentry" id="page-body">
                 <div className="row test ">
-                    <main className="page-content col-md-9 col-md-push-3" dangerouslySetInnerHTML={{ __html: locale === "mn" ? data.description : data.description_en  }}>
+                    <main className="page-content col-md-9 col-md-push-3">
+                        {data.description && <Markdown>{locale === "mn" ? data.description : data.description_en }</Markdown>}
                     </main>
                     <Beside menu={HeaderData} title={t(`testimonials`)} translate="Menu"/>
                 </div>

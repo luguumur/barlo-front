@@ -14,6 +14,7 @@ import https from "https";
 import { useRouter } from "next/router";
 import Questions from "@/modules/layout/components/questions";
 import NewsBeside from "@/modules/layout/components/news-menu";
+import Markdown from "react-markdown";
 
 const Parts: InferGetServerSidePropsType<typeof getServerSideProps> = (props: any) => {
     const t = useTranslations("Menu");
@@ -32,7 +33,8 @@ const Parts: InferGetServerSidePropsType<typeof getServerSideProps> = (props: an
                                 </span>
                             </span>        
                         </div>
-                        <div dangerouslySetInnerHTML={{ __html: locale === "mn" ? data.content : data.content_en }}>
+                        <div >
+                            {data.content && <Markdown>{locale === "mn" ? data.content : data.content_en }</Markdown>}
                         </div>
                     </main>
                     

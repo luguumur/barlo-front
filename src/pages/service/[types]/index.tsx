@@ -6,16 +6,20 @@ import { PartsData } from "@data/parts";
 import { useTranslations } from "next-intl";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { ServiceData } from "@/data/service";
+import Markdown from "react-markdown";
+import { useRouter } from "next/router";
 
 const Parts: InferGetServerSidePropsType<typeof getServerSideProps> = (props: any) => {
     const t = useTranslations("Menu");
     const data = props.data
+    const {locale, locales, route, asPath} = useRouter();
     return (
         <>
             <PageHeader title={t(data.title)} image="https://thompsonmachinery.com/content/uploads/2022/06/cta-banner-image-1536x306.jpg"/>
             <article className="page-body container post-7 page type-page status-publish hentry" id="page-body">
                 <div className="row test ">
-                    <main className="page-content col-md-9 col-md-push-3" dangerouslySetInnerHTML={{ __html: data.content }}>
+                    <main className="page-content col-md-9 col-md-push-3">
+                        {data.content && <Markdown>{locale === "mn" ? data.content : data.content_en }</Markdown>}
                     </main>
                     <Beside menu={PartsData} title={t(`service`)} translate="Menu"/>
                 </div>
