@@ -14,7 +14,7 @@ export default async function handler(
     try {
         if (req.method === 'POST'){
             try {
-              const secretKey = "6LcY_fwpAAAAAG_ZfRJurEfGYEjS4WgwwuEFvRXq";
+              const secretKey = process.env.capchakey;
           
               const { gRecaptchaToken } = req.body;
             

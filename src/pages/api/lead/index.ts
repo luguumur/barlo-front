@@ -15,7 +15,7 @@ export default async function handler(
                 maxBodyLength: Infinity,
                 url: 'https://ej498jdb4k.execute-api.ap-southeast-1.amazonaws.com/prod/lead/create',
                 headers: { 
-                  'x-api-key': 'woLpyQc02j4uUtLJj8OIy4oHXCTKnsQT6PklmPOj', 
+                  'x-api-key': process.env.apikey, 
                   'Content-Type': 'application/json'
                 },
                 data : JSON.parse(data)
