@@ -79,7 +79,7 @@ const Carousel: React.FC<Props> = ({ hero, description, image }) => {
                 width={2560}
                 className=" lazyloaded homepage-masthead-bg"/>
               </div>
-              <div className="container hp-slide-content">
+              {/* <div className="container hp-slide-content">
                 <div className="row">
                   <div className="col-sm-12 col-lg-8">
                       <h2 className="h2 hp-mast-subheading">ANY PART. ANYTIME. ANYWHERE.</h2>
@@ -87,7 +87,7 @@ const Carousel: React.FC<Props> = ({ hero, description, image }) => {
                       <a className="btn btn-primary" href="#" target="_self" >SKIP THE LINE</a>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           ))}
         </Slider>
