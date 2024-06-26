@@ -1580,7 +1580,7 @@ hr {
     margin-right: 16px
 }
 
-/* .btn-primary::after,.btn-secondary::after {
+.btn-primary::after,.btn-secondary::after {
     content: "";
     position: absolute;
     top: 0;
@@ -1606,7 +1606,7 @@ hr {
 
 .btn-secondary::after {
     background: #666
-} */
+}
 
 .btn-primary {
     background: #FC0;
