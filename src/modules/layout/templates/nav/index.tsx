@@ -73,8 +73,18 @@ const Nav = () => {
               </div>
             </div>
             <div className="col-xxs-5 col-xs-6 col-sm-8 col-md-9 text--right pull--right header-top-right-section">
-              <div className="header-right-top">
-                <a className="button page-header--phone phone-number hidden-xxs hidden-xs" href="tel:97670187588">+976 7018-7588</a>
+              <div className="header-right-top hGWAMb">
+                {/* <a className="button page-header--phone phone-number hidden-xxs hidden-xs" href="tel:97670187588">+976 7018-7588</a> */}
+                
+                <Link href={"https://click.callpro.mn/mbifA6W5F03wSWFs5anFx1IM6p6RkA6r4G1GanpO"} target="_blank"><div className="sc-17sh5d6-0 hVYMdc telcocom-call-component">
+                  <button type="button">
+                    <span className="flex justify-center items-center">
+                      <img src="/phone.svg" alt="phone"/>
+                    </span>
+                  </button>
+                  <div className="bg-anime"></div>
+                </div>
+                </Link>
                 <div className="page-header--search">
                   <button className="js-mobile-trigger-button--search mobile-trigger-button mobile-trigger-button--search hidden-md hidden-lg">
                     <span className="icon-search"></span>

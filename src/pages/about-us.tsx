@@ -23,7 +23,7 @@ const About = () => {
                         <div className="row js-equal-heights">
                         <div className="col-sm-6">
                             <div className="image-cards-box">
-                            <a href="/history">
+                            <a href="/management">
                                 <div className="card-image"></div>
                                 <div className="image-card-content js-equal-heights-item h-[98px]">
                                 <div className="image-card-btn">
@@ -32,7 +32,7 @@ const About = () => {
                                     <span className="icon-right"></span>
                                     </div>
                                 </div>
-                                <h3>History</h3>
+                                <h3>{t("board")}</h3>
                                 </div>
                             </a>
                             </div>
