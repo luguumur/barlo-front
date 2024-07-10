@@ -27,22 +27,22 @@ const testimonials = props.data
         <main className="page-content col-md-9 col-md-push-3">
             <section className="customer-block">
                 <div className="customers">
-                    <MasonryGrid  gap={20}> 
+                    <MasonryGrid gap={20}> 
                     {testimonials.map((item:any, index: any) => (
-                        <div className="customer-container" key={item.id}>
-                            <article className="customer customer--customer-stories">
-                                <div className="customer__media-container customer__media-container--quote">
-                                    <img decoding="async" className="customer__media customer__media--img" src={'https://webapi.barloworld.mn/file/'+item.imageUrl}/>
-                                </div>
-                                <div className="customer__details">
-                                    <h3 className="customer__name">{locale === "mn" ? item.title : item.title_en}</h3>
-                                    <div className="customer__desc">
-                                        <p>{locale === "mn" ? item.subtitle : item.subtitle_en}</p>
-                                    </div>
-                                    <a className="customer__link button button--primary" href={`/testimonials/${item.id}`}>Read more</a>
-                                </div>
-                            </article>
-                        </div>
+                      <div className="customer-container" key={item.id}>
+                          <article className="customer customer--customer-stories">
+                              <div className="customer__media-container customer__media-container--quote">
+                                  <img decoding="async" className="customer__media customer__media--img" src={'https://webapi.barloworld.mn/file/'+item.imageUrl}/>
+                              </div>
+                              <div className="customer__details">
+                                  <h3 className="customer__name">{locale === "mn" ? item.title : item.title_en}</h3>
+                                  <div className="customer__desc">
+                                      <p>{locale === "mn" ? item.subtitle : item.subtitle_en}</p>
+                                  </div>
+                                  <a className="customer__link button button--primary" href={`/testimonials/${item.id}`}>Read more</a>
+                              </div>
+                          </article>
+                      </div>
                     ))}
                     </MasonryGrid>
                 </div>

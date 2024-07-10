@@ -15,7 +15,6 @@ export default async function handler(
         if (req.method === 'POST'){
             try {
               const { data } = req.body;
-              console.log(data)
               let config = {
                 method: 'post',
                 maxBodyLength: Infinity,
@@ -23,18 +22,17 @@ export default async function handler(
                 headers: { 
                   'Content-Type': 'application/json'
                 },
-                data : JSON.stringify(data)
+                data : data
               };
               
               const response = await instance.request(config)
-
               if (response) {
                   res.status(200).json({ message: 'Success!.' });
               } else {
                   res.status(400).json({ message: 'Internal Server Error.' });
               }
             } catch (error) {
-              console.log(error)
+              // console.log(error)
               res.status(500).json({ message: 'Internal Server Error.', error: error });
             }
         } else {

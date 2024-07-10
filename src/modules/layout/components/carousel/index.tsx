@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from 'react';
 import Slider from 'react-slick';
 
 import Image from 'next/image'
+
 type Props = {
   hero?: any
   description?: string | null
@@ -55,7 +56,7 @@ const Carousel: React.FC<Props> = ({ hero, description, image }) => {
     arrows: false,
     nextArrow: <SampleNextArrow className="test" />,
     prevArrow: <SamplePrevArrow className="test" />,
-    className: "h-[610px] cursor-pointer",
+    className: "cursor-pointer",
   };
 
   const imageLoader = ({ src, width }: { src: any, width: any }) => {
@@ -78,7 +79,8 @@ const Carousel: React.FC<Props> = ({ hero, description, image }) => {
                     height={0}
                     sizes="100vw"
                     style={{ width: "100%", height: "auto" }}
-                    className=" lazyloaded homepage-masthead-bg" />
+                    className=" lazyloaded homepage-masthead-bg" 
+                    priority={true} />
                 </div>
                 <div className="container hp-slide-content">
                   {/* <div className="row">

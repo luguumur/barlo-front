@@ -5,6 +5,8 @@ import NProgress from 'nprogress';
 import { useEffect, useState } from "react";
 import { toast } from 'react-toastify';
 import axios from 'axios';
+import { GoogleReCaptchaProvider, useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+
 
 interface FormData {
     name: string;
@@ -15,6 +17,7 @@ interface FormData {
 }
 const Contact = () => {
 
+    const { executeRecaptcha } = useGoogleReCaptcha();
     const t = useTranslations("Menu");
     const initialData:any = {
         name : '',
@@ -34,33 +37,57 @@ const Contact = () => {
     }));
     };
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        
         NProgress.start();
-        try {
-          e.preventDefault();
-          const response = await axios.post(`/api/contact`, {
-            headers: {
-              'Content-Type': 'application/json', // Example header
+        e.preventDefault();
+        if (!executeRecaptcha) {
+            console.log("not available to execute recaptcha")
+            return;
+        }
+        const gRecaptchaToken = await executeRecaptcha('inquirySubmit');
+        const response = await axios({
+            method: "post",
+            url: "/api/recaptchaSubmit",
+            data: {
+              gRecaptchaToken,
             },
-            data: JSON.stringify({
-                "name": formData['name'],
-                "email": formData['email'],
-                "phone": formData['phone'],
-                "subject": formData['subject'],
-                "comment": formData['comment'],
-            })
+            headers: {
+              Accept: "application/json, text/plain, */*",
+              "Content-Type": "application/json",
+            },
           });
-          if(response.status == 200){
+      
+        if (response?.data?.success === true) {
+            try {
+            const response = await axios.post(`/api/contact`, {
+                headers: {
+                'Content-Type': 'application/json', // Example header
+                },
+                data: JSON.stringify({
+                    "name": formData['name'],
+                    "email": formData['email'],
+                    "phone": formData['phone'],
+                    "subject": formData['subject'],
+                    "comment": formData['comment'],
+                })
+            });
+            if(response.status == 200){
+                NProgress.done();
+                toast.success(`Амжилттай илгээгдлээ. Баярлалаа`);
+            } else {
+                NProgress.done();
+                toast.error(`Алдаа гарлаа.`);
+                // toast.success(`Амжилттай илгээгдлээ. Баярлалаа`);
+            }
+            } catch (error:any) {
+            console.log(error)
             NProgress.done();
-            toast.success(`Амжилттай илгээгдлээ. Баярлалаа`);
-          } else {
+            toast.error(`error`);
+            }
+        } else {
+            console.log(`Failure with score: ${response?.data?.score}`);
+            toast.error(`Recaptcha error`);
             NProgress.done();
-            toast.error(`Алдаа гарлаа.`);
-            // toast.success(`Амжилттай илгээгдлээ. Баярлалаа`);
-          }
-        } catch (error:any) {
-          console.log(error)
-          NProgress.done();
-          toast.error(`error`);
         }
     };
     return (
@@ -86,13 +113,13 @@ const Contact = () => {
                                     <div className="col-sm-6 form-field">
                                         <label>Name*</label>
                                         <span className="wpcf7-form-control-wrap" data-name="name">
-                                            <input type="text" name="name" value={formData.name} onChange={handleChange} className="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false"/>
+                                            <input type="text" name="name" value={formData.name} onChange={handleChange} className="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" required/>
                                             </span> 
                                     </div>
                                     <div className="col-sm-6 form-field">
                                         <label>Email*</label>
                                         <span className="wpcf7-form-control-wrap" data-name="email">
-                                            <input type="email" name="email" value={formData.email} onChange={handleChange} className="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email" aria-required="true" aria-invalid="false"/>
+                                            <input type="email" name="email" value={formData.email} onChange={handleChange} className="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email" required/>
                                         </span> 
                                     </div>
                                 </div>
@@ -100,15 +127,15 @@ const Contact = () => {
                                     <div className="col-sm-6 form-field">
                                         <label>Phone</label>
                                         <span className="wpcf7-form-control-wrap" data-name="phone">
-                                            <input type="text" name="phone" value={formData.phone} onChange={handleChange} className="wpcf7-form-control wpcf7-tel wpcf7-text wpcf7-validates-as-tel" aria-invalid="false"/>
+                                            <input type="text" maxLength={8} min="0" max="99999999" step="1" placeholder="--------" pattern="[0-9]{8}" name="phone" value={formData.phone} onChange={handleChange} className="wpcf7-form-control wpcf7-tel wpcf7-text wpcf7-validates-as-tel" />
                                         </span> 
                                     </div>
                                     <div className="col-sm-6 form-field">
                                         <label>Subject</label>
                                         <span className="wpcf7-form-control-wrap" data-name="subject">
                                             <div className="selectric-wrapper selectric-wpcf7-form-control selectric-wpcf7-select">
-                                                <select className="wpcf7-form-control wpcf7-select" name="subject" value={formData.subject} onChange={handleChange}>
-                                                    <option value="-">-</option>
+                                                <select className="wpcf7-form-control wpcf7-select" name="subject" value={formData.subject} onChange={handleChange} required>
+                                                    <option value="">-</option>
                                                     <option value="New Machines">New Machines</option>
                                                     <option value="Used Machines">Used Machines</option>
                                                     <option value="Power Systems">Power Systems</option>
@@ -126,7 +153,7 @@ const Contact = () => {
                                     <div className="col-sm-12 form-field">
                                         <label>Question/Comment*</label>
                                         <span className="wpcf7-form-control-wrap" data-name="comment">
-                                            <textarea name="comment" value={formData.comment} onChange={handleChange} className="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required" aria-required="true" aria-invalid="false"></textarea>
+                                            <textarea name="comment" value={formData.comment} onChange={handleChange} className="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required" required></textarea>
                                         </span> 
                                     </div>
                                 </div>

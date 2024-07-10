@@ -6,6 +6,7 @@ import { GetStaticPropsContext } from "next"
 import NProgress from 'nprogress';
 import { toast } from 'react-toastify';
 import axios from 'axios';
+import { GoogleReCaptchaProvider, useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 interface FormData {
   name: string;
@@ -14,6 +15,8 @@ interface FormData {
 }
 
 const Questions = () => {
+
+  const { executeRecaptcha } = useGoogleReCaptcha();
   const initialData = {
     email : '',
     name : '',
@@ -31,22 +34,45 @@ const Questions = () => {
     NProgress.start();
     try {
       e.preventDefault();
-      const response = await axios.post(`/api/questions`, {
-        headers: {
-          'Content-Type': 'application/json', // Example header
-        },
-        data: JSON.stringify({
-          "name": formData['name'],
-          "email": formData['email'],
-          "message": formData['message'],
-        })
-      });
-      if(response.status == 200){
-        NProgress.done();
-        toast.success(`Амжилттай илгээгдлээ. Баярлалаа`);
+      if (!executeRecaptcha) {
+        console.log("not available to execute recaptcha")
+        return;
+      }
+      const gRecaptchaToken = await executeRecaptcha('inquirySubmit');
+      const response = await axios({
+          method: "post",
+          url: "/api/recaptchaSubmit",
+          data: {
+            gRecaptchaToken,
+          },
+          headers: {
+            Accept: "application/json, text/plain, */*",
+            "Content-Type": "application/json",
+          },
+        });
+    
+      if (response?.data?.success === true) {
+        const response = await axios.post(`/api/questions`, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          data: JSON.stringify({
+            "name": formData['name'],
+            "email": formData['email'],
+            "message": formData['message'],
+          })
+        });
+        if(response.status == 200){
+          NProgress.done();
+          toast.success(`Амжилттай илгээгдлээ. Баярлалаа`);
+        } else {
+          NProgress.done();
+          toast.error(`Мэдээлэл олдохгүй байна.`);
+        }
       } else {
+        console.log(`Failure with score: ${response?.data?.score}`);
+        toast.error(`Recaptcha error`);
         NProgress.done();
-        toast.error(`Мэдээлэл олдохгүй байна.`);
       }
     } catch (error:any) {
       console.log(error)

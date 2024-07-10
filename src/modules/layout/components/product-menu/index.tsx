@@ -32,7 +32,7 @@ interface FormData {
 }
 
 const Beside = (props: Props) => {
-  console.log(props)
+  // console.log(props)
   const pathname = usePathname()
     
   const {locale, locales, route, asPath} = useRouter();

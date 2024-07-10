@@ -15,7 +15,7 @@ type TabsProps = {
 };
 
 const Tabs: React.FC<TabsProps> = ({ tabs }) => {
-  console.log(tabs)
+  // console.log(tabs)
 
   const [activeTab, setActiveTab] = useState(0);
   const {locale, locales, route, asPath} = useRouter();

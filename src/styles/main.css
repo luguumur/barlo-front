@@ -3046,7 +3046,7 @@ select.wpcf7-not-valid,textarea.wpcf7-not-valid,input.wpcf7-not-valid {
         display: flex;
         align-items: flex-end;
         flex-wrap: wrap;
-        justify-content: space-between
+        justify-content: right
     }
 
     .page-header.active .header-top-right-section {
@@ -3065,7 +3065,6 @@ select.wpcf7-not-valid,textarea.wpcf7-not-valid,input.wpcf7-not-valid {
 @media (min-width: 1200px) {
     .header-right-top {
         justify-content: flex-end;
-        /* justify-content: space-between */
     }
 }
 
@@ -5538,7 +5537,6 @@ select.wpcf7-not-valid,textarea.wpcf7-not-valid,input.wpcf7-not-valid {
     }
 
     .home-testimonials-slider-item-column {
-        width: 350px;
         padding: 38px 50px 40px
     }
 
@@ -10762,7 +10760,7 @@ body.search-results .page-content .post:first-of-type {
 .background-image-wrapper {
     position: relative;
     height: 225px;
-    width: 100%
+    /* width: 100% */
 }
 
 img.homepage-masthead-bg {
@@ -10870,7 +10868,7 @@ h2.h1.hp-mast-heading {
 
 @media (max-width: 767px) {
     .js-masthead-homepage-slider {
-        max-height:480px
+        max-height:225px
     }
 }
 

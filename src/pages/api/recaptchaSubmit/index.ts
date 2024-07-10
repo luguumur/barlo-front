@@ -31,7 +31,6 @@ export default async function handler(
                         },
                     }
                 );
-                console.log(response)
                 if (response && response.data?.success && response.data?.score > 0.5) {
                     console.log("res.data?.score:", response.data?.score);
                     return res.json({

@@ -43,7 +43,7 @@ const Search: InferGetServerSidePropsType<typeof getServerSideProps> = (props: a
                                 </div>
                             </div>
                             <div className="col-xs-6 col-md-12 push--bottom">
-                                <label htmlFor="type">{t("model")}</label>
+                                <label htmlFor="model">{t("model")}</label>
                                 <select className="select-option" name="model" id="model">
                                     <option value="all">{t("all")}</option>
                                     {props.modelList.map((item:any, index:any) => (
@@ -52,7 +52,7 @@ const Search: InferGetServerSidePropsType<typeof getServerSideProps> = (props: a
                                 </select>
                             </div>
                             <div className="col-xs-6 col-md-12 push--bottom">
-                                <label htmlFor="type">{t("owner")}</label>
+                                <label htmlFor="owner">{t("owner")}</label>
                                 <select className="select-option" name="owner" id="owner">
                                     <option value="all">{t("all")}</option>
                                     {props.ownerList.map((item:any, index:any) => (
@@ -61,7 +61,7 @@ const Search: InferGetServerSidePropsType<typeof getServerSideProps> = (props: a
                                 </select>
                             </div>
                             <div className="col-xs-6 col-md-12 push--bottom">
-                                <label htmlFor="type">{t("location")}</label>
+                                <label htmlFor="location">{t("location")}</label>
                                 <select className="select-option" name="location" id="location">
                                     <option value="all">{t("all")}</option>
                                     {props.locationList.map((item:any, index:any) => (

@@ -1,66 +1,51 @@
 "use client"
 
-import { useMobileMenu } from "@lib/context/mobile-menu-context"
-import Hamburger from "@modules/common/components/hamburger"
-import CartDropdown from "@modules/layout/components/cart-dropdown"
-import DropdownMenu from "@modules/layout/components/dropdown-menu"
-import MobileMenu from "@modules/mobile-menu/templates"
-import clsx from "clsx"
 import Link from "next/link"
-import { useParams, usePathname } from "next/navigation"
-import { useEffect, useState } from "react"
-import Image from "next/image"
-import mainlogo from "../../../../../public/logo.jpg"
-import { Field, Form, Formik } from 'formik'
-import FormField from '../../components/form/field';
 import { useTranslations } from "next-intl";
 import LanguageSwitcher from "@modules/layout/components/i18n/LanguageSwitcher"
 
 import { HeaderData } from "@data/menu"
 import { GetStaticPropsContext } from "next"
-// import { dictionary } from '@lang/content';
 
+import FX from "@/lib/util/custom-fx";
+import React, { useEffect, useState } from 'react'; 
 
 const Nav = () => {
 
   const homet = useTranslations("Home");
   const t = useTranslations("Menu");
-  
-  // const params = useParams()
-  // const lang = params.lang+""
-  const pathname = usePathname()
-  const [isHome, setIsHome] = useState(true)
-  const [isScrolled, setIsScrolled] = useState(false)
-
-  //useEffect that detects if window is scrolled > 5px on the Y axis
-  useEffect(() => {
-    if (isHome) {
-      const detectScrollY = () => {
-        if (window.scrollY > 5) {
-          setIsScrolled(true)
-        } else {
-          setIsScrolled(false)
-        }
-      }
-
-      window.addEventListener("scroll", detectScrollY)
-
-      return () => {
-        window.removeEventListener("scroll", detectScrollY)
-      }
-    }
-  }, [isHome])
 
   useEffect(() => {
-    pathname === "/" ? setIsHome(true) : setIsHome(false)
-  }, [pathname])
+    FX.MobileNavigation.init();
+    FX.StickyPageHeader.init();
+    FX.MobileSearch.init();
+  }, []);
 
-  const { toggle } = useMobileMenu()
-  const onSubmit = async (values: any, { setSubmitting }: any) => {
-    setSubmitting(false);
-  };
+  const initialData:any = {
+    search : '',
+  }
+
+  interface FormData {
+    search: string;
+  }
+  const [formData, setFormData] = useState<FormData>(initialData);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData((prevFormData) => ({
+    ...prevFormData,
+    [name]: value,
+}));
+}
+
   return (
     <>
+    <div className="mobile-search-form clearfix">
+      <form className="search-form" action="/" method="get" role="search">
+          <input className="search-form--field" type="search" title="Search" name="s" value={formData.search} onChange={handleChange} placeholder="Find what you're looking for" aria-label="When autocomplete results are available use up and down arrows to review and enter to go to the desired page. Touch device users, explore by touch or with swipe gestures."/>	
+          <button className="search-form--submit" type="submit"/>
+      </form>
+    </div>
     <header className="page-header sticky-page-header active" id="page-header">
       <div className="page-header__bottom-row">
         <div className="container">
@@ -73,17 +58,18 @@ const Nav = () => {
               </div>
             </div>
             <div className="col-xxs-5 col-xs-6 col-sm-8 col-md-9 text--right pull--right header-top-right-section">
-              <div className="header-right-top hGWAMb">
+              <div className="header-right-top">
                 {/* <a className="button page-header--phone phone-number hidden-xxs hidden-xs" href="tel:97670187588">+976 7018-7588</a> */}
                 
-                <Link href={"https://click.callpro.mn/mbifA6W5F03wSWFs5anFx1IM6p6RkA6r4G1GanpO"} target="_blank"><div className="sc-17sh5d6-0 hVYMdc telcocom-call-component">
-                  <button type="button">
-                    <span className="flex justify-center items-center">
-                      <img src="/phone.svg" alt="phone"/>
-                    </span>
-                  </button>
-                  <div className="bg-anime"></div>
-                </div>
+                <Link href={"https://click.callpro.mn/mbifA6W5F03wSWFs5anFx1IM6p6RkA6r4G1GanpO"} target="_blank" className="inline-block hidden-xxs hidden-xs hidden-sm pr-5">
+                  <div className="sc-17sh5d6-0 hVYMdc telcocom-call-component">
+                    <button type="button">
+                      <span className="flex justify-center items-center">
+                        <img src="/phone.svg" alt="phone"/>
+                      </span>
+                    </button>
+                    <div className="bg-anime"></div>
+                  </div>
                 </Link>
                 <div className="page-header--search">
                   <button className="js-mobile-trigger-button--search mobile-trigger-button mobile-trigger-button--search hidden-md hidden-lg">
@@ -91,7 +77,7 @@ const Nav = () => {
                   </button>
                   <div className="visible-md visible-lg">
                     <form className="search-form" action="/" method="get" role="search">
-                      <input className="search-form--field" type="search" title="Search" name="s" data-swplive="true" data-swpengine="default" data-swpconfig="default" placeholder={homet(`search`)} autoComplete="off" aria-owns="searchwp_live_search_results_6538ffce134f9" aria-autocomplete="both" aria-label="When autocomplete results are available use up and down arrows to review and enter to go to the desired page. Touch device users, explore by touch or with swipe gestures."/>
+                      <input className="search-form--field" type="search" title="Search" name="s" data-swplive="true" data-swpengine="default" data-swpconfig="default" placeholder={homet(`search`)} aria-owns="searchwp_live_search_results_6538ffce134f9" aria-autocomplete="both" aria-label="When autocomplete results are available use up and down arrows to review and enter to go to the desired page. Touch device users, explore by touch or with swipe gestures."/>
                       <input className="search-form--submit" ></input>
                     </form>
                   </div>

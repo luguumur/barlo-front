@@ -9,7 +9,6 @@ export default async function handler(
         if (req.method === 'POST'){
             try {
               const { data } = req.body;
-              console.log(JSON.parse(data))
               let config = {
                 method: 'post',
                 maxBodyLength: Infinity,

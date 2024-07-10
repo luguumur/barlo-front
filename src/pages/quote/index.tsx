@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from 'next/router';
 import NProgress from 'nprogress';
 import { toast } from 'react-toastify';
+import { GoogleReCaptchaProvider, useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 interface FormData {
     firstName: string;
@@ -24,7 +25,9 @@ const RequestAQuote = () => {
 
     const router = useRouter();
     const { equipment } = router.query;
-    console.log(equipment)
+    // console.log(equipment)
+
+    const { executeRecaptcha } = useGoogleReCaptcha();
     const t = useTranslations("Menu");
     const initialData:any = {
         firstName : '',
@@ -58,29 +61,53 @@ const RequestAQuote = () => {
         NProgress.start();
         try {
           e.preventDefault();
-          const response = await axios.post(`/api/lead`, {
-            headers: {
-              'Content-Type': 'application/json', // Example header
-            },
-            data: JSON.stringify({
-                "firstName": formData['firstName'],
-                "lastName": formData['lastName'],
-                "email": formData['email'],
-                "phone": formData['phone'],
-                "message": formData['message'],
-                "title": formData['title'],
-                "state": formData['state'],
-                "machine": formData['machine']
-            })
-          });
-          if(response.status == 200){
-            NProgress.done();
-            toast.success(`Амжилттай илгээгдлээ. Баярлалаа`);
-          } else {
-            NProgress.done();
-            toast.error(`Алдаа гарлаа.`);
-            // toast.success(`Амжилттай илгээгдлээ. Баярлалаа`);
+          if (!executeRecaptcha) {
+            console.log("not available to execute recaptcha")
+            return;
           }
+          const gRecaptchaToken = await executeRecaptcha('inquirySubmit');
+          const response = await axios({
+              method: "post",
+              url: "/api/recaptchaSubmit",
+              data: {
+                gRecaptchaToken,
+              },
+              headers: {
+                Accept: "application/json, text/plain, */*",
+                "Content-Type": "application/json",
+              },
+            });
+        
+            if (response?.data?.success === true) {
+
+            const response = await axios.post(`/api/lead`, {
+                headers: {
+                'Content-Type': 'application/json', // Example header
+                },
+                data: JSON.stringify({
+                    "firstName": formData['firstName'],
+                    "lastName": formData['lastName'],
+                    "email": formData['email'],
+                    "phone": formData['phone'],
+                    "message": formData['message'],
+                    "title": formData['title'],
+                    "state": formData['state'],
+                    "machine": formData['machine']
+                })
+            });
+            if(response.status == 200){
+                NProgress.done();
+                toast.success(`Амжилттай илгээгдлээ. Баярлалаа`);
+            } else {
+                NProgress.done();
+                toast.error(`Алдаа гарлаа.`);
+                // toast.success(`Амжилттай илгээгдлээ. Баярлалаа`);
+            }
+            } else {
+                console.log(`Failure with score: ${response?.data?.score}`);
+                toast.error(`Recaptcha error`);
+                NProgress.done();
+            }
         } catch (error:any) {
           console.log(error)
           NProgress.done();
@@ -160,7 +187,7 @@ const RequestAQuote = () => {
                                     <div className="col-md-6 form-row">
                                         <label>Phone*</label>
                                         <span className="wpcf7-form-control-wrap" data-name="phone">
-                                        <input type="text" name="phone" value={formData.phone} onChange={handleChange} className="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" required/>
+                                        <input type="text" name="phone" maxLength={8} min="0" max="99999999" step="1" placeholder="--------" pattern="[0-9]{8}"  value={formData.phone} onChange={handleChange} className="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" required/>
                                         </span>
                                     </div>
                                     <div className="col-md-6 form-row">

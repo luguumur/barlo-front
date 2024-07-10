@@ -23,9 +23,9 @@ export default function PageLayout({children, title}: Props) {
     <>
       <GoogleCaptchaWrapper>
         <Nav/>
-            {children}
-            <Sidebar/>
-          <ToastContainer position="top-right" autoClose={3000} className="font-light text-[13px]" />
+        {children}
+        <Sidebar/>
+        <ToastContainer position="top-right" autoClose={3000} className="font-light text-[13px]" />
         <Footer/>
       </GoogleCaptchaWrapper>
     </>

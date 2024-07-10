@@ -65,7 +65,7 @@ const QuickSearch: React.FC<Props> = ({ model, owner, location }) => {
                                     </div>
                                 </div>
                                 <div className="quick-search-field">
-                                    <label htmlFor="type">{t("model")}</label>
+                                    <label htmlFor="model">{t("model")}</label>
                                     <select className="select-option" name="model" id="model">
                                         <option value="all">{t("all")}</option>
                                         {model.map((item:any, index:any) => (
@@ -74,7 +74,7 @@ const QuickSearch: React.FC<Props> = ({ model, owner, location }) => {
                                     </select>
                                 </div>
                                 <div className="quick-search-field">
-                                    <label htmlFor="hours">{t("owner")}</label>
+                                    <label htmlFor="owner">{t("owner")}</label>
                                     <select className="select-option" name="owner" id="owner">
                                         <option value="all">{t("all")}</option>
                                         {owner.map((item:any, index:any) => (
@@ -83,7 +83,7 @@ const QuickSearch: React.FC<Props> = ({ model, owner, location }) => {
                                     </select>
                                 </div>
                                 <div className="quick-search-field">
-                                    <label htmlFor="price">{t("location")}</label>
+                                    <label htmlFor="location">{t("location")}</label>
                                     <select className="select-option" name="location" id="location">
                                         <option value="all">{t("all")}</option>
                                         {location.map((item:any, index:any) => (

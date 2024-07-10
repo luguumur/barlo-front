@@ -23,13 +23,16 @@ const Footer = () => {
   }));
   };
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+
+    NProgress.start();
     e.preventDefault();
+
     if (!executeRecaptcha) {
       console.log("not available to execute recaptcha")
       return;
     }
     const gRecaptchaToken = await executeRecaptcha('inquirySubmit');
-    console.log(gRecaptchaToken)
+    // console.log(gRecaptchaToken)
     const response = await axios({
       method: "post",
       url: "/api/recaptchaSubmit",
@@ -43,35 +46,36 @@ const Footer = () => {
     });
 
     if (response?.data?.success === true) {
-      console.log(`Success with score: ${response?.data?.score}`);
+      // console.log(`Success with score: ${response?.data?.score}`);
+      try {
+        e.preventDefault();
+        const response = await axios.post(`/api/email`, {
+          headers: {
+            'Content-Type': 'application/json', // Example header
+          },
+          data: JSON.stringify({
+            "email": formData['email']
+          })
+        });
+        if(response.status == 200){
+          toast.success(`Амжилттай илгээгдлээ. Баярлалаа`);
+          NProgress.done();
+        } else {
+          toast.error(`Мэдээлэл олдохгүй байна.`);
+          NProgress.done();
+        }
+      } catch (error:any) {
+        // console.log(error)
+        toast.error(`Something went wrong`);
+        NProgress.done();
+      }
     } else {
       console.log(`Failure with score: ${response?.data?.score}`);
+      toast.error(`Recaptcha error`);
+      NProgress.done();
     }
 
-
-    // NProgress.start();
-    // try {
-    //   e.preventDefault();
-    //   const response = await axios.post(`/api/email`, {
-    //     headers: {
-    //       'Content-Type': 'application/json', // Example header
-    //     },
-    //     data: JSON.stringify({
-    //       "email": formData['email']
-    //     })
-    //   });
-    //   if(response.status == 200){
-    //     toast.success(`Амжилттай илгээгдлээ. Баярлалаа`);
-    //     NProgress.done();
-    //   } else {
-    //     toast.error(`Мэдээлэл олдохгүй байна.`);
-    //     NProgress.done();
-    //   }
-    // } catch (error:any) {
-    //   console.log(error)
-    //   toast.error(`error`);
-    //   NProgress.done();
-    // }
+    
   };
   return (
     <footer>
