@@ -3,18 +3,20 @@ import { teamData } from "@data/teamData";
 import { useTranslations } from "next-intl";
 import { GetStaticPropsContext } from "next";
 import { Magazines } from "@/data/magazine";
+import Head from "@/modules/common/components/head";
 
 const Management = () => {
 
     const t = useTranslations("Home");
     return (
         <>
+        <Head title={t(`magazine`)}></Head>
         <PageHeader title={t(`magazine`)}/>
         <section className="services-card-section">
             <div className="container">
                 <div className="services-card-wrapper desktop">
                     {Magazines.map((item, index) => (
-                        <a className="hover:bg-white rounded mb-5 pb-2" href={item.link} target="blank_">
+                        <a key={index} className="hover:bg-white rounded mb-5 pb-2" href={item.link} target="blank_">
                             <div className="px-5 max-w-[255px]">
                             <span className="text-[22px] text-[#ffcc03]">{item.title}</span>
                             <img className="content-center services-card-img-icon" src={item.image} alt="" />

@@ -4,6 +4,7 @@ import axios from 'axios';
 import https from "https";
 import Questions from "@/modules/layout/components/questions";
 import { useRouter } from "next/router";
+import Head from "@/modules/common/components/head";
 
 type Repo = {
   name: string
@@ -13,7 +14,8 @@ const DealsPage: InferGetServerSidePropsType<typeof getServerSideProps> = (props
   const deals = props.data;
   const {locale, locales, route, asPath} = useRouter();
   return (
-    <>
+    <> 
+        <Head title={"deals & specials"}></Head>
         <PageHeader title="deals & specials"/>
         <article className="page-body container post-97908 deals_specials type-deals_specials status-publish has-post-thumbnail hentry" id="page-body">
           <div className="row">

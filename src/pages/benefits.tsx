@@ -7,6 +7,7 @@ import NProgress from 'nprogress';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import { useState } from "react";
+import Head from "@/modules/common/components/head";
 
 interface FormData {
     name: string;
@@ -71,6 +72,8 @@ const Careers = () => {
       };
     return (
         <>
+
+        <Head title={t("benefits")}></Head>
         <PageHeader title={t(`benefits`)}/>
         <article className="page-body container post-19 page type-page status-publish hentry" id="page-body">
             <div className="row test ">

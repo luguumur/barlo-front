@@ -15,6 +15,7 @@ import { useRouter } from "next/router";
 import Questions from "@/modules/layout/components/questions";
 import NewsBeside from "@/modules/layout/components/news-menu";
 import Markdown from "react-markdown";
+import Head from "@/modules/common/components/head";
 
 const Parts: InferGetServerSidePropsType<typeof getServerSideProps> = (props: any) => {
     const t = useTranslations("Menu");
@@ -22,6 +23,7 @@ const Parts: InferGetServerSidePropsType<typeof getServerSideProps> = (props: an
     const {locale, locales, route, asPath} = useRouter();
     return (
         <>
+            <Head title={data.title}></Head>
             <PageHeader title={data.title} image="https://thompsonmachinery.com/content/uploads/2022/06/cta-banner-image-1536x306.jpg"/>
             <article className="page-body container post-7 page type-page status-publish hentry" id="page-body">
                 <div className="row test ">

@@ -11,6 +11,7 @@ import MasonryGrid from "@/modules/layout/components/masonry";
 import axios from 'axios';
 import https from "https";
 import { useRouter } from "next/router";
+import Head from "@/modules/common/components/head";
 type Props = {
   params: { title: string[] }
 }
@@ -21,6 +22,7 @@ const testimonials = props.data
   const {locale, locales, route, asPath} = useRouter();
   return (
     <>
+      <Head title={t(`testimonials`)}></Head>
       <PageHeader title={t(`testimonials`)} image="https://thompsonmachinery.com/content/uploads/2022/06/cta-banner-image-1536x306.jpg"/>
       <article className="page-body container post-7 page type-page status-publish hentry" id="page-body">
       <div className="row test ">

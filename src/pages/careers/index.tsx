@@ -11,6 +11,7 @@ import axios from 'axios';
 import https from "https";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import Head from "@/modules/common/components/head";
 
 interface FormData {
     name: string;
@@ -23,7 +24,6 @@ interface FormData {
 }
   
 const careerPage: InferGetServerSidePropsType<typeof getServerSideProps> = (props: any) => {
-    console.log(props.data)
     const t = useTranslations("Menu");
     const {locale, locales, route, asPath} = useRouter();
 
@@ -77,6 +77,7 @@ const careerPage: InferGetServerSidePropsType<typeof getServerSideProps> = (prop
       };
     return (
         <>
+        <Head title={t(`careers`)}></Head>
         <PageHeader title={t(`careers`)}/>
         <article className="page-body container post-19 page type-page status-publish hentry" id="page-body">
             <div className="row test ">

@@ -2,12 +2,18 @@ import PageHeader from "@modules/layout/components/page-header"
 import { teamData } from "@data/teamData";
 import { useTranslations } from "next-intl";
 import { GetStaticPropsContext } from "next";
+import Image from 'next/image'
+import Head from "@/modules/common/components/head";
 
 const Management = () => {
 
+    const imageLoader = ({ src, width } : {src:any, width:any}) => {
+        return `${process.env.apiDomain}/file/${src}`
+      }
     const t = useTranslations("Menu");
     return (
         <>
+        <Head title={t(`board`)}></Head>
         <PageHeader title={t(`board`)}/>
         <article className="page-body container post-7 page type-page status-publish hentry">
         <div className="container">
@@ -31,6 +37,9 @@ const Management = () => {
                                 </div>
                             </div>
                             ))}
+                            <center>
+                                <img src="http://www.barloworld.mn/images/uploads2/ORG CHART1.jpg" alt="" />
+                            </center>
                         </div>
                     </div>
                 </div>

@@ -19,6 +19,7 @@ const Parts: InferGetServerSidePropsType<typeof getServerSideProps> = (props: an
                 <div className="row test ">
                     <main className="page-content col-md-9 col-md-push-3">
                         {data.content && <Markdown>{locale === "mn" ? data.content : data.content_en }</Markdown>}
+                        {data.youtube && <div dangerouslySetInnerHTML={{ __html: data.youtube }}></div>}
                     </main>
                     <Beside menu={HeaderData} title={t(`parts`)} translate="Menu"/>
                 </div>

@@ -5,11 +5,14 @@ import { ServiceData } from "@data/service";
 
 import { useTranslations } from "next-intl";
 import { GetStaticPropsContext } from "next";
+import Head from "@/modules/common/components/head";
 
 const Parts = () => {
   const t = useTranslations("Menu");
     return (
       <>
+
+        <Head title={t(`service`)}></Head>
         <PageHeader title={t(`service`)} image="https://www.barloworld.mn/images/uploads2/SERVIC_20211109.jpg"/>
         <section className="wysiwyg-section">
           <div className="container">

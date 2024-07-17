@@ -58,5 +58,11 @@ export const teamData = [
         name: 'Э. Уянга',
         pos: 'Аналитик Инновацийн Газрын Захирал',
         image: 'https://www.barloworld.mn/images/Leadership/Uyanga_E.jpg',
+    },
+    {
+        id: 11,
+        name: 'Б.Түмэнжаргал',
+        pos: 'Хүний Нөөцийн Газрын Захирал',
+        image: 'https://www.barloworld.mn/images/Leadership/Tumenjargal.jpg',
     }
  ]

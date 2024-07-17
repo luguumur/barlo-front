@@ -22,6 +22,7 @@ import DetailsTab from "@modules/layout/components/detail-tabs"
 import { GetStaticPropsContext } from "next"
 import { MenuData } from "@/data/home"
 import Image from 'next/image'
+import Head from "@/modules/common/components/head"
 
 type EquipmentTemplateProps = {
   equipment: any
@@ -132,6 +133,7 @@ const EquipmentTemplate: React.FC<EquipmentTemplateProps> = ({ equipment }) => {
   ];
   return (
     <>
+    <Head title={equipmentDetail.data.name}></Head>
     <PageHeader title={equipmentDetail.data.name}/>
     <article className="page-body container post-7 page type-page status-publish hentry" id="page-body">
       <div className="row test ">

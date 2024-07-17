@@ -1,3 +1,4 @@
+import Head from "@/modules/common/components/head";
 import Questions from "@/modules/layout/components/questions";
 import PageHeader from "@modules/layout/components/page-header"
 import axios from "axios";
@@ -10,6 +11,7 @@ const Deals: InferGetServerSidePropsType<typeof getServerSideProps> = (props: an
   const {locale, locales, route, asPath} = useRouter();
     return (
       <>
+        <Head title={locale === "mn" ? props.detail.title : props.detail.title_en}></Head>
         <PageHeader title={locale === "mn" ? props.detail.title : props.detail.title_en}/>
         <article className="page-body container post-97908 deals_specials type-deals_specials status-publish has-post-thumbnail hentry" id="page-body">
           <div className="row">

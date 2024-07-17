@@ -4,11 +4,14 @@ import { HeaderData } from "@data/menu";
 import { Technology } from "@/data/technology";
 import { useTranslations } from "next-intl";
 import { GetStaticPropsContext } from "next";
+import Head from "@/modules/common/components/head";
 
 const New = () => {
   const t = useTranslations("Menu");
     return (
       <>
+
+      <Head title={t(`technology`)}></Head>
         <PageHeader title={t(`technology`)}/>
         <article className="page-body container post-7 page type-page status-publish hentry" id="page-body">
         <div className="row test ">

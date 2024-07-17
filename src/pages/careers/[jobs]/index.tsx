@@ -7,12 +7,14 @@ import axios from "axios";
 import https from "https";
 import { useRouter } from "next/router";
 import Markdown from 'react-markdown'
+import Head from "@/modules/common/components/head";
 
 const Job: InferGetServerSidePropsType<typeof getServerSideProps> = (props: any) => {
     const t = useTranslations("Menu");
     const {locale, locales, route, asPath} = useRouter();
     return (
         <>
+        <Head title={locale === "mn" ? props.job.title : props.job.title_en}></Head>
         <PageHeader title={locale === "mn" ? props.job.title : props.job.title_en}/>
         <article className="page-body container post-19 page type-position status-publish hentry" id="page-body">
             <div className="row test ">

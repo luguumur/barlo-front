@@ -14,6 +14,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import NewsBeside from "@/modules/layout/components/news-menu";
 import { url } from "inspector";
+import Head from "@/modules/common/components/head";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { category } = context.query;
@@ -61,6 +62,7 @@ const NewsPage: InferGetServerSidePropsType<typeof getServerSideProps> = (props:
   const t = useTranslations("Menu");
   return (
     <>
+      <Head title={t(`news`)}></Head>
       <PageHeader title={t(`news`)} image="https://thompsonmachinery.com/content/uploads/2022/06/cta-banner-image-1536x306.jpg"/>
       <article className="page-body container post-7 page type-page status-publish hentry" id="page-body">
         <main className="page-content col-md-9 col-md-push-3">

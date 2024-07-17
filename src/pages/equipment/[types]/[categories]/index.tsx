@@ -13,6 +13,7 @@ import axios from 'axios';
 import https from "https";
 import Image from 'next/image'
 import Link from "next/link"
+import Head from "@/modules/common/components/head"
 
 const imageLoader = ({ src, width } : {src:any, width:any}) => {
   return `${process.env.apiDomain}/file/${src}`
@@ -23,6 +24,7 @@ const Types: InferGetServerSidePropsType<typeof getServerSideProps> = (props: an
   const {locale, locales, route, asPath} = useRouter();
   return (
     <>
+      <Head title={locale === "mn" ? props.data.name : props.data.name_en}></Head>
       <PageHeader title={locale === "mn" ? props.data.name : props.data.name_en} image="https://thompsonmachinery.com/content/uploads/2022/06/cta-banner-image-1536x306.jpg"/>
       <article className="page-body container post-7 page type-page status-publish hentry" id="page-body">
         <div className="row test ">

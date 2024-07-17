@@ -12,6 +12,7 @@ import axios from "axios";
 import https from "https";
 import { useRouter } from "next/router";
 import Markdown from "react-markdown";
+import Head from "@/modules/common/components/head";
 
 const Parts: InferGetServerSidePropsType<typeof getServerSideProps> = (props: any) => {
     const t = useTranslations("Menu");
@@ -19,6 +20,7 @@ const Parts: InferGetServerSidePropsType<typeof getServerSideProps> = (props: an
     const {locale, locales, route, asPath} = useRouter();
     return (
         <>
+          <Head title={t(`testimonials`)}></Head>
             <PageHeader title={t('testimonials')} image="https://thompsonmachinery.com/content/uploads/2022/06/cta-banner-image-1536x306.jpg"/>
             <article className="page-body container post-7 page type-page status-publish hentry" id="page-body">
                 <div className="row test ">

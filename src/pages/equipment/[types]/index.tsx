@@ -8,6 +8,7 @@ import { GetServerSideProps, GetStaticPropsContext, InferGetServerSidePropsType,
 
 import Image from 'next/image'
 import Link from "next/link";
+import Head from "@/modules/common/components/head";
     
 const imageLoader = ({ src, width } : {src:any, width:any}) => {
   return `${process.env.apiDomain}/file/${src}`
@@ -17,6 +18,7 @@ const Types: InferGetServerSidePropsType<typeof getServerSideProps> = (props: an
   const t = useTranslations("Menu");
   return (
     <>
+      <Head title={t(`d${props.title}`)}></Head>
       <PageHeader title={t(`d${props.title}`)} image="https://thompsonmachinery.com/content/uploads/2022/06/cta-banner-image-1536x306.jpg"/>
       <article className="page-body container post-7 page type-page status-publish hentry" id="page-body">
       <div className="row test ">
