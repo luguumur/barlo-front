@@ -26,7 +26,7 @@ export const HeaderData = [
       id: 2,
       title: 'rent',
       submenu: true,
-      handle: '/equipment/rent',
+      handle: '/rent',
       sub: [
         // {
         //   title: 'under',

@@ -64,7 +64,7 @@ const NewsPage: InferGetServerSidePropsType<typeof getServerSideProps> = (props:
     <>
       <Head title={t(`news`)}></Head>
       <PageHeader title={t(`news`)} image="https://thompsonmachinery.com/content/uploads/2022/06/cta-banner-image-1536x306.jpg"/>
-      <article className="page-body container post-7 page type-page status-publish hentry" id="page-body">
+      <article className="page-body container page type-page status-publish hentry" id="page-body">
         <main className="page-content col-md-9 col-md-push-3">
             {/* <h3>News</h3>
             <p>Progress never stops. And neither do we. Explore the latest news and recent events in the world of Caterpillar.</p>

@@ -75,8 +75,8 @@ const Careers = () => {
 
         <Head title={t("benefits")}></Head>
         <PageHeader title={t(`benefits`)}/>
-        <article className="page-body container post-19 page type-page status-publish hentry" id="page-body">
-            <div className="row test ">
+        <article className="page-body container page type-page status-publish hentry" id="page-body">
+            <div className="row">
                 <main className="page-content col-md-9 col-md-push-3">
                     <section className="pt-5">
                     <h2>Бидэнтэй нэгдэх шалтгаанууд</h2>

@@ -8,140 +8,145 @@ import { GetStaticPropsContext } from "next";
 const About = () => {
 
     const t = useTranslations('Home');
+    const menu = useTranslations('Menu');
+    const about = useTranslations('About');
     return (
         <>
-        <Head title={t("title")}></Head>
-        <PageHeader title={t(`about`)}/>
-        <article className="page-body container post-19 page type-page status-publish hentry" id="page-body">
-            <div className="row test ">
-            <main className="page-content col-md-9 col-md-push-3">
-                <p>On behalf of the management and staff of Barloworld Mongolia LLC, I would like to take this opportunity to welcome you to our website. Our mission is to deliver highest quality solutions to every customer and to help these key sectors of the economy to grow.</p>
-                <section className="flexible-image-cards">
-                    <div className="container">
-                    <div className="flexible-image-cards-header"></div>
-                    <div className="flexible-image-cards-listing">
-                        <div className="row js-equal-heights">
-                        <div className="col-sm-6">
-                            <div className="image-cards-box">
-                            <a href="/management">
-                                <div className="card-image"></div>
-                                <div className="image-card-content js-equal-heights-item h-[98px]">
-                                <div className="image-card-btn">
-                                    <span className="image-card-btn-text">Learn More</span>
-                                    <div className="image-card-btn-clippy">
-                                    <span className="icon-right"></span>
+            <Head title={t("title")}></Head>
+            <PageHeader title={t(`about`)} image="/assets/img/specials/HumanCapital.jpg" />
+            <article className="page-body container page type-page status-publish hentry" id="page-body">
+                <div className="row">
+                    <main className="page-content col-md-9 col-md-push-3">
+                        <div className="row">
+                        <main className="page-content lg:max-w-[900px] mx-auto">
+                            <p>{about("on_behalf")}</p>
+                            <section className="flexible-image-cards">
+                                <div className="container">
+                                    <div className="flexible-image-cards-header"></div>
+                                    <div className="flexible-image-cards-listing">
+                                        <div className="row js-equal-heights">
+                                            <div className="col-sm-6">
+                                                <div className="image-cards-box">
+                                                    <a href="/management">
+                                                        <div className="card-image"></div>
+                                                        <div className="image-card-content js-equal-heights-item h-[98px]">
+                                                            <div className="image-card-btn">
+                                                                <span className="image-card-btn-text">{menu("learnmore")}</span>
+                                                                <div className="image-card-btn-clippy">
+                                                                    <span className="icon-right"></span>
+                                                                </div>
+                                                            </div>
+                                                            <h3>{t("board")}</h3>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div className="col-sm-6">
+                                                <div className="image-cards-box">
+                                                    <a href="/news">
+                                                        <div className="card-image"></div>
+                                                        <div className="image-card-content js-equal-heights-item h-[98px]">
+                                                            <div className="image-card-btn">
+                                                                <span className="image-card-btn-text">{menu("learnmore")}</span>
+                                                                <div className="image-card-btn-clippy">
+                                                                    <span className="icon-right"></span>
+                                                                </div>
+                                                            </div>
+                                                            <h3>{menu("news_event")}</h3>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div className="col-sm-6">
+                                                <div className="image-cards-box">
+                                                    <a href="/testimonials">
+                                                        <div className="card-image"></div>
+                                                        <div className="image-card-content js-equal-heights-item h-[98px]">
+                                                            <div className="image-card-btn">
+                                                                <span className="image-card-btn-text">{menu("learnmore")}</span>
+                                                                <div className="image-card-btn-clippy">
+                                                                    <span className="icon-right"></span>
+                                                                </div>
+                                                            </div>
+                                                            <h3>{menu("testimonials")}</h3>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div className="col-sm-6">
+                                                <div className="image-cards-box">
+                                                    <a href="/careers">
+                                                        <div className="card-image"></div>
+                                                        <div className="image-card-content js-equal-heights-item h-[98px]">
+                                                            <div className="image-card-btn">
+                                                                <span className="image-card-btn-text">{menu("learnmore")}</span>
+                                                                <div className="image-card-btn-clippy">
+                                                                    <span className="icon-right"></span>
+                                                                </div>
+                                                            </div>
+                                                            <h3>{menu("careers")}</h3>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div className="col-sm-6">
+                                                <div className="image-cards-box">
+                                                    <a href="/benefits">
+                                                        <div className="card-image"></div>
+                                                        <div className="image-card-content js-equal-heights-item h-[98px]">
+                                                            <div className="image-card-btn">
+                                                                <span className="image-card-btn-text">{menu("learnmore")}</span>
+                                                                <div className="image-card-btn-clippy">
+                                                                    <span className="icon-right"></span>
+                                                                </div>
+                                                            </div>
+                                                            <h3>{menu("employee_benefits")}</h3>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div className="col-sm-6">
+                                                <div className="image-cards-box">
+                                                    <a href="/contact-us/">
+                                                        <div className="card-image"></div>
+                                                        <div className="image-card-content js-equal-heights-item h-[98px]">
+                                                            <div className="image-card-btn">
+                                                                <span className="image-card-btn-text">{menu("learnmore")}</span>
+                                                                <div className="image-card-btn-clippy">
+                                                                    <span className="icon-right"></span>
+                                                                </div>
+                                                            </div>
+                                                            <h3>{menu("contact")}</h3>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <h3>{t("board")}</h3>
-                                </div>
-                            </a>
-                            </div>
+                            </section>
+                            <h2>{about("what_we_offer")}</h2>
+                            <p>{about("health_insurance")} <br />
+                            </p>
+                            <h3>{about("new_equipment")}</h3>
+                            <p>{about("we_carry")} </p>
+                            <h3>{about("used_equipment")}</h3>
+                            <p>{about("some_companies")}</p>
+                            <h3>{about("rental_equipment")}</h3>
+                            <p>{about("if_you_want_to")}</p>
+                            <h3>{about("parts_and_service")}</h3>
+                            <p>{about("service_support")}</p>
+                            <h2>{about("contact_us_today")}</h2>
+                            <p>{about("do_you_need_equipment")} </p>
+                            <p>
+                                <a className="button button--primary" href="contact-us/">Contact Us For More Info</a>
+                            </p>
+                        </main>
                         </div>
-                        <div className="col-sm-6">
-                            <div className="image-cards-box">
-                            <a href="/news">
-                                <div className="card-image"></div>
-                                <div className="image-card-content js-equal-heights-item h-[98px]">
-                                <div className="image-card-btn">
-                                    <span className="image-card-btn-text">Learn More</span>
-                                    <div className="image-card-btn-clippy">
-                                    <span className="icon-right"></span>
-                                    </div>
-                                </div>
-                                <h3>News &amp; Events</h3>
-                                </div>
-                            </a>
-                            </div>
-                        </div>
-                        <div className="col-sm-6">
-                            <div className="image-cards-box">
-                            <a href="/testimonials">
-                                <div className="card-image"></div>
-                                <div className="image-card-content js-equal-heights-item h-[98px]">
-                                <div className="image-card-btn">
-                                    <span className="image-card-btn-text">Learn More</span>
-                                    <div className="image-card-btn-clippy">
-                                    <span className="icon-right"></span>
-                                    </div>
-                                </div>
-                                <h3>Customer Testimonials</h3>
-                                </div>
-                            </a>
-                            </div>
-                        </div>
-                        <div className="col-sm-6">
-                            <div className="image-cards-box">
-                            <a href="/careers">
-                                <div className="card-image"></div>
-                                <div className="image-card-content js-equal-heights-item h-[98px]">
-                                <div className="image-card-btn">
-                                    <span className="image-card-btn-text">Learn More</span>
-                                    <div className="image-card-btn-clippy">
-                                    <span className="icon-right"></span>
-                                    </div>
-                                </div>
-                                <h3>Careers</h3>
-                                </div>
-                            </a>
-                            </div>
-                        </div>
-                        <div className="col-sm-6">
-                            <div className="image-cards-box">
-                            <a href="/benefits">
-                                <div className="card-image"></div>
-                                <div className="image-card-content js-equal-heights-item h-[98px]">
-                                <div className="image-card-btn">
-                                    <span className="image-card-btn-text">Learn More</span>
-                                    <div className="image-card-btn-clippy">
-                                    <span className="icon-right"></span>
-                                    </div>
-                                </div>
-                                <h3>Employee Benefits</h3>
-                                </div>
-                            </a>
-                            </div>
-                        </div>
-                        <div className="col-sm-6">
-                            <div className="image-cards-box">
-                            <a href="/contact-us/">
-                                <div className="card-image"></div>
-                                <div className="image-card-content js-equal-heights-item h-[98px]">
-                                <div className="image-card-btn">
-                                    <span className="image-card-btn-text">Learn More</span>
-                                    <div className="image-card-btn-clippy">
-                                    <span className="icon-right"></span>
-                                    </div>
-                                </div>
-                                <h3>Contact Us</h3>
-                                </div>
-                            </a>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                </section>
-                <h2>What We Offer</h2>
-                <p>Health insurance (including family), Free lunch and transportation, Normal working hours (07:30-16:00, Monday-Friday),A safe, fair, friendly working environment. <br/>
-                </p>
-                <p></p>
-                <h3>New Equipment</h3>
-                <p>We carry an entire line of brand new Cat <sup>®</sup>&nbsp;machines built to stand up to the most rugged environments. Our Cat product line of more than 300 machines shows that we’re committed to being an industry leader that supplies durable and reliable equipment. From&nbsp;telehandlers to skid steer loaders and backhoes, we carry a variety of equipment types with different dimensions, capabilities and features. We work hard to understand exactly what you need so we can help you find the perfect machine for greater efficiency and cost savings. </p>
-                <h3>Used Equipment</h3>
-                <p>Used Equipment</p>
-                <h3>Rental Equipment</h3>
-                <p>Rental Equipment</p>
-                <h3>Parts and Service</h3>
-                <p>Parts & Service Equipment</p>
-                <h2>Contact Us Today</h2>
-                <p>Do you need equipment that delivers outstanding performance at your job site? </p>
-                <p>
-                    <a className="button button--primary" href="contact-us/">Contact Us For More Info</a>
-                </p>
-                </main>
-                <Beside menu={HeaderData} title={t(`about`)} translate="Menu"/>
-            </div>
-        </article>
+                    </main>
+                    <Beside menu={HeaderData} title={t(`about`)} translate="Menu" />
+                </div>
+            </article>
         </>
     )
 }
@@ -149,10 +154,10 @@ const About = () => {
 export default About
 
 
-export async function getStaticProps({locale}: GetStaticPropsContext) {
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
     return {
-      props: {
-        messages: (await import(`../../messages/${locale}.json`)).default
-      }
+        props: {
+            messages: (await import(`../../messages/${locale}.json`)).default
+        }
     };
 }

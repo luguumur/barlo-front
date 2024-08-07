@@ -73,7 +73,7 @@ const Search: InferGetServerSidePropsType<typeof getServerSideProps> = (props: a
                     </form>
                 </div>
             </div>
-            <div className="row test ">
+            <div className="row">
                 <main className="page-content col-md-9 col-md-push-3">
                     <div>
                     <div className="facetwp-template">

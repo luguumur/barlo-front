@@ -6,6 +6,7 @@ import NProgress from 'nprogress';
 import { GoogleReCaptchaProvider, useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 import axios from 'axios';
+import { useTranslations } from "next-intl";
 interface FormData {
   email: string;
 }
@@ -74,14 +75,14 @@ const Footer = () => {
       toast.error(`Recaptcha error`);
       NProgress.done();
     }
-
-    
   };
+
+  const home = useTranslations("Home");
   return (
     <footer>
       <div className="container py-[30px]">
         <div className="col-md-6 h-[48.65px] flex items-center ">
-          <span className="text-sm">Та сүүлийн үеийн мэдээлэл авахыг хүсвэл имэйлээ холбоно уу</span>
+          <span className="text-sm">{home("connect_your_email")}</span>
         </div>
         <form onSubmit={handleSubmit} className="wpcf7-form init" id="emailForm" aria-label="email form"  data-status="init">
           <div className="col-md-6">

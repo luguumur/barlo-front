@@ -25,8 +25,8 @@ const Parts: InferGetServerSidePropsType<typeof getServerSideProps> = (props: an
         <>
             <Head title={data.title}></Head>
             <PageHeader title={data.title} image="https://thompsonmachinery.com/content/uploads/2022/06/cta-banner-image-1536x306.jpg"/>
-            <article className="page-body container post-7 page type-page status-publish hentry" id="page-body">
-                <div className="row test ">
+            <article className="page-body container page type-page status-publish hentry" id="page-body">
+                <div className="row">
                     <main className="page-content col-md-9 col-md-push-3" >
                         <div className="post__date-categories">            
                             <span>{data.created_at.split("T")[0]}</span>            

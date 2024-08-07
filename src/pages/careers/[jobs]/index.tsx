@@ -16,8 +16,8 @@ const Job: InferGetServerSidePropsType<typeof getServerSideProps> = (props: any)
         <>
         <Head title={locale === "mn" ? props.job.title : props.job.title_en}></Head>
         <PageHeader title={locale === "mn" ? props.job.title : props.job.title_en}/>
-        <article className="page-body container post-19 page type-position status-publish hentry" id="page-body">
-            <div className="row test ">
+        <article className="page-body container page type-position status-publish hentry" id="page-body">
+            <div className="row">
                 <main className="page-content col-md-9 col-md-push-3">
                   <Markdown>{locale === "mn" ? props.job.description : props.job.description_en }</Markdown>
                 </main>

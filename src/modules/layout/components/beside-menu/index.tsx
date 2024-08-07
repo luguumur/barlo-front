@@ -15,8 +15,8 @@ const Beside = (props: Props) => {
   let translat1e = props.translate
   const translate = useTranslations(translat1e);
   return (
-    <aside className="page-sidebar  col-md-3 col-md-pull-9">
-      <div className="widget widget-sublist-pages">
+    <aside className="page-sidebar col-md-3 col-md-pull-9">
+      <div className="widget-even widget-2 black widget wpcm_closest_location">
         <h5>{props.title}</h5>
         <nav className="sublist-pages">
           <ul id="menu-main-navigation-1" className="menu">

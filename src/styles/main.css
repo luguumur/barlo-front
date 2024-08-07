@@ -2012,8 +2012,12 @@ html.flexbox {
     align-items: stretch;
 }
 .slick-slide > div {
-    height: 610px;
+    height: 670px;
 }
+.equipment-detail > div {
+    height: 500px;
+}
+
 [dir='rtl'] .slick-slide {
     float: right
 }
@@ -3753,11 +3757,11 @@ select.wpcf7-not-valid,textarea.wpcf7-not-valid,input.wpcf7-not-valid {
 }
 
 .masthead-overlay-left {
-    left: -30px
+    left: 0px
 }
 
 .masthead-overlay-right {
-    right: -30px
+    right: 0px
 }
 
 .masthead-background-image {
@@ -7192,6 +7196,10 @@ img.mfp-img {
 .tab-link.active span {
     background: #ddd;
     color: #272727
+}
+
+.tabs__nav .tab-link {
+    padding: 0;
 }
 
 .tabs__content {
@@ -10835,7 +10843,7 @@ h2.h1.hp-mast-heading {
     }
 
     .js-masthead-homepage-slider .slick-dots {
-        bottom: 300px
+        bottom: 350px
     }
 
     h2.h2.hp-mast-subheading {
@@ -11492,4 +11500,510 @@ background: #dd4b39;
         transform: scale(1.5);
         opacity: 0;
     }
+}
+
+.specCheckLite a,.specCheckLite abbr,.specCheckLite acronym,.specCheckLite address,.specCheckLite article,.specCheckLite aside,.specCheckLite audio,.specCheckLite b,.specCheckLite big,.specCheckLite blockquote,.specCheckLite body,.specCheckLite canvas,.specCheckLite caption,.specCheckLite center,.specCheckLite cite,.specCheckLite code,.specCheckLite dd,.specCheckLite del,.specCheckLite details,.specCheckLite dfn,.specCheckLite div,.specCheckLite dl,.specCheckLite dt,.specCheckLite em,.specCheckLite embed,.specCheckLite fieldset,.specCheckLite figcaption,.specCheckLite figure,.specCheckLite footer,.specCheckLite form,.specCheckLite h1,.specCheckLite h2,.specCheckLite h3,.specCheckLite h4,.specCheckLite h5,.specCheckLite h6,.specCheckLite header,.specCheckLite hgroup,.specCheckLite html,.specCheckLite i,.specCheckLite img,.specCheckLite ins,.specCheckLite kbd,.specCheckLite label,.specCheckLite legend,.specCheckLite li,.specCheckLite mark,.specCheckLite menu,.specCheckLite nav,.specCheckLite ol,.specCheckLite output,.specCheckLite p,.specCheckLite pre,.specCheckLite q,.specCheckLite ruby,.specCheckLite s,.specCheckLite samp,.specCheckLite section,.specCheckLite small,.specCheckLite span,.specCheckLite strike,.specCheckLite strong,.specCheckLite sub,.specCheckLite summary,.specCheckLite sup,.specCheckLite table,.specCheckLite tbody,.specCheckLite td,.specCheckLite tfoot,.specCheckLite th,.specCheckLite thead,.specCheckLite time,.specCheckLite tr,.specCheckLite tt,.specCheckLite u,.specCheckLite ul,.specCheckLite var,.specCheckLite video {
+    background: 0 0;
+    border: none;
+    bottom: auto;
+    clear: none;
+    cursor: default;
+    float: none;
+    font-size: 100%;
+    font-size: medium;
+    font-style: normal;
+    font-weight: 400;
+    height: auto;
+    left: auto;
+    letter-spacing: normal;
+    line-height: normal;
+    margin: 0;
+    max-height: none;
+    max-width: none;
+    min-height: 0;
+    min-width: 0;
+    overflow: visible;
+    padding: 0;
+    position: static;
+    right: auto;
+    text-align: left;
+    text-decoration: none;
+    text-indent: 0;
+    text-transform: none;
+    top: auto;
+    vertical-align: baseline;
+    visibility: visible;
+    white-space: normal;
+    width: auto;
+    z-index: auto
+}
+
+.specCheckLite ol,.specCheckLite ul {
+    list-style: none
+}
+
+.specCheckLite q:after,.specCheckLite q:before {
+    content: "";
+    content: none
+}
+
+.specCheckLite table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+.scl-screen h1 {
+    font-size: 1.2em;
+    margin-bottom: .1em;
+    margin-top: 0
+}
+
+.scl-screen h1:empty,.scl-screen h2:empty {
+    display: none
+}
+
+.scl-screen h2 {
+    font-size: .9em;
+    margin-top: 0
+}
+
+.scl-screen .scl-button {
+    -webkit-touch-callout: none;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none
+}
+
+.scl-screen .scl-powered-by {
+    height: 1em;
+    margin-top: 1em;
+    text-align: right
+}
+
+.scl-screen .scl-powered-by a {
+    cursor: pointer
+}
+
+.scl-screen .scl-powered-by a span {
+    color: #666;
+    font-weight: 700;
+    line-height: 1em;
+    margin-right: .2em;
+    vertical-align: top
+}
+
+.scl-screen .scl-powered-by a img,.scl-screen .scl-powered-by a span {
+    cursor: pointer;
+    display: inline-block;
+    height: 1em
+}
+
+.specCheckLite span.scl-attrval {
+    float: right;
+    font-size: .75em
+}
+
+.specCheckLite span.scl-attrval>span {
+    font-size: inherit
+}
+
+.specCheckLite span.scl-attrval span.scl-attrval-unit {
+    font-weight: 700;
+    margin-left: .2em
+}
+
+.specCheckLite .scl-machine-tier:empty {
+    display: none!important
+}
+
+.specCheckLite .scl-machine-tier:before {
+    content: "- "
+}
+
+.specCheckLite .scl-compare-scroll-buttons {
+    display: none
+}
+
+#sclMachineSelection {
+    display: flex;
+    flex-direction: row;
+    justify-content: center
+}
+
+#sclMachineSelection .scl-machineSelectPane {
+    display: inline-block;
+    flex: 1 1 auto;
+    margin: .2em;
+    width: 49.95%
+}
+
+#sclMachineSelection .scl-machineSelectPane h1 {
+    color: red;
+    font-size: 2em
+}
+
+#sclMachineSelection ul {
+    list-style: none;
+    padding: 0
+}
+
+#sclInternalMachineSelectPane {
+    margin-right: 1em
+}
+
+#sclComparisonScreen .scl-back,#sclMachineSelectScreen .scl-back,.scl-button-compare {
+    float: right
+}
+
+#sclComparisonScreen .scl-attrdef,#sclComparisonScreen .scl-attrdef .scl-attrdef-imperial,#sclComparisonScreen .scl-attrdef .scl-attrdef-metric,#sclComparisonScreen .scl-attrdef .scl-attrdef-unit,#sclMachineSelectScreen .scl-attrdef,#sclMachineSelectScreen .scl-attrdef .scl-attrdef-imperial,#sclMachineSelectScreen .scl-attrdef .scl-attrdef-metric,#sclMachineSelectScreen .scl-attrdef .scl-attrdef-unit {
+    font-weight: 700
+}
+
+#sclComparisonScreen .scl-section,#sclMachineSelectScreen .scl-section {
+    cursor: pointer;
+    margin-bottom: .1em;
+    padding: .4em
+}
+
+#sclComparisonScreen table,#sclMachineSelectScreen table {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    width: 100%
+}
+
+#sclComparisonScreen table td,#sclComparisonScreen table th,#sclMachineSelectScreen table td,#sclMachineSelectScreen table th {
+    padding: .4em
+}
+
+#sclComparisonScreen table td span,#sclComparisonScreen table th span,#sclMachineSelectScreen table td span,#sclMachineSelectScreen table th span {
+    /* font-size: inherit */
+}
+
+#sclComparisonScreen table tbody th,#sclMachineSelectScreen table tbody th {
+    text-align: left;
+    width: 10em
+}
+
+#sclComparisonScreen table thead,#sclComparisonScreen table thead tr,#sclMachineSelectScreen table thead,#sclMachineSelectScreen table thead tr {
+    width: 100%
+}
+
+#sclComparisonScreen table thead tr th,#sclMachineSelectScreen table thead tr th {
+    width: 20%
+}
+
+
+.specCheckLite span.scl-attrval {
+    float: none
+}
+
+.specCheckLite .scl-screen {
+    background-color: #fff;
+    color: #1c1c1c;
+}
+
+.specCheckLite .scl-screen h1 {
+    font-size: 26px;
+    font-weight: 700;
+    margin-top: 36px;
+    text-transform: uppercase
+}
+
+.specCheckLite .scl-screen h2 {
+    border: none;
+    font-size: 14px;
+    font-weight: 700
+}
+
+.specCheckLite .scl-screen .scl-button {
+    background-color: #fc0;
+    color: #1c1c1c;
+    display: inline-block;
+    float: right;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .16px;
+    margin: 0 16px 10px 10px;
+    padding: 14px 16px 14px 24px;
+    position: relative;
+    text-transform: uppercase;
+    transition: all .4s ease-in-out;
+    width: 41.66666667%
+}
+
+.specCheckLite .scl-screen .scl-button:hover {
+    background: #666;
+    color: #fff
+}
+
+.specCheckLite .scl-screen .scl-button:hover:after {
+    background: #666
+}
+
+.specCheckLite .scl-screen .scl-button:after {
+    background: #fc0;
+    -webkit-clip-path: polygon(1px 0,100% 50%,1px 100%,0 100%,0 0);
+    clip-path: polygon(1px 0,100% 50%,1px 100%,0 100%,0 0);
+    content: "";
+    height: 100%;
+    position: absolute;
+    right: -17px;
+    top: 0;
+    transition: all .4s ease-in-out;
+    width: 18px
+}
+
+.specCheckLite .scl-screen .scl-back-alt,.specCheckLite .scl-screen .scl-button-compare-alt {
+    display: none
+}
+
+.specCheckLite .scl-screen .scl-exports {
+    margin: 1em 0
+}
+
+.specCheckLite .scl-screen .scl-exports .scl-button {
+    float: none;
+    margin-right: .5em
+}
+
+.specCheckLite #sclMachineSelectScreen ul,.specCheckLite #sclRangeSelectScreen ul {
+    align-content: flex-end;
+    align-items: left;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+    justify-content: space-between;
+    width: 100%
+}
+
+.specCheckLite #sclMachineSelectScreen ul li,.specCheckLite #sclRangeSelectScreen ul li {
+    width: 48%
+}
+
+.specCheckLite #sclMachineSelectScreen ul li:not(:first-child):not(:nth-child(2)),.specCheckLite #sclRangeSelectScreen ul li:not(:first-child):not(:nth-child(2)) {
+    border-top: 1px solid #ddd
+}
+
+.specCheckLite #sclMachineSelectScreen ul li a,.specCheckLite #sclRangeSelectScreen ul li a {
+    align-items: center;
+    color: #1c1c1c;
+    cursor: pointer;
+    display: flex;
+    font-size: 24px;
+    font-weight: 700;
+    padding: 15px
+}
+
+.specCheckLite #sclMachineSelectScreen ul li a:active,.specCheckLite #sclMachineSelectScreen ul li a:hover,.specCheckLite #sclRangeSelectScreen ul li a:active,.specCheckLite #sclRangeSelectScreen ul li a:hover {
+    background-color: #f5f5f5
+}
+
+.specCheckLite #sclMachineSelectionScreen #sclAttributeSelection {
+    align-items: center;
+    clear: both;
+    display: flex
+}
+
+.specCheckLite #sclMachineSelectionScreen #sclAttributeSelection label {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    margin-right: 10px;
+    width: auto
+}
+
+.specCheckLite #sclMachineSelectionScreen #sclAttributeSelection select {
+    -moz-appearance: auto;
+    appearance: auto;
+    -webkit-appearance: auto;
+    display: inline-block;
+    width: auto
+}
+
+.specCheckLite #sclMachineSelectionScreen #sclMachineSelection {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    justify-content: center;
+    margin-top: 24px
+}
+
+.specCheckLite #sclMachineSelectionScreen #sclMachineSelection .scl-machineSelectPane {
+    flex: 1 100%;
+    margin: 0;
+    position: relative;
+    width: 100%
+}
+
+.specCheckLite #sclMachineSelectionScreen #sclMachineSelection .scl-machineSelectPane .scl-title {
+    font-size: 18px;
+    padding-left: 0
+}
+
+.specCheckLite #sclMachineSelectionScreen #sclMachineSelection .scl-machineSelectPane .scl-paneHead {
+    margin-bottom: 12px
+}
+
+.specCheckLite #sclMachineSelectionScreen #sclMachineSelection .scl-machineSelectPane ul li {
+    display: flex;
+    padding: 5px 0
+}
+
+.specCheckLite #sclMachineSelectionScreen #sclMachineSelection .scl-machineSelectPane ul li:before {
+    display: none
+}
+
+.specCheckLite #sclMachineSelectionScreen #sclMachineSelection .scl-machineSelectPane ul li label {
+    align-items: center;
+    display: flex;
+    flex: 1 100%;
+    justify-content: space-between;
+    padding-left: 6px
+}
+
+.specCheckLite #sclMachineSelectionScreen #sclMachineSelection .scl-machineSelectPane ul li label .scl-attrval span {
+    font-weight: 700
+}
+
+.specCheckLite #sclMachineSelectionScreen #sclMachineSelection .scl-machineSelectPane ul li label .scl-attrval span.scl-attrval-unit {
+    font-weight: 400
+}
+
+.specCheckLite #sclMachineSelectionScreen #sclMachineSelection .scl-machineSelectPane:first-child:after {
+    background-color: #ddd;
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    right: -12px;
+    top: 0;
+    width: 1px
+}
+
+.specCheckLite #sclComparisonScreen table td,.specCheckLite #sclComparisonScreen table th {
+    padding: 5px;
+    text-align: center
+}
+
+.specCheckLite #sclComparisonScreen table tr.scl-modelNameRow th span {
+    display: block;
+    font-weight: 700;
+    text-align: center
+}
+
+.specCheckLite #sclComparisonScreen table tr.scl-modelNameRow th span:first-child {
+    font-weight: 400
+}
+
+.specCheckLite #sclComparisonScreen table tbody.data td {
+    font-size: 14px;
+    text-align: center
+}
+
+.specCheckLite #sclComparisonScreen table tbody.data th {
+    background: #fff;
+    border-right: 1px solid #ddd;
+    font-size: 14px;
+    text-align: left;
+    font-weight: 700;
+}
+
+.specCheckLite #sclComparisonScreen table tbody.data th span {
+    font-weight: 700;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.specCheckLite #sclComparisonScreen table tbody.data th span.scl-attrdef span {
+    font-weight: 400
+}
+
+.specCheckLite #sclComparisonScreen table tbody.data tr:not(:first-child) {
+    border-top: 1px solid #ddd
+}
+
+.specCheckLite #sclComparisonScreen table tbody.data tr.scl-data-row:hover,.specCheckLite #sclComparisonScreen table tbody.data tr.scl-data-row:hover th {
+    background-color: #f5f5f5
+}
+
+.specCheckLite #sclComparisonScreen table tbody.scl-section th {
+    padding: 0;
+    pointer-events: none
+}
+
+.specCheckLite #sclComparisonScreen table tbody.scl-section th>span {
+    align-items: center;
+    color: #1c1c1c;
+    cursor: pointer;
+    display: flex;
+    font-size: 24px;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 15px 15px 15px 0
+}
+
+@media only screen and (max-width: 767px) {
+    .specCheckLite #sclMachineSelectScreen ul,.specCheckLite #sclRangeSelectScreen ul {
+        flex-direction:column
+    }
+
+    .specCheckLite #sclMachineSelectScreen ul li,.specCheckLite #sclRangeSelectScreen ul li {
+        width: 100%
+    }
+
+    .specCheckLite #sclMachineSelectScreen ul li:nth-child(2),.specCheckLite #sclRangeSelectScreen ul li:nth-child(2) {
+        border-top: 1px solid #ddd
+    }
+
+    .specCheckLite #sclMachineSelectionScreen #sclMachineSelection {
+        flex-direction: column
+    }
+
+    .specCheckLite #sclMachineSelectionScreen #sclMachineSelection .scl-machineSelectPane:first-child:after {
+        display: none
+    }
+
+    .specCheckLite #sclComparisonScreen .scl-comparisongrid-holder {
+        overflow-x: auto;
+        width: 100%
+    }
+
+    .specCheckLite #sclComparisonScreen .scl-comparisongrid-holder table tr>th:first-child,.specCheckLite #sclComparisonScreen .scl-comparisongrid-holder table tr>th:first-child>span {
+        left: 0;
+        position: sticky
+    }
+}
+
+@media(max-width: 600px) {
+    .specCheckLite .scl-screen .scl-button {
+        width:50%
+    }
+}
+.specCheckLite #sclComparisonScreen table tbody.scl-section th>span {
+    align-items: center;
+    color: #1c1c1c;
+    cursor: pointer;
+    display: flex;
+    font-family: sans-serif;
+    font-family: Source Sans Pro,sans-serif;
+    font-size: 24px;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 15px 15px 15px 0;
+}
+
+.specCheckLite #sclComparisonScreen table tbody.scl-section th {
+    padding: 0;
+    pointer-events: none;
+}
+.text-center {
+    text-align: center;
+}
+#sclComparisonScreen > table > thead > tr > th > span.scl-font-bold{
+    font-weight: 700;
+    font-size: 15px;
 }

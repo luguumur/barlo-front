@@ -62,16 +62,16 @@ const Carousel: React.FC<Props> = ({ hero, description, image }) => {
   const imageLoader = ({ src, width }: { src: any, width: any }) => {
     return `${process.env.apiDomain}/file/${src}`
   }
-
   return (
     <>
       <section className="masthead">
-        <div className="js-masthead-homepage-slider slick-initialized slick-slider">
+        <section className="js-masthead-homepage-slider slick-initialized slick-slider">
           <Slider ref={(slider) => (sliderRef.current = slider)} {...settings}>
-            {hero?.map((deal: any, index: any) => (
+            {hero.map((deal: any, index: any) => (
               <div key={index} className='homepage-masthead-slide-wrapper'>
                 <div className="background-image-wrapper">
-                  <Image
+                  <img src={`${process.env.apiDomain}/file/${deal.imageurl}`} className="responsive-image" alt="Null"/>
+                  {/* <Image
                     loader={imageLoader}
                     src={deal.imageurl}
                     alt={deal.title}
@@ -79,22 +79,22 @@ const Carousel: React.FC<Props> = ({ hero, description, image }) => {
                     height={0}
                     sizes="100vw"
                     style={{ width: "100%", height: "auto" }}
-                    className=" lazyloaded homepage-masthead-bg" 
-                    priority={true} />
+                    className=" lazyloaded homepage-masthead-bg"
+                    priority={true} /> */}
                 </div>
                 <div className="container hp-slide-content">
                   {/* <div className="row">
-                  <div className="col-sm-12 col-lg-8">
+                    <div className="col-sm-12 col-lg-8">
                       <h2 className="h2 hp-mast-subheading">ANY PART. ANYTIME. ANYWHERE.</h2>
                       <h2 className="h1 hp-mast-heading">barloworld.com</h2>
                       <a className="btn btn-primary" href="#" target="_self" >SKIP THE LINE</a>
-                  </div>
-                </div> */}
+                    </div>
+                  </div> */}
                 </div>
               </div>
             ))}
           </Slider>
-        </div>
+        </section>
       </section>
     </>
   );

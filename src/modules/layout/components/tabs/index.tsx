@@ -23,16 +23,13 @@ const Tabs: React.FC<TabsProps> = ({ tabs }) => {
   const changeTab = (index: number) => {
     setActiveTab(index);
   };
-  
-
-  
   return (
     <>
       <div className="row detail-box ">
-        <div className='col-xxs-12' >
+        <div className='col-xxs-12 h-[500px]' >
           {tabs[activeTab].title == 'icon-camera' && tabs[activeTab].image}
-          {tabs[activeTab].title == 'icon-play' && tabs[activeTab].image && <Markdown>{tabs[activeTab].image as string}</Markdown>}
-          {tabs[activeTab].title == 'icon-360' && tabs[activeTab].image && <Markdown>{tabs[activeTab].image as string}</Markdown>}
+          {tabs[activeTab].title == 'icon-play' && tabs[activeTab].image && <div dangerouslySetInnerHTML={{ __html: tabs[activeTab].image as string}} />}
+          {tabs[activeTab].title == 'icon-360' && tabs[activeTab].image && <div dangerouslySetInnerHTML={{ __html: tabs[activeTab].image as string}} />}
         </div>
       </div>
       <div className='tabs tabs--small media-tabs push-xxs--top flush-xs--top js-media-tabs'>
@@ -49,7 +46,6 @@ const Tabs: React.FC<TabsProps> = ({ tabs }) => {
         </div>
       </div>
     </>
-   
   );
 };
 

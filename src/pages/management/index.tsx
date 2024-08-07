@@ -15,7 +15,7 @@ const Management = () => {
         <>
         <Head title={t(`board`)}></Head>
         <PageHeader title={t(`board`)}/>
-        <article className="page-body container post-7 page type-page status-publish hentry">
+        <article className="page-body container page type-page status-publish hentry">
         <div className="container">
             <h2>{t(`board`)}</h2>
             <div className="row">

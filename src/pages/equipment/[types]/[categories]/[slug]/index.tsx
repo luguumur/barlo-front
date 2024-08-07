@@ -9,7 +9,7 @@ import https from "https";
 import React from "react"
 
 const Types: InferGetServerSidePropsType<typeof getServerSideProps> = (params: any) => {
-  return <EquipmentTemplate equipment={params} />
+  return <EquipmentTemplate equipment={params}/>
   return <></>
 }
 
@@ -29,10 +29,20 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     url: `${process.env.apiDomain}/store/products/${slug}`,
     headers: { }
   };
-  const product = await instance.request(config)
+  const {data:product} = await instance.request(config)
+  
+  let productsConfig = {
+    method: 'get',
+    rejectUnauthorized: false,
+    maxBodyLength: Infinity,
+    url: `${process.env.apiDomain}/store/categories/${product.category_id}`,
+    headers: { }
+  };
+  const {data:products} = await instance.request(productsConfig)
   return {
     props: {
-      data: product?.data,
+      data: product,
+      products: products.products,
       messages: (await import(`../../../../../../messages/${context.locale}.json`)).default
     },
   };

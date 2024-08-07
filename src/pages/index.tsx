@@ -1,112 +1,96 @@
-import { GetStaticPropsContext, GetServerSideProps, InferGetServerSidePropsType} from 'next';
-import {useTranslations} from 'next-intl';
-import PageLayout from './components/PageLayout';
+import { GetStaticPropsContext, InferGetServerSidePropsType } from 'next';
+import { useTranslations } from 'next-intl';
 import QuickSearch from '@/modules/home/components/quick-search';
 import Specials from '@/modules/home/components/specials';
 import About from '@/modules/home/components/about';
-import Testimonials from '@/modules/home/components/testimonials';
 import Cta from '@/modules/home/components/cta';
 import Head from '@/modules/common/components/head';
- 
-import axios from 'axios';
-import https from "https";
+
+import axios, { AxiosInstance } from 'axios';
+import https from 'https';
 import OfferCarousel from '@/modules/layout/components/offer-carousel';
 import Carousel from '@/modules/layout/components/carousel';
 import TestiCarousel from '@/modules/layout/components/testimonials-carousel';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
+
+const createRequest = (url: string) => ({
+  method: 'get',
+  maxBodyLength: Infinity,
+  url,
+  headers: {},
+});
+
+const fetchData = async (instance: AxiosInstance, config: { method?: string; maxBodyLength?: number; url: any; headers?: {}; }) => {
+  try {
+    const response = await instance.request(config);
+    return response.data;
+  } catch (error) {
+    console.error(`Error fetching data from ${config.url}:`, error);
+    return null;
+  }
+};
 
 export async function getServerSideProps({ locale }: GetStaticPropsContext) {
-
   const instance = axios.create({
-    httpsAgent: new https.Agent({  
-      rejectUnauthorized: false
-    })
+    httpsAgent: new https.Agent({
+      rejectUnauthorized: false,
+    }),
   });
 
-  let config = {
-    method: 'get',
-    rejectUnauthorized: false,
-    maxBodyLength: Infinity,
-    url: `${process.env.apiDomain}/deals`,
-    headers: { }
-  };
+  const apiDomain = process.env.apiDomain;
+  const requests = [
+    createRequest(`${apiDomain}/deals`),
+    createRequest(`${apiDomain}/mastheads`),
+    createRequest(`${apiDomain}/store/attribute-values?attribute_id=clx2rlgzv0005w3hvkqzb1fyo`),
+    createRequest(`${apiDomain}/store/attribute-values?attribute_id=clx2rl7l30004w3hv38mtjjbq`),
+    createRequest(`${apiDomain}/store/attribute-values?attribute_id=clx2rkyy60003w3hvmr8tg2e5`),
+    createRequest(`${apiDomain}/testimonials`),
+  ];
 
-  const deals = await instance.request(config)
+  const [deals, hero, model, owner, location, testi] = await Promise.all(
+    requests.map((config) => fetchData(instance, config))
+  );
 
-  let heroconfig = {
-    method: 'get',
-    maxBodyLength: Infinity,
-    rejectUnauthorized: false,
-    url: `${process.env.apiDomain}/mastheads`,
-    headers: { }
-  };
-
-  const hero = await instance.request(heroconfig)
-  let modelConfig = {
-    method: 'get',
-    maxBodyLength: Infinity,
-    url: `${process.env.apiDomain}/store/attribute-values?attribute_id=clx2rlgzv0005w3hvkqzb1fyo`,
-    headers: { }
-  };
-
-  const model = await instance.request(modelConfig)
-
-  let ownerConfig = {
-    method: 'get',
-    maxBodyLength: Infinity,
-    url: `${process.env.apiDomain}/store/attribute-values?attribute_id=clx2rl7l30004w3hv38mtjjbq`,
-    headers: { }
-  };
-
-  const owner = await instance.request(ownerConfig)
-
-  let locationConfig = {
-    method: 'get',
-    maxBodyLength: Infinity,
-    url: `${process.env.apiDomain}/store/attribute-values?attribute_id=clx2rkyy60003w3hvmr8tg2e5`,
-    headers: { }
-  };
-
-  const location = await instance.request(locationConfig)
-
-  let testiConfig = {
-    method: 'get',
-    maxBodyLength: Infinity,
-    url: `${process.env.apiDomain}/testimonials`,
-    headers: { }
-  };
-
-  const testi = await instance.request(testiConfig)
   return {
     props: {
-      deals: deals?.data,
-      hero: hero?.data,
-      model: model?.data,
-      owner: owner?.data,
-      location: location?.data,
-      testi: testi?.data,
-      locale: locale,
+      deals,
+      hero,
+      model,
+      owner,
+      location,
+      testi,
+      locale,
       messages: (await import(`../../messages/${locale}.json`)).default,
-    }
+    },
   };
 }
 
-
 export default function Index({
   deals,
-  hero,model,owner,location,locale,testi,
+  hero,
+  model,
+  owner,
+  location,
+  locale,
+  testi,
   messages,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const t = useTranslations('Index');
 
   return (
     <>
-      <Head title={t("title").toString()}></Head>
-      <Carousel hero={hero} />
-      <QuickSearch model={model} owner={owner} location={location} />
-      <OfferCarousel deals={deals} locale={locale}/>
+      <Head title={t('title').toString()} />
+      {hero ? <Carousel hero={hero} /> : <Skeleton height={300} />}
+      {model && owner && location ? (
+        <QuickSearch model={model} owner={owner} location={location} />
+      ) : (
+        <Skeleton height={200} />
+      )}
+      {deals ? <OfferCarousel deals={deals} locale={locale} /> : <Skeleton height={400} />}
       <Specials />
       <About />
-      <TestiCarousel testi={testi} locale={locale}/>
+      {testi ? <TestiCarousel testi={testi} locale={locale} /> : <Skeleton height={200} />}
       <Cta />
     </>
   );

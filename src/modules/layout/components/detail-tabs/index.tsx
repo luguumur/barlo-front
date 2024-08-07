@@ -38,22 +38,29 @@ const DetailsTab: React.FC<TabsProps> = ({ tabs }) => {
                 tabs[activeTab].content?.map((tab:any, index:any) => {
                   const showGroupName = tab.group.name !== lastGroupName;
                   lastGroupName = tab.group.name;
-          
-                  return (
-                    <div key={index}>
-                      {showGroupName && <h4>{tab.group.name}</h4>}
-                      <dl className="clearfix flush--top">
-                        <div className="specs__row clearfix">
-                          <dt>{tab.attribute.name}</dt>
-                          <dd data-english="C1.1" data-metric="">{tab.string_value}</dd>
-                        </div>
-                      </dl>
-                    </div>
-                  );
+                  if (lastGroupName != "FILTERS") {
+                    return (
+                      <div key={index}>
+                        {showGroupName && <h4>{tab.group.name}</h4>}
+                        <dl className="clearfix flush--top">
+                          <div className="specs__row clearfix">
+                            <dt>{tab.attribute.name}</dt>
+                            <dd data-english="C1.1" data-metric="">{tab.string_value}</dd>
+                          </div>
+                        </dl>
+                      </div>
+                    );
+                  }
                 })
               }
               {
                 tabs[activeTab].title == "Benefits and Features" &&
+                  <>
+                  {tabs[activeTab].content}
+                  </>
+              }
+              {
+                tabs[activeTab].title == "Compare Models" &&
                   <>
                   {tabs[activeTab].content}
                   </>
