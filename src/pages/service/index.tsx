@@ -46,7 +46,7 @@ const Parts = () => {
                   <article className="service-card-with-featured-image__card">
                     <a className="service-card-with-featured-image__link" href={item.handle}>
                       <div className="service-card-with-featured-image__image">
-                        <img src={item.image} alt=""/>
+                        
                       </div>
                       <div className="service-card-with-featured-image__content">
                         <h5>{item.title}</h5>

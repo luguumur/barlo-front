@@ -60,12 +60,12 @@ const MachineCheckbox: React.FC<MachineCheckboxProps> = ({ machine, isSelected, 
             <span data-bind="text: Model">{machine.name}</span>
           </span>
           <span data-bind="if: machine.Attribute">
-            <span data-bind="template: {name: $parent.attributeValueTemplateName, data: machine.Attribute}">
+            {/* <span data-bind="template: {name: $parent.attributeValueTemplateName, data: machine.Attribute}">
               <span className="scl-attrval">
                 <span className="scl-attrval-imperial" data-bind="text: imperial">50975</span><span className="scl-attrval-unit" data-bind="text: imperialUnit">lb</span>
                 (<span className="scl-attrval-metric" data-bind="text: metric">23122</span><span className="scl-attrval-unit" data-bind="text: metricUnit">kg</span>)
               </span>
-            </span>
+            </span> */}
           </span>
         </label>
       </li>
@@ -296,7 +296,7 @@ const EquipmentTemplate: React.FC<EquipmentTemplateProps> = ({ equipment }) => {
                 <h1 >Compare</h1>
                 <h2 data-bind="text: subTitle">Select Models to Compare (Maximum of 5)</h2>
                 <div id="sclAttributeSelection" data-bind="css: { sclDisabled: comparisonAttributes().length <= 1 }">
-                  <label htmlFor="attributeSelect" data-bind="text: comparisonAttrLabel">Closest Comparison By: </label>
+                  {/* <label htmlFor="attributeSelect" data-bind="text: comparisonAttrLabel">Closest Comparison By: </label>
                   <select id="attributeSelect" data-bind="value: selectedComparisonAttribute, options: comparisonAttributes, optionsText: 'name', enable: comparisonAttributes().length > 1">
                     <option value="">Cycle Time - Lower Power</option>
                     <option value="">Cycle Time - Raise</option>
@@ -308,7 +308,7 @@ const EquipmentTemplate: React.FC<EquipmentTemplateProps> = ({ equipment }) => {
                     <option value="">Net Weight</option>
                     <option value="">Payload</option>
                     <option value="">Struck Capacity</option>
-                  </select>
+                  </select> */}
                 </div>
                 <div id="sclMachineSelection">
                   <div id="sclInternalMachineSelectPane" className="scl-machineSelectPane">

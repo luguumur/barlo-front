@@ -8,6 +8,7 @@ import https from "https";
 import { useRouter } from "next/router";
 import Markdown from 'react-markdown'
 import Head from "@/modules/common/components/head";
+import Link from "next/link";
 
 const Job: InferGetServerSidePropsType<typeof getServerSideProps> = (props: any) => {
     const t = useTranslations("Menu");
@@ -20,6 +21,7 @@ const Job: InferGetServerSidePropsType<typeof getServerSideProps> = (props: any)
             <div className="row">
                 <main className="page-content col-md-9 col-md-push-3">
                   <Markdown>{locale === "mn" ? props.job.description : props.job.description_en }</Markdown>
+                  <Link href={`/application?title=${locale === "mn" ? props.job.title : props.job.title_en}`} className="button button--primary" type="submit">Анкет илгээх</Link>
                 </main>
                 <Beside menu={HeaderData} title={t('home')} translate="Menu"/>
             </div>

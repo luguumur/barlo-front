@@ -14,7 +14,7 @@ const Management = () => {
     return (
         <>
         <Head title={t(`board`)}></Head>
-        <PageHeader title={t(`board`)}/>
+        <PageHeader title={t(`board`)} image="/assets/img/hr/management.jpg"/>
         <article className="page-body container page type-page status-publish hentry">
         <div className="container">
             <h2>{t(`board`)}</h2>

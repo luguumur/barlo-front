@@ -10906,10 +10906,18 @@ h2.h1.hp-mast-heading {
     .service-card-with-featured-image__item:not(:last-child) {
         margin-bottom:32px
     }
+     .service-card-with-featured-image__item-2:not(:last-child) {
+        margin-bottom:32px
+    }
 }
 
 @media (min-width: 768px) {
     .service-card-with-featured-image__item {
+        width:50%;
+        padding: 0 16px;
+        margin-bottom: 32px
+    }
+    .service-card-with-featured-image__item-2 {
         width:50%;
         padding: 0 16px;
         margin-bottom: 32px
@@ -10919,6 +10927,9 @@ h2.h1.hp-mast-heading {
 @media (min-width: 1200px) {
     .service-card-with-featured-image__item {
         width:33%
+    }
+    .service-card-with-featured-image__item-2 {
+        width:63.7%
     }
 }
 

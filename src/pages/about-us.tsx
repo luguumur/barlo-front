@@ -13,7 +13,7 @@ const About = () => {
     return (
         <>
             <Head title={t("title")}></Head>
-            <PageHeader title={t(`about`)} image="/assets/img/specials/HumanCapital.jpg" />
+            <PageHeader title={t(`about`)} image="/assets/img/hr/A4_Company_Profile_Inside4_11zon.png" />
             <article className="page-body container page type-page status-publish hentry" id="page-body">
                 <div className="row">
                     <main className="page-content col-md-9 col-md-push-3">
@@ -125,7 +125,10 @@ const About = () => {
                                     </div>
                                 </div>
                             </section>
-                            <h2>{about("what_we_offer")}</h2>
+                            <section>
+                                <img src="/assets/img/hr/home.png" alt="" />
+                            </section>
+                            {/* <h2>{about("what_we_offer")}</h2>
                             <p>{about("health_insurance")} <br />
                             </p>
                             <h3>{about("new_equipment")}</h3>
@@ -140,7 +143,7 @@ const About = () => {
                             <p>{about("do_you_need_equipment")} </p>
                             <p>
                                 <a className="button button--primary" href="contact-us/">Contact Us For More Info</a>
-                            </p>
+                            </p> */}
                         </main>
                         </div>
                     </main>

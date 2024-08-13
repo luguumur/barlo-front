@@ -13,7 +13,7 @@ const About = () => {
     return (
         <>
             <Head title={t("title")}></Head>
-            <PageHeader title={t(`rent`)} image="/assets/img/specials/HumanCapital.jpg" />
+            <PageHeader title={t(`rent`)} image="/assets/img/hr/rent.jpg" />
             <article className="page-body container page type-page status-publish hentry" id="page-body">
                 <div className="row">
                     <div className="container mx-auto py-8">
