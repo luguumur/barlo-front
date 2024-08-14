@@ -23,7 +23,7 @@ const HomeCarouselComponent: React.FC<EmblaCarouselProps> = ({ slides }) => {
                     ))}
                 </div>
             </div>
-            <div className={styles.embla__controls}>
+            {/* <div className={styles.embla__controls}>
                 <div className={styles.embla__dots}>
                     {scrollSnaps.map((_, index) => (
                         <DotButton
@@ -35,7 +35,7 @@ const HomeCarouselComponent: React.FC<EmblaCarouselProps> = ({ slides }) => {
                         />
                     ))}
                 </div>
-            </div>
+            </div> */}
         </section>
     );
 };
