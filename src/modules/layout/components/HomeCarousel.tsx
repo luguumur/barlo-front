@@ -23,19 +23,21 @@ const HomeCarouselComponent: React.FC<EmblaCarouselProps> = ({ slides }) => {
                     ))}
                 </div>
             </div>
-            {/* <div className={styles.embla__controls}>
-                <div className={styles.embla__dots}>
-                    {scrollSnaps.map((_, index) => (
-                        <DotButton
-                            key={index}
-                            onClick={() => onDotButtonClick(index)}
-                            className={styles.embla__dot.concat(
-                                index === selectedIndex ? styles['embla__dot--selected'] : ''
-                            )}
-                        />
-                    ))}
+            <div className='container'>
+                <div className={styles.embla__controls}>
+                    <div className={styles.embla__dots}>
+                        {scrollSnaps.map((_, index) => (
+                            <DotButton
+                                key={index}
+                                onClick={() => onDotButtonClick(index)}
+                                className={styles.embla__dot.concat(
+                                    index === selectedIndex ? ` ${styles['embla__dot--selected']}` : ''
+                                )}
+                            />
+                        ))}
+                    </div>
                 </div>
-            </div> */}
+            </div>
         </section>
     );
 };
