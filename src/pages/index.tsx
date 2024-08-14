@@ -13,6 +13,7 @@ import Carousel from '@/modules/layout/components/carousel';
 import TestiCarousel from '@/modules/layout/components/testimonials-carousel';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
+import HomeCarouselComponent from '@/modules/layout/components/homeCarousel';
 
 const createRequest = (url: string) => ({
   method: 'get',
@@ -81,7 +82,11 @@ export default function Index({
   return (
     <>
       <Head title={t('title').toString()} />
-      {hero ? <Carousel hero={hero} /> : <Skeleton height={300} />}
+      {hero ?
+        // <Carousel hero={hero} />
+        <HomeCarouselComponent slides={hero} />
+        :
+        <Skeleton height={300} />}
       {model && owner && location ? (
         <QuickSearch model={model} owner={owner} location={location} />
       ) : (
