@@ -22,7 +22,7 @@ const Parts = ({ params }: Props) => {
               <div className="flexible-image-cards-listing">
                 <div className="row js-equal-heights">
                 {PartsData.map((item:any, index: any) => (
-                  <div key={index} className="col-sm-6">
+                  <div key={index} className="col-sm-4">
                     <div className="image-cards-box">
                       <a href={item.handle}>
                         <div className="card-image">

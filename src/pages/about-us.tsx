@@ -25,7 +25,7 @@ const About = () => {
                                     <div className="flexible-image-cards-header"></div>
                                     <div className="flexible-image-cards-listing">
                                         <div className="row js-equal-heights">
-                                            <div className="col-sm-6">
+                                            <div className="col-sm-4">
                                                 <div className="image-cards-box">
                                                     <a href="/management">
                                                         <div className="card-image"></div>

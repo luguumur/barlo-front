@@ -29,7 +29,7 @@ const Types: InferGetServerSidePropsType<typeof getServerSideProps> = (props: an
               <div className="flexible-image-cards-listing">
                 <div className="row js-equal-heights">
                 {props.data && props.data.map((item:any, index: any) => (
-                  <div key={index} className="col-sm-6">
+                  <div key={index} className="col-sm-4">
                     <div className="image-cards-box">
                       <Link href={props.basePath +"/"+ item.id}>
                         <div className="card-image">
