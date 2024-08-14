@@ -3449,7 +3449,8 @@ select.wpcf7-not-valid,textarea.wpcf7-not-valid,input.wpcf7-not-valid {
 
 .masthead {
     background: #272727;
-    padding: 0 0 25px
+    padding: 0 0 25px;
+    height:652px
 }
 
 .js-masthead-homepage-slider {
@@ -4113,7 +4114,7 @@ select.wpcf7-not-valid,textarea.wpcf7-not-valid,input.wpcf7-not-valid {
     .quick-search {
         padding:0 0 0;
         background: transparent;
-        margin-top: -166px
+        margin-top: 0px
     }
 
     .quick-search-layout {
@@ -4167,7 +4168,7 @@ select.wpcf7-not-valid,textarea.wpcf7-not-valid,input.wpcf7-not-valid {
 
 @media (min-width: 1025px) {
     .quick-search {
-        margin-top:-150px
+        margin-top: 0px
     }
 
     .quick-search-field .selectric {

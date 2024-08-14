@@ -9,7 +9,6 @@ interface EmblaCarouselProps {
 }
 
 const HomeCarouselComponent: React.FC<EmblaCarouselProps> = ({ slides }) => {
-    console.log(slides)
     const [emblaRef, emblaApi] = EmblaCarousel({ loop: true });
     const { selectedIndex, scrollSnaps, onDotButtonClick } =
         useDotButton(emblaApi)

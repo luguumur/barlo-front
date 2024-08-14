@@ -13,7 +13,7 @@ import Carousel from '@/modules/layout/components/carousel';
 import TestiCarousel from '@/modules/layout/components/testimonials-carousel';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
-import HomeCarouselComponent from '@/modules/layout/components/homeCarousel';
+import HomeCarouselComponent from '@/modules/layout/components/HomeCarousel';
 
 const createRequest = (url: string) => ({
   method: 'get',
