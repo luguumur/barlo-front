@@ -7736,7 +7736,7 @@ span.categories a {
 }
 
 .page-footer {
-    background: url(/assets/img/footer-bg.png) no-repeat center bottom #474d59;
+    background: url('/assets/img/footer-bg.png') no-repeat center bottom #474d59;
     background-size: cover;
     padding-bottom: 60px
 }

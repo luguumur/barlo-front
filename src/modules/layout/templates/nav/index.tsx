@@ -54,7 +54,7 @@ const Nav = () => {
             <div className="col-xxs-7 col-xs-6 col-sm-4 col-md-3">
               <div className="page-header--logo">
                 <Link href="/">
-                  <Image width="190" height="51" className="site-logo entered lazyloaded" src="/logo.jpg" alt="Barloworld Mongolia" />
+                  <Image priority width="190" height="51" className="site-logo entered lazyloaded" src="/logo.jpg" alt="Barloworld Mongolia" />
                 </Link>
               </div>
             </div>

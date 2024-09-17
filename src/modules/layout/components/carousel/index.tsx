@@ -36,6 +36,7 @@ const CarouselComponent: React.FC<CarouselProps> = ({ slides }) => {
               alt={`Slide ${index + 1}`}
               layout="fill"
               objectFit="cover"
+              priority
               className={`transition-transform duration-1000 ease-in-out ${index === currentSlide ? 'scale-105 transform' : 'scale-100 transform'
                 }`}
             />

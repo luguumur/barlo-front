@@ -7,7 +7,7 @@ const Cta = () => {
         <>
             <section className="cta">
                 <div className="cta-banner">
-                    <Image src={"/assets/img/cta-banner-image.jpg"} width={831} height={165}/>
+                    <Image priority src={"/assets/img/cta-banner-image.jpg"} width={831} height={165}/>
                 </div>
                 <div className="cta-overlay">
                     <div className="container">

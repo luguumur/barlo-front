@@ -15,6 +15,7 @@ const Specials = () => {
           height={283}
           layout="responsive"
           alt="Graphics 4"
+          priority
         />
       </div>
       <div className="image-button-graphics-left">
@@ -25,6 +26,7 @@ const Specials = () => {
           height={220}
           layout="responsive"
           alt="Graphics 5"
+          priority
         />
       </div>
       <div className="container">
@@ -43,6 +45,7 @@ const Specials = () => {
                           height={500}
                           className="img-responsive"
                           alt={item.title}
+                          priority
                         />
                       </div>
                       <div className="image-button-overlay">

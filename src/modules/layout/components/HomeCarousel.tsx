@@ -30,6 +30,7 @@ const HomeCarouselComponent: React.FC<EmblaCarouselProps> = ({ slides }) => {
                                 alt={`Slide ${index + 1}`}
                                 layout='fill'
                                 objectFit="cover"
+                                priority
                             />
                         </div>
                     ))}
