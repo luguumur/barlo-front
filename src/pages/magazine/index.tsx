@@ -19,7 +19,7 @@ const Management = () => {
                         <a key={index} className="hover:bg-white rounded mb-5 pb-2" href={item.link} target="blank_">
                             <div className="px-5 max-w-[255px]">
                             <span className="text-[22px] text-[#ffcc03]">{item.title}</span>
-                            <img className="content-center services-card-img-icon" src={item.image} alt="" />
+                            <img className="content-center services-card-img-icon" src={item.image} alt="Barloworld Mongolia" />
                             <span className="services-card-title text-right text-gray-500 text-[15px]">{item.date}</span>
                             </div>
                         </a>

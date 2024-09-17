@@ -126,7 +126,7 @@ const About = () => {
                                 </div>
                             </section>
                             <section>
-                                <img src="/assets/img/hr/home.png" alt="" />
+                                <img src="/assets/img/hr/home.png" alt="Barloworld Mongolia" />
                             </section>
                             {/* <h2>{about("what_we_offer")}</h2>
                             <p>{about("health_insurance")} <br />

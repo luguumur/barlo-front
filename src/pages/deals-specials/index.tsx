@@ -47,7 +47,7 @@ const DealsPage = () => {
                 <div key={index} className="col-sm-6 box-deals">
                   <a href={`/deals-specials/${item.id}`} className="deal">
                     <h2 className="post__title"> {locale === "mn" ? item.title : item.title_en} </h2>
-                    <img width="2088" height="1046" src={'https://webapi.barloworld.mn/file/' + item.img_path} className="alignleft img-responsive wp-post-image" alt="" decoding="async" sizes="(max-width: 300px) 100vw, 300px" />
+                    <img width="2088" height="1046" src={'https://webapi.barloworld.mn/file/' + item.img_path} className="alignleft img-responsive wp-post-image" alt="Barloworld Mongolia" decoding="async" sizes="(max-width: 300px) 100vw, 300px" />
                     <button className="button button--primary button--block"> Read More </button>
                   </a>
                 </div>

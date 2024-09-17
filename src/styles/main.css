@@ -2185,15 +2185,6 @@ html.flexbox {
     background: #fff url(/assets/img/ajax-loader.gif) center center no-repeat
 }
 
-/* @font-face {
-    font-display: swap;
-    font-family: 'slick';
-    font-weight: 400;
-    font-style: normal;
-    src: url(../../../../../../../../themes/thompsonmachinery/assets/fonts/slick.eot);
-    src: url('../../../../../../../../themes/thompsonmachinery/assets/fonts/slick.eot?#iefix') format('embedded-opentype'),url(../../../../../../../../themes/thompsonmachinery/assets/css/fonts/slick.woff) format('woff'),url(../../../../../../../../themes/thompsonmachinery/assets/css/fonts/slick.ttf) format('truetype'),url('../../../../../../../../themes/thompsonmachinery/assets/css/fonts/slick.svg#slick') format('svg')
-} */
-
 .slick-prev,
 .slick-next {
     font-size: 0;

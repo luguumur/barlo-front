@@ -19,6 +19,7 @@ import { toast } from 'react-toastify';
 import LoadingSection from '../modules/layout/components/LoadingSection';
 import CarouselComponent from '../modules/layout/components/carousel';
 import { useRouter } from 'next/router';
+import SkeletonLoader from '@/modules/layout/components/SkeletonLoader';
 
 const Index = () => {
   const {
@@ -56,14 +57,14 @@ const Index = () => {
   return (
     <>
       <Head title={t('title').toString()} />
-      {mastheads.data && <HomeCarouselComponent slides={mastheads.data} />}
-      {model && owner && location &&
+      {loading ? <SkeletonLoader /> : mastheads.data && <HomeCarouselComponent slides={mastheads.data} />}
+      {loading ? <SkeletonLoader /> : model && owner && location &&
         <QuickSearch model={model.data} owner={owner.data} location={location.data} />
       }
-      {deals && <OfferCarousel deals={deals.data} locale={locale} />}
+      {loading ? <SkeletonLoader /> : <OfferCarousel deals={deals.data} locale={locale} />}
       <Specials />
       <About />
-      {testimonials && <TestiCarousel testi={testimonials.data} locale={locale} />}
+      {loading ? <SkeletonLoader /> : testimonials && <TestiCarousel testi={testimonials.data} locale={locale} />}
       <Cta />
     </>
   )

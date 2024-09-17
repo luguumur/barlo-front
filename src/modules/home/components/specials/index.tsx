@@ -29,7 +29,7 @@ const Specials = () => {
                   <div key={index} className="col-md-3 col-sm-6">
                     <div className="image-button-item">
                       <a href={`/${item.handle}`} target="_self">
-                        <Image layout="fill" src={item.image} className="img-responsive entered lazyloaded" alt={item.title} />
+                        <Image layout="fill" src={item.image} className="img-responsive entered lazyloaded" alt={item.title}/>
                         <div className="image-button-overlay">
                           <div className="image-button-overlay-content">
                             <div className="image-button-title">

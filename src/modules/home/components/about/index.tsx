@@ -27,7 +27,7 @@ const About = () => {
           <div className="col-md-6">
             <div className="home-about-left-panel">
               <div className="home-about-image">
-                <Image src="/assets/img/HOME_Parts.jpg" width={643} height={364} className="lazyloaded" alt="" />
+                <Image src="/assets/img/HOME_Parts.jpg" width={643} height={364} className="lazyloaded" alt="Barloworld Mongolia" layout="intrinsic" />
                 <div className="home-about-image-overlay">
                   <a className="video-button-link external" data-fancybox="goal-video" href="https://www.youtube.com/watch?v=sds1NxKwucM&ab_channel=BarloworldMongolia" target="_blank" rel="noopener">
                     <div className="video-button-outer">

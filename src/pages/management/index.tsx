@@ -38,7 +38,7 @@ const Management = () => {
                             </div>
                             ))}
                             <center>
-                                <img src="http://www.barloworld.mn/images/uploads2/ORG CHART1.jpg" alt="" />
+                                <img src="http://www.barloworld.mn/images/uploads2/ORG CHART1.jpg" alt="Barloworld Mongolia" />
                             </center>
                         </div>
                     </div>

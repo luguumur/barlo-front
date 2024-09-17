@@ -15,7 +15,7 @@ const FooterCTA = () => {
         <div className="relative w-full aspect-square small:w-[35%] small:aspect-[28/36]">
           <Image
             src="/cta_three.jpg"
-            alt=""
+            alt="Barloworld Mongolia"
             className="absolute inset-0"
             fill
             priority

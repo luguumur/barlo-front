@@ -149,7 +149,7 @@ const careerPage: InferGetServerSidePropsType<typeof getServerSideProps> = (prop
                     <div className="service-card-with-featured-image__list">
                         {HrData.map((item: any, index: any) => (
                             <div className={item.id === 7 ? `service-card-with-featured-image__item-2` : 'service-card-with-featured-image__item'} key={index}>
-                                <img src={item.image} alt="" />
+                                <img src={item.image} alt="Barloworld Mongolia" />
                             </div>
                         ))}
                     </div>

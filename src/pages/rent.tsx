@@ -20,7 +20,7 @@ const About = () => {
                         <div>
 
                             <div className="absolute z-10">
-                                <img src="/rent.png" alt="" width={300} />
+                                <img src="/rent.png" alt="Barloworld Mongolia" width={300} />
                             </div>
                             <span className="absolute text-[#ad0f0e] z-10 font-bold text-[40px] pt-28 pl-10 indent-0 flex-col">
                                 <div>ТҮРЭЭСИЙН САЛБАР БАЙРШЛУУД</div>

@@ -67,7 +67,7 @@ const Parts = ({ params }: Props) => {
               <li>Хурдны Хайрцаг</li>
             </ul>
             <p>
-              <img decoding="async" className="alignright size-full wp-image-25264 entered lazyloaded" src="https://www.barloworld.mn/images/drivetrain2.png" alt="" height="108" data-ll-status="loaded"/>
+              <img decoding="async" className="alignright size-full wp-image-25264 entered lazyloaded" src="https://www.barloworld.mn/images/drivetrain2.png" alt="Barloworld Mongolia" height="108" data-ll-status="loaded"/>
             </p>
           </section>
           <section>

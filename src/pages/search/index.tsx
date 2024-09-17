@@ -80,7 +80,7 @@ const Search: InferGetServerSidePropsType<typeof getServerSideProps> = (props: a
                     {result.map((item:any, index: any) => (
                         <Link key={index} className="card card--product js-cat-filterable test" href={"/equipment/"+props.condition+"/"+item.category_id+"/"+item.id}>
                             <figure className="card__primary-info">
-                                <img src={`https://webapi.barloworld.mn/file/${item.img_path}`} alt="" className="img-responsive entered lazyloaded" data-lazy-src={item.image}  data-ll-status="loaded"/>
+                                <img src={`https://webapi.barloworld.mn/file/${item.img_path}`} alt="Barloworld Mongolia" className="img-responsive entered lazyloaded" data-lazy-src={item.image}  data-ll-status="loaded"/>
                             </figure>
                             <figcaption className="card__secondary-info">
                                 <h4 className="card__title">{item.title}</h4>

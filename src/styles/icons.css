@@ -6,7 +6,7 @@
     url('/fonts/icomoon.svg?h3b8we#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
-  font-display: block;
+  font-display: swap;
 }
 
 i {
