@@ -15,10 +15,10 @@ const Specials = () => {
   return (
     <section className="image-button">
       <div className="image-button-graphics-right hidden-xs-down">
-        <Image src={"/assets/img/graphics4.png"} className="img-responsive entered lazyloaded" width={585} height={283} />
+        <Image src={"/assets/img/graphics4.png"} className="img-responsive entered lazyloaded" width={585} height={283} layout="intrinsic" />
       </div>
       <div className="image-button-graphics-left hidden-sm-down">
-        <Image src={"/assets/img/graphics5.png"} className="img-responsive entered lazyloaded" width={455} height={220} />
+        <Image src={"/assets/img/graphics5.png"} className="img-responsive entered lazyloaded" width={455} height={220} layout="intrinsic"  />
       </div>
       <div className="container">
         <div className="row">

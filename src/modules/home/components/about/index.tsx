@@ -8,10 +8,10 @@ const About = () => {
   return (
     <section className="home-about">
       <div className="home-about-graphics-right hidden-xs-down">
-        <Image src={"/assets/img/graphics1-497x283.png"} className="img-responsive entered lazyloaded" width={497} height={283} />
+        <Image src={"/assets/img/graphics1-497x283.png"} className="img-responsive entered lazyloaded" width={497} height={283} layout="intrinsic"  />
       </div>
       <div className="home-about-graphics-left hidden-sm-down">
-        <Image src={"/assets/img/graphics2-585x272.png"} className="img-responsive entered lazyloaded" width={585} height={272} />
+        <Image src={"/assets/img/graphics2-585x272.png"} className="img-responsive entered lazyloaded" width={585} height={272} layout="intrinsic" />
       </div>
       <div className="container">
         <div className="row">
