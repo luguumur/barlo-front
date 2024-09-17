@@ -114,27 +114,7 @@ const RequestAQuote = () => {
     };
     return (
         <>
-            <header className="masthead text--center clearfix" id="masthead">
-                <div className="masthead-background">
-                    <h1> Quote </h1>
-                    <div className="masthead-dark-overlay">
-                        <img width="588" height="336" className="masthead-overlay-right entered lazyloaded" src="https://thompsonmachinery.com/content/uploads/2021/10/masthead-graphic-right.png" data-lazy-src="/content/uploads/2021/10/masthead-graphic-right.png" data-ll-status="loaded" />
-                        <span className="masthead-overlay-color"></span>
-                    </div>
-                    <img width="1920" height="382" className="masthead-background-image entered lazyloaded" src={""} data-lazy-src="/content/uploads/2021/10/cta-banner-image.jpg" data-ll-status="loaded" />
-                </div>
-                <div className="breadcrumbs hidden-xxs hidden-xs">
-                    <div className="container">
-                        <span>
-                            <span>
-                                <a href="/">{t(`home`)}</a>
-                            </span>
-                            <span className="separator"></span>
-                            <span className="breadcrumb_last" aria-current="page">Quote</span>
-                        </span>
-                    </div>
-                </div>
-            </header>
+            <PageHeader title="Quote" image="/assets/img/cta-banner-image-1536x306.jpg" />
             <article className="page-body container page type-page status-publish hentry" id="page-body">
                 <div className="row">
                     <main className="page-content col-md-9 col-md-push-3">

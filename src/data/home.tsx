@@ -21,19 +21,19 @@ export const MenuData = [
         id: 4,
         title: 'energy',
         handle: '/',
-        image: 'https://www.barloworld.mn/images/HOME_et.jpg',
+        image: '/assets/img/HOME_et.jpg',
     },
     {
         id: 5,
         title: 'parts',
         handle: 'parts',
-        image: 'https://www.barloworld.mn/images/HOME_Parts.jpg',
+        image: '/assets/img/HOME_Parts.jpg',
     },
     {
         id: 6,
         title: 'service',
         handle: '/',
-        image: 'https://www.barloworld.mn/images/HOME_Service.jpg',
+        image: '/assets/img/HOME_Service.jpg',
     },
     {
         id: 7,

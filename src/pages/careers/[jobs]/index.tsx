@@ -47,7 +47,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       };
     
     const job = await instance.request(detailConfig)
-    console.log(job.data)
+    // console.log(job.data)
     return {
         props: {
             job: job.data,

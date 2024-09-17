@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 import Slider from 'react-slick';
 import Image from 'next/image'
+import { useTranslations } from 'next-intl';
 
 type Props = {
   deals?: any
@@ -16,6 +17,7 @@ const imageLoader = ({ src, width } : {src:any, width:any}) => {
 const OfferCarousel: React.FC<Props> = ({ deals, description, locale, image }) => {
   const sliderRef = useRef<Slider | null>(null);
 
+  const t = useTranslations("Deals");
   useEffect(() => {
     if (sliderRef.current) {
       sliderRef.current.slickPlay();
@@ -37,7 +39,7 @@ const OfferCarousel: React.FC<Props> = ({ deals, description, locale, image }) =
       <div className="home-deals-content-wrapper">
         <div className="container">
           <div className="home-deals-header">
-            <h2>DEALS &amp; SPECIALS</h2>
+            <h2>{t("deals_specials")}</h2>
             <a href="/deals-specials/" target="_self" className="home-deals-header__link hidden-xs-down">VIEW ALL DEALS &amp; SPECIALS <span className="icon-chevron-right"></span>
             </a>
           </div>

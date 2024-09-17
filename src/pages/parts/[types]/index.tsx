@@ -14,7 +14,7 @@ const Parts: InferGetServerSidePropsType<typeof getServerSideProps> = (props: an
     const {locale, locales, route, asPath} = useRouter();
     return (
         <>
-            <PageHeader title={t(`parts`)} image="https://thompsonmachinery.com/content/uploads/2022/06/cta-banner-image-1536x306.jpg"/>
+            <PageHeader title={t(`parts`)} image="/assets/img/cta-banner-image-1536x306.jpg"/>
             <article className="page-body container page type-page status-publish hentry" id="page-body">
                 <div className="row">
                     <main className="page-content col-md-9 col-md-push-3">

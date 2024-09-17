@@ -9300,7 +9300,7 @@ ul.sc__sublinks {
 }
 
 .sc__video-btn:after {
-    content: url(https://thompsonmachinery.com/content/themes/thompsonmachinery/assets/img/play-icon.png);
+    content: url(/assets/img/play-icon.png);
     width: 107px;
     height: 81px;
     left: 0;
@@ -11131,7 +11131,6 @@ figcaption.wp-caption-text {
     content: "";
     width: 30px;
     height: 30px;
-    background-image: url(http://thompsonmachinery.com/content/uploads/2020/05/multimedia-option.png);
     display: block;
     margin-bottom: 5px;
     background-size: contain;

@@ -59,7 +59,6 @@ const Nav = () => {
             </div>
             <div className="col-xxs-5 col-xs-6 col-sm-8 col-md-9 text--right pull--right header-top-right-section">
               <div className="header-right-top">
-                {/* <a className="button page-header--phone phone-number hidden-xxs hidden-xs" href="tel:97670187588">+976 7018-7588</a> */}
                 
                 <Link href={"https://click.callpro.mn/mbifA6W5F03wSWFs5anFx1IM6p6RkA6r4G1GanpO"} target="_blank" className="inline-block hidden-xxs hidden-xs hidden-sm pr-5">
                   <div className="sc-17sh5d6-0 hVYMdc telcocom-call-component">

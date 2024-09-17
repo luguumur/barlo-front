@@ -155,7 +155,6 @@ const Application: FC<Step2Props> = ({
                 [`ex${index + 1}_${name}`]: value,
             });
         } else if (entryType === "computer") {
-            console.log("asdasd",computerEntries)
             updatedEntries = [...computerEntries];
             updatedEntries[index] = {
                 ...updatedEntries[index],

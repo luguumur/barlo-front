@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import Image from "next/legacy/image";
 const Cta = () => {
     const home = useTranslations("Home");
     const menu = useTranslations("Menu");
@@ -6,7 +7,7 @@ const Cta = () => {
         <>
             <section className="cta">
                 <div className="cta-banner">
-                    <img width="831" height="165" src="https://thompsonmachinery.com/content/uploads/2021/11/cta-banner-image-831x165.jpg" className="img-responsive entered lazyloaded" alt="" data-lazy-src="https://thompsonmachinery.com/content/uploads/2021/11/cta-banner-image-831x165.jpg" data-ll-status="loaded" />
+                    <Image src={"/assets/img/cta-banner-image.jpg"} width={831} height={165}/>
                 </div>
                 <div className="cta-overlay">
                     <div className="container">

@@ -45,7 +45,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     };
   
   const detail = await instance.request(detailConfig)
-  console.log(detail)
+  // console.log(detail)
   return {
       props: {
           detail: detail.data,
