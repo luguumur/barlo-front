@@ -81,7 +81,7 @@ const Footer = () => {
   const home = useTranslations("Home");
 
   return (
-    <footer>
+    <>
       {showFooter && (
         <div className="container py-[30px]">
           <div className="col-md-6 h-[48.65px] flex items-center">
@@ -111,7 +111,7 @@ const Footer = () => {
         </div>
       )}
       <FooterNav />
-    </footer>
+    </>
   );
 };
 
