@@ -13,7 +13,7 @@ import HomeCarouselComponent from '@/modules/layout/components/HomeCarousel';
 import { apiMastheads } from '@/services/home/HomeServices';
 
 import { useLocale, useTranslations } from 'next-intl';
-import { useHomeStore } from './store';
+import { useHomeStore } from '../lib/util/store';
 import { useEffect } from 'react';
 import { toast } from 'react-toastify';
 import LoadingSection from '../modules/layout/components/LoadingSection';

@@ -5,7 +5,7 @@ import https from "https";
 import Questions from "@/modules/layout/components/questions";
 import { useRouter } from "next/router";
 import Head from "@/modules/common/components/head";
-import { useHomeStore } from "../store";
+import { useHomeStore } from "../../lib/util/store";
 import { useTranslations } from "next-intl";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
