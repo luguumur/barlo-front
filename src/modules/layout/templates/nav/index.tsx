@@ -9,6 +9,7 @@ import { GetStaticPropsContext } from "next"
 
 import FX from "@/lib/util/custom-fx";
 import React, { useEffect, useState } from 'react'; 
+import Image from "next/legacy/image";
 
 const Nav = () => {
 
@@ -53,18 +54,17 @@ const Nav = () => {
             <div className="col-xxs-7 col-xs-6 col-sm-4 col-md-3">
               <div className="page-header--logo">
                 <Link href="/">
-                  <img width="209" height="51" className="site-logo entered lazyloaded" src="/logo.jpg" alt="Barloworld Mongolia" data-lazy-src="/logo.jpg" data-ll-status="loaded"/>
+                  <Image width="190" height="51" className="site-logo entered lazyloaded" src="/logo.jpg" alt="Barloworld Mongolia" />
                 </Link>
               </div>
             </div>
             <div className="col-xxs-5 col-xs-6 col-sm-8 col-md-9 text--right pull--right header-top-right-section">
               <div className="header-right-top">
-                
                 <Link href={"https://click.callpro.mn/mbifA6W5F03wSWFs5anFx1IM6p6RkA6r4G1GanpO"} target="_blank" className="inline-block hidden-xxs hidden-xs hidden-sm pr-5">
                   <div className="sc-17sh5d6-0 hVYMdc telcocom-call-component">
                     <button type="button">
                       <span className="flex justify-center items-center">
-                        <img src="/phone.svg" alt="phone"/>
+                        <img width={12} height={12} src="/phone.svg" alt="phone"/>
                       </span>
                     </button>
                     <div className="bg-anime"></div>
