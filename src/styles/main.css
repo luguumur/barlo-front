@@ -2116,9 +2116,6 @@ html.flexbox {
     clear: both
 }
 
-.slick-loading .slick-track {
-    visibility: hidden
-}
 
 .slick-slide {
     /* display: none;
@@ -2151,9 +2148,6 @@ html.flexbox {
     display: block
 }
 
-.slick-slide.slick-loading img {
-    display: none
-}
 
 .slick-slide.dragging img {
     pointer-events: none
@@ -2167,10 +2161,6 @@ html.flexbox {
     padding-left: 0
 }
 
-.slick-loading .slick-slide {
-    visibility: hidden
-}
-
 .slick-vertical .slick-slide {
     display: block;
     height: auto;
@@ -2181,9 +2171,6 @@ html.flexbox {
     display: none
 }
 
-.slick-loading .slick-list {
-    background: #fff url(/assets/img/ajax-loader.gif) center center no-repeat
-}
 
 .slick-prev,
 .slick-next {
@@ -9793,88 +9780,6 @@ ul.error-page {
 
     .login-register__content {
         padding: 50px
-    }
-}
-
-.list-section {
-    background: #F2F2F2;
-    margin-bottom: 50px
-}
-
-.list-section--partstore {
-    background: url(/assets/img/bg-partstore-list.png) right bottom no-repeat #F2F2F2
-}
-
-.list-section__content {
-    padding: 30px 20px
-}
-
-.list-section--partstore .list-section__content {
-    padding-bottom: 200px
-}
-
-.list-section ul {
-    list-style: none;
-    padding: 0
-}
-
-.list-section li {
-    background: #fff;
-    display: inline-block;
-    margin-bottom: 10px;
-    padding: 7px 15px;
-    position: relative
-}
-
-.list-section li:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 19.5px 0 19.5px 7px;
-    border-color: transparent transparent transparent #989898
-}
-
-@media (min-width: 600px) {
-    .list-section__content {
-        padding: 50px
-    }
-}
-
-.cta-section {
-    margin-bottom: 50px
-}
-
-.cta-section__block {
-    padding: 30px 20px 100px 20px
-}
-
-.cta-section__block--part-lookup {
-    background: url(/assets/img/bg-partstore-lookup.png) right bottom no-repeat #F2F2F2
-}
-
-.cta-section__block--planned-maintenance-kits {
-    background: url(/assets/img/bg-partstore-planned-maintenance-kit.png)right bottom no-repeat #E2E2E2
-}
-
-@media (min-width: 600px) {
-    .cta-section__block {
-        padding: 50px 50px 100px 50px
-    }
-}
-
-@media (min-width: 768px) {
-    .cta-section__wrapper {
-        display: table;
-        width: 100%
-    }
-
-    .cta-section__block {
-        display: table-cell;
-        width: 50%
     }
 }
 
