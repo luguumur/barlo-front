@@ -1,58 +1,72 @@
-import Button from "@/modules/common/components/button"
-import AnchorLink from "@/modules/common/components/links"
-import UnderlineLink from "@/modules/common/components/underline-link"
-import ArrowRight from "@/modules/common/icons/arrow-right"
-import ChevronDown from "@/modules/common/icons/chevron-down"
-import ChevronRight from "@/modules/common/icons/chevron-right"
-import { MenuData } from "@/data/home"
+import { MenuData } from "@/data/home";
 import { useTranslations } from "next-intl";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 const Specials = () => {
-
   const t = useTranslations("Home");
 
   return (
     <section className="image-button">
-      <div className="image-button-graphics-right hidden-xs-down">
-        <Image src={"/assets/img/graphics4.png"} className="img-responsive entered lazyloaded" width={585} height={283} layout="intrinsic" />
+      <div className="image-button-graphics-right">
+        <Image
+          src={"/assets/img/graphics4.png"}
+          className="img-responsive"
+          width={585}
+          height={283}
+          layout="responsive"
+          alt="Graphics 4"
+        />
       </div>
-      <div className="image-button-graphics-left hidden-sm-down">
-        <Image src={"/assets/img/graphics5.png"} className="img-responsive entered lazyloaded" width={455} height={220} layout="intrinsic"  />
+      <div className="image-button-graphics-left">
+        <Image
+          src={"/assets/img/graphics5.png"}
+          className="img-responsive"
+          width={455}
+          height={220}
+          layout="responsive"
+          alt="Graphics 5"
+        />
       </div>
       <div className="container">
         <div className="row">
           <div className="col-md-12">
-            <div className="">
-              <div className="row js-image-button" role="toolbar">
-                {MenuData.map((item, index) => (
-                  <div key={index} className="col-md-3 col-sm-6">
-                    <div className="image-button-item">
-                      <a href={`/${item.handle}`} target="_self">
-                        <Image layout="fill" src={item.image} className="img-responsive entered lazyloaded" alt={item.title}/>
-                        <div className="image-button-overlay">
-                          <div className="image-button-overlay-content">
-                            <div className="image-button-title">
-                              <span className="image-button-title-wrap">{t(`${item.title}`)}</span>
-                              <div className="image-button-title-clippy">
-                                <span className="arrow-icon">
-                                  <span></span>
-                                </span>
-                              </div>
+            <div className="row js-image-button" role="toolbar">
+              {MenuData.map((item, index) => (
+                <div key={index} className="col-md-3 col-sm-6">
+                  <div className="image-button-item">
+                    <a href={`/${item.handle}`} target="_self">
+                      <div className="image-container">
+                        <Image
+                          src={item.image}
+                          layout="responsive"
+                          width={500}
+                          height={500}
+                          className="img-responsive"
+                          alt={item.title}
+                        />
+                      </div>
+                      <div className="image-button-overlay">
+                        <div className="image-button-overlay-content">
+                          <div className="image-button-title">
+                            <span className="image-button-title-wrap">{t(`${item.title}`)}</span>
+                            <div className="image-button-title-clippy">
+                              <span className="arrow-icon">
+                                <span></span>
+                              </span>
                             </div>
                           </div>
                         </div>
-                      </a>
-                    </div>
+                      </div>
+                    </a>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Specials
+export default Specials;
