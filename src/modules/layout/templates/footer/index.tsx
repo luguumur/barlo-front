@@ -1,4 +1,4 @@
-import FooterNav from "@modules/layout/components/footer-nav"
+import FooterNav from "@/modules/layout/components/footer-nav"
 import { GetStaticPropsContext } from "next";
 import { useState } from "react";
 import { toast } from 'react-toastify';
@@ -33,7 +33,6 @@ const Footer = () => {
       return;
     }
     const gRecaptchaToken = await executeRecaptcha('inquirySubmit');
-    // console.log(gRecaptchaToken)
     const response = await axios({
       method: "post",
       url: "/api/recaptchaSubmit",

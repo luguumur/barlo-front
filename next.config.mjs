@@ -8,8 +8,7 @@ const nextConfig = {
   },
   images: { 
     domains: [
-      'webapi.barloworld.mn',
-      'localhost',
+      'webapi.barloworld.mn', 'localhost'
     ],
     remotePatterns: [
       {
@@ -17,6 +16,12 @@ const nextConfig = {
         hostname: 'webapi.barloworld.mn',
         port: '',
         pathname: '/file/**',
+      },
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '3000',
+        pathname: '/images/**'
       },
     ],
   },

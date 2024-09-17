@@ -1,0 +1,1014 @@
+#gnewtonCareerBody * {
+    color: #272727;
+    font-size: 14px;
+    line-height: 25.808px;
+}
+
+dt.gnewtonSectionTitleClass {
+    font-weight: bold;
+}
+
+#gnewtonResumeFormTitle,
+#gnewtonApplicationBox *,
+#gnewtonReqiredTipTitle {
+    display: none;
+}
+
+.gnewtonCareerBodyClass {
+    margin-left: 0;
+    width: 100%;
+}
+
+.gnewtonCareerBodyClass * {
+    font-size: 14px;
+}
+
+.gnewtonCareerBodyClass h2,
+.gnewtonCareerBodyClass h3,
+.gnewtonCareerBodyClass h4,
+.gnewtonCareerBodyClass p,
+.gnewtonCareerBodyClass td,
+.gnewtonCareerBodyClass tr,
+.gnewtonCareerBodyClass ul,
+.gnewtonCareerBodyClass ol,
+.gnewtonCareerBodyClass li,
+.gnewtonCareerBodyClass table,
+.gnewtonCareerBodyClass dl,
+.gnewtonCareerBodyClass dd,
+.gnewtonCareerBodyClass dt,
+.gnewtonCareerBodyClass img,
+.gnewtonCareerBodyClass form,
+.gnewtonCareerBodyClass input,
+.gnewtonCareerBodyClass textarea,
+.gnewtonCareerBodyClass select {
+    padding: 0;
+    white-space: normal;
+}
+
+.gnewtonCareerBodyClass dd {
+    margin: 0;
+}
+
+.gnewtonCareerBodyClass img {
+    cursor: hand;
+}
+
+.gnewtonCareerBodyClass hr {
+    background: #fff;
+    border-top: 1px dashed #ccd3d8;
+    color: #fff;
+    margin-bottom: 20px;
+    margin-top: 4px;
+    width: 100%;
+}
+
+.gnewtonCareerBodyClass div.dashed {
+    border-top: 1px dashed #ccd3d8;
+    margin: 4px 0;
+}
+
+/* Section Title */
+.gnewtonSectionTitleClass {
+    color: #272727;
+    font-size: 14px;
+    margin: 15px 0 10px 0;
+    padding-left: 0;
+}
+
+.gnewtonJobPositionClass {
+    margin-bottom: 15px;
+}
+
+/* Section Layout */
+.gnewtonSectionClass dl {
+    border-bottom: 1px dashed #ccd3d8;
+    margin-top: 8px;
+    padding: 0 0 4px;
+}
+
+.gnewtonSectionClass dd {
+    margin-bottom: 20px;
+    padding: 5px 0 5px 20px;
+}
+
+.gnewtonSectionClass dd div {
+    padding: 3px 0 2px 5px;
+    overflow: visible;
+}
+
+/* Required Star Icon */
+.gnewtonStar {
+    position: relative;
+    top: 5px !important;
+}
+
+.gnewtonFieldClass span.gnewtonStar {
+    top: -2px !important;
+}
+
+.gnewtonQuestionLabelClass .gnewtonStar {
+    top: -4px !important;
+}
+
+.gnewtonSectionTitleClass .gnewtonStar {
+    top: -6px !important;
+}
+
+/* Label Layout */
+.gnewtonFieldLabelClass {
+    float: left;
+    text-align: right;
+    width: 160px;
+}
+
+.gdprRemarketLabel .gnewtonStar {
+    margin-right: 5px;
+}
+
+#gnewtonGdprRemarket .gnewtonSectionTitleClass {
+    clear: both;
+}
+
+#gnewtonGdprRemarket .gnewtonQuestionInputClass {
+    margin-left: 0px;
+    max-width: 700px;
+}
+
+#gnewtonGdprRemarket .gnewtonQuestionInputClass.gdprRemarketLabel {
+    margin: 0;
+    max-width: 700px;
+}
+
+#gnewtonGdprRemarket .gnewtonQuestionInputClass>.gnewtonFieldLabelClass {
+    float: none;
+    text-align: left;
+    width: auto;
+}
+
+#gnewtonGdprRemarket .gnewtonStar {
+    top: -2px !important;
+}
+
+#gnewtonGdprRemarket .gnewtonQuestionInputClass>.gnewtonFieldInputClass {
+    margin-left: 0px;
+}
+
+.gnewtonFieldLabelClass label {
+    padding-right: 5px;
+    position: relative;
+    top: 8px;
+}
+
+.gnewtonFieldLabelClass [for=firstName],
+.gnewtonFieldLabelClass [for=lastName],
+.gnewtonFieldLabelClass [for=email],
+.gnewtonFieldLabelClass [for='mobile'],
+.gnewtonFieldLabelClass [for=city],
+.gnewtonFieldLabelClass [for='state'],
+.gnewtonFieldLabelClass [for=zipCode],
+.gnewtonFieldLabelClass [for='phone'],
+.gnewtonFieldLabelClass [for=country],
+.gnewtonFieldLabelClass [for='country'],
+.gnewtonFieldLabelClass [for=address1],
+.gnewtonFieldLabelClass [for=''] {
+    padding-left: 4px;
+}
+
+.gnewtonQuestionLabelClass label {
+    white-space: normal;
+    text-align: start;
+}
+
+/* Input Layout */
+.gnewtonFieldInputClass,
+.gnewtonQuestionInputClass {
+    position: relative;
+    margin-left: 165px;
+    max-width: 350px;
+    overflow: hidden;
+}
+
+.gnewtonFieldInputClass input {
+    height: 30px;
+    width: 100%;
+    line-height: normal !important;
+    margin-bottom: 0;
+    min-width: 225px;
+}
+
+.gnewtonQuestionInputClass input {
+    height: 30px;
+}
+
+.gnewtonFieldClass {
+    float: left;
+}
+
+#gnewtonCareerBody textarea {
+    height: 55px;
+    line-height: normal !important;
+    min-height: 55px;
+    max-height: 90px;
+    left: 0 !important;
+    width: 100% !important;
+    min-width: 225px !important;
+    float: none !important;
+    resize: none;
+    white-space: pre-wrap;
+}
+
+#gnewtonCareerBody textarea[title^=largeTextBox] {
+    height: 90px;
+    min-height: 90px;
+    max-height: 300px;
+}
+
+#gnewtonCareerBody .textarea-remaining {
+    padding: 0 !important;
+    margin-bottom: -9px !important;
+    text-align: right !important;
+    font-size: 8px !important;
+    line-height: normal !important;
+    white-space: normal !important;
+    float: none !important;
+    color: #aaa !important;
+}
+
+/* Invalid Input */
+.gnewtonFieldInputClass input:invalid,
+.gnewtonFieldInputClass textarea:invalid,
+.gnewtonFieldInputClass select:invalid {
+    background: #fbf5ec;
+    border: 1px solid #e7594a;
+}
+.gnewtonCountryClass,
+.gnewtonFieldInputClass input[name="mobile"],
+.gnewtonPhone,
+.gnewtonFieldInputClass input[name="city"],
+.gnewtonFieldInputClass input[title="From (MM/YY):"],
+.gnewtonFieldInputClass select[name="country"],
+.gnewtonFieldInputClass input[title="To (MM/YY):"] {
+    min-width: 0;
+    width: 180px;
+}
+
+.gnewtonSaveButtonBar {
+    text-align: center;
+}
+/********** Header Section **********/
+.gnewtonJobTitleClass {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+}
+
+/********** Resume Upload Section **********/
+#newton_file_upload_drop_target {
+    display: none;
+    background: rgba(255, 255, 255, 0.95);
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    right: -100px;
+    bottom: -100px;
+    z-index: 100;
+    border: solid 1px #eee;
+}
+
+#newton_file_upload_drop_target.drag-in-progress {
+    display: block;
+}
+
+#newton_file_upload_drop_target.over-drop-target {
+    background: #E1F0FA;
+    border: solid 1px #3498db;
+}
+
+#newton_file_upload_drop_target.over-drop-target:after {
+    color: #555;
+}
+
+#newton_file_upload_drop_target:before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border: dashed 3px #3498db;
+}
+
+#newton_file_upload_drop_target:after {
+    content: 'Drop Resume Here';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    line-height: 40px;
+    text-align: center;
+    margin: -20px 0 0 -150px;
+    color: #bbb;
+    font-size: 30px;
+}
+
+#resumeDrop {
+    position: relative;
+    min-width: 225px;
+    padding: 15px 0;
+    text-align: center;
+    border: 1px dashed #ccd3d8;
+}
+
+#resumeDrop.required {
+    border-color: #e67263;
+}
+
+#resumeDropping {
+    text-align: center;
+}
+
+#resumeDropped .bar {
+    position: relative;
+    background: #3498db;
+    color: #fff;
+    height: 27px;
+    padding: 0 !important;
+}
+
+#resumeDropped .bar .filename,
+#resumeDropped .bar .closeBtn {
+    position: absolute;
+    top: 50%;
+    margin-top: -7px;
+    font-family: arial, helvetica, sans-serif !important;
+    font-size: 12px !important;
+    line-height: normal !important;
+}
+
+#resumeDropped .bar .filename {
+    left: 10px;
+}
+
+#resumeDropped .bar .closeBtn {
+    color: #aed6f1;
+    text-decoration: none;
+    right: 3px;
+}
+
+#resumeDropped .bar .closeBtn:hover {
+    color: #ffffff;
+}
+
+#resumeDrop .remoteFiles span {
+    display: inline-block;
+    margin: 0 5px;
+    color: #3498db;
+    cursor: pointer;
+}
+
+#resumeDrop label#resumeDropLocalFile {
+    margin: 0;
+    color: #3498db;
+    cursor: pointer;
+}
+
+.no-touch #resumeDrop #resumeDropLocalFile:hover,
+#resumeDrop .remoteFiles span:hover {
+    color: #88bde5;
+}
+
+#resumeDrop #resumeDropLocalFile:active,
+#resumeDrop .remoteFiles span:active {
+    color: #15547d
+}
+
+#resumeDrop .message {
+    margin: 0 0 10px 0;
+}
+
+/********** Personal Information Section **********/
+/* Form Resetter */
+dt.newtonStoreReset {
+    position: relative;
+    max-width: 545px;
+}
+
+.button.newtonStoreReset {
+    display: none;
+    position: absolute;
+    top: 50%;
+    margin-top: -10px;
+    right: -5px;
+    padding: 5px;
+    color: #3498db !important;
+    font-size: 12px !important;
+    font-family: arial, helvetica, sans-serif !important;
+    line-height: normal !important;
+    cursor: pointer;
+}
+
+.button.newtonStoreReset:hover {
+    color: #88bde5 !important;
+}
+
+.button.newtonStoreReset:active {
+    color: #15547d !important;
+}
+
+
+/********** Attachments Section **********/
+#gnewtonAttachmentsInfo .gnewtonAttachment {
+    position: absolute !important;
+    top: -16px !important;
+    /* Put the input[type=file] */
+    left: 5px !important;
+    /* directly over the label, */
+    width: 122px !important;
+    /* giving it the same width and height as the label, */
+    height: 30px !important;
+    /* so the validation warning will show up in the correct spot. */
+    min-width: 0 !important;
+    line-height: 0 !important;
+    font-size: 0 !important;
+    border: none !important;
+    background: none !important;
+    float: left !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    opacity: 0 !important;
+    cursor: pointer;
+}
+
+#gnewtonAttachmentsInfo .gnewtonFieldLabelClass .gnewtonStar {
+    top: -2px !important;
+}
+
+#gnewtonAttachmentsInfo .gnewtonFieldLabelClass label {
+    position: static;
+}
+
+label.emptyFileInput {
+    color: #3498db;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.gnewtonSectionClass div.filledFileInput {
+    display: none;
+    padding: 0;
+}
+
+div.filledFileInput span {
+    float: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 200px;
+}
+
+div.filledFileInput a {
+    color: #3498db;
+    float: right;
+    text-decoration: none;
+}
+
+label.emptyFileInput:hover,
+div.filledFileInput a:hover {
+    color: #88bde5;
+}
+
+label.emptyFileInput:active,
+div.filledFileInput a:active {
+    color: #15547d;
+}
+
+label.emptyFileInput.invalid,
+div.filledFileInput.invalid {
+    background-color: #fc7c72;
+    color: black;
+}
+
+.gnewtonFieldInputClass [type=file],
+.gnewtonFieldInputClass.gnewtonRequired [type=file] {
+    color: transparent;
+}
+
+.gnewtonFieldInputClass [type=file]::-webkit-file-upload-button,
+.gnewtonFieldInputClass.gnewtonRequired [type=file]::-webkit-file-upload-button {
+    visibility: hidden;
+}
+
+/********** Contact Information Section **********/
+#zipCode {
+    width: 100px;
+    min-width: 100px;
+}
+
+/********** General Information Section **********/
+/* Radio Buttons */
+.html5YesNoButton {
+    border: solid #ccd3d8 1px;
+    border-radius: 2px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 13px;
+    line-height: 27px;
+    margin: 0 5px 0 0;
+    text-align: center;
+    width: 48px;
+}
+
+.yesNoInput {
+    position: absolute;
+    top: 0;
+    left: -1000em;
+    z-index: -1;
+    opacity: 0.05;
+    height: 100%;
+}
+
+.no-touch input[type=checkbox]:not(.disabled):hover {
+    background-color: #3498db;
+    border-color: #3498db;
+}
+
+.gnewtonFieldClass input[type=checkbox] {
+    top: -2px;
+}
+
+#gnewtonGenInf .gnewtonQuestionInputClass input[type="text"] {
+    width: 100%;
+}
+
+/********** Comments Section **********/
+#gnewtonCommentsInfo .gnewtonQuestionInputClass {
+    max-width: 100%;
+    margin-left: 0;
+}
+
+/* Comments Textarea */
+#gnewtonCommentsInfo .gnewtonQuestionInputClass textarea {
+    height: 60px;
+    min-height: 60px;
+    max-height: 360px;
+}
+
+#gnewtonPrivacyPolicyInfo .gnewtonQuestionInputClass {
+    max-width: 100%;
+    margin-left: 0;
+}
+
+#gnewtonPrivacyPolicyInfo .gnewtonQuestionInputClass textarea {
+    height: 60px;
+    min-height: 60px;
+    max-height: 360px;
+}
+
+/* Submit Button */
+#gnewtonCareerBody button.gnewtonBlueBtn {
+    font-size: 22px !important;
+    width: 140px;
+}
+
+/* Vevraa */
+input[type=checkbox].gnewtonVevraaVeteranCheckbox {
+    margin: 3px 3px 5px 20px;
+    vertical-align: middle;
+    top: 0px;
+}
+
+.gnewtonVevraaVeteranCheckbox+label {
+    cursor: pointer;
+}
+
+.popover-div {
+    display: none;
+}
+
+#mdiv {
+    width: 20px;
+    height: 23px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    transform: scale(0.75);
+    -moz-transform: scale(0.75);
+    -webkit-transform: scale(0.75);
+    -o-transform: scale(0.75);
+    -ms-transform: scale(0.75);
+    overflow: hidden;
+}
+
+.duplicate-candidate-alert-popover {
+    border: 1px solid #ccd3d8;
+    font-size: 14px;
+    font-family: 'Arimo', "Helvetica Neue", Helvetica, Arial, sans-serif;
+    z-index: 99999;
+    display: block;
+    position: fixed;
+    background-color: white;
+    top: 80px;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.mask-layer {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.4);
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.duplicate-candidate-alert-popover .popover-header {
+    background-color: #f9f9f9;
+    text-align: center;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ccd3d8;
+    position: relative;
+    line-height: 40px;
+    height: 40px;
+    font-size: 14px;
+    color: #3C4452;
+}
+
+.duplicate-candidate-alert-popover .popover-header .header-name {
+    font-size: 14px;
+}
+
+.duplicate-candidate-alert-popover .popover-content {
+    padding: 18px 30px 18px 18px;
+    font-size: 12px;
+    color: #3C4452;
+}
+
+.duplicate-candidate-alert-popover .ns-popover-title {
+    font-weight: bold;
+}
+
+.duplicate-candidate-alert-popover .ns-popover-explaine {
+    font-size: 12px;
+    color: #3C4452;
+    margin: 18px 0 0 0;
+    line-height: 20px;
+}
+
+.duplicate-candidate-alert-popover .ns-popover-help-text {
+    margin-top: 18px;
+    color: #8893a0;
+    font-size: 11px;
+    line-height: 20px;
+}
+
+.duplicate-candidate-alert-popover .ns-popover-help-text a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.duplicate-candidate-alert-popover .ns-popover-help-text a:hover {
+    color: #88bde5;
+}
+
+.duplicate-candidate-alert-popover .ns-popover-help-text a:active {
+    color: #15547d;
+}
+
+.duplicate-candidate-alert-popover .ns-popover-footer {
+    height: 35px;
+    font-size: 14px;
+    padding: 0px 30px 18px 18px;
+}
+
+.duplicate-candidate-alert-popover .ns-popover-footer .ns-popover-go-to-job {
+    float: right;
+    border-radius: 2px;
+    color: white;
+    cursor: default;
+    height: 30px;
+    line-height: 30px;
+    margin-left: 10px;
+    text-align: center;
+    text-decoration: none;
+    background: #3498db;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 0 11px;
+    cursor: pointer;
+}
+
+.duplicate-candidate-alert-popover .ns-popover-footer .ns-popover-go-to-job:hover {
+    background-color: #58ADE3 !important;
+}
+
+.duplicate-candidate-alert-popover .ns-popover-footer .ns-popover-go-to-job:active {
+    background-color: #257BB6 !important;
+}
+
+.duplicate-candidate-alert-popover .ns-popover-footer .ns-popover-cancel-button {
+    height: 30px;
+    float: right;
+    line-height: 30px;
+    color: #3498db;
+    font-weight: bold;
+    margin-right: 10px;
+    cursor: pointer;
+    padding: 0 11px;
+    border-radius: 2px;
+}
+
+.duplicate-candidate-alert-popover .ns-popover-footer .ns-popover-cancel-button:hover {
+    background-color: #E6F5FF !important;
+}
+
+.duplicate-candidate-alert-popover .ns-popover-footer .ns-popover-cancel-button:active {
+    color: #257BB6 !important;
+    background-color: #E6F5FF !important;
+}
+
+.close-icon {
+    fill: #3498DB;
+    stroke: #3498DB;
+}
+
+.close-icon:hover {
+    fill: #88BDE5 !important;
+    stroke: #88BDE5 !important;
+}
+
+.close-icon:active {
+    fill: #1B6A9E !important;
+    stroke: #1B6A9E !important;
+}
+
+.gnewtonTextMessagingDisabled {
+    color: #A9A9A9;
+}
+
+#gnewtonTextMessaging div.gnewtonContinueBtn.disabled {
+    background: #ccd3d8;
+}
+
+#gnewtonTextMessaging div.gnewtonContinueBtn:not(.disabled):hover {
+    background: #88bde5;
+}
+
+#gnewtonCareerBody .gnewtonRadioField {
+    padding-bottom: 5px;
+}
+
+.gnewtonFieldClass.gnewtonTextMessagingText {
+    float: none;
+}
+
+
+/* Application Builder Root */
+.formBuilderBody {
+    max-width: 750px !important;
+    margin: auto;
+}
+
+.formBuilderBody .gnewtonSectionClass dl {
+    border-bottom: none;
+    margin: 0;
+    padding: 0;
+}
+
+.formBuilderBody .gnewtonSectionClass dl dd {
+    margin-bottom: 0;
+}
+
+.formBuilderBody .gnewtonSectionClass dd div {
+    padding: 0;
+}
+
+div.formBuilderBody dd {
+    margin-right: 20px;
+}
+
+/* Application Builder - Label Layout */
+div.formBuilderBody .gnewtonFieldLabelClass,
+div.formBuilderBody .gnewtonQuestionLabelClass {
+    width: auto;
+    max-width: 400px;
+    margin-bottom: 2px;
+    float: none;
+    text-align: left;
+}
+
+div.formBuilderBody .gnewtonFieldLabelClass label {
+    padding-left: auto;
+    padding-right: auto;
+    top: auto;
+}
+
+div.formBuilderBody .gnewtonFieldLabelClass .gnewtonStar,
+div.formBuilderBody .gnewtonQuestionLabelClass .gnewtonStar {
+    top: auto !important;
+    margin-right: auto !important;
+}
+
+.gnewtonStar.formBuilderRequiredSectionTitle {
+    top: -4px !important;
+}
+
+div.formBuilderBody .gnewtonQuestionInputClass.gdprRemarketLabel>.gnewtonFieldLabelClass {
+    text-align: left;
+    width: auto;
+    line-height: 30px;
+}
+
+/* Application Builder - Input Layout */
+div.formBuilderBody .gnewtonFieldInputClass,
+div.formBuilderBody .gnewtonQuestionInputClass {
+    margin: 0px 0 15px 0px;
+    max-width: 400px;
+    overflow: hidden;
+}
+
+div.formBuilderBody .gnewtonFieldInputClass input,
+div.formBuilderBody .gnewtonQuestionInputClass input {
+    height: 30px;
+    width: 100%;
+    line-height: normal !important;
+    margin-bottom: 0;
+    min-width: 225px;
+}
+
+div.formBuilderBody .gnewtonQuestionInputClass input[type=number] {
+    min-width: 0;
+    width: 100px;
+    -moz-appearance: textfield;
+    -webkit-appearance: textfield;
+}
+
+div.formBuilderBody .gnewtonFieldInputClass input[type=checkbox],
+div.formBuilderBody .gnewtonFieldInputClass input[type=date],
+div.formBuilderBody .gnewtonQuestionInputClass input[type=checkbox],
+div.formBuilderBody .gnewtonQuestionInputClass input[type=date] {
+    width: auto;
+    height: auto;
+    min-width: auto;
+    top: auto;
+    margin-right: 5px;
+}
+
+div.formBuilderBody .gnewtonFieldInputClass input[type=checkbox],
+div.formBuilderBody .gnewtonQuestionInputClass input[type=checkbox] {
+    margin-bottom: 5px;
+}
+
+div.formBuilderBody .gnewtonFieldInputClass input[type=radio],
+div.formBuilderBody .gnewtonQuestionInputClass input[type=radio] {
+    margin-bottom: 2px;
+    margin-right: 5px;
+}
+
+div.formBuilderBody .gnewtonFieldInputClass input[name="mobile"],
+div.formBuilderBody .gnewtonFieldInputClass input[name="phone"],
+div.formBuilderBody INPUT.gnewtonPhone,
+div.formBuilderBody .gnewtonFieldInputClass input[name="city"],
+div.formBuilderBody .gnewtonFieldInputClass input[title="From (MM/YY):"],
+div.formBuilderBody .gnewtonFieldInputClass input[title="Postal Code"],
+div.formBuilderBody .gnewtonFieldInputClass select[name="country"],
+div.formBuilderBody .gnewtonFieldInputClass input[title="To (MM/YY):"] {
+    min-width: 0;
+    width: 180px;
+}
+
+div.formBuilderBody .gnewtonFieldInputClass [type=file],
+div.formBuilderBody .gnewtonFieldInputClass.gnewtonRequired [type=file] {
+    color: transparent;
+}
+
+div.formBuilderBody .gnewtonFieldInputClass [type=file]::-webkit-file-upload-button,
+div.formBuilderBody .gnewtonFieldInputClass.gnewtonRequired [type=file]::-webkit-file-upload-button {
+    visibility: hidden;
+}
+
+div.formBuilderBody .gnewtonFieldInputClass select[name="candidateGdprRemarket"] {
+    margin: auto;
+}
+
+div.formBuilderBody #gnewtonCommentsInfo textarea {
+    margin-bottom: 5px;
+}
+
+div.formBuilderBody #gnewtonCommentsInfo .textarea-remaining {
+    display: none;
+}
+
+div.formBuilderBody #gnewtonPrivacyPolicyInfo textarea {
+    margin-bottom: 5px;
+}
+
+div.formBuilderBody #gnewtonPrivacyPolicyInfo .textarea-remaining {
+    display: none;
+}
+
+div.formBuilderBody.gnewtonCareerBodyClass #gnewtonHelpTextOfSubmission * {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+div.formBuilderBody.gnewtonCareerBodyClass .gnewtonSectionClass dl dt.gnewtonSectionTitleClass+dd * {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+div.formBuilderBody #terms-acceptance.gnewtonSectionClass .gnewtonSectionTitleClass {
+    margin-bottom: 0;
+}
+
+div.formBuilderBody #gnewtonTextMessaging.gnewtonSectionClass {
+    min-height: 90px;
+}
+
+div.formBuilderBody #gnewtonTextMessaging.gnewtonSectionClass dd div {
+    margin-bottom: 2px;
+}
+
+div.formBuilderBody #gnewtonGdprRemarket.gnewtonSectionClass {
+    margin-top: 10px;
+}
+
+div.formBuilderBody #gnewtonGdprRemarket.gnewtonSectionClass .gnewtonSectionTitleClass {
+    margin-bottom: 0;
+}
+
+div.formBuilderBody #gnewtonGdprRemarket.gnewtonSectionClass .gnewtonFieldInputClass {
+    margin-top: 0;
+}
+
+div.formBuilderBody #horizontal-line.gnewtonSectionClass dl dt {
+    margin: 0;
+    padding: 0;
+}
+
+div.formBuilderBody #horizontal-line.gnewtonSectionClass dl dd {
+    margin: 0;
+    padding: 0;
+}
+
+div.formBuilderBody #horizontal-line.gnewtonSectionClass dl dd gnewtonSectionClass {
+    height: 30px;
+    padding: 0;
+}
+
+div.formBuilderBody #space.gnewtonSectionClass dl dt {
+    margin: 0
+}
+
+div.formBuilderBody #space.gnewtonSectionClass dl dd {
+    margin: 0;
+    padding: 0;
+}
+
+div.formBuilderBody .gnewtonBlankSpace {
+    height: 30px;
+    padding: 0;
+}
+
+div.formBuilderBody #paragraph-text.gnewtonSectionClass dl dt {
+    margin: 0
+}
+
+div.formBuilderBody #paragraph-text.gnewtonSectionClass dl dd {
+    margin: 0;
+    padding: 0;
+    padding-left: 20px;
+    padding-bottom: 15px;
+}
+
+div.formBuilderBody #paragraph-text.gnewtonSectionClass dl dd div p {
+    margin: 0;
+}
+
+div.formBuilderBody .gnewtonSaveButtonBar {
+    text-align: left;
+}
+
+div.formBuilderBody .gnewtonSaveButtonBar button.gnewtonBlueBtn {
+    width: auto !important;
+    border-radius: 5px !important;
+}
+
+div.formBuilderBody .gnewton-disability-table {
+    width: max-content;
+}
+
+.gnewtonFieldInputClass select {
+    height: 30px;
+    border: solid 1px #ccd3d8;
+    border-radius: 2px;
+    color: #4f4e59;
+    font-size: 14px;
+    line-height: 14px;
+    max-width: 100%;
+    cursor: pointer;
+    background: white;
+    -webkit-appearance: listbox !important;
+}

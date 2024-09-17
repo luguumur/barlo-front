@@ -47,7 +47,7 @@ const OfferCarousel: React.FC<Props> = ({ deals, description, locale, image }) =
                     <div className="home-deals-item slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style={{"width":"1314px","position":"relative","left":"0px","top":"0px","zIndex":"999","opacity":"1"}} tabIndex={0} role="option" aria-describedby="slick-slide10">
                         <div className="home-deals-item-box clearfix">
                           <div className="home-deals-image">
-                              <Image loader={imageLoader} priority src={deal.img_path} width={500} height={500} alt={deal.title} className="img-responsive entered lazyloaded"></Image>
+                              <Image loader={imageLoader} priority src={deal.img_path} width={400} height={400} alt={deal.title} className="img-responsive entered lazyloaded"></Image>
                           </div>
                           <div className="home-deals-content">
                               <h3>{locale == "mn" ? deal.title : deal.title_en}</h3>
@@ -70,3 +70,51 @@ const OfferCarousel: React.FC<Props> = ({ deals, description, locale, image }) =
 // }
 
 export default OfferCarousel;
+
+// components/EmblaCarousel.tsx
+// import React, { useRef } from 'react';
+// import EmblaCarousel from 'embla-carousel-react';
+// import styles from '../HomeCarousel.module.css';
+// import { DotButton, useDotButton } from '../EmblaCarouselDotButton';
+
+// interface EmblaCarouselProps {
+//   deals: any[];
+//   locale: any;
+// }
+
+// const OfferCarousel: React.FC<EmblaCarouselProps> = ({ deals, locale }) => {
+//   console.log(deals)
+//   const [emblaRef, emblaApi] = EmblaCarousel({ loop: true });
+//   const { selectedIndex, scrollSnaps, onDotButtonClick } =
+//     useDotButton(emblaApi)
+//   return (
+//     <section className='masthead'>
+//       <div className={styles.embla} ref={emblaRef}>
+//         <div className={styles.embla__container}>
+//           {deals?.map((deal, index) => (
+//             <div className={styles.embla__slide} key={index}>
+//               <img src={`${process.env.apiDomain}/file/${deal.imageurl}`} alt={`Slide ${index}`} />
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//       <div className='container'>
+//         <div className={styles.embla__controls}>
+//           <div className={styles.embla__dots}>
+//             {scrollSnaps.map((_, index) => (
+//               <DotButton
+//                 key={index}
+//                 onClick={() => onDotButtonClick(index)}
+//                 className={styles.embla__dot.concat(
+//                   index === selectedIndex ? ` ${styles['embla__dot--selected']}` : ''
+//                 )}
+//               />
+//             ))}
+//           </div>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default OfferCarousel;

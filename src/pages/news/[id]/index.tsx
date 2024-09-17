@@ -65,7 +65,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         headers: { }
       };
     const news = await instance.request(config)
-      console.log(news.data)
+    //   console.log(news.data)
     let cateconfig = {
         method: 'get',
         rejectUnauthorized: false,

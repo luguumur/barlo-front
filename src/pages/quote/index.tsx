@@ -45,7 +45,7 @@ const RequestAQuote = () => {
                 ...prevData,
                 machine: equipment,
             }));
-            console.log(formData)
+            // console.log(formData)
         }
     }, [equipment]);
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {

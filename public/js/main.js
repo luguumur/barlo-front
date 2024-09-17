@@ -1,22 +1,22 @@
-var FX = (function(FX, $) {
+var FX = (function (FX, $) {
     FX.Preloader = {
-        init: function() {
-            $(window).on('load', function() {
-                $('.page-preloader').fadeOut('slow', function() {
+        init: function () {
+            $(window).on('load', function () {
+                $('.page-preloader').fadeOut('slow', function () {
                     $(this).remove()
                 })
             })
         }
     };
     FX.ImagePopUp = {
-        init: function() {
+        init: function () {
             $('.js-image-popup').magnificPopup({
                 type: 'image'
             })
         }
     };
     FX.VideoPopUp = {
-        init: function() {
+        init: function () {
             $('.js-video-popup').magnificPopup({
                 type: 'iframe',
                 iframe: {
@@ -43,8 +43,8 @@ var FX = (function(FX, $) {
         }
     };
     FX.MobileNavigation = {
-        init: function() {
-            $(".js-mobile-trigger-button--menu").click(function() {
+        init: function () {
+            $(".js-mobile-trigger-button--menu").click(function () {
                 $(".js-mobile-trigger-button--menu").toggleClass("js-active");
                 $(".nav--primary").toggleClass("js-visible")
             });
@@ -52,22 +52,22 @@ var FX = (function(FX, $) {
             $('.js-mobile-navigation-trigger').on('click', this.toggleMenu);
             $('.sub-menu-toggle').on('click', this.toggleSubMenu)
         },
-        toggleMenu: function() {
+        toggleMenu: function () {
             $('.nav--primary__wrapper').toggleClass('active');
             $('.js-mobile-navigation-trigger').toggleClass('toggled')
         },
-        toggleSubMenu: function() {
+        toggleSubMenu: function () {
             var $this = $(this)
-              , $parent = $this.parent("li")
-              , $wrap = $parent.children(".sub-menu");
+                , $parent = $this.parent("li")
+                , $wrap = $parent.children(".sub-menu");
             $wrap.toggleClass("toggled");
             $parent.toggleClass("toggled");
             $this.toggleClass("toggled")
         }
     };
     FX.MobileSearch = {
-        init: function() {
-            $(".js-mobile-trigger-button--search").click(function() {
+        init: function () {
+            $(".js-mobile-trigger-button--search").click(function () {
                 $(".js-mobile-trigger-button--search").toggleClass("js-active");
                 $(".mobile-search-form").toggleClass("js-visible");
                 $(".page-header").toggleClass("js-move-down")
@@ -75,18 +75,18 @@ var FX = (function(FX, $) {
         }
     };
     FX.Forms = {
-        init: function() {
+        init: function () {
             $('.select-option').selectric();
         }
     };
     FX.ExternalLinks = {
-        init: function() {
+        init: function () {
             $('a[href$=".pdf"]').attr('target', '_blank')
         }
     }
     FX.StickyPageHeader = {
-        init: function() {
-            $(window).scroll(function() {
+        init: function () {
+            $(window).scroll(function () {
                 var $body = $(document.body);
                 var value = $(this).scrollTop();
                 if (value > [1]) {
@@ -100,73 +100,73 @@ var FX = (function(FX, $) {
         }
     }
     FX.Social = {
-        init: function() {
+        init: function () {
             $(".js-social-share").on("click", this.open)
         },
-        open: function(event) {
+        open: function (event) {
             event.preventDefault();
             FX.Social.windowPopup($(this).attr("href"), 500, 300)
         },
-        windowPopup: function(url, width, height) {
+        windowPopup: function (url, width, height) {
             var left = (screen.width / 2) - (width / 2)
-              , top = (screen.height / 2) - (height / 2);
+                , top = (screen.height / 2) - (height / 2);
             window.open(url, "", "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=" + width + ",height=" + height + ",top=" + top + ",left=" + left)
         }
     }
     FX.ImAHuman = {
         num: "0xFF9481",
         forms: void 0,
-        init: function() {
+        init: function () {
             this.setup()
         },
-        setup: function() {
+        setup: function () {
             this.forms = document.getElementsByTagName("form");
             this.bind()
         },
-        bind: function() {
+        bind: function () {
             for (var i = 0; this.forms.length > i; i++) {
                 $(this.forms[i]).on("focus click", this.markAsHuman)
             }
         },
-        markAsHuman: function() {
+        markAsHuman: function () {
             $(this).find('.imahuman, [name="imahuman"]').attr("value", parseInt(FX.ImAHuman.num, 16))
         }
     }
     FX.Affix = {
         windowHeight: 0,
-        init: function() {
+        init: function () {
             this.windowHeight = $(window).height();
             this.bind()
         },
-        bind: function(e) {
+        bind: function (e) {
             $(window).on('scroll', this.scroll);
             $(window).on('resize', this.updateWindowHeight)
         },
-        scroll: function(e) {
+        scroll: function (e) {
             var scrolltop = $(this).scrollTop()
-              , fixPoint = FX.Affix.windowHeight - $('#masthead').height();
+                , fixPoint = FX.Affix.windowHeight - $('#masthead').height();
             if (scrolltop >= fixPoint) {
                 $('body').addClass('affix-head')
             } else {
                 $('body').removeClass('affix-head')
             }
         },
-        updateWindowHeight: function(e) {
+        updateWindowHeight: function (e) {
             FX.Affix.windowHeight = $(window).height()
         }
     };
     FX.Parallax = {
-        init: function() {
+        init: function () {
             this.bind()
         },
-        bind: function() {
+        bind: function () {
             $(window).scroll(this.scroll)
         },
-        scroll: function(e) {
-            $('[parallax]').each(function() {
+        scroll: function (e) {
+            $('[parallax]').each(function () {
                 var $this = $(this)
-                  , $speed = $this.data('speed') || 6
-                  , $window = $(window);
+                    , $speed = $this.data('speed') || 6
+                    , $window = $(window);
                 var yPos = -($window.scrollTop() / $speed);
                 var coords = 'center ' + yPos + 'px';
                 $this.css({
@@ -176,13 +176,13 @@ var FX = (function(FX, $) {
         }
     };
     FX.SmoothAnchors = {
-        init: function() {
+        init: function () {
             this.bind()
         },
-        bind: function() {
+        bind: function () {
             $('a[href^=#]').on('click', this.scrollToSmooth)
         },
-        scrollToSmooth: function(event) {
+        scrollToSmooth: function (event) {
             if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
                 var $target = $(this.hash);
                 $target = $target.length && $target || $('[name=' + this.hash.slice(1) + ']');
@@ -197,23 +197,23 @@ var FX = (function(FX, $) {
         }
     }
     FX.Tabs = {
-        init: function() {
+        init: function () {
             $('.js-tabs').on('click touchstart', 'a', this.switchTab)
         },
-        switchTab: function(event) {
+        switchTab: function (event) {
             event.preventDefault();
             var $this = $(this)
-              , tab = $($this.attr('href'));
+                , tab = $($this.attr('href'));
             $this.parent().addClass('active').siblings().removeClass('active');
             tab.addClass('active').siblings().removeClass('active')
         }
     }
     FX.CategorySelect = {
-        init: function() {
+        init: function () {
             if ($(window).width() > 1024) {
                 return
             } else {
-                $('.js-category-button').click(function() {
+                $('.js-category-button').click(function () {
                     if ($(this).hasClass('clicked')) {
                         $(this).removeClass('clicked');
                         return
@@ -233,16 +233,16 @@ var FX = (function(FX, $) {
         applySameHeights() {
             const $root = $('.js-equal-heights');
             const $items = $root.find('.js-equal-heights-item');
-            const heights = $items.map((i,el)=>parseInt($(el).height()));
+            const heights = $items.map((i, el) => parseInt($(el).height()));
             const maxHeights = Math.max(...heights);
             $items.height(maxHeights)
         }
     }
-    $(window).resize(function() {
+    $(window).resize(function () {
         if ($(window).width() > 1024) {
             return
         } else {
-            $('.js-category-button').click(function() {
+            $('.js-category-button').click(function () {
                 if ($(this).hasClass('clicked')) {
                     $(this).removeClass('clicked');
                     return
@@ -253,7 +253,7 @@ var FX = (function(FX, $) {
             })
         }
     });
-    $(function() {
+    $(function () {
         FX.Preloader.init();
         // FX.ExternalLinks.init();
         // FX.Promo.init();

@@ -62,7 +62,7 @@ const QuickSearch: React.FC<Props> = ({ model = [], owner = [], location = [] })
                     <label htmlFor="model">{t("model")}</label>
                     <select className="select-option" name="model" id="model" ref={selectOptionRef}>
                       <option value="all">{t("all")}</option>
-                      {model.map((item, index) => (
+                      {model?.map((item, index) => (
                         <option key={index} value={item.string_value}>{item.string_value}</option>
                       ))}
                     </select>
@@ -71,7 +71,7 @@ const QuickSearch: React.FC<Props> = ({ model = [], owner = [], location = [] })
                     <label htmlFor="owner">{t("owner")}</label>
                     <select className="select-option" name="owner" id="owner" ref={selectOptionRef}>
                       <option value="all">{t("all")}</option>
-                      {owner.map((item, index) => (
+                      {owner?.map((item, index) => (
                         <option key={index} value={item.string_value}>{item.string_value}</option>
                       ))}
                     </select>
@@ -80,7 +80,7 @@ const QuickSearch: React.FC<Props> = ({ model = [], owner = [], location = [] })
                     <label htmlFor="location">{t("location")}</label>
                     <select className="select-option" name="location" id="location" ref={selectOptionRef}>
                       <option value="all">{t("all")}</option>
-                      {location.map((item, index) => (
+                      {location?.map((item, index) => (
                         <option key={index} value={item.string_value}>{item.string_value}</option>
                       ))}
                     </select>

@@ -2,35 +2,26 @@
     position: relative;
     overflow: hidden;
     width: 100%;
-    height: 600px;
-    /* Fixed height for the carousel */
+    cursor: pointer;
 }
-
 .embla__container {
     display: flex;
 }
 
 .embla__slide {
     min-width: 100%;
-    height: 100%;
-    /* Full height of the carousel */
+    height: 470px;
+    position: relative;
     display: flex;
-    /* Flexbox to center the image */
     justify-content: center;
-    /* Center horizontally */
     align-items: center;
-    /* Center vertically */
 }
 
 .embla__slide img {
     height: 100%;
-    /* Scale image to full height of the slide */
     width: auto;
-    /* Maintain aspect ratio */
     object-fit: cover;
-    /* Cover the container while maintaining aspect ratio */
     object-position: center;
-    /* Center the image */
 }
 
 .embla__controls {

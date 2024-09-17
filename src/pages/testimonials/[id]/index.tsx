@@ -52,7 +52,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         headers: { }
       };
     const testimonials = await instance.request(config)
-      console.log(testimonials.data)
+      // console.log(testimonials.data)
     return {
       props: {
           data: testimonials.data,

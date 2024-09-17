@@ -2,9 +2,9 @@
 
 import Link from "next/link"
 import { useTranslations } from "next-intl";
-import LanguageSwitcher from "@modules/layout/components/i18n/LanguageSwitcher"
+import LanguageSwitcher from "@/modules/layout/components/i18n/LanguageSwitcher"
 
-import { HeaderData } from "@data/menu"
+import { HeaderData } from "@/data/menu"
 import { GetStaticPropsContext } from "next"
 
 import FX from "@/lib/util/custom-fx";
@@ -46,7 +46,7 @@ const Nav = () => {
           <button className="search-form--submit" type="submit"/>
       </form>
     </div>
-    <header className="page-header sticky-page-header active" id="page-header">
+    <header className="page-header sticky-page-header" id="page-header">
       <div className="page-header__bottom-row">
         <div className="container">
           <div className="row">
@@ -120,7 +120,7 @@ const Nav = () => {
                       <>
                         <span className="sub-menu-toggle icon-chevron-down hidden-md hidden-lg"></span>
                         <ul className="sub-menu">
-                        {item.sub.map((item: any, i: any) => (
+                        {item.sub?.map((item: any, i: any) => (
                           <li key={i} id={`menu-item-${item.id}`} className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-${item.id}`}>
                             <Link href={item.handle}>{t(`${item.title}`)}</Link>
                           </li>

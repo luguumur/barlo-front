@@ -16,6 +16,7 @@
     "formik": "^2.4.2",
     "jquery": "^3.7.1",
     "jquery-selectric": "^0.2.0",
+    "lodash": "^4.17.21",
     "macy": "^2.5.1",
     "magnific-popup": "^1.2.0",
     "next": "14.1.4",
@@ -24,16 +25,19 @@
     "nprogress": "^0.2.0",
     "react": "^18",
     "react-dom": "^18",
+    "react-drag-drop-files": "^2.3.10",
     "react-google-recaptcha-v3": "^1.10.1",
     "react-loading-skeleton": "^3.4.0",
     "react-markdown": "^9.0.1",
     "react-slick": "^0.30.2",
     "react-toastify": "^10.0.5",
     "selectric": "^1.13.0",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "zustand": "^4.5.5"
   },
   "devDependencies": {
     "@types/jquery": "^3.5.30",
+    "@types/lodash": "^4.17.7",
     "@types/node": "^20",
     "@types/nprogress": "^0.2.3",
     "@types/react": "^18",

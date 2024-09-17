@@ -14,11 +14,13 @@
     "incremental": true,
     "paths": {
       "@/*": ["./src/*"],
+      "@services/*": ["./src/services/*"],
       "@modules/*": ["./src/modules/*"],
       "@lib/*": ["./src/lib/*"],
       "@data/*": ["./src/data/*"],
       "@messages/*": ["./messages/*"],
-    }
+    },
+    "downlevelIteration": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"],

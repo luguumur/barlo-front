@@ -56,9 +56,6 @@ const FooterNav = () => {
                     <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-194">
                       <Link href="/news">{homet("news")}</Link>
                     </li>
-                    <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-195">
-                      <Link href="/">{homet("frequently")}</Link>
-                    </li>
                     <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-196">
                       <Link href="/magazine">{homet("magazine")}</Link>
                     </li>

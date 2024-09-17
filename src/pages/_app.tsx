@@ -1,7 +1,6 @@
-import {AppProps} from 'next/app';
-import {useRouter} from 'next/router';
-import {NextIntlClientProvider, IntlErrorCode} from 'next-intl';
-import Providers from '@/providers';
+import { AppProps } from 'next/app';
+import { useRouter } from 'next/router';
+import { NextIntlClientProvider, IntlErrorCode } from 'next-intl';
 
 import Script from "next/script";
 import "../styles/globals.css"
@@ -40,10 +39,10 @@ declare global {
   }
 }
 
-export default function App({Component, pageProps}: AppProps) {
+export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const timeZone = 'Asia/Ulaanbaatar';
-  
+
   useEffect(() => {
     // Load jQuery globally
     if (typeof window !== 'undefined') {
@@ -58,11 +57,9 @@ export default function App({Component, pageProps}: AppProps) {
         messages={pageProps.messages}
         timeZone={timeZone}
       >
-        <Providers>
-          <PageLayout>
-            <Component {...pageProps} />
-          </PageLayout>
-        </Providers>
+        <PageLayout>
+          <Component {...pageProps} />
+        </PageLayout>
       </NextIntlClientProvider>
     </>
   );

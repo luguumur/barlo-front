@@ -1,8 +1,8 @@
 "use client"
 
-import useCurrentWidth from "@lib/hooks/use-current-width"
-import useDebounce from "@lib/hooks/use-debounce"
-import useToggleState from "@lib/hooks/use-toggle-state"
+import useCurrentWidth from "@/src/lib/hooks/use-current-width"
+import useDebounce from "@/src/lib/hooks/use-debounce"
+import useToggleState from "@/src/lib/hooks/use-toggle-state"
 import {
   createContext,
   Dispatch,

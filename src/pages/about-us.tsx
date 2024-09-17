@@ -89,7 +89,7 @@ const About = () => {
                                                     </a>
                                                 </div>
                                             </div>
-                                            <div className="col-sm-6">
+                                            {/* <div className="col-sm-6">
                                                 <div className="image-cards-box">
                                                     <a href="/benefits">
                                                         <div className="card-image"></div>
@@ -104,7 +104,7 @@ const About = () => {
                                                         </div>
                                                     </a>
                                                 </div>
-                                            </div>
+                                            </div> */}
                                             <div className="col-sm-6">
                                                 <div className="image-cards-box">
                                                     <a href="/contact-us/">

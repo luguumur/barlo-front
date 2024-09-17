@@ -1,10 +1,10 @@
-import Button from "@modules/common/components/button"
-import AnchorLink from "@modules/common/components/links"
-import UnderlineLink from "@modules/common/components/underline-link"
-import ArrowRight from "@modules/common/icons/arrow-right"
-import ChevronDown from "@modules/common/icons/chevron-down"
-import ChevronRight from "@modules/common/icons/chevron-right"
-import { MenuData } from "@data/home"
+import Button from "@/modules/common/components/button"
+import AnchorLink from "@/modules/common/components/links"
+import UnderlineLink from "@/modules/common/components/underline-link"
+import ArrowRight from "@/modules/common/icons/arrow-right"
+import ChevronDown from "@/modules/common/icons/chevron-down"
+import ChevronRight from "@/modules/common/icons/chevron-right"
+import { MenuData } from "@/data/home"
 import { useTranslations } from "next-intl";
 import Image from "next/image"
 

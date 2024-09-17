@@ -18,7 +18,7 @@ import Head from "@/modules/common/components/head";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { category } = context.query;
-  console.log(category)
+  // console.log(category)
   let url = "/news?category_id=clwadx50c000l6j9zj1il26yd"
   if(category){
     url = `/news?category_id=${category}`
@@ -36,7 +36,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     url: `${process.env.apiDomain}${url}`,
     headers: { }
   };
-  console.log(config)
+  // console.log(config)
   const news = await instance.request(config)
 
   let cateconfig = {

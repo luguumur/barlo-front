@@ -29,7 +29,7 @@ namespace FX {
       jQuery(window).scroll(function () {
         const $body = jQuery(document.body);
         const value:any = jQuery(this).scrollTop();
-        if (value > 1) { // Adjusted to use a numeric comparison
+        if (value > 1) {
           $body.addClass('page-header-is-sticky');
           jQuery('.sticky-page-header').addClass('active');
         } else {

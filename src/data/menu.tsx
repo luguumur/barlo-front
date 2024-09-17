@@ -5,27 +5,32 @@ export const HeaderData = [
       title: 'new',
       handle: '/equipment/new',
       sub: [
-        // {
-        //   title: 'construction',
-        //   image: 'https://www.barloworld.mn/images/slider/2016-09-20-10-04-58wae_Unknown.jpeg',
-        //   handle: '/equipment/new/construction',
-        // },
-        // {
-        //   title: 'under',
-        //   image: 'https://www.barloworld.mn/images/menu/59e412dc6ac37_AD45B_UG_Haulage_Web.jpg',
-        //   handle: '/equipment/new/under',
-        // },
-        // {
-        //   title: 'paving',
-        //   image: 'https://www.barloworld.mn/images/slider/2016-09-20-10-06-03wae_Unknown.jpeg',
-        //   handle: '/equipment/new/paving',
-        // }
+        {
+          title: 'construction',
+          image: 'https://www.barloworld.mn/images/slider/2016-09-20-10-04-58wae_Unknown.jpeg',
+          handle: '/equipment/new/clwacski200026j9zw0vaxp2z',
+        },
+        {
+          title: 'under',
+          image: 'https://www.barloworld.mn/images/menu/59e412dc6ac37_AD45B_UG_Haulage_Web.jpg',
+          handle: '/equipment/new/clwacsx7600046j9zqfkvkgw6',
+        },
+        {
+          title: 'paving',
+          image: 'https://www.barloworld.mn/images/slider/2016-09-20-10-06-03wae_Unknown.jpeg',
+          handle: '/equipment/new/clwacsqna00036j9zvx1933gv',
+        },
+        {
+          title: 'mining',
+          image: 'https://www.barloworld.mn/images/slider/2016-09-20-10-06-03wae_Unknown.jpeg',
+          handle: '/equipment/new/clxiieoc2000e12e81dfajos3',
+        }
       ],
    },
    {
       id: 2,
       title: 'rent',
-      submenu: true,
+      submenu: false,
       handle: '/rent',
       sub: [
         // {
@@ -38,20 +43,14 @@ export const HeaderData = [
    {
       id: 3,
       title: 'used',
-      submenu: true,
+      submenu: false,
       handle: '/equipment/used',
-      sub: [
-        // {
-        //   title: 'paving',
-        //   image: 'https://thompsonmachinery.com/content/uploads/2015/07/menu-used-cat-machines.jpg.webp',
-        //   handle: '/equipment/used/paving',
-        // }
-      ]
    },
    {
       id: 4,
       title: 'parts',
       handle: '/parts',
+      submenu: false,
       sub: [
             {
               title: 'drive',
@@ -81,6 +80,7 @@ export const HeaderData = [
    },
    {
       id: 6,
+      submenu: false,
       title: 'service',
       handle: '/service',
    },
@@ -89,6 +89,7 @@ export const HeaderData = [
     title: 'technology',
     describe: 'dtechnology',
     handle: '/technology',
+    submenu: false,
     sub: [
           {
             title: 'sos',
@@ -108,12 +109,12 @@ export const HeaderData = [
           },
         ]
  },
-   {
-      id: 9,
-      title: 'configurator',
-      handle: 'http://configurator.barloworld.mn/',
-      sub: []
-   },
+  //  {
+  //     id: 9,
+  //     title: 'configurator',
+  //     handle: 'http://configurator.barloworld.mn/',
+  //     sub: []
+  //  },
   //  {
   //     id: 7,
   //     title: 'about',
