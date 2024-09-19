@@ -96,7 +96,7 @@ const Footer = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="wpcf7-form-control wpcf7-text wpcf7-validates-as-required h-[48.65px] bg-white"
+                    className="wpcf7-form-control wpcf7-text wpcf7-validates-as-required h-[48px] bg-white"
                     placeholder="Цахим хаяг"
                     aria-required="true"
                     required
