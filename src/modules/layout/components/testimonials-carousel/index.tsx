@@ -54,12 +54,12 @@ const TestiCarousel: React.FC<Props> = ({ testi, description, image }) => {
       }
     ]
   };
-  const {locale, locales, route, asPath} = useRouter();
+  const { locale, locales, route, asPath } = useRouter();
   return (
     <div className="home-testimonials clearfix">
       <div className="home-testimonials-wrapper clearfix">
         <div className="home-testimonials-banner hidden-md-down">
-          <Image priority width={831} height={625} src="/assets/img/test.jpg" className="img-responsive entered lazyloaded" alt="Barloworld Mongolia"/>
+          <Image priority width={831} height={625} src="/assets/img/test.jpg" className="img-responsive entered lazyloaded" alt="Barloworld Mongolia" />
         </div>
         <div className="home-testimonials-right-panel">
           <div className="home-testimonials-header">
@@ -69,20 +69,19 @@ const TestiCarousel: React.FC<Props> = ({ testi, description, image }) => {
           </div>
           <div className="home-testimonials-slider-wrapper">
             <div className="home-testimonials-slider home-testimonials-slider-homepage slick-initialized slick-slider">
-            <Slider {...settings} className='p-0'>
-            {testi?.map((item:any, index:any) => (
-              <div key={index} className='h-[400px]'>
-                  <div className="home-testimonials-slider-item-column z-10">
-                      <span className='text-sm mb-5 text-[#1C1C1C]'>{locale === "mn" ? item.title : item.title_en}</span>
-                      <h5 className='pb-5'>
-                      <span className="title-wrap">
-                          <span>—</span> {locale === "mn" ? item.subtitle : item.subtitle_en} </span>
-                      </h5>
+              <Slider {...settings} className='p-0'>
+                {testi?.map((item: any, index: any) => (
+                  <div key={index} className='h-[400px]'>
+                    <div className="home-testimonials-slider-item-column z-10">
+                      <div className='text-sm mb-5 text-[#1C1C1C]'>{locale === "mn" ? item.title : item.title_en}</div>
+                      <span className="title-wrap pb-5 font-bold text-[17px] text-[#666] uppercase">
+                        <span>—</span> {locale === "mn" ? item.subtitle : item.subtitle_en}
+                      </span>
+                    </div>
                   </div>
-              </div>
-            ))}
-              
-            </Slider>
+                ))}
+
+              </Slider>
             </div>
             <a href="/testimonials" target="_self" className="btn btn-primary"> Read all testimonials </a>
           </div>

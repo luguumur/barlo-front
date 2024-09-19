@@ -5597,6 +5597,11 @@ input.wpcf7-not-valid {
     padding: 0
 }
 
+.home-testimonials-slider-item-column span {
+    color: #666;
+    font-family: 'SourceSansPro', sans-serif
+}
+
 .home-testimonials-slider-item-column h5 span {
     font-weight: 700
 }

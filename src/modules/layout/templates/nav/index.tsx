@@ -90,7 +90,6 @@ const Nav = () => {
                     <ul id="menu-top-menu" className="menu">
                       <li id="menu-item-186" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-186">
                         <Link href="/" className="p-3 block" aria-label="Home">
-                          {t("home")}
                         </Link>
                       </li>
                       <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-105843">
