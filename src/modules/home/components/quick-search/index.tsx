@@ -49,41 +49,82 @@ const QuickSearch: React.FC<Props> = ({ model = [], owner = [], location = [] })
             <form className="js-search-form front" onSubmit={handleSubmit}>
               <div className="quick-search-control-flex-box">
                 <div className="quick-search-field quick-search-options">
-                    <div className="quick-search-options-box bg-[#EAEAEA]">
-                      <input type="radio" name="condition" value="new" id="new" className="bg-[#EAEAEA]" defaultChecked />
-                      <label htmlFor="new" className="bg-[#EAEAEA]" >{t("new")}</label>
+                  <div className="quick-search-options-box">
+                    <input
+                      type="radio"
+                      name="condition"
+                      value="new"
+                      id="new"
+                      className="bg-[#CCCCCC] text-black" // Darker background, black text for contrast
+                      defaultChecked
+                    />
+                    <label htmlFor="new" className="bg-[#CCCCCC] text-black">
+                      {t("new")}
+                    </label>
 
-                      <input type="radio" name="condition" value="used" id="used" className="bg-[#EAEAEA]" />
-                      <label htmlFor="used" className="bg-[#EAEAEA]">{t("used")}</label>
-                    </div>
+                    <input
+                      type="radio"
+                      name="condition"
+                      value="used"
+                      id="used"
+                      className="bg-[#CCCCCC] text-black" // Darker background, black text for contrast
+                    />
+                    <label htmlFor="used" className="bg-[#CCCCCC] text-black">
+                      {t("used")}
+                    </label>
+                  </div>
                 </div>
 
                 <div className="quick-search-field">
                   <label htmlFor="model">{t("model")}</label>
-                  <select className="select-option bg-white" name="model" id="model" aria-labelledby="model" aria-required="true">
+                  <select
+                    className="select-option bg-white text-black" // Ensure the text is dark enough for white background
+                    name="model"
+                    id="model"
+                    aria-labelledby="model"
+                    aria-required="true"
+                  >
                     <option value="all">{t("all")}</option>
                     {model?.map((item, index) => (
-                      <option key={index} value={item.string_value}>{item.string_value}</option>
+                      <option key={index} value={item.string_value}>
+                        {item.string_value}
+                      </option>
                     ))}
                   </select>
                 </div>
 
                 <div className="quick-search-field">
                   <label htmlFor="owner">{t("owner")}</label>
-                  <select className="select-option bg-white" name="owner" id="owner" aria-labelledby="owner" aria-required="true">
+                  <select
+                    className="select-option bg-white text-black"
+                    name="owner"
+                    id="owner"
+                    aria-labelledby="owner"
+                    aria-required="true"
+                  >
                     <option value="all">{t("all")}</option>
                     {owner?.map((item, index) => (
-                      <option key={index} value={item.string_value}>{item.string_value}</option>
+                      <option key={index} value={item.string_value}>
+                        {item.string_value}
+                      </option>
                     ))}
                   </select>
                 </div>
 
                 <div className="quick-search-field">
                   <label htmlFor="location">{t("location")}</label>
-                  <select className="select-option bg-white" name="location" id="location" aria-labelledby="location" aria-required="true">
+                  <select
+                    className="select-option bg-white text-black"
+                    name="location"
+                    id="location"
+                    aria-labelledby="location"
+                    aria-required="true"
+                  >
                     <option value="all">{t("all")}</option>
                     {location?.map((item, index) => (
-                      <option key={index} value={item.string_value}>{item.string_value}</option>
+                      <option key={index} value={item.string_value}>
+                        {item.string_value}
+                      </option>
                     ))}
                   </select>
                 </div>
@@ -91,11 +132,11 @@ const QuickSearch: React.FC<Props> = ({ model = [], owner = [], location = [] })
                 <div className="quick-search-field-button">
                   <button
                     type="submit"
-                    className="btn btn-primary"
+                    className="btn btn-primary text-white" // Ensure text is readable on the button
                     disabled={isLoading}
                     aria-live="polite"
                   >
-                    {isLoading ? 'Loading...' : t("search")}
+                    {isLoading ? "Loading..." : t("search")}
                   </button>
                 </div>
               </div>
