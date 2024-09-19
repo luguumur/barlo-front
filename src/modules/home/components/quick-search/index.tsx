@@ -41,7 +41,7 @@ const QuickSearch: React.FC<Props> = ({ model = [], owner = [], location = [] })
   return (
     <div className="container">
       <div className="quick-search-wrapper">
-        <div className="quick-search-layout">
+        <div className="quick-search-layout bg-white">
           <div className="quick-search-layout-header">
             <h4>{t("main")}</h4>
           </div>
@@ -51,10 +51,10 @@ const QuickSearch: React.FC<Props> = ({ model = [], owner = [], location = [] })
                 <div className="quick-search-field quick-search-options">
                     <div className="quick-search-options-box bg-[#EAEAEA]">
                       <input type="radio" name="condition" value="new" id="new" className="bg-[#EAEAEA]" defaultChecked />
-                      <label htmlFor="new" >{t("new")}</label>
+                      <label htmlFor="new" className="bg-[#EAEAEA]" >{t("new")}</label>
 
                       <input type="radio" name="condition" value="used" id="used" className="bg-[#EAEAEA]" />
-                      <label htmlFor="used" >{t("used")}</label>
+                      <label htmlFor="used" className="bg-[#EAEAEA]">{t("used")}</label>
                     </div>
                 </div>
 
