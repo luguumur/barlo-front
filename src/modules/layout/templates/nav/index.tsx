@@ -43,11 +43,11 @@ const Nav = () => {
     <>
       <div className="mobile-search-form clearfix">
         <form className="search-form" action="/" method="get" role="search">
-          <input className="search-form--field" type="search" title="Search" name="s" value={formData.search} onChange={handleChange} placeholder="Find what you're looking for" aria-label="When autocomplete results are available use up and down arrows to review and enter to go to the desired page. Touch device users, explore by touch or with swipe gestures." />
-          <input className="search-form--submit" type="submit" aria-label="Submit search"/>
+          <input className="search-form--field" type="search" title="Search" value={formData.search} onChange={handleChange} placeholder="Find what you're looking for" aria-label="When autocomplete results are available use up and down arrows to review and enter to go to the desired page. Touch device users, explore by touch or with swipe gestures." />
+          <button className="search-form--submit h-[17px] w-[17px]" type="submit"/>
         </form>
       </div>
-      <header className="page-header sticky-page-header" id="page-header">
+      <header className="page-header sticky-page-header bg-white" id="page-header">
         <div className="page-header__bottom-row">
           <div className="container">
             <div className="row">
@@ -94,7 +94,7 @@ const Nav = () => {
                           aria-autocomplete="list"
                           aria-label="Search field"
                         />
-                        <input className="search-form--submit" type="submit" aria-label="Submit search"/>
+                        <button className="search-form--submit h-[17px] w-[17px]" type="submit"/>
                       </form>
                     </div>
                   </div>

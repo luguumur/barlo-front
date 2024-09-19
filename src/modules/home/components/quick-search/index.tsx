@@ -41,7 +41,7 @@ const QuickSearch: React.FC<Props> = ({ model = [], owner = [], location = [] })
   return (
     <div className="container">
       <div className="quick-search-wrapper">
-        <div className="quick-search-layout bg-transparent">
+        <div className="quick-search-layout">
           <div className="quick-search-layout-header">
             <h4>{t("main")}</h4>
           </div>
@@ -49,18 +49,18 @@ const QuickSearch: React.FC<Props> = ({ model = [], owner = [], location = [] })
             <form className="js-search-form front" onSubmit={handleSubmit}>
               <div className="quick-search-control-flex-box">
                 <div className="quick-search-field quick-search-options">
-                    <div className="quick-search-options-box bg-transparent">
+                    <div className="quick-search-options-box bg-[#EAEAEA]">
                       <input type="radio" name="condition" value="new" id="new" defaultChecked />
-                      <label htmlFor="new" className="bg-transparent">{t("new")}</label>
+                      <label htmlFor="new" className="bg-[#EAEAEA]">{t("new")}</label>
 
                       <input type="radio" name="condition" value="used" id="used" />
-                      <label htmlFor="used" className="bg-transparent">{t("used")}</label>
+                      <label htmlFor="used" className="bg-[#EAEAEA]">{t("used")}</label>
                     </div>
                 </div>
 
-                <div className="quick-search-field bg-transparent">
+                <div className="quick-search-field">
                   <label htmlFor="model">{t("model")}</label>
-                  <select className="select-option" name="model" id="model" aria-labelledby="model" aria-required="true">
+                  <select className="select-option bg-white" name="model" id="model" aria-labelledby="model" aria-required="true">
                     <option value="all">{t("all")}</option>
                     {model?.map((item, index) => (
                       <option key={index} value={item.string_value}>{item.string_value}</option>
@@ -68,9 +68,9 @@ const QuickSearch: React.FC<Props> = ({ model = [], owner = [], location = [] })
                   </select>
                 </div>
 
-                <div className="quick-search-field bg-transparent">
+                <div className="quick-search-field">
                   <label htmlFor="owner">{t("owner")}</label>
-                  <select className="select-option" name="owner" id="owner" aria-labelledby="owner" aria-required="true">
+                  <select className="select-option bg-white" name="owner" id="owner" aria-labelledby="owner" aria-required="true">
                     <option value="all">{t("all")}</option>
                     {owner?.map((item, index) => (
                       <option key={index} value={item.string_value}>{item.string_value}</option>
@@ -78,9 +78,9 @@ const QuickSearch: React.FC<Props> = ({ model = [], owner = [], location = [] })
                   </select>
                 </div>
 
-                <div className="quick-search-field bg-transparent">
+                <div className="quick-search-field">
                   <label htmlFor="location">{t("location")}</label>
-                  <select className="select-option" name="location" id="location" aria-labelledby="location" aria-required="true">
+                  <select className="select-option bg-white" name="location" id="location" aria-labelledby="location" aria-required="true">
                     <option value="all">{t("all")}</option>
                     {location?.map((item, index) => (
                       <option key={index} value={item.string_value}>{item.string_value}</option>

@@ -9,7 +9,7 @@ export default function LocaleSwitcher() {
   const otherLocale = locales?.find((cur) => cur !== locale);
 
   return (
-    <Link href={asPath} locale={otherLocale} className='!text-[#fc0] bg-transparent'>
+    <Link href={asPath} locale={otherLocale} className='!text-[#fc0] bg-white'>
       {t('switchLocale', {locale: otherLocale})}
     </Link>
   );
