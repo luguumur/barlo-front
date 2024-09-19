@@ -1870,7 +1870,6 @@ hr {
 .slick-prev:before,
 .slick-next:before {
     font-family: 'icomoon';
-    speak: none;
     font-style: normal;
     font-weight: 400;
     font-variant: normal;

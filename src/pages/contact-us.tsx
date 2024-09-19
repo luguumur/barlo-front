@@ -94,7 +94,7 @@ const Contact = () => {
     return (
         <>
             <Head title={t("contact")}></Head>
-            <header className="masthead text--center clearfix" id="masthead">
+            <header className="masthead text--center clearfix">
                 <div className="masthead-background">
                 <img src="/assets/img/hr/location.png" alt="Barloworld Mongolia" />
                     {/* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2674.5867562554454!2d106.86322311587898!3d47.90568317526192!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5d9693197317afc7%3A0x6358104e5496994a!2sWagner%20Asia%20Equipment%20LLC!5e0!3m2!1sen!2smn!4v1569379371193!5m2!1sen!2smn&amp;wmode=transparent" width="100%" height="350" ></iframe> */}

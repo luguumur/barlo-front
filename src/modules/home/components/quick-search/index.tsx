@@ -39,7 +39,6 @@ const QuickSearch: React.FC<Props> = ({ model = [], owner = [], location = [] })
   };
 
   return (
-    <div className="quick-search" id="masthead">
       <div className="container">
         <div className="quick-search-wrapper">
           <div className="quick-search-layout">
@@ -50,43 +49,54 @@ const QuickSearch: React.FC<Props> = ({ model = [], owner = [], location = [] })
               <form className="js-search-form front" onSubmit={handleSubmit}>
                 <div className="quick-search-control-flex-box">
                   <div className="quick-search-field quick-search-options">
-                    <label>{t("type")}</label>
-                    <div className="quick-search-options-box">
-                      <input type="radio" name="condition" value="new" id="new" defaultChecked />
-                      <label htmlFor="new">{t("new")}</label>
-                      <input type="radio" name="condition" value="used" id="used" />
-                      <label htmlFor="used">{t("used")}</label>
-                    </div>
+                    <fieldset>
+                      <legend>{t("type")}</legend>
+                      <div className="quick-search-options-box">
+                        <input type="radio" name="condition" value="new" id="new" defaultChecked />
+                        <label htmlFor="new">{t("new")}</label>
+                        <input type="radio" name="condition" value="used" id="used" />
+                        <label htmlFor="used">{t("used")}</label>
+                      </div>
+                    </fieldset>
                   </div>
+
                   <div className="quick-search-field">
                     <label htmlFor="model">{t("model")}</label>
-                    <select className="select-option" name="model" id="model" ref={selectOptionRef}>
+                    <select className="select-option" name="model" id="model">
                       <option value="all">{t("all")}</option>
                       {model?.map((item, index) => (
                         <option key={index} value={item.string_value}>{item.string_value}</option>
                       ))}
                     </select>
                   </div>
+
                   <div className="quick-search-field">
                     <label htmlFor="owner">{t("owner")}</label>
-                    <select className="select-option" name="owner" id="owner" ref={selectOptionRef}>
+                    <select className="select-option" name="owner" id="owner">
                       <option value="all">{t("all")}</option>
                       {owner?.map((item, index) => (
                         <option key={index} value={item.string_value}>{item.string_value}</option>
                       ))}
                     </select>
                   </div>
+
                   <div className="quick-search-field">
                     <label htmlFor="location">{t("location")}</label>
-                    <select className="select-option" name="location" id="location" ref={selectOptionRef}>
+                    <select className="select-option" name="location" id="location">
                       <option value="all">{t("all")}</option>
                       {location?.map((item, index) => (
                         <option key={index} value={item.string_value}>{item.string_value}</option>
                       ))}
                     </select>
                   </div>
+
                   <div className="quick-search-field-button">
-                    <button type="submit" className="btn btn-primary" disabled={isLoading}>
+                    <button
+                      type="submit"
+                      className="btn btn-primary"
+                      disabled={isLoading}
+                      aria-live="polite"
+                    >
                       {isLoading ? 'Loading...' : t("search")}
                     </button>
                   </div>
@@ -96,7 +106,6 @@ const QuickSearch: React.FC<Props> = ({ model = [], owner = [], location = [] })
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

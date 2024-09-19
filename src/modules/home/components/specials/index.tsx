@@ -11,9 +11,8 @@ const Specials = () => {
         <Image
           src={"/assets/img/graphics4.png"}
           className="img-responsive"
-          width={585}
+          width={285}
           height={283}
-          layout="responsive"
           alt="Graphics 4"
           priority
         />
@@ -24,7 +23,6 @@ const Specials = () => {
           className="img-responsive"
           width={455}
           height={220}
-          layout="responsive"
           alt="Graphics 5"
           priority
         />
@@ -37,14 +35,13 @@ const Specials = () => {
                 <div key={index} className="col-md-3 col-sm-6">
                   <div className="image-button-item">
                     <a href={`/${item.handle}`} target="_self">
-                      <div className="image-container">
+                      <div className="image-container relative w-full h-[242px]">
                         <Image
                           src={item.image}
-                          layout="responsive"
-                          width={500}
-                          height={500}
-                          className="img-responsive"
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                           alt={item.title}
+                          quality={75}
                           priority
                         />
                       </div>

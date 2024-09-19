@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl";
-import Image from "next/legacy/image";
+import Image from "next/image";
 const Cta = () => {
     const home = useTranslations("Home");
     const menu = useTranslations("Menu");
@@ -7,7 +7,7 @@ const Cta = () => {
         <>
             <section className="cta">
                 <div className="cta-banner">
-                    <Image priority src={"/assets/img/cta-banner-image.jpg"} width={831} height={165}/>
+                    <Image priority src={"/assets/img/cta-banner-image.jpg"} fill alt="cta-banner"/>
                 </div>
                 <div className="cta-overlay">
                     <div className="container">

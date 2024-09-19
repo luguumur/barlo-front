@@ -35,7 +35,7 @@ const OfferCarousel: React.FC<Props> = ({ deals, description, locale, image }) =
     className: 'home-deals-box js-home-deals-slider',
   };
   return (
-    <section className="home-deals ">
+    <section className="home-deals">
       <div className="home-deals-content-wrapper">
         <div className="container">
           <div className="home-deals-header">
@@ -48,7 +48,7 @@ const OfferCarousel: React.FC<Props> = ({ deals, description, locale, image }) =
                   <div key={index}>
                     <div className="home-deals-item slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style={{"width":"1314px","position":"relative","left":"0px","top":"0px","zIndex":"999","opacity":"1"}} tabIndex={0} role="option" aria-describedby="slick-slide10">
                         <div className="home-deals-item-box clearfix">
-                          <div className="home-deals-image">
+                          <div className="home-deals-image h-[400px]">
                               <Image priority loader={imageLoader} src={deal.img_path} width={400} height={400} alt={deal.title} className="img-responsive entered lazyloaded"></Image>
                           </div>
                           <div className="home-deals-content">
