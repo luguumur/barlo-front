@@ -8,7 +8,7 @@ export const MenuData = [
     {
         id: 2,
         title: 'rent',
-        handle: 'equipment/rent',
+        handle: 'rent',
         image: '/assets/img/specials/Rental.jpg',
     },
     {
@@ -20,7 +20,7 @@ export const MenuData = [
     {
         id: 4,
         title: 'energy',
-        handle: '/',
+        handle: 'equipment/new',
         image: '/assets/img/HOME_et.jpg',
     },
     {
@@ -32,7 +32,7 @@ export const MenuData = [
     {
         id: 6,
         title: 'service',
-        handle: '/',
+        handle: 'service',
         image: '/assets/img/HOME_Service.jpg',
     },
     {
@@ -44,7 +44,7 @@ export const MenuData = [
     {
         id: 8,
         title: 'hr',
-        handle: '/',
+        handle: 'careers',
         image: '/assets/img/specials/HumanCapital.jpg',
     }
  ]
