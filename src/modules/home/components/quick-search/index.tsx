@@ -55,10 +55,10 @@ const QuickSearch: React.FC<Props> = ({ model = [], owner = [], location = [] })
                       name="condition"
                       value="new"
                       id="new"
-                      className="bg-[#CCCCCC] text-black" // Darker background, black text for contrast
+                      className="bg-[#999999] text-black" // Darker background, black text for contrast
                       defaultChecked
                     />
-                    <label htmlFor="new" className="bg-[#CCCCCC] text-black">
+                    <label htmlFor="new" className="bg-[#999999] text-black">
                       {t("new")}
                     </label>
 
@@ -67,9 +67,9 @@ const QuickSearch: React.FC<Props> = ({ model = [], owner = [], location = [] })
                       name="condition"
                       value="used"
                       id="used"
-                      className="bg-[#CCCCCC] text-black" // Darker background, black text for contrast
+                      className="bg-[#999999] text-black" // Darker background, black text for contrast
                     />
-                    <label htmlFor="used" className="bg-[#CCCCCC] text-black">
+                    <label htmlFor="used" className="bg-[#999999] text-black">
                       {t("used")}
                     </label>
                   </div>

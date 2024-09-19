@@ -4275,7 +4275,7 @@ input.wpcf7-not-valid {
 .quick-search-options-box {
     width: 100%;
     padding: 7px;
-    background-color: #CCCCCC;
+    background-color: #999999;
     border-radius: 3px;
     position: relative;
     overflow: hidden
