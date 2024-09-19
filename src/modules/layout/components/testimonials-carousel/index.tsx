@@ -73,7 +73,7 @@ const TestiCarousel: React.FC<Props> = ({ testi, description, image }) => {
             {testi?.map((item:any, index:any) => (
               <div key={index} className='h-[400px]'>
                   <div className="home-testimonials-slider-item-column z-10">
-                      <h4>“{locale === "mn" ? item.title : item.title_en}”</h4>
+                      <span className='text-sm mb-5 text-[#1C1C1C]'>{locale === "mn" ? item.title : item.title_en}</span>
                       <h5 className='pb-5'>
                       <span className="title-wrap">
                           <span>—</span> {locale === "mn" ? item.subtitle : item.subtitle_en} </span>

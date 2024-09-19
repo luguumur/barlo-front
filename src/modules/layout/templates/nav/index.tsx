@@ -71,9 +71,13 @@ const Nav = () => {
                     </div>
                   </Link>
                   <div className="page-header--search">
-                    <button className="js-mobile-trigger-button--search mobile-trigger-button mobile-trigger-button--search hidden-md hidden-lg">
+                    <button
+                      className="js-mobile-trigger-button--search mobile-trigger-button mobile-trigger-button--search hidden-md hidden-lg"
+                      aria-label="Search"
+                    >
                       <span className="icon-search"></span>
                     </button>
+
                     <div className="visible-md visible-lg">
                       <form className="search-form" action="/" method="get" role="search">
                         <label htmlFor="search-field" className="sr-only">Search</label>
@@ -110,7 +114,7 @@ const Nav = () => {
                     </ul>
                   </nav>
 
-                  <button className="js-mobile-trigger-button--menu mobile-trigger-button mobile-trigger-button--menu hidden-md hidden-lg">
+                  <button className="js-mobile-trigger-button--menu mobile-trigger-button mobile-trigger-button--menu hidden-md hidden-lg" aria-label="Menu">
                     <span className="icon-menu"></span>
                   </button>
                 </div>

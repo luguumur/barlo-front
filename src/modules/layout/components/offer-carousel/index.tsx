@@ -10,7 +10,7 @@ type Props = {
   description?: string | null
   image?: string | null
 }
-const imageLoader = ({ src, width } : {src:any, width:any}) => {
+const imageLoader = ({ src, width }: { src: any, width: any }) => {
   return `https://webapi.barloworld.mn/file/${src}`
 }
 
@@ -24,7 +24,7 @@ const OfferCarousel: React.FC<Props> = ({ deals, description, locale, image }) =
     }
   }, []);
 
-  const settings:any = {
+  const settings: any = {
     dots: false,
     fade: true,
     infinite: true,
@@ -43,23 +43,38 @@ const OfferCarousel: React.FC<Props> = ({ deals, description, locale, image }) =
             <a href="/deals-specials/" target="_self" className="home-deals-header__link hidden-xs-down">VIEW ALL DEALS &amp; SPECIALS <span className="icon-chevron-right"></span>
             </a>
           </div>
-          <Slider ref={(slider) => (sliderRef.current = slider)} {...settings}>
-              {deals?.map((deal:any, index:any) => (
-                  <div key={index}>
-                    <div className="home-deals-item slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style={{"width":"1314px","position":"relative","left":"0px","top":"0px","zIndex":"999","opacity":"1"}} tabIndex={0} role="option" aria-describedby="slick-slide10">
-                        <div className="home-deals-item-box clearfix">
-                          <div className="home-deals-image h-[400px]">
-                              <Image priority loader={imageLoader} src={deal.img_path} width={400} height={400} alt={deal.title} className="img-responsive entered lazyloaded"></Image>
-                          </div>
-                          <div className="home-deals-content">
-                              <h3>{locale == "mn" ? deal.title : deal.title_en}</h3>
-                              <p>{deal.subtitle}</p>
-                              <a href={`/deals-specials/${deal.id}`} className="btn btn-primary" tabIndex={index}>VIEW DEAL</a>
-                          </div>
-                        </div>
+          <Slider ref={(slider) => (sliderRef.current = slider)} {...settings} role="listbox" aria-label="Deals slider">
+            {deals?.map((deal: any, index: any) => (
+              <div key={index}>
+                <div
+                  className="home-deals-item slick-slide slick-current slick-active"
+                  data-slick-index={index}
+                  aria-hidden={index === 0 ? "false" : "true"}
+                  tabIndex={0}
+                >
+                  <div className="home-deals-item-box clearfix">
+                    <div className="home-deals-image h-[400px]">
+                      <Image
+                        priority
+                        loader={imageLoader}
+                        src={deal.img_path}
+                        width={400}
+                        height={400}
+                        alt={deal.title}
+                        className="img-responsive entered lazyloaded"
+                      />
+                    </div>
+                    <div className="home-deals-content">
+                      <h3>{locale == "mn" ? deal.title : deal.title_en}</h3>
+                      <p>{deal.subtitle}</p>
+                      <a href={`/deals-specials/${deal.id}`} className="btn btn-primary" tabIndex={index}>
+                        VIEW DEAL
+                      </a>
                     </div>
                   </div>
-              ))}
+                </div>
+              </div>
+            ))}
           </Slider>
         </div>
       </div>

@@ -29,7 +29,7 @@ const About = () => {
               <div className="home-about-image">
                 <Image src="/assets/img/HOME_Parts.jpg" width={643} height={364} className="lazyloaded" alt="Barloworld Mongolia" layout="intrinsic" />
                 <div className="home-about-image-overlay">
-                  <a className="video-button-link external" data-fancybox="goal-video" href="https://www.youtube.com/watch?v=sds1NxKwucM&ab_channel=BarloworldMongolia" target="_blank" rel="noopener">
+                  <a className="video-button-link external" data-fancybox="goal-video" href="https://www.youtube.com/watch?v=sds1NxKwucM&ab_channel=BarloworldMongolia" target="_blank" rel="noopener" aria-label="Watch video on YouTube">
                     <div className="video-button-outer">
                       <div className="video-button-inner">
                         <span className="play-btn"></span>
@@ -47,6 +47,7 @@ const About = () => {
                     <p>To be the best Cat dealer, period.</p>
                   </div>
                 </div>
+
                 <div className="home-about-short-content-flex-box">
                   <div className="home-about-short-content-heading">
                     <h5>Mission</h5>
@@ -55,6 +56,7 @@ const About = () => {
                     <p>Superior Services. Lasting Relationships. Stronger Communities.</p>
                   </div>
                 </div>
+
                 <div className="home-about-short-content-flex-box">
                   <div className="home-about-short-content-heading">
                     <h5>Values</h5>
@@ -64,6 +66,7 @@ const About = () => {
                   </div>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
