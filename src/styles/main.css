@@ -12485,3 +12485,8 @@ ul li:before {
     transition: background-color 0.3s ease;
     margin-bottom: 15px;
 }
+
+.search-form input,
+input::placeholder {
+    font-size: 13px;
+}

@@ -45,7 +45,7 @@ const Nav = () => {
       <div className="mobile-search-form clearfix">
         <form className="search-form" action="/" method="get" role="search">
           <input className="search-form--field" type="search" title="Search" value={formData.search} onChange={handleChange} placeholder="Find what you're looking for" aria-label="When autocomplete results are available use up and down arrows to review and enter to go to the desired page. Touch device users, explore by touch or with swipe gestures." />
-          <Button className="search-form--submit h-[17px] w-[17px]"/>
+          <button className="search-form--submit h-[17px] w-[17px]">&nbsp;</button>
         </form>
       </div>
       <header className="page-header sticky-page-header bg-white" id="page-header">
@@ -54,9 +54,9 @@ const Nav = () => {
             <div className="row">
               <div className="col-xxs-7 col-xs-6 col-sm-4 col-md-3">
                 <div className="page-header--logo">
-                  <Link href="/">
-                    <Image priority width="190" height="51" className="site-logo entered lazyloaded" src="/logo.jpg" alt="Barloworld Mongolia" />
-                  </Link>
+                  <a href="https://thompsonmachinery.com">
+                    <img width="209" height="51" className="site-logo" src="/logo.jpg" alt="Barloworld Mongolia" />
+                  </a>
                 </div>
               </div>
               <div className="col-xxs-5 col-xs-6 col-sm-8 col-md-9 text--right pull--right header-top-right-section">
@@ -87,29 +87,30 @@ const Nav = () => {
                           className="search-form--field"
                           type="search"
                           name="search"
+                          placeholder="Хайлт"
                         />
-                        <Button className="search-form--submit h-[17px] w-[17px]"/>
+                        <button className="search-form--submit h-[17px] w-[17px]">&nbsp;</button>
                       </form>
                     </div>
                   </div>
                   <nav className="nav--top-menu hidden-xxs hidden-xs hidden-sm">
                     <ul id="menu-top-menu" className="menu">
                       <li id="menu-item-186" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-186">
-                        <Link href="/" className="p-3 block" aria-label="Home">
+                        <Link href="/" aria-label="Home">
                         </Link>
                       </li>
                       <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-105843">
-                        <Link href="/about-us" className="p-3 block">
+                        <Link href="/about-us">
                           {homet("about")}
                         </Link>
                       </li>
                       <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-105843">
-                        <Link href="/careers" className="p-3 block">
+                        <Link href="/careers">
                           {t("careers")}
                         </Link>
                       </li>
                       <li id="menu-item-5639" className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-5639">
-                        <Link href="/deals-specials" className="p-3 block" aria-current="page">
+                        <Link href="/deals-specials" aria-current="page">
                           {homet("specials")}
                         </Link>
                       </li>
