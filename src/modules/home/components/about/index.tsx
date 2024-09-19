@@ -41,7 +41,7 @@ const About = () => {
               <div className="home-about-short-content">
                 <div className="home-about-short-content-flex-box">
                   <div className="home-about-short-content-heading">
-                    <h5>Vision</h5>
+                    <div className="text-[#FC0] uppercase font-extrabold text-[20px]">Vision</div>
                   </div>
                   <div className="home-about-short-content-info">
                     <p>To be the best Cat dealer, period.</p>
@@ -50,7 +50,7 @@ const About = () => {
 
                 <div className="home-about-short-content-flex-box">
                   <div className="home-about-short-content-heading">
-                    <h5>Mission</h5>
+                    <div className="text-[#FC0] uppercase font-extrabold text-[20px]">Mission</div>
                   </div>
                   <div className="home-about-short-content-info">
                     <p>Superior Services. Lasting Relationships. Stronger Communities.</p>
@@ -59,7 +59,7 @@ const About = () => {
 
                 <div className="home-about-short-content-flex-box">
                   <div className="home-about-short-content-heading">
-                    <h5>Values</h5>
+                    <div className="text-[#FC0] uppercase font-extrabold text-[20px]">Values</div>
                   </div>
                   <div className="home-about-short-content-info">
                     <p>Barloworld Mongolia is committed to honesty, integrity, respect, safety, high quality, and positive attitude.</p>

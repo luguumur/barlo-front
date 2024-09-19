@@ -44,7 +44,7 @@ const Nav = () => {
       <div className="mobile-search-form clearfix">
         <form className="search-form" action="/" method="get" role="search">
           <input className="search-form--field" type="search" title="Search" name="s" value={formData.search} onChange={handleChange} placeholder="Find what you're looking for" aria-label="When autocomplete results are available use up and down arrows to review and enter to go to the desired page. Touch device users, explore by touch or with swipe gestures." />
-          <input className="search-form--submit" type="submit" />
+          <input className="search-form--submit" type="submit" aria-label="Submit search"/>
         </form>
       </div>
       <header className="page-header sticky-page-header" id="page-header">
@@ -81,8 +81,20 @@ const Nav = () => {
                     <div className="visible-md visible-lg">
                       <form className="search-form" action="/" method="get" role="search">
                         <label htmlFor="search-field" className="sr-only">Search</label>
-                        <input id="search-field" className="search-form--field" type="search" title="Search" name="s" data-swplive="true" data-swpengine="default" data-swpconfig="default" placeholder={homet(`search`)} aria-owns="searchwp_live_search_results_6538ffce134f9" aria-autocomplete="both" aria-label="Search input field" />
-                        <input className="search-form--submit" type="submit" value="" />
+                        <input
+                          id="search-field"
+                          className="search-form--field"
+                          type="search"
+                          name="s"
+                          data-swplive="true"
+                          data-swpengine="default"
+                          data-swpconfig="default"
+                          placeholder="Хайлт хийх..."
+                          aria-owns="searchwp_live_search_results"
+                          aria-autocomplete="list"
+                          aria-label="Search field"
+                        />
+                        <input className="search-form--submit" type="submit" aria-label="Submit search"/>
                       </form>
                     </div>
                   </div>

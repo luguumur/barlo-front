@@ -3065,17 +3065,17 @@ input.wpcf7-not-valid {
 }
 
 .search-form .search-form--submit {
-    background: url(/assets/img/icon-search.png) no-repeat center;
+    background: url("/assets/img/icon-search.png") no-repeat center;
     height: 17px;
+    width: 17px;
     padding-right: 0;
     position: absolute;
     right: 8px;
     top: 10%;
-    width: 17px
 }
 
 .search-form .search-form--submit:hover {
-    background: url(/assets/img/icon-search.png) no-repeat center;
+    background: url("/assets/img/icon-search.png") no-repeat center;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
     filter: alpha(opacity=80);
     -moz-opacity: .8;
