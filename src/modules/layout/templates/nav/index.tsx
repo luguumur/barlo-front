@@ -46,7 +46,7 @@ const Nav = () => {
         <form className="search-form" action="/" method="get" role="search">
           <input className="search-form--field" type="search" title="Search" value={formData.search} onChange={handleChange} placeholder="Find what you're looking for" aria-label="When autocomplete results are available use up and down arrows to review and enter to go to the desired page. Touch device users, explore by touch or with swipe gestures." />
           <button className="absolute pr-0 right-[8px] top-[10%] h-[16px] w-[16px]" aria-label="icon-search">
-            <img src="/assets/img/icon-search.png" alt="icon-search"/>
+            <img src="/assets/img/icon-search.png" alt="icon-search" />
           </button>
         </form>
       </div>
@@ -82,43 +82,51 @@ const Nav = () => {
                     </button>
 
                     <div className="visible-md visible-lg">
-                      <form className="search-form" action="/" method="get" role="search">
+                      <form className="search-form relative" action="/" method="get" role="search">
                         <label htmlFor="search-field" className="sr-only">Search</label>
                         <input
                           id="search-field"
-                          className="search-form--field"
+                          className="search-form--field w-full p-4 text-base rounded-md"
                           type="search"
                           name="search"
                           placeholder="Хайлт"
                         />
-                        <button className="absolute pr-0 right-[8px] top-[10%] h-[16px] w-[16px]" aria-label="icon-search">
-                          <img src="/assets/img/icon-search.png" alt="icon-search"/>
+                        <button
+                          className="absolute pr-0 right-[8px] top-[50%] transform -translate-y-1/2 h-[44px] w-[44px] flex items-center justify-center"
+                          aria-label="icon-search"
+                        >
+                          <img
+                            src="/assets/img/icon-search.png"
+                            alt="icon-search"
+                            className="h-4 w-4"
+                          />
                         </button>
                       </form>
                     </div>
+
                   </div>
                   <nav className="nav--top-menu hidden-xxs hidden-xs hidden-sm">
                     <ul id="menu-top-menu" className="menu">
-                      <li id="menu-item-186" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-186">
-                        <Link href="/" aria-label="Home">
+                      {/* <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home">
+                        <Link href="/" aria-label="Home">&nbsp;
                         </Link>
-                      </li>
-                      <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-105843">
-                        <Link href="/about-us">
+                      </li> */}
+                      <li className="menu-item menu-item-type-post_type menu-item-object-page">
+                        <Link href="/about-us" aria-label="About Us">
                           {homet("about")}
                         </Link>
                       </li>
-                      <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-105843">
-                        <Link href="/careers">
+                      <li className="menu-item menu-item-type-post_type menu-item-object-page">
+                        <Link href="/careers" aria-label="Career">
                           {t("careers")}
                         </Link>
                       </li>
-                      <li id="menu-item-5639" className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-5639">
-                        <Link href="/deals-specials" aria-current="page">
+                      <li id="menu-item-5639" className="menu-item menu-item-type-custom menu-item-object-custom">
+                        <Link href="/deals-specials" aria-label="Specials">
                           {homet("specials")}
                         </Link>
                       </li>
-                      <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item">
+                      <li className="menu-item menu-item-type-custom menu-item-object-custom ">
                         <LanguageSwitcher />
                       </li>
                     </ul>

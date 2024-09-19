@@ -1907,10 +1907,10 @@ hr {
     content: "\e601"
 }
 
-.icon-home3:before,
+/* .icon-home3:before,
 .nav--top-menu li:first-child a:after {
     content: "\e602"
-}
+} */
 
 .icon-chat:before {
     content: "\e603"
