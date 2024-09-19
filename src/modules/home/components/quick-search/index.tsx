@@ -50,11 +50,11 @@ const QuickSearch: React.FC<Props> = ({ model = [], owner = [], location = [] })
               <div className="quick-search-control-flex-box">
                 <div className="quick-search-field quick-search-options">
                     <div className="quick-search-options-box bg-[#EAEAEA]">
-                      <input type="radio" name="condition" value="new" id="new" defaultChecked />
-                      <label htmlFor="new" className="bg-[#EAEAEA]">{t("new")}</label>
+                      <input type="radio" name="condition" value="new" id="new" className="bg-[#EAEAEA]" defaultChecked />
+                      <label htmlFor="new" >{t("new")}</label>
 
-                      <input type="radio" name="condition" value="used" id="used" />
-                      <label htmlFor="used" className="bg-[#EAEAEA]">{t("used")}</label>
+                      <input type="radio" name="condition" value="used" id="used" className="bg-[#EAEAEA]" />
+                      <label htmlFor="used" >{t("used")}</label>
                     </div>
                 </div>
 
