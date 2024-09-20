@@ -121,12 +121,12 @@ const Nav = () => {
                           {t("careers")}
                         </Link>
                       </li>
-                      <li id="menu-item-5639" className="menu-item menu-item-type-custom menu-item-object-custom">
+                      <li className="menu-item menu-item-type-post_type menu-item-object-page">
                         <Link href="/deals-specials" aria-label="Specials">
                           {homet("specials")}
                         </Link>
                       </li>
-                      <li className="menu-item menu-item-type-custom menu-item-object-custom ">
+                      <li className="menu-item menu-item-type-post_type menu-item-object-page">
                         <LanguageSwitcher />
                       </li>
                     </ul>
@@ -143,16 +143,14 @@ const Nav = () => {
                 <nav className="nav--primary">
                   <ul id="menu-main-navigation" className="menu">
                     {HeaderData.map((item, index) => (
-                      <li key={item.id} id={`menu-item-${item.id}`} className={`menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-${item.id}`}>
-                        <div>
-                          <Link href={item.handle}>{t(`${item.title}`)}</Link>
-                        </div>
+                      <li key={item.id} className={`menu-item-${item.id}`}>
+                        <Link href={item.handle}>{t(`${item.title}`)}</Link>
                         {item.submenu && (
                           <>
                             <span className="sub-menu-toggle icon-chevron-down hidden-md hidden-lg"></span>
                             <ul className="sub-menu">
                               {item.sub?.map((item: any, i: any) => (
-                                <li key={i} id={`menu-item-${item.id}`} className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-${item.id}`}>
+                                <li key={i} className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-${item.id}`}>
                                   <Link href={item.handle}>{t(`${item.title}`)}</Link>
                                 </li>
                               ))}

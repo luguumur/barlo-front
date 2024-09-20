@@ -87,7 +87,13 @@ const Footer = () => {
           <div className="col-md-6 h-[48px] flex items-center">
             <span className="text-sm">{home("connect_your_email")}</span>
           </div>
-          <form onSubmit={handleSubmit} className="wpcf7-form init" id="emailForm" aria-label="email form" data-status="init">
+          <form
+            onSubmit={handleSubmit}
+            className="wpcf7-form init"
+            id="emailForm"
+            aria-label="email form"
+            data-status="init"
+          >
             <div className="col-md-6">
               <div className="row">
                 <div className="col-sm-6 form-field pb-7">
@@ -96,14 +102,19 @@ const Footer = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="wpcf7-form-control wpcf7-text wpcf7-validates-as-required h-[48px] bg-white"
+                    className="wpcf7-form-control wpcf7-text wpcf7-validates-as-required h-[48px] w-full bg-white"
                     placeholder="Цахим хаяг"
                     aria-required="true"
                     required
                   />
                 </div>
                 <div className="col-sm-6 form-field pb-7">
-                  <button className="button button--primary button--block" type="submit">Submit</button>
+                  <button
+                    className="button button--primary button--block h-[48px] w-full"
+                    type="submit"
+                  >
+                    Submit
+                  </button>
                 </div>
               </div>
             </div>
@@ -112,6 +123,7 @@ const Footer = () => {
       )}
       <FooterNav />
     </>
+
   );
 };
 

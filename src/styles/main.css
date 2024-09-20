@@ -3395,10 +3395,10 @@ input.wpcf7-not-valid {
 	content: "";
 	display: none
 }
-
+/* 
 .nav--top-menu li:first-child {
 	padding: 0
-}
+} */
 
 .nav--top-menu li:last-child {
 	padding-right: 0
@@ -3491,7 +3491,7 @@ input.wpcf7-not-valid {
 
 	.nav--primary a {
 		display: inline-block;
-		padding: 2px 0
+		padding: 0
 	}
 
 	.nav--primary>ul>li>a {
@@ -3503,8 +3503,8 @@ input.wpcf7-not-valid {
 	.nav--primary .menu>li.current-menu-item>a,
 	.nav--primary .menu>li.current-page-parent>a,
 	.nav--primary .menu>li.current-page-ancestor>a {
-		border-bottom: 1px solid #dcdcdc;
-		border-top: 1px solid #dcdcdc
+		border-bottom: 1px solid #fff;
+		border-top: 1px solid #fff
 	}
 }
 

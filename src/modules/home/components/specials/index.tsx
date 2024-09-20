@@ -39,7 +39,6 @@ const Specials = () => {
                         <Image
                           src={item.image}
                           fill
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                           alt={item.title}
                           quality={75}
                           priority
