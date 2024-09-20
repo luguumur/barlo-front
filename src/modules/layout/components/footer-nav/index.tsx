@@ -10,7 +10,7 @@ const FooterNav = () => {
   const homet = useTranslations("Home");
 
   return (
-    <footer className="page-footer h-[252px]">
+    <footer className="page-footer h-64">
       <div className="page-footer__main">
         <div className="container">
           <div className="row push--bottom">

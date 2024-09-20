@@ -11,8 +11,8 @@ const Specials = () => {
         <Image
           src={"https://d3leeb4r1qy96s.cloudfront.net/assets/img/graphics4.webp"}
           className="img-responsive"
-          width={285}
-          height={283}
+          width={280}
+          height={280}
           alt="Graphics 4"
           priority
         />
@@ -40,7 +40,8 @@ const Specials = () => {
                       <div className="image-container relative w-full h-[242px]">
                         <Image
                           src={item.image}
-                          fill
+                          height={242}
+                          width={242}
                           alt={item.title}
                           quality={75}
                           priority
