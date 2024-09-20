@@ -18,14 +18,16 @@ const Specials = () => {
         />
       </div>
       <div className="image-button-graphics-left">
-        <Image
-          src={"https://d3leeb4r1qy96s.cloudfront.net/assets/img/graphics5.webp"}
-          className="img-responsive"
-          width={455}
-          height={220}
-          alt="Graphics 5"
-          priority
-        />
+        <div className="aspect-w-455 aspect-h-220 relative">
+          <Image
+            src="https://d3leeb4r1qy96s.cloudfront.net/assets/img/graphics5.webp"
+            className="img-responsive"
+            width={455}
+            height={220}
+            alt="Graphics 5"
+            priority
+          />
+        </div>
       </div>
       <div className="container">
         <div className="row">
