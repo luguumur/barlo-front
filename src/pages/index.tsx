@@ -62,7 +62,7 @@ const Index = () => {
       {/* {loading ? <SkeletonLoader /> : <OfferCarousel deals={deals.data} locale={locale} />} */}
       <Specials />
       {/* <About /> */}
-      {/* {loading ? <SkeletonLoader /> : testimonials && <TestiCarousel testi={testimonials.data} locale={locale} />} */}
+      {loading ? <SkeletonLoader /> : testimonials && <TestiCarousel testi={testimonials.data} locale={locale} />}
       <Cta />
     </>
   )

@@ -22,8 +22,8 @@ const Specials = () => {
           <Image
             src="https://d3leeb4r1qy96s.cloudfront.net/assets/img/graphics5.webp"
             className="img-responsive"
-            width={455}
-            height={220}
+            width={480}
+            height={243}
             alt="Graphics 5"
             priority
           />
