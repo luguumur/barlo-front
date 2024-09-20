@@ -18,12 +18,12 @@ const Specials = () => {
         />
       </div>
       <div className="image-button-graphics-left">
-        <div className="aspect-w-455 aspect-h-220 relative">
+        <div className="aspect-w-480 aspect-h-240 relative">
           <Image
             src="https://d3leeb4r1qy96s.cloudfront.net/assets/img/graphics5.webp"
             className="img-responsive"
             width={480}
-            height={243}
+            height={240}
             alt="Graphics 5"
             priority
           />
