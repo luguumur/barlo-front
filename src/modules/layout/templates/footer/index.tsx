@@ -83,14 +83,14 @@ const Footer = () => {
   return (
     <>
       {showFooter && (
-        <div className="container py-[30px]">
-          <div className="col-md-6 h-[48.65px] flex items-center">
+        <div className="container pt-7">
+          <div className="col-md-6 h-[48px] flex items-center">
             <span className="text-sm">{home("connect_your_email")}</span>
           </div>
           <form onSubmit={handleSubmit} className="wpcf7-form init" id="emailForm" aria-label="email form" data-status="init">
             <div className="col-md-6">
               <div className="row">
-                <div className="col-sm-6 form-field !pr-0">
+                <div className="col-sm-6 form-field pb-7">
                   <input
                     type="email"
                     name="email"
@@ -102,7 +102,7 @@ const Footer = () => {
                     required
                   />
                 </div>
-                <div className="col-sm-6 form-field">
+                <div className="col-sm-6 form-field pb-7">
                   <button className="button button--primary button--block" type="submit">Submit</button>
                 </div>
               </div>

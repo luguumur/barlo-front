@@ -10,35 +10,35 @@ const FooterNav = () => {
   const homet = useTranslations("Home");
 
   return (
-    <footer className="page-footer" id="page-footer">
+    <footer className="page-footer h-[252px]">
       <div className="page-footer__main">
         <div className="container">
           <div className="row push--bottom">
             <div className="col-md-7 col-sm-9">
               <nav className="nav--footer">
-                <ul id="menu-main-navigation-1" className="menu">
-                  <li className="menu-item">
+                <ul className="menu">
+                  <li >
                     <Link href="/equipment/new">{menut("new")}</Link>
                   </li>
-                  <li className="menu-item">
+                  <li >
                     <Link href="/equipment/used">{menut("used")}</Link>
                   </li>
-                  <li className="menu-item">
+                  <li >
                     <Link href="/equipment/rental">{menut("rent")}</Link>
                   </li>
-                  <li className="menu-item">
+                  <li >
                     <Link href="/parts">{menut("parts")}</Link>
                   </li>
-                  <li className="menu-item">
+                  <li >
                     <Link href="/service">{menut("service")}</Link>
                   </li>
-                  <li className="menu-item">
+                  <li >
                     <Link href="/technology">{menut("technology")}</Link>
                   </li>
-                  <li className="menu-item">
+                  <li >
                     <Link href="/about-us">{menut("about")}</Link>
                   </li>
-                  <li className="menu-item">
+                  <li >
                     <Link href="/careers">{menut("hr")}</Link>
                   </li>
                 </ul>

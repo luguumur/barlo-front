@@ -1610,9 +1610,10 @@ hr {
 
 .button--block {
 	display: block;
-	width: 95%
+	height: 48px;
+	width: 100%
 }
-
+/* 
 @media (min-width: 400px) {
 
 	.button--primary,
@@ -1623,25 +1624,13 @@ hr {
 }
 
 @media (min-width: 600px) {
-	.button--block {
-		width: 97%
-	}
 
 	.button {
 		padding: 14px 16px 14px 24px
 	}
 }
 
-@media (min-width: 768px) {
-	.button--block {
-		width: 98%
-	}
-}
-
 @media (min-width: 1025px) {
-	.button--block {
-		width: 99%
-	}
 
 	.button {
 		padding: 15px 26px 15px 30px
@@ -1652,7 +1641,7 @@ hr {
 	.button--block {
 		width: 100%
 	}
-}
+} */
 
 .btn {
 	font-size: 16px;
@@ -7700,8 +7689,9 @@ span.categories a {
 }
 
 .page-footer {
-	background: url('/assets/img/footer-bg.png') no-repeat center bottom #474d59;
-	background-size: cover;
+	/* background: url('/assets/img/footer-bg.png') no-repeat center bottom #474d59; */
+	background-color: #474d59;
+	/* background-size: cover; */
 	padding-bottom: 60px
 }
 

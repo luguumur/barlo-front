@@ -51,16 +51,14 @@ export default function App({ Component, pageProps }: AppProps) {
   }, []);
 
   return (
-    <>
-      <NextIntlClientProvider
-        locale={router.locale}
-        messages={pageProps.messages}
-        timeZone={timeZone}
-      >
-        <PageLayout>
-          <Component {...pageProps} />
-        </PageLayout>
-      </NextIntlClientProvider>
-    </>
+    <NextIntlClientProvider
+      locale={router.locale}
+      messages={pageProps.messages}
+      timeZone={timeZone}
+    >
+      <PageLayout>
+        <Component {...pageProps} />
+      </PageLayout>
+    </NextIntlClientProvider>
   );
 }
