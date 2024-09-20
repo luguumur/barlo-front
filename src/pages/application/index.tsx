@@ -26,7 +26,7 @@ const careerPage = () => {
             <Head title={"Анкет бөглөх"}></Head>
             <PageHeader
                 title={"Анкет бөглөх"}
-                image="/assets/img/hr/wae_mendchilgee.jpg"
+                image="https://d3leeb4r1qy96s.cloudfront.net/assets/img/hr/wae_mendchilgee.jpg"
             />
             <article className="page-body container post-97908 deals_specials type-deals_specials status-publish has-post-thumbnail hentry" id="page-body">
                 <div className="row">

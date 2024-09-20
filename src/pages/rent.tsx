@@ -13,7 +13,7 @@ const About = () => {
     return (
         <>
             <Head title={t("title")}></Head>
-            <PageHeader title={t(`rent`)} image="/assets/img/hr/rent.jpg" />
+            <PageHeader title={t(`rent`)} image="https://d3leeb4r1qy96s.cloudfront.net/assets/img/hr/rent.jpg" />
             <article className="page-body container page type-page status-publish hentry" id="page-body">
                 <div className="row">
                     <div className="container mx-auto py-8">
@@ -30,28 +30,28 @@ const About = () => {
                         <div className="grid grid-cols-4 gap-1">
                             <div className="text-center">
                                 <div className="relative group">
-                                    <img src="/assets/img/specials/GDC_Main_011_5_11zon.png" alt="Image 1" className="mx-auto opacity-70 group-hover:opacity-100 transition-opacity duration-300 " />
+                                    <img src="https://d3leeb4r1qy96s.cloudfront.net/assets/img/specials/GDC_Main_011_5_11zon.png" alt="Image 1" className="mx-auto opacity-70 group-hover:opacity-100 transition-opacity duration-300 " />
                                 </div>
                                 <p className="bg-[#ad0f0e] text-white p-5 h-[100px]">ӨМНӨГОВЬ АЙМАГ, ЦОГЦЭЦИЙ СУМ<br />  <strong>GDC САЛБАР</strong></p>
                                 <p></p>
                             </div>
                             <div className="text-center">
                                 <div className="relative group">
-                                    <img src="/assets/img/specials/22_branch_041_11zon.png" alt="Image 2" className="mx-auto opacity-70 group-hover:opacity-100 transition-opacity duration-300 " />
+                                    <img src="https://d3leeb4r1qy96s.cloudfront.net/assets/img/specials/22_branch_041_11zon.png" alt="Image 2" className="mx-auto opacity-70 group-hover:opacity-100 transition-opacity duration-300 " />
                                 </div>
                                 <p className="bg-[#ad0f0e] text-white pt-5 h-[100px]">УЛААНБААТАР ХОТ, СХДҮҮРЭГ<br /> <strong>22-ЫН ТОВЧОО САЛБАР</strong></p>
                                 <p></p>
                             </div>
                             <div className="text-center">
                                 <div className="relative group">
-                                    <img src="/assets/img/specials/Khanbogd_01_2_11zon.png" alt="Image 3" className="mx-auto opacity-70 group-hover:opacity-100 transition-opacity duration-300 " />
+                                    <img src="https://d3leeb4r1qy96s.cloudfront.net/assets/img/specials/Khanbogd_01_2_11zon.png" alt="Image 3" className="mx-auto opacity-70 group-hover:opacity-100 transition-opacity duration-300 " />
                                 </div>
                                 <p className="bg-[#ad0f0e] text-white pt-5 h-[100px]">ӨМНӨГОВЬ АЙМАГ, ХАНБОГД СУМ<br /> <strong>ХАНБОГД САЛБАР</strong> </p>
                                 <p></p>
                             </div>
                             <div className="text-center">
                                 <div className="relative group">
-                                    <img src="/assets/img/specials/rental_office_02_3_11zon.png" alt="Image 4" className="mx-auto opacity-70 group-hover:opacity-100 transition-opacity duration-300 " />
+                                    <img src="https://d3leeb4r1qy96s.cloudfront.net/assets/img/specials/rental_office_02_3_11zon.png" alt="Image 4" className="mx-auto opacity-70 group-hover:opacity-100 transition-opacity duration-300 " />
                                 </div>
                                 <p className="bg-[#ad0f0e] text-white pt-5 h-[100px]">УЛААНБААТАР ХОТ, БГДҮҮРЭГ<br /> <strong>ТҮРЭЭСИЙН ТӨВ САЛБАР</strong></p>
                                 <p></p>

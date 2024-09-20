@@ -2305,7 +2305,7 @@ html.flexbox {
 }
 
 /* .js-slider-has-preloader:before {
-    content: url(../../../../../../../../themes/thompsonmachinery/assets/img/loading.gif);
+    content: url(../../../../../../../../themes/thompsonmachineryhttps://d3leeb4r1qy96s.cloudfront.net/assets/img/loading.gif);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -3033,7 +3033,7 @@ input.wpcf7-not-valid {
 }
 
 .search-form .search-form--submit {
-	background: url("/assets/img/icon-search.png") no-repeat center;
+	background: url("https://d3leeb4r1qy96s.cloudfront.net/assets/img/icon-search.png") no-repeat center;
 	height: 17px;
 	width: 17px;
 	padding-right: 0;
@@ -3043,7 +3043,7 @@ input.wpcf7-not-valid {
 }
 
 .search-form .search-form--submit:hover {
-	background: url("/assets/img/icon-search.png") no-repeat center;
+	background: url("https://d3leeb4r1qy96s.cloudfront.net/assets/img/icon-search.png") no-repeat center;
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
 	filter: alpha(opacity=80);
 	-moz-opacity: .8;
@@ -3953,7 +3953,7 @@ input.wpcf7-not-valid {
 	}
 
 	.masthead-inner-banner:before {
-		background: url(/assets/img/inner-banner-left-shape.png) no-repeat left top;
+		background: url(https://d3leeb4r1qy96s.cloudfront.net/assets/img/inner-banner-left-shape.png) no-repeat left top;
 		content: " ";
 		display: block;
 		position: absolute;
@@ -3963,7 +3963,7 @@ input.wpcf7-not-valid {
 	}
 
 	.masthead-inner-banner:after {
-		background: url(/assets/img/inner-banner-right-shape.png) no-repeat right top;
+		background: url(https://d3leeb4r1qy96s.cloudfront.net/assets/img/inner-banner-right-shape.png) no-repeat right top;
 		content: " ";
 		display: block;
 		position: absolute;
@@ -4415,7 +4415,7 @@ input.wpcf7-not-valid {
 }
 
 .loading-icon {
-	background: #fff url(/assets/img/ajax-loader.gif) no-repeat center center;
+	background: #fff url(https://d3leeb4r1qy96s.cloudfront.net/assets/img/ajax-loader.gif) no-repeat center center;
 	width: 100%;
 	height: 100%;
 	min-height: 200px
@@ -6519,7 +6519,7 @@ screen and (max-height:300px) {
 	width: 100%;
 	height: 100%;
 	overflow: visible;
-	background: #fff url(/assets/img/ajax-loader.gif) no-repeat center center
+	background: #fff url(https://d3leeb4r1qy96s.cloudfront.net/assets/img/ajax-loader.gif) no-repeat center center
 }
 
 .page-preloader__logo {
@@ -7211,7 +7211,7 @@ screen and (max-height:300px) {
 		position: absolute;
 		top: 0;
 		left: 0;
-		background: url(/assets/img/full-image-graphics.png) no-repeat left top;
+		background: url(https://d3leeb4r1qy96s.cloudfront.net/assets/img/full-image-graphics.png) no-repeat left top;
 		background-size: contain
 	}
 
@@ -7689,7 +7689,7 @@ span.categories a {
 }
 
 .page-footer {
-	/* background: url('/assets/img/footer-bg.png') no-repeat center bottom #474d59; */
+	/* background: url('https://d3leeb4r1qy96s.cloudfront.net/assets/img/footer-bg.png') no-repeat center bottom #474d59; */
 	background-color: #474d59;
 	/* background-size: cover; */
 	padding-bottom: 60px
@@ -8360,7 +8360,7 @@ span.categories a {
 	left: 0;
 	width: 70px;
 	height: 50px;
-	background: url(/assets/img/icon-quote.png) center center #464d58 no-repeat
+	background: url(https://d3leeb4r1qy96s.cloudfront.net/assets/img/icon-quote.png) center center #464d58 no-repeat
 }
 
 .customer__media-container--video:before,
@@ -9243,7 +9243,7 @@ ul.sc__sublinks {
 }
 
 .sc__video-btn:after {
-	content: url(/assets/img/play-icon.png);
+	content: url(https://d3leeb4r1qy96s.cloudfront.net/assets/img/play-icon.png);
 	width: 107px;
 	height: 81px;
 	left: 0;

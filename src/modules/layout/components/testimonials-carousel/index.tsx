@@ -59,7 +59,7 @@ const TestiCarousel: React.FC<Props> = ({ testi, description, image }) => {
     <div className="home-testimonials clearfix">
       <div className="home-testimonials-wrapper clearfix">
         <div className="home-testimonials-banner hidden-md-down">
-          <Image priority width={831} height={625} src="/assets/img/test.jpg" className="img-responsive entered lazyloaded" alt="Barloworld Mongolia" />
+          <Image priority width={831} height={625} src="https://d3leeb4r1qy96s.cloudfront.net/assets/img/test.jpg" className="img-responsive entered lazyloaded" alt="Barloworld Mongolia" />
         </div>
         <div className="home-testimonials-right-panel">
           <div className="home-testimonials-header">

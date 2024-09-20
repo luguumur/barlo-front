@@ -19,7 +19,7 @@ const Types: InferGetServerSidePropsType<typeof getServerSideProps> = (props: an
   return (
     <>
       <Head title={t(`d${props.title}`)}></Head>
-      <PageHeader title={t(`d${props.title}`)} image="/assets/img/cta-banner-image-1536x306.jpg"/>
+      <PageHeader title={t(`d${props.title}`)} image="https://d3leeb4r1qy96s.cloudfront.net/assets/img/cta-banner-image-1536x306.jpg"/>
       <article className="page-body container page type-page status-publish hentry" id="page-body">
       <div className="row">
         <main className="page-content col-md-9 col-md-push-3">

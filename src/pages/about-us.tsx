@@ -13,7 +13,7 @@ const About = () => {
     return (
         <>
             <Head title={t("title")}></Head>
-            <PageHeader title={t(`about`)} image="/assets/img/hr/A4_Company_Profile_Inside4_11zon.png" />
+            <PageHeader title={t(`about`)} image="https://d3leeb4r1qy96s.cloudfront.net/assets/img/hr/A4_Company_Profile_Inside4_11zon.png" />
             <article className="page-body container page type-page status-publish hentry" id="page-body">
                 <div className="row">
                     <main className="page-content col-md-9 col-md-push-3">
@@ -126,7 +126,7 @@ const About = () => {
                                 </div>
                             </section>
                             <section>
-                                <img src="/assets/img/hr/home.png" alt="Barloworld Mongolia" />
+                                <img src="https://d3leeb4r1qy96s.cloudfront.net/assets/img/hr/home.png" alt="Barloworld Mongolia" />
                             </section>
                             {/* <h2>{about("what_we_offer")}</h2>
                             <p>{about("health_insurance")} <br />

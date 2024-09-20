@@ -25,7 +25,7 @@ const Types: InferGetServerSidePropsType<typeof getServerSideProps> = (props: an
   return (
     <>
       <Head title={locale === "mn" ? props.data.name : props.data.name_en}></Head>
-      <PageHeader title={locale === "mn" ? props.data.name : props.data.name_en} image="/assets/img/cta-banner-image-1536x306.jpg"/>
+      <PageHeader title={locale === "mn" ? props.data.name : props.data.name_en} image="https://d3leeb4r1qy96s.cloudfront.net/assets/img/cta-banner-image-1536x306.jpg"/>
       <article className="page-body container page type-page status-publish hentry" id="page-body">
         <div className="row">
             <main className="page-content col-md-9 col-md-push-3">

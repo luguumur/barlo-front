@@ -8,7 +8,7 @@ const nextConfig = {
   },
   images: { 
     domains: [
-      'webapi.barloworld.mn', 'localhost'
+      'webapi.barloworld.mn', 'localhost', 'd3leeb4r1qy96s.cloudfront.net'
     ],
     remotePatterns: [
       {
@@ -18,11 +18,11 @@ const nextConfig = {
         pathname: '/file/**',
       },
       {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '3000',
-        pathname: '/images/**'
-      },
+        protocol: 'https',
+        hostname: 'd3leeb4r1qy96s.cloudfront.net',
+        port: '',
+        pathname: '/**',
+      }
     ],
   },
   env: {

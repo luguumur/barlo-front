@@ -663,7 +663,7 @@ const Application: FC<Step2Props> = ({
                                         onClick={() => removeEntry("education", index)}
                                     >
                                         <Image
-                                            src="/assets/img/delete-icon.svg"
+                                            src="https://d3leeb4r1qy96s.cloudfront.net/assets/img/delete-icon.svg"
                                             width={28}
                                             height={28}
                                         />
@@ -677,7 +677,7 @@ const Application: FC<Step2Props> = ({
                                         onClick={() => addEntry("education")}
                                     >
                                         <Image
-                                            src="/assets/img/plus-icon.svg"
+                                            src="https://d3leeb4r1qy96s.cloudfront.net/assets/img/plus-icon.svg"
                                             width={32}
                                             height={32}
                                         />
@@ -761,7 +761,7 @@ const Application: FC<Step2Props> = ({
                                         onClick={() => removeEntry("org", index)}
                                     >
                                         <Image
-                                            src="/assets/img/delete-icon.svg"
+                                            src="https://d3leeb4r1qy96s.cloudfront.net/assets/img/delete-icon.svg"
                                             width={28}
                                             height={28}
                                         />
@@ -775,7 +775,7 @@ const Application: FC<Step2Props> = ({
                                         onClick={() => addEntry("education")}
                                     >
                                         <Image
-                                            src="/assets/img/plus-icon.svg"
+                                            src="https://d3leeb4r1qy96s.cloudfront.net/assets/img/plus-icon.svg"
                                             width={32}
                                             height={32}
                                         />
@@ -839,7 +839,7 @@ const Application: FC<Step2Props> = ({
                                         onClick={() => removeEntry("learn", index)}
                                     >
                                         <Image
-                                            src="/assets/img/delete-icon.svg"
+                                            src="https://d3leeb4r1qy96s.cloudfront.net/assets/img/delete-icon.svg"
                                             width={28}
                                             height={28}
                                         />
@@ -853,7 +853,7 @@ const Application: FC<Step2Props> = ({
                                         onClick={() => addEntry("learn")}
                                     >
                                         <Image
-                                            src="/assets/img/plus-icon.svg"
+                                            src="https://d3leeb4r1qy96s.cloudfront.net/assets/img/plus-icon.svg"
                                             width={32}
                                             height={32}
                                         />
@@ -1015,7 +1015,7 @@ const Application: FC<Step2Props> = ({
                                         onClick={() => removeEntry("experience", index)}
                                     >
                                         <Image
-                                            src="/assets/img/delete-icon.svg"
+                                            src="https://d3leeb4r1qy96s.cloudfront.net/assets/img/delete-icon.svg"
                                             width={28}
                                             height={28}
                                         />
@@ -1029,7 +1029,7 @@ const Application: FC<Step2Props> = ({
                                         onClick={() => addEntry("experience")}
                                     >
                                         <Image
-                                            src="/assets/img/plus-icon.svg"
+                                            src="https://d3leeb4r1qy96s.cloudfront.net/assets/img/plus-icon.svg"
                                             width={32}
                                             height={32}
                                         />
@@ -1127,7 +1127,7 @@ const Application: FC<Step2Props> = ({
                                         onClick={() => removeEntry("computer", index)}
                                     >
                                         <Image
-                                            src="/assets/img/delete-icon.svg"
+                                            src="https://d3leeb4r1qy96s.cloudfront.net/assets/img/delete-icon.svg"
                                             width={28}
                                             height={28}
                                         />
@@ -1141,7 +1141,7 @@ const Application: FC<Step2Props> = ({
                                         onClick={() => addEntry("computer")}
                                     >
                                         <Image
-                                            src="/assets/img/plus-icon.svg"
+                                            src="https://d3leeb4r1qy96s.cloudfront.net/assets/img/plus-icon.svg"
                                             width={32}
                                             height={32}
                                         />
@@ -1231,7 +1231,7 @@ const Application: FC<Step2Props> = ({
                                         onClick={() => removeEntry("language", index)}
                                     >
                                         <Image
-                                            src="/assets/img/delete-icon.svg"
+                                            src="https://d3leeb4r1qy96s.cloudfront.net/assets/img/delete-icon.svg"
                                             width={28}
                                             height={28}
                                         />
@@ -1245,7 +1245,7 @@ const Application: FC<Step2Props> = ({
                                         onClick={() => addEntry("language")}
                                     >
                                         <Image
-                                            src="/assets/img/plus-icon.svg"
+                                            src="https://d3leeb4r1qy96s.cloudfront.net/assets/img/plus-icon.svg"
                                             width={32}
                                             height={32}
                                         />
@@ -1549,7 +1549,7 @@ const Application: FC<Step2Props> = ({
                                         onClick={() => removeEntry("family", index)}
                                     >
                                         <Image
-                                            src="/assets/img/delete-icon.svg"
+                                            src="https://d3leeb4r1qy96s.cloudfront.net/assets/img/delete-icon.svg"
                                             width={28}
                                             height={28}
                                         />
@@ -1563,7 +1563,7 @@ const Application: FC<Step2Props> = ({
                                         onClick={() => addEntry("family")}
                                     >
                                         <Image
-                                            src="/assets/img/plus-icon.svg"
+                                            src="https://d3leeb4r1qy96s.cloudfront.net/assets/img/plus-icon.svg"
                                             width={32}
                                             height={32}
                                         />

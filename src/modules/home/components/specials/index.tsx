@@ -9,7 +9,7 @@ const Specials = () => {
     <section className="image-button">
       <div className="image-button-graphics-right">
         <Image
-          src={"/assets/img/graphics4.png"}
+          src={"https://d3leeb4r1qy96s.cloudfront.net/assets/img/graphics4.png"}
           className="img-responsive"
           width={285}
           height={283}
@@ -19,7 +19,7 @@ const Specials = () => {
       </div>
       <div className="image-button-graphics-left">
         <Image
-          src={"/assets/img/graphics5.png"}
+          src={"https://d3leeb4r1qy96s.cloudfront.net/assets/img/graphics5.png"}
           className="img-responsive"
           width={455}
           height={220}

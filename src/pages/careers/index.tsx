@@ -128,7 +128,7 @@ const careerPage: InferGetServerSidePropsType<typeof getServerSideProps> = (prop
     return (
         <>
             <Head title={t(`careers`)}></Head>
-            <PageHeader title={t(`careers`)} image="/assets/img/specials/minihr.jpg" />
+            <PageHeader title={t(`careers`)} image="https://d3leeb4r1qy96s.cloudfront.net/assets/img/specials/minihr.jpg" />
             <section className="wysiwyg-section">
                 <div className="container">
                     <h3>Манай баг хамт олон</h3>

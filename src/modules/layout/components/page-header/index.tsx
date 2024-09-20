@@ -14,10 +14,10 @@ const PageHeader = (props: Props) => {
                     <h1> {props.title} </h1>
                     <div className="masthead-dark-overlay">
                         <div className="masthead-overlay-left ">
-                            <Image priority src={"/assets/img/masthead-graphic-left.png"} width={589} height={336} className="entered lazyloaded" />
+                            <Image priority src={"https://d3leeb4r1qy96s.cloudfront.net/assets/img/masthead-graphic-left.png"} width={589} height={336} className="entered lazyloaded" />
                         </div>
                         <div className="masthead-overlay-right">
-                            <Image priority src={"/assets/img/masthead-graphic-right.png"} width={589} height={336} className="entered lazyloaded" />
+                            <Image priority src={"https://d3leeb4r1qy96s.cloudfront.net/assets/img/masthead-graphic-right.png"} width={589} height={336} className="entered lazyloaded" />
                         </div>
                         <span className="masthead-overlay-color"></span>
                     </div>

@@ -63,7 +63,7 @@ const NewsPage: InferGetServerSidePropsType<typeof getServerSideProps> = (props:
   return (
     <>
       <Head title={t(`news`)}></Head>
-      <PageHeader title={t(`news`)} image="/assets/img/cta-banner-image-1536x306.jpg"/>
+      <PageHeader title={t(`news`)} image="https://d3leeb4r1qy96s.cloudfront.net/assets/img/cta-banner-image-1536x306.jpg"/>
       <article className="page-body container page type-page status-publish hentry" id="page-body">
         <main className="page-content col-md-9 col-md-push-3">
             {/* <h3>News</h3>
