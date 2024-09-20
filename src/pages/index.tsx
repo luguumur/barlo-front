@@ -60,7 +60,7 @@ const Index = () => {
       {/* {loading ? <SkeletonLoader /> : mastheads.data && <HomeCarouselComponent slides={mastheads.data} />} */}
       {loading ? <SkeletonLoader /> : <QuickSearch model={model.data} owner={owner.data} location={location.data} />}
       {/* {loading ? <SkeletonLoader /> : <OfferCarousel deals={deals.data} locale={locale} />} */}
-      {/* <Specials /> */}
+      <Specials />
       {/* <About /> */}
       {/* {loading ? <SkeletonLoader /> : testimonials && <TestiCarousel testi={testimonials.data} locale={locale} />} */}
       <Cta />

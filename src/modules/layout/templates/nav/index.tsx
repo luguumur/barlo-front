@@ -46,7 +46,7 @@ const Nav = () => {
         <form className="search-form" action="/" method="get" role="search">
           <input className="search-form--field" type="search" title="Search" value={formData.search} onChange={handleChange} placeholder="Find what you're looking for" aria-label="When autocomplete results are available use up and down arrows to review and enter to go to the desired page. Touch device users, explore by touch or with swipe gestures." />
           <button className="absolute pr-0 right-[8px] top-[10%] h-[16px] w-[16px]" aria-label="icon-search">
-            <img src="/assets/img/icon-search.png" alt="icon-search" />
+            <Image src="/assets/img/icon-search.png" height={16} width={16} alt="icon-search" />
           </button>
         </form>
       </div>
