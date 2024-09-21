@@ -19,7 +19,7 @@ interface FormData {
 const Contact = () => {
 
     const { executeRecaptcha } = useGoogleReCaptcha();
-    const t = useTranslations("Menu");
+    const t = useTranslations("Home");
     const initialData: any = {
         name: '',
         email: '',

@@ -11,7 +11,6 @@ import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import Head from "@/modules/common/components/head";
-import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import Questions from "@/modules/layout/components/questions";
 import Beside from "@/modules/layout/components/beside-menu";
 import { HeaderData } from "@/data/menu";

@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/router";
 import { FormEvent, useEffect, useRef, useState } from "react";
-import $ from 'jquery';
+// import $ from 'jquery';
 
 type Option = {
   string_value: string;
@@ -19,9 +19,9 @@ const QuickSearch: React.FC<Props> = ({ model = [], owner = [], location = [] })
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const selectOptionRef = useRef<HTMLSelectElement | null>(null);
 
-  useEffect(() => {
-    ($(".select-option") as any).selectric();
-  }, []);
+  // useEffect(() => {
+  //   ($(".select-option") as any).selectric();
+  // }, []);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     setIsLoading(true);
@@ -69,7 +69,7 @@ const QuickSearch: React.FC<Props> = ({ model = [], owner = [], location = [] })
                       id="used"
                       className="bg-[#999999] text-black" // Darker background, black text for contrast
                     />
-                    <label htmlFor="used" className="bg-[#999999] text-black">
+                    <label htmlFor="used" className="bg-[#999999] text-white">
                       {t("used")}
                     </label>
                   </div>
@@ -77,58 +77,63 @@ const QuickSearch: React.FC<Props> = ({ model = [], owner = [], location = [] })
 
                 <div className="quick-search-field">
                   <label htmlFor="model">{t("model")}</label>
-                  <select
-                    className="select-option bg-white text-black" // Ensure the text is dark enough for white background
-                    name="model"
-                    id="model"
-                    aria-labelledby="model"
-                    aria-required="true"
-                  >
-                    <option value="all">{t("all")}</option>
-                    {model?.map((item, index) => (
-                      <option key={index} value={item.string_value}>
-                        {item.string_value}
-                      </option>
-                    ))}
-                  </select>
+                  <div className="selectric-wrapper">
+                    <select
+                      className="selectric" // Ensure the text is dark enough for white background
+                      name="model"
+                      id="model"
+                      aria-labelledby="model"
+                      aria-required="true"
+                    >
+                      <option value="all">{t("all")}</option>
+                      {model?.map((item, index) => (
+                        <option className="selectric-items" key={index} value={item.string_value}>
+                          {item.string_value}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
 
                 <div className="quick-search-field">
                   <label htmlFor="owner">{t("owner")}</label>
-                  <select
-                    className="select-option bg-white text-black"
-                    name="owner"
-                    id="owner"
-                    aria-labelledby="owner"
-                    aria-required="true"
-                  >
-                    <option value="all">{t("all")}</option>
-                    {owner?.map((item, index) => (
-                      <option key={index} value={item.string_value}>
-                        {item.string_value}
-                      </option>
-                    ))}
-                  </select>
+                  <div className="selectric-wrapper">
+                    <select
+                      className="selectric"
+                      name="owner"
+                      id="owner"
+                      aria-labelledby="owner"
+                      aria-required="true"
+                    >
+                      <option value="all">{t("all")}</option>
+                      {owner?.map((item, index) => (
+                        <option key={index} value={item.string_value}>
+                          {item.string_value}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
 
                 <div className="quick-search-field">
                   <label htmlFor="location">{t("location")}</label>
-                  <select
-                    className="select-option bg-white text-black"
-                    name="location"
-                    id="location"
-                    aria-labelledby="location"
-                    aria-required="true"
-                  >
-                    <option value="all">{t("all")}</option>
-                    {location?.map((item, index) => (
-                      <option key={index} value={item.string_value}>
-                        {item.string_value}
-                      </option>
-                    ))}
-                  </select>
+                  <div className="selectric-wrapper">
+                    <select
+                      className="selectric"
+                      name="location"
+                      id="location"
+                      aria-labelledby="location"
+                      aria-required="true"
+                    >
+                      <option value="all">{t("all")}</option>
+                      {location?.map((item, index) => (
+                        <option key={index} value={item.string_value}>
+                          {item.string_value}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
-
                 <div className="quick-search-field-button">
                   <button
                     type="submit"

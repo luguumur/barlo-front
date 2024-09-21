@@ -13,7 +13,7 @@ const Parts = () => {
       <>
 
         <Head title={t(`service`)}></Head>
-        <PageHeader title={t(`service`)} image="https://www.barloworld.mn/images/uploads2/SERVIC_20211109.jpg"/>
+        <PageHeader title={t(`service`)} image="https://d3leeb4r1qy96s.cloudfront.net/assets/img/SERVIC_20211109.jpg"/>
         <section className="wysiwyg-section">
           <div className="container">
             <h3 id="power-systems-service-and-support">БҮТЭЭГДЭХҮҮН ДЭМЖИХ YЙЛЧИЛГЭЭ</h3>

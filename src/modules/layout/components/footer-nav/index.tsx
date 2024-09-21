@@ -101,7 +101,7 @@ const FooterNav = () => {
               </div>
             </div>
             <div className="col-sm-4 col-sm-pull-8 col-md-4 col-md-pull-4 col-lg-3 col-lg-pull-5">
-              <p className="page-footer__copyright">
+              <p className="page-footer__copyright bg-[#474d59]" aria-label="Copyright information">
                 Copyright © 2024 Barloworld Mongolia. <br /> All Rights Reserved
               </p>
             </div>

@@ -22,7 +22,7 @@ const PageHeader = (props: Props) => {
                         <span className="masthead-overlay-color"></span>
                     </div>
                     <div className="masthead-background-image">
-                        <Image priority layout="fill" className=" entered lazyloaded" src={props?.image ? props?.image : ""} />
+                        <Image priority layout="fill" className="masthead-background-image entered lazyloaded" src={props?.image ? props?.image : ""} />
                     </div>
                 </div>
                 <div className="breadcrumbs hidden-xxs hidden-xs">

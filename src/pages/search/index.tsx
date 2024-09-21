@@ -11,11 +11,11 @@ import axios from 'axios';
 import https from 'https';
 import Link from "next/link"
 
-import $ from 'jquery';
+// import $ from 'jquery';
 const Search: InferGetServerSidePropsType<typeof getServerSideProps> = (props: any) => {
-    useEffect(() => {
-        ($(".select-option")as any).selectric();
-    }, []);
+    // useEffect(() => {
+    //     ($(".select-option")as any).selectric();
+    // }, []);
     const result = props.equipment;
     const equipmentt = useTranslations("Equipment");
     const t = useTranslations("Search");

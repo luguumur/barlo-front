@@ -2,7 +2,6 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 const Cta = () => {
     const home = useTranslations("Home");
-    const menu = useTranslations("Menu");
     return (
         <section className="cta">
             <div className="cta-banner relative h-[500px] w-full">
@@ -11,7 +10,6 @@ const Cta = () => {
                     src="https://d3leeb4r1qy96s.cloudfront.net/assets/img/cta-banner-image.jpg"
                     fill
                     alt="cta-banner"
-                    sizes="100vw"
                     style={{ objectFit: "cover" }}
                 />
             </div>
@@ -20,7 +18,7 @@ const Cta = () => {
                     <div className="cta-content text-white">
                         <h2>{home("wearehere")}</h2>
                         <p>{home("do_you_need_equipment")}</p>
-                        <p><a className="btn btn-primary" href="/contact-us/">{menu("contact")}</a></p>
+                        <p><a className="btn btn-primary" href="/contact-us/">{home("contact")}</a></p>
                     </div>
                 </div>
             </div>

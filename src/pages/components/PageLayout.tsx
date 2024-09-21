@@ -14,12 +14,14 @@ type Props = {
 export default function PageLayout({ children }: Props) {
 
   return (
-    <GoogleCaptchaWrapper>
-      <Nav />
-      {children}
-      <Sidebar />
-      <ToastContainer position="top-right" autoClose={3000} className="font-light text-[13px]" />
-      <Footer />
-    </GoogleCaptchaWrapper>
+    <>
+      <GoogleCaptchaWrapper>
+        <Nav />
+        {children}
+        <Sidebar />
+        <ToastContainer position="top-right" autoClose={3000} className="font-light text-[13px]" />
+        <Footer />
+      </GoogleCaptchaWrapper>
+    </>
   );
 }

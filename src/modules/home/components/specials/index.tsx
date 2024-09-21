@@ -1,6 +1,6 @@
 import { MenuData } from "@/data/home";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
+import Image from 'next/image';
 
 const Specials = () => {
   const t = useTranslations("Home");
@@ -40,11 +40,12 @@ const Specials = () => {
                       <div className="image-container relative w-full h-[242px]">
                         <Image
                           src={item.image}
-                          height={242}
-                          width={242}
                           alt={item.title}
                           quality={75}
-                          priority
+                          priority={index === 0} // Example to prioritize the first image
+                          fill
+                          style={{ objectFit: 'cover' }}
+                          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
                         />
                       </div>
                       <div className="image-button-overlay">

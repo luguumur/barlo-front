@@ -14,8 +14,7 @@ import Button from "@/modules/common/components/button";
 
 const Nav = () => {
 
-  const homet = useTranslations("Home");
-  const t = useTranslations("Menu");
+  const homet = useTranslations("Menu");
 
   useEffect(() => {
     FX.MobileNavigation.init();
@@ -45,8 +44,8 @@ const Nav = () => {
       <div className="mobile-search-form clearfix">
         <form className="search-form" action="/" method="get" role="search">
           <input className="search-form--field" type="search" title="Search" value={formData.search} onChange={handleChange} placeholder="Find what you're looking for" aria-label="When autocomplete results are available use up and down arrows to review and enter to go to the desired page. Touch device users, explore by touch or with swipe gestures." />
-          <button className="absolute pr-0 right-[8px] top-[10%] h-[16px] w-[16px]" aria-label="icon-search">
-            <Image src="https://d3leeb4r1qy96s.cloudfront.net/assets/img/icon-search.png" height={16} width={16} alt="icon-search" />
+          <button className="absolute pr-0 right-[8px] top-[10%] h-[17px] w-[17px]" aria-label="icon-search">
+            <Image src="https://d3leeb4r1qy96s.cloudfront.net/assets/img/icon-search.png" height={17} width={17} alt="icon-search" priority />
           </button>
         </form>
       </div>
@@ -54,11 +53,11 @@ const Nav = () => {
         <div className="page-header__bottom-row">
           <div className="container">
             <div className="row">
-              <div className="col-xxs-7 col-xs-6 col-sm-4 col-md-3">
-                <div className="page-header--logo">
-                  <a href="./">
-                    <Image width="209" height="51" className="site-logo" src="/logo.jpg" alt="Barloworld Mongolia" />
-                  </a>
+              <div className="col-xxs-7 col-xs-6 col-sm-4 col-md-3 ">
+                <div className="page-header--logo h-14">
+                  <Link href="https://barlo-front.vercel.app/">
+                    <Image width="208" height="56" className="site-logo" src="/logo.jpg" alt="Barloworld Mongolia" />
+                  </Link>
                 </div>
               </div>
               <div className="col-xxs-5 col-xs-6 col-sm-8 col-md-9 text--right pull--right header-top-right-section">
@@ -83,25 +82,29 @@ const Nav = () => {
 
                     <div className="visible-md visible-lg">
                       <form className="search-form relative" action="/" method="get" role="search">
-                        <label htmlFor="search-field" className="sr-only">Search</label>
                         <input
                           id="search-field"
-                          className="search-form--field w-full p-4 text-base rounded-md"
+                          className="search-form--field w-full p-4"
                           type="search"
                           name="search"
                           placeholder="Хайлт"
+                          aria-label="When autocomplete results are available use up and down arrows to review and enter to go to the desired page. Touch device users, explore by touch or with swipe gestures."
                         />
                         <button
-                          className="absolute pr-0 right-[8px] top-[50%] transform -translate-y-1/2 h-[44px] w-[44px] flex items-center justify-center"
+                          className="absolute right-2 top-1/2 transform -translate-y-1/2 h-12 w-12 flex items-center justify-center"
                           aria-label="icon-search"
                         >
-                          <img
+                          <Image
                             src="https://d3leeb4r1qy96s.cloudfront.net/assets/img/icon-search.png"
                             alt="icon-search"
-                            className="h-4 w-4"
+                            className="h-6 w-6"
+                            height={17}
+                            width={17}
+                            priority
                           />
                         </button>
                       </form>
+
                     </div>
 
                   </div>
@@ -118,7 +121,7 @@ const Nav = () => {
                       </li>
                       <li className="menu-item menu-item-type-post_type menu-item-object-page">
                         <Link href="/careers" aria-label="Career">
-                          {t("careers")}
+                          {homet("careers")}
                         </Link>
                       </li>
                       <li className="menu-item menu-item-type-post_type menu-item-object-page">
@@ -144,14 +147,14 @@ const Nav = () => {
                   <ul id="menu-main-navigation" className="menu">
                     {HeaderData.map((item, index) => (
                       <li key={item.id} className={`menu-item-${item.id}`}>
-                        <Link href={item.handle}>{t(`${item.title}`)}</Link>
+                        <Link href={item.handle}>{homet(`${item.title}`)}</Link>
                         {item.submenu && (
                           <>
                             <span className="sub-menu-toggle icon-chevron-down hidden-md hidden-lg"></span>
                             <ul className="sub-menu">
                               {item.sub?.map((item: any, i: any) => (
                                 <li key={i} className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-${item.id}`}>
-                                  <Link href={item.handle}>{t(`${item.title}`)}</Link>
+                                  <Link href={item.handle}>{homet(`${item.title}`)}</Link>
                                 </li>
                               ))}
                             </ul>

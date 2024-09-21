@@ -16,7 +16,7 @@ const Head: React.FC<HeadProps> = ({ title, description, image }) => {
       <meta itemProp="name" content={title} />
       {description && <meta itemProp="description" content={description} />}
       {image && <meta itemProp="image" content={image} />}
-      <link rel="icon" href="/assets/fav.svg" />
+      <link rel="icon" href="https://d3leeb4r1qy96s.cloudfront.net/assets/fav.svg" />
       <Script type="text/javascript" src="//cdn.rlets.com/capture_configs/80d/284/0d3/7c04b0caec9fa526ffad16a.js" async={true}></Script>
     </NextHead>
   )

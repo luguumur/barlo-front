@@ -1,25 +1,19 @@
-import { GetStaticPropsContext, InferGetServerSidePropsType } from 'next';
+import { GetStaticPropsContext } from 'next';
 import QuickSearch from '@/modules/home/components/quick-search';
 import Specials from '@/modules/home/components/specials';
 import About from '@/modules/home/components/about';
 import Cta from '@/modules/home/components/cta';
 import Head from '@/modules/common/components/head';
-
-import axios, { AxiosInstance } from 'axios';
-import https from 'https';
+import { toast } from 'react-toastify';
+import LoadingSection from '@/modules/layout/components/LoadingSection';
+import SkeletonLoader from '@/modules/layout/components/SkeletonLoader';
+import HomeCarouselComponent from '@/modules/layout/components/HomeCarousel';
 import OfferCarousel from '@/modules/layout/components/offer-carousel';
 import TestiCarousel from '@/modules/layout/components/testimonials-carousel';
-import HomeCarouselComponent from '@/modules/layout/components/HomeCarousel';
-import { apiMastheads } from '@/services/home/HomeServices';
-
-import { useLocale, useTranslations } from 'next-intl';
 import { useHomeStore } from '../lib/util/store';
 import { useEffect } from 'react';
-import { toast } from 'react-toastify';
-import LoadingSection from '../modules/layout/components/LoadingSection';
-import CarouselComponent from '../modules/layout/components/carousel';
 import { useRouter } from 'next/router';
-import SkeletonLoader from '@/modules/layout/components/SkeletonLoader';
+import { useTranslations } from 'next-intl';
 
 const Index = () => {
   const {
@@ -36,44 +30,56 @@ const Index = () => {
     fetchLocationData,
     fetchModelData,
     fetchOwnerData,
-    fetchTestimonialsData
+    fetchTestimonialsData,
   } = useHomeStore();
-  const {locale} = useRouter();
+
+  const { locale } = useRouter();
   const t = useTranslations("Index");
+
   useEffect(() => {
-    (async () => {
+    const fetchData = async () => {
       try {
         setLoadingState(true);
-        await Promise.all([fetchMastHeadData(), fetchDealData(), fetchLocationData(), fetchModelData(), fetchOwnerData(), fetchTestimonialsData()]);
-        setLoadingState(false);
-      } catch (error: unknown) {
-        toast.error("API Error")
+        await Promise.all([
+          fetchMastHeadData(),
+          fetchDealData(),
+          fetchLocationData(),
+          fetchModelData(),
+          fetchOwnerData(),
+          fetchTestimonialsData(),
+        ]);
+      } catch {
+        toast.error("API Error");
       } finally {
         setLoadingState(false);
       }
-    })();
+    };
+
+    fetchData();
   }, [fetchMastHeadData, setLoadingState]);
+
   if (loading) return <LoadingSection />;
+
   return (
     <>
       <Head title={t('title').toString()} />
-      {/* {loading ? <SkeletonLoader /> : mastheads.data && <HomeCarouselComponent slides={mastheads.data} />} */}
-      {loading ? <SkeletonLoader /> : <QuickSearch model={model.data} owner={owner.data} location={location.data} />}
-      {/* {loading ? <SkeletonLoader /> : <OfferCarousel deals={deals.data} locale={locale} />} */}
+      {mastheads.data ? <HomeCarouselComponent slides={mastheads.data} /> : <SkeletonLoader />}
+      <QuickSearch model={model.data} owner={owner.data} location={location.data} />
+      <OfferCarousel deals={deals.data} locale={locale} />
       <Specials />
-      {/* <About /> */}
-      {loading ? <SkeletonLoader /> : testimonials && <TestiCarousel testi={testimonials.data} locale={locale} />}
+      <About />
+      {testimonials && <TestiCarousel testi={testimonials.data} locale={locale} />}
       <Cta />
     </>
-  )
-}
+  );
+};
 
 export default Index;
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   return {
     props: {
-      messages: (await import(`../../messages/${locale}.json`)).default
-    }
+      messages: (await import(`../../messages/${locale}.json`)).default,
+    },
   };
 }

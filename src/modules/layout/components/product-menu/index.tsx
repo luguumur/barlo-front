@@ -1,10 +1,6 @@
 "use client"
 
-import { useMobileMenu } from "@lib/context/mobile-menu-context"
 import Hamburger from "@modules/common/components/hamburger"
-import CartDropdown from "@modules/layout/components/cart-dropdown"
-import DropdownMenu from "@modules/layout/components/dropdown-menu"
-import MobileMenu from "@modules/mobile-menu/templates"
 import clsx from "clsx"
 import Link from "next/link"
 import { useParams, usePathname } from "next/navigation"

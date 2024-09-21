@@ -116,7 +116,7 @@ const About = () => {
                                                                     <span className="icon-right"></span>
                                                                 </div>
                                                             </div>
-                                                            <h3>{menu("contact")}</h3>
+                                                            <h3>{t("contact")}</h3>
                                                         </div>
                                                     </a>
                                                 </div>
