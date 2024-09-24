@@ -23,16 +23,10 @@ const Application: FC<Step2Props> = ({
     job,
 }) => {
     const [file, setFile] = useState(null);
+
     const [selectedReason, setSelectedReason] = useState<string>("");
     const [familyMembers, setFamilyMembers] = useState<FamilyMember[]>([
-        {
-            name: "",
-            register: "",
-            age: "",
-            relation: "",
-            phone: "",
-            employment: "",
-        },
+        { name: "", register: "", age: "", relation: "", phone: "", employment: "", },
     ]);
     const [educationEntries, setEducationEntries] = useState<Education[]>([
         { schoolName: "", studyMode: "", degree: "", completionDate: "" },
@@ -44,15 +38,7 @@ const Application: FC<Step2Props> = ({
         { lName: "", lSource: "" },
     ]);
     const [experienceEntries, setExperienceEntries] = useState<Experience[]>([
-        {
-            comName: "",
-            comType: "",
-            comOccupation: "",
-            comWork: "",
-            comExitReason: "",
-            comTime: "",
-            comConnection: "",
-        },
+        { comName: "", comType: "", comOccupation: "", comWork: "", comExitReason: "", comTime: "", comConnection: "", },
     ]);
     const [computerEntries, setComputerEntries] = useState<Computer[]>([
         { computerName: "" },
@@ -60,135 +46,165 @@ const Application: FC<Step2Props> = ({
     const [languageEntries, setLanguageEntries] = useState<Language[]>([
         { languageName: "", languageSpeak: "", languageRead: "" },
     ]);
+
     const handleSelectedReasonChange = (
         event: React.ChangeEvent<HTMLSelectElement>
     ) => {
         setSelectedReason(event.target.value);
     };
-    const handleFileChange = (file: any) => {
-        setFile(file);
-        setFormData({
-            ...formData,
-            file,
-        });
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target; setFormData({ ...formData, [name]: value, });
     };
-    const handleChange = (
-        e: React.ChangeEvent<
-            HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-        >
-    ) => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value,
-        });
-    };
+
     const handleEntryChange = (
-        entryType:
-            | "family"
-            | "education"
-            | "org"
-            | "learn"
-            | "experience"
-            | "computer"
-            | "language",
+        entryType: "family" | "education" | "org" | "learn" | "experience" | "computer" | "language",
         index: number,
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
     ) => {
         const { name, value } = e.target;
         let updatedEntries;
 
-        if (entryType === "family") {
-            updatedEntries = [...familyMembers];
-            updatedEntries[index] = {
-                ...updatedEntries[index],
-                [name]: value,
-            };
-            setFamilyMembers(updatedEntries);
-            setFormData({
-                ...formData,
-                [`f${index + 1}_${name}`]: value,
-            });
-        } else if (entryType === "education") {
-            updatedEntries = [...educationEntries];
-            updatedEntries[index] = {
-                ...updatedEntries[index],
-                [name]: value,
-            };
-            setEducationEntries(updatedEntries);
-            setFormData({
-                ...formData,
-                [`v_education${index + 1}_${name}`]: value,
-            });
-        } else if (entryType === "org") {
-            updatedEntries = [...orgEntries];
-            updatedEntries[index] = {
-                ...updatedEntries[index],
-                [name]: value,
-            };
-            setOrgEntries(updatedEntries);
-            setFormData({
-                ...formData,
-                [`v_career${index + 1}_${name}`]: value,
-            });
-        } else if (entryType === "learn") {
-            updatedEntries = [...learnEntries];
-            updatedEntries[index] = {
-                ...updatedEntries[index],
-                [name]: value,
-            };
-            setLearnEntries(updatedEntries);
-            setFormData({
-                ...formData,
-                [`v_learn${index + 1}_${name}`]: value,
-            });
-        } else if (entryType === "experience") {
-            updatedEntries = [...experienceEntries];
-            updatedEntries[index] = {
-                ...updatedEntries[index],
-                [name]: value,
-            };
-            setExperienceEntries(updatedEntries);
+        switch (entryType) {
+            case "family":
+                updatedEntries = [...familyMembers];
+                updatedEntries[index] = {
+                    ...updatedEntries[index],
+                    [name]: value,
+                };
+                setFamilyMembers(updatedEntries);
 
-            setFormData({
-                ...formData,
-                [`ex${index + 1}_${name}`]: value,
-            });
-        } else if (entryType === "computer") {
-            updatedEntries = [...computerEntries];
-            updatedEntries[index] = {
-                ...updatedEntries[index],
-                [name]: value,
-            };
-            setComputerEntries(computerEntries);
+                const familyFormDataKey = `f${index + 1}_${{
+                    name: 1,
+                    register: 2,
+                    age: 3,
+                    relation: 4,
+                    phone: 5,
+                    employment: 6,
+                }[name] || 0}`;
 
-            setFormData({
-                ...formData,
-                [`computer${index + 1}_${index + 1}`]: value,
-            });
-        } else if (entryType === "language") {
-            updatedEntries = [...languageEntries];
-            updatedEntries[index] = {
-                ...updatedEntries[index],
-                [name]: value,
-            };
-            setLanguageEntries(languageEntries);
-            setFormData({
-                ...formData,
-                [`lg${index + 1}_${name}`]: value,
-            });
+                setFormData({
+                    ...formData,
+                    [familyFormDataKey]: value,
+                });
+                break;
+
+            case "education":
+                updatedEntries = [...educationEntries];
+                updatedEntries[index] = {
+                    ...updatedEntries[index],
+                    [name]: value,
+                };
+                setEducationEntries(updatedEntries);
+
+                setFormData({
+                    ...formData,
+                    [`v_education${index + 1}_${{
+                        schoolName: 1,
+                        studyMode: 2,
+                        degree: 3,
+                        completionDate: 4,
+                    }[name] || 0}`]: value,
+                });
+                break;
+
+            case "org":
+                updatedEntries = [...orgEntries];
+                updatedEntries[index] = {
+                    ...updatedEntries[index],
+                    [name]: value,
+                };
+                setOrgEntries(updatedEntries);
+
+                setFormData({
+                    ...formData,
+                    [`v_career${index + 1}_${{
+                        orgName: 1,
+                        orgType: 2,
+                        orgCompletionDate: 3,
+                    }[name] || 0}`]: value,
+                });
+                break;
+
+            case "learn":
+                updatedEntries = [...learnEntries];
+                updatedEntries[index] = {
+                    ...updatedEntries[index],
+                    [name]: value,
+                };
+                setLearnEntries(updatedEntries);
+
+                setFormData({
+                    ...formData,
+                    [`v_learn${index + 1}_${{
+                        lName: 1,
+                        lSource: 2,
+                    }[name] || 0}`]: value,
+                });
+                break;
+
+            case "experience":
+                updatedEntries = [...experienceEntries];
+                updatedEntries[index] = {
+                    ...updatedEntries[index],
+                    [name]: value,
+                };
+                setExperienceEntries(updatedEntries);
+
+                setFormData({
+                    ...formData,
+                    [`ex${index + 1}_${{
+                        comName: 1,
+                        comType: 2,
+                        comOccupation: 3,
+                        comWork: 4,
+                        comExitReason: 5,
+                        comTime: 6,
+                        comConnection: 7,
+                    }[name] || 0}`]: value,
+                });
+                break;
+
+            case "computer":
+                updatedEntries = [...computerEntries];
+                updatedEntries[index] = {
+                    ...updatedEntries[index],
+                    [name]: value,
+                };
+                setComputerEntries(updatedEntries);
+
+                setFormData({
+                    ...formData,
+                    [`computer${index + 1}_${{
+                        computerName: 1,
+                    }[name] || 0}`]: value,
+                });
+                break;
+
+            case "language":
+                updatedEntries = [...languageEntries];
+                updatedEntries[index] = {
+                    ...updatedEntries[index],
+                    [name]: value,
+                };
+                setLanguageEntries(updatedEntries);
+
+                setFormData({
+                    ...formData,
+                    [`lg${index + 1}_${{
+                        languageName: 1,
+                        languageSpeak: 2,
+                        languageRead: 3,
+                    }[name] || 0}`]: value,
+                });
+                break;
+
+            default:
+                break;
         }
     };
-    const addEntry = (
-        entryType:
-            | "family"
-            | "education"
-            | "org"
-            | "learn"
-            | "experience"
-            | "computer"
-            | "language"
-    ) => {
+
+    const addEntry = (entryType: | "family" | "education" | "org" | "learn" | "experience" | "computer" | "language") => {
         if (entryType === "family") {
             setFamilyMembers([
                 ...familyMembers,
@@ -235,17 +251,7 @@ const Application: FC<Step2Props> = ({
             ]);
         }
     };
-    const removeEntry = (
-        entryType:
-            | "family"
-            | "education"
-            | "org"
-            | "learn"
-            | "experience"
-            | "computer"
-            | "language",
-        index: number
-    ) => {
+    const removeEntry = (entryType: | "family" | "education" | "org" | "learn" | "experience" | "computer" | "language", index: number) => {
         if (entryType === "family" && familyMembers.length > 1) {
             const updatedFamilyMembers = familyMembers.filter((_, i) => i !== index);
             setFamilyMembers(updatedFamilyMembers);
@@ -253,7 +259,7 @@ const Application: FC<Step2Props> = ({
             const newFormData: any = { ...formData };
             Object.keys(formData).forEach((key) => {
                 if (key.startsWith(`f${index + 1}_`)) {
-                    delete newFormData[key];
+                    newFormData[key] = "";
                 }
             });
             setFormData(newFormData);
@@ -266,7 +272,7 @@ const Application: FC<Step2Props> = ({
             const newFormData: any = { ...formData };
             Object.keys(formData).forEach((key) => {
                 if (key.startsWith(`v_education${index + 1}_`)) {
-                    delete newFormData[key];
+                    newFormData[key] = "";
                 }
             });
             setFormData(newFormData);
@@ -277,7 +283,7 @@ const Application: FC<Step2Props> = ({
             const newFormData: any = { ...formData };
             Object.keys(formData).forEach((key) => {
                 if (key.startsWith(`v_career${index + 1}_`)) {
-                    delete newFormData[key];
+                    newFormData[key] = "";
                 }
             });
             setFormData(newFormData);
@@ -288,7 +294,7 @@ const Application: FC<Step2Props> = ({
             const newFormData: any = { ...formData };
             Object.keys(formData).forEach((key) => {
                 if (key.startsWith(`v_learn${index + 1}_`)) {
-                    delete newFormData[key];
+                    newFormData[key] = "";
                 }
             });
             setFormData(newFormData);
@@ -301,7 +307,7 @@ const Application: FC<Step2Props> = ({
             const newFormData: any = { ...formData };
             Object.keys(formData).forEach((key) => {
                 if (key.startsWith(`ex${index + 1}_`)) {
-                    delete newFormData[key];
+                    newFormData[key] = "";
                 }
             });
             setFormData(newFormData);
@@ -314,7 +320,7 @@ const Application: FC<Step2Props> = ({
             const newFormData: any = { ...formData };
             Object.keys(formData).forEach((key) => {
                 if (key.startsWith(`computer${index + 1}_`)) {
-                    delete newFormData[key];
+                    newFormData[key] = "";
                 }
             });
             setFormData(newFormData);
@@ -327,25 +333,69 @@ const Application: FC<Step2Props> = ({
             const newFormData: any = { ...formData };
             Object.keys(formData).forEach((key) => {
                 if (key.startsWith(`lg${index + 1}_`)) {
-                    delete newFormData[key];
+                    newFormData[key] = "";
                 }
             });
             setFormData(newFormData);
         }
     };
-    const isNextDisabled = !formData.ner;
-
+    const validateEmail = (email: string) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email pattern
+        return emailRegex.test(email);
+    };
+    const isNextDisabled =
+        !formData.obog ||
+        !formData.ner ||
+        !formData.work_type ||
+        !formData.city ||
+        !formData.address ||
+        !formData.phone1 ||
+        !formData.mail ||
+        !validateEmail(formData.mail) ||
+        !formData.born1 ||
+        !formData.register ||
+        !formData.gender ||
+        !formData.v_education1_1 ||
+        !formData.v_education1_2 ||
+        !formData.v_education1_3 ||
+        !formData.v_education1_4 ||
+        !formData.ex1_1 ||
+        !formData.ex1_2 ||
+        !formData.ex1_3 ||
+        !formData.ex1_4 ||
+        !formData.ex1_5 ||
+        !formData.ex1_6 ||
+        !formData.ex1_7 ||
+        !formData.salary ||
+        !formData.lg1_1 ||
+        !formData.lg1_2 ||
+        !formData.lg1_3 ||
+        !formData.career_skill1 ||
+        !formData.career_skill2 ||
+        !formData.f1_1 ||
+        !formData.f1_2 ||
+        !formData.f1_3 ||
+        !formData.f1_4 ||
+        !formData.f1_5 ||
+        !formData.f1_6 ||
+        !formData.friend_in_job ||
+        !formData.send_word ||
+        !formData.biznes_travel ||
+        !formData.pain;
     return (
         <div className={styles.gnewtonCareerBodyClass}>
-            <div className="questions">
+            <div className="">
                 <b>{job ? job : ""}</b>
-                <div className="leading-6">
-                    Сонирхсонд баярлалаа. Доорх талбаруудыг бөглөөд "Илгээх" дээр дарна
-                    уу.
-                </div>
+                <br />
+                <br />
+                <p className="leading-6">
+                    Доорх талбаруудыг бөглөөд "Илгээх" товч дээр дарна уу.
+                </p>
+                <br />
             </div>
             <div className="dashed border-dashed mt-1 mb-1 w-full"></div>
-            <form id="uploadResume" name="uploadResume" className="gnewtonSectionClass">
+            <hr />
+            {/* <form id="uploadResume" name="uploadResume" className="gnewtonSectionClass">
                 <dl>
                     <dt className={styles.gnewtonSectionTitleClass}>CV оруулах</dt>
                     <dd>
@@ -359,33 +409,38 @@ const Application: FC<Step2Props> = ({
                         />
                     </dd>
                 </dl>
-            </form>
+            </form> */}
             <form id="uploadForm" name="uploadForm" className={styles.gnewtonSectionClass}>
                 <dl>
                     <dt className={styles.gnewtonSectionTitleClass}>Ерөнхий мэдээлэл</dt>
                     <dd>
-                        <div className={styles.gnewtonFieldLabelClass}>
-                            <label className="font-normal capitalize" htmlFor="obog">
+                        <div className={styles.applicationFieldLabelClass}>
+                            <label className="font-normal normal-case" htmlFor="obog">
                                 Эцэг, (Эх)
                             </label>
+                            <span className="gnewtonStar"><img src="https://d3leeb4r1qy96s.cloudfront.net/assets/star_5px.png" alt="*" /></span>
+
                         </div>
-                        <div className={styles.gnewtonFieldInputClass}>
+                        <div className={styles.applicationFieldInputClass}>
                             <input
                                 type="text"
                                 name="obog"
                                 value={formData.obog}
                                 onChange={handleChange}
                                 maxLength={30}
+                                required
                             />
                         </div>
                     </dd>
                     <dd>
-                        <div className={styles.gnewtonFieldLabelClass}>
-                            <label className="font-normal capitalize" htmlFor="ner">
+                        <div className={styles.applicationFieldLabelClass}>
+                            <label className="font-normal normal-case" htmlFor="ner">
                                 Өөрийн нэр
                             </label>
+                            <span className="gnewtonStar"><img src="https://d3leeb4r1qy96s.cloudfront.net/assets/star_5px.png" alt="*" /></span>
+
                         </div>
-                        <div className={styles.gnewtonFieldInputClass}>
+                        <div className={styles.applicationFieldInputClass}>
                             <input
                                 type="text"
                                 name="ner"
@@ -393,16 +448,19 @@ const Application: FC<Step2Props> = ({
                                 onChange={handleChange}
                                 maxLength={30}
                                 autoComplete="off"
+                                required
                             />
                         </div>
                     </dd>
                     <dd>
-                        <div className={styles.gnewtonQuestionLabelClass}>
-                            <label className="font-normal capitalize" htmlFor="work_type">
+                        <div className={styles.applicationQuestionLabelClass}>
+                            <label className="font-normal normal-case" htmlFor="work_type">
                                 Таны өргөдөл гаргаж буй ажлын байр
                             </label>
+                            <span className="gnewtonStar"><img src="https://d3leeb4r1qy96s.cloudfront.net/assets/star_5px.png" alt="*" /></span>
+
                         </div>
-                        <div className={styles.gnewtonFieldInputClass}>
+                        <div className={styles.applicationFieldInputClass}>
                             <input
                                 type="text"
                                 name="work_type"
@@ -410,16 +468,19 @@ const Application: FC<Step2Props> = ({
                                 onChange={handleChange}
                                 maxLength={30}
                                 autoComplete="off"
+                                required
                             />
                         </div>
                     </dd>
                     <dd>
-                        <div className={styles.gnewtonFieldLabelClass}>
-                            <label className="font-normal capitalize" htmlFor="city">
+                        <div className={styles.applicationFieldLabelClass}>
+                            <label className="font-normal normal-case" htmlFor="city">
                                 Хот
                             </label>
+                            <span className="gnewtonStar"><img src="https://d3leeb4r1qy96s.cloudfront.net/assets/star_5px.png" alt="*" /></span>
+
                         </div>
-                        <div className={styles.gnewtonFieldInputClass}>
+                        <div className={styles.applicationFieldInputClass}>
                             <input
                                 type="text"
                                 name="city"
@@ -427,16 +488,19 @@ const Application: FC<Step2Props> = ({
                                 onChange={handleChange}
                                 maxLength={30}
                                 autoComplete="off"
+                                required
                             />
                         </div>
                     </dd>
                     <dd>
-                        <div className={styles.gnewtonFieldLabelClass}>
-                            <label className="font-normal capitalize" htmlFor="address">
+                        <div className={styles.applicationFieldLabelClass}>
+                            <label className="font-normal normal-case" htmlFor="address">
                                 Гэрийн хаяг
                             </label>
+                            <span className="gnewtonStar"><img src="https://d3leeb4r1qy96s.cloudfront.net/assets/star_5px.png" alt="*" /></span>
+
                         </div>
-                        <div className={styles.gnewtonFieldInputClass}>
+                        <div className={styles.applicationFieldInputClass}>
                             <input
                                 type="text"
                                 name="address"
@@ -444,16 +508,19 @@ const Application: FC<Step2Props> = ({
                                 onChange={handleChange}
                                 maxLength={30}
                                 autoComplete="off"
+                                required
                             />
                         </div>
                     </dd>
                     <dd>
-                        <div className={styles.gnewtonFieldLabelClass}>
-                            <label className="font-normal capitalize" htmlFor="phone1">
+                        <div className={styles.applicationFieldLabelClass}>
+                            <label className="font-normal normal-case" htmlFor="phone1">
                                 Гар утас 1
                             </label>
+                            <span className="gnewtonStar"><img src="https://d3leeb4r1qy96s.cloudfront.net/assets/star_5px.png" alt="*" /></span>
+
                         </div>
-                        <div className={styles.gnewtonFieldInputClass}>
+                        <div className={styles.applicationFieldInputClass}>
                             <input
                                 type="text"
                                 name="phone1"
@@ -461,16 +528,17 @@ const Application: FC<Step2Props> = ({
                                 onChange={handleChange}
                                 maxLength={30}
                                 autoComplete="off"
+                                required
                             />
                         </div>
                     </dd>
                     <dd>
-                        <div className={styles.gnewtonFieldLabelClass}>
-                            <label className="font-normal capitalize" htmlFor="phone2">
+                        <div className={styles.applicationFieldLabelClass}>
+                            <label className="font-normal normal-case" htmlFor="phone2">
                                 Гар утас 2
                             </label>
                         </div>
-                        <div className={styles.gnewtonFieldInputClass}>
+                        <div className={styles.applicationFieldInputClass}>
                             <input
                                 type="text"
                                 name="phone2"
@@ -482,12 +550,14 @@ const Application: FC<Step2Props> = ({
                         </div>
                     </dd>
                     <dd>
-                        <div className={styles.gnewtonFieldLabelClass}>
-                            <label className="font-normal capitalize" htmlFor="mail">
+                        <div className={styles.applicationFieldLabelClass}>
+                            <label className="font-normal normal-case" htmlFor="mail">
                                 И-мэйл хаяг
                             </label>
+                            <span className="gnewtonStar"><img src="https://d3leeb4r1qy96s.cloudfront.net/assets/star_5px.png" alt="*" /></span>
+
                         </div>
-                        <div className={styles.gnewtonFieldInputClass}>
+                        <div className={styles.applicationFieldInputClass}>
                             <input
                                 type="email"
                                 name="mail"
@@ -495,16 +565,19 @@ const Application: FC<Step2Props> = ({
                                 onChange={handleChange}
                                 maxLength={30}
                                 autoComplete="off"
+                                required
                             />
                         </div>
                     </dd>
                     <dd>
-                        <div className={styles.gnewtonFieldLabelClass}>
-                            <label className="font-normal capitalize" htmlFor="born1">
+                        <div className={styles.applicationFieldLabelClass}>
+                            <label className="font-normal normal-case" htmlFor="born1">
                                 Төрсөн он,сар,өдөр
                             </label>
+                            <span className="gnewtonStar"><img src="https://d3leeb4r1qy96s.cloudfront.net/assets/star_5px.png" alt="*" /></span>
+
                         </div>
-                        <div className={styles.gnewtonFieldInputClass}>
+                        <div className={styles.applicationFieldInputClass}>
                             <input
                                 type="date"
                                 name="born1"
@@ -512,16 +585,18 @@ const Application: FC<Step2Props> = ({
                                 onChange={handleChange}
                                 maxLength={30}
                                 autoComplete="off"
+                                required
                             />
                         </div>
                     </dd>
                     <dd>
-                        <div className={styles.gnewtonFieldLabelClass}>
-                            <label className="font-normal capitalize" htmlFor="married">
+                        <div className={styles.applicationFieldLabelClass}>
+                            <label className="font-normal normal-case" htmlFor="married">
                                 Гэрлэсэн эсэх
                             </label>
+
                         </div>
-                        <div className={styles.gnewtonFieldInputClass}>
+                        <div className={styles.applicationFieldInputClass}>
                             <select
                                 id="married"
                                 name="married"
@@ -529,18 +604,21 @@ const Application: FC<Step2Props> = ({
                                 onChange={handleChange}
                                 title="Married"
                             >
-                                <option value="Yes">Тийм</option>
-                                <option value="No">Үгүй</option>
+                                <option>-</option>
+                                <option value="Тийм">Тийм</option>
+                                <option value="Үгүй">Үгүй</option>
                             </select>
                         </div>
                     </dd>
                     <dd>
-                        <div className={styles.gnewtonFieldLabelClass}>
-                            <label className="font-normal capitalize" htmlFor="register">
+                        <div className={styles.applicationFieldLabelClass}>
+                            <label className="font-normal normal-case" htmlFor="register">
                                 Регистрийн дугаар
                             </label>
+                            <span className="gnewtonStar"><img src="https://d3leeb4r1qy96s.cloudfront.net/assets/star_5px.png" alt="*" /></span>
+
                         </div>
-                        <div className={styles.gnewtonFieldInputClass}>
+                        <div className={styles.applicationFieldInputClass}>
                             <input
                                 type="text"
                                 name="register"
@@ -548,25 +626,30 @@ const Application: FC<Step2Props> = ({
                                 onChange={handleChange}
                                 maxLength={30}
                                 autoComplete="off"
+                                required
                             />
                         </div>
                     </dd>
                     <dd>
-                        <div className={styles.gnewtonFieldLabelClass}>
-                            <label className="font-normal capitalize" htmlFor="gender">
+                        <div className={styles.applicationFieldLabelClass}>
+                            <label className="font-normal normal-case" htmlFor="gender">
                                 Хүйс
                             </label>
+                            <span className="gnewtonStar"><img src="https://d3leeb4r1qy96s.cloudfront.net/assets/star_5px.png" alt="*" /></span>
+
                         </div>
-                        <div className={styles.gnewtonFieldInputClass}>
+                        <div className={styles.applicationFieldInputClass}>
                             <select
                                 id="gender"
                                 name="gender"
                                 value={formData.gender}
                                 onChange={handleChange}
                                 title="Gender"
+                                required
                             >
-                                <option value="Yes">Эрэгтэй</option>
-                                <option value="No">Эмэгтэй</option>
+                                <option value="">-</option>
+                                <option value="Эрэгтэй">Эрэгтэй</option>
+                                <option value="Эмэгтэй">Эмэгтэй</option>
                             </select>
                         </div>
                     </dd>
@@ -575,17 +658,18 @@ const Application: FC<Step2Props> = ({
                     <dt className={styles.gnewtonSectionTitleClass}>Боловсрол</dt>
                     {educationEntries.map((edu, index) => (
                         <div key={index} className="flex ">
-                            <div className="flex-1 custom-section relative max-w-[555px]">
+                            <div className="flex-1 custom-section relative max-w-[480px]">
                                 <dd>
-                                    <div className={styles.gnewtonQuestionLabelClass}>
+                                    <div className={styles.applicationQuestionLabelClass}>
                                         <label
-                                            className="font-normal capitalize"
+                                            className="font-normal normal-case"
                                             htmlFor={`v_education${index + 1}_1`}
                                         >
                                             Төгссөн сургуулийн нэр
                                         </label>
+                                        {index === 0 && <span className="gnewtonStar"><img src="https://d3leeb4r1qy96s.cloudfront.net/assets/star_5px.png" alt="*" /></span>}
                                     </div>
-                                    <div className={styles.gnewtonFieldInputClass}>
+                                    <div className={styles.applicationFieldInputClass}>
                                         <input
                                             type="text"
                                             name="schoolName"
@@ -593,19 +677,22 @@ const Application: FC<Step2Props> = ({
                                             onChange={(e) => handleEntryChange("education", index, e)}
                                             maxLength={30}
                                             autoComplete="off"
+                                            required={index === 0}
                                         />
                                     </div>
                                 </dd>
                                 <dd>
-                                    <div className={styles.gnewtonQuestionLabelClass}>
+                                    <div className={styles.applicationQuestionLabelClass}>
                                         <label
-                                            className="font-normal capitalize"
+                                            className="font-normal normal-case"
                                             htmlFor={`v_education${index + 1}_2`}
                                         >
                                             Суралцсан хэлбэр (танхим/онлайн)
                                         </label>
+                                        {index === 0 && <span className="gnewtonStar"><img src="https://d3leeb4r1qy96s.cloudfront.net/assets/star_5px.png" alt="*" /></span>}
+
                                     </div>
-                                    <div className={styles.gnewtonFieldInputClass}>
+                                    <div className={styles.applicationFieldInputClass}>
                                         <input
                                             type="text"
                                             name="studyMode"
@@ -613,19 +700,22 @@ const Application: FC<Step2Props> = ({
                                             onChange={(e) => handleEntryChange("education", index, e)}
                                             maxLength={30}
                                             autoComplete="off"
+                                            required={index === 0}
                                         />
                                     </div>
                                 </dd>
                                 <dd>
-                                    <div className={styles.gnewtonQuestionLabelClass}>
+                                    <div className={styles.applicationQuestionLabelClass}>
                                         <label
-                                            className="font-normal capitalize"
+                                            className="font-normal normal-case"
                                             htmlFor={`v_education${index + 1}_3`}
                                         >
                                             Зэрэг( Мэргэжил )
                                         </label>
+                                        {index === 0 && <span className="gnewtonStar"><img src="https://d3leeb4r1qy96s.cloudfront.net/assets/star_5px.png" alt="*" /></span>}
+
                                     </div>
-                                    <div className={styles.gnewtonFieldInputClass}>
+                                    <div className={styles.applicationFieldInputClass}>
                                         <input
                                             type="text"
                                             name="degree"
@@ -633,19 +723,22 @@ const Application: FC<Step2Props> = ({
                                             onChange={(e) => handleEntryChange("education", index, e)}
                                             maxLength={30}
                                             autoComplete="off"
+                                            required={index === 0}
                                         />
                                     </div>
                                 </dd>
                                 <dd>
-                                    <div className={styles.gnewtonQuestionLabelClass}>
+                                    <div className={styles.applicationQuestionLabelClass}>
                                         <label
-                                            className="font-normal capitalize"
+                                            className="font-normal normal-case"
                                             htmlFor={`v_education${index + 1}_4`}
                                         >
                                             Төгссөн огноо
                                         </label>
+                                        {index === 0 && <span className="gnewtonStar"><img src="https://d3leeb4r1qy96s.cloudfront.net/assets/star_5px.png" alt="*" /></span>}
+
                                     </div>
-                                    <div className={styles.gnewtonFieldInputClass}>
+                                    <div className={styles.applicationFieldInputClass}>
                                         <input
                                             type="date"
                                             name="completionDate"
@@ -653,6 +746,7 @@ const Application: FC<Step2Props> = ({
                                             onChange={(e) => handleEntryChange("education", index, e)}
                                             maxLength={30}
                                             autoComplete="off"
+                                            required={index === 0}
                                         />
                                     </div>
                                 </dd>
@@ -670,7 +764,7 @@ const Application: FC<Step2Props> = ({
                                     </button>
                                 )}
                             </div>
-                            {index === educationEntries.length - 1 && (
+                            {(index === educationEntries.length - 1 || educationEntries.length <= 6) && (
                                 <div className="ml-4">
                                     <div
                                         className="h-[32px] bg-gray-100 text-white rounded hover:bg-gray-200 cursor-pointer"
@@ -693,17 +787,17 @@ const Application: FC<Step2Props> = ({
                     </dt>
                     {orgEntries.map((org, index) => (
                         <div key={index} className="flex ">
-                            <div className="flex-1 custom-section relative max-w-[555px]">
+                            <div className="flex-1 custom-section relative max-w-[480px]">
                                 <dd>
-                                    <div className={styles.gnewtonQuestionLabelClass}>
+                                    <div className={styles.applicationQuestionLabelClass}>
                                         <label
-                                            className="font-normal capitalize"
+                                            className="font-normal normal-case"
                                             htmlFor={`v_career${index + 1}_1`}
                                         >
                                             Сургалтын байгууллагын нэр
                                         </label>
                                     </div>
-                                    <div className={styles.gnewtonFieldInputClass}>
+                                    <div className={styles.applicationFieldInputClass}>
                                         <input
                                             type="text"
                                             name="orgName"
@@ -715,15 +809,15 @@ const Application: FC<Step2Props> = ({
                                     </div>
                                 </dd>
                                 <dd>
-                                    <div className={styles.gnewtonQuestionLabelClass}>
+                                    <div className={styles.applicationQuestionLabelClass}>
                                         <label
-                                            className="font-normal capitalize"
+                                            className="font-normal normal-case"
                                             htmlFor={`v_career${index + 1}_2`}
                                         >
                                             Чиглэл
                                         </label>
                                     </div>
-                                    <div className={styles.gnewtonFieldInputClass}>
+                                    <div className={styles.applicationFieldInputClass}>
                                         <input
                                             type="text"
                                             name="orgType"
@@ -735,15 +829,15 @@ const Application: FC<Step2Props> = ({
                                     </div>
                                 </dd>
                                 <dd>
-                                    <div className={styles.gnewtonQuestionLabelClass}>
+                                    <div className={styles.applicationQuestionLabelClass}>
                                         <label
-                                            className="font-normal capitalize"
+                                            className="font-normal normal-case"
                                             htmlFor={`v_career${index + 1}_3`}
                                         >
                                             Хамрагдсан хугацаа, байршил
                                         </label>
                                     </div>
-                                    <div className={styles.gnewtonFieldInputClass}>
+                                    <div className={styles.applicationFieldInputClass}>
                                         <input
                                             type="text"
                                             name="orgCompletionDate"
@@ -768,11 +862,11 @@ const Application: FC<Step2Props> = ({
                                     </button>
                                 )}
                             </div>
-                            {index === educationEntries.length - 1 && (
+                            {index === orgEntries.length - 1 && (
                                 <div className="ml-4">
                                     <div
                                         className="h-[32px] bg-gray-100 text-white rounded hover:bg-gray-200 cursor-pointer"
-                                        onClick={() => addEntry("education")}
+                                        onClick={() => addEntry("org")}
                                     >
                                         <Image
                                             src="https://d3leeb4r1qy96s.cloudfront.net/assets/img/plus-icon.svg"
@@ -791,17 +885,17 @@ const Application: FC<Step2Props> = ({
                     </dt>
                     {learnEntries.map((lea, index) => (
                         <div key={index} className="flex ">
-                            <div className="flex-1 custom-section relative max-w-[555px]">
+                            <div className="flex-1 custom-section relative max-w-[480px]">
                                 <dd>
-                                    <div className={styles.gnewtonFieldLabelClass}>
+                                    <div className={styles.applicationQuestionLabelClass}>
                                         <label
-                                            className="font-normal capitalize"
+                                            className="font-normal normal-case"
                                             htmlFor={`v_learn${index + 1}_1`}
                                         >
                                             Хичээлийн нэр
                                         </label>
                                     </div>
-                                    <div className={styles.gnewtonFieldInputClass}>
+                                    <div className={styles.applicationFieldInputClass}>
                                         <input
                                             type="text"
                                             name="lName"
@@ -813,15 +907,15 @@ const Application: FC<Step2Props> = ({
                                     </div>
                                 </dd>
                                 <dd>
-                                    <div className={styles.gnewtonFieldLabelClass}>
+                                    <div className={styles.applicationQuestionLabelClass}>
                                         <label
-                                            className="font-normal capitalize"
+                                            className="font-normal normal-case"
                                             htmlFor={`v_learn${index + 1}_2`}
                                         >
                                             Эх сурвалж
                                         </label>
                                     </div>
-                                    <div className={styles.gnewtonFieldInputClass}>
+                                    <div className={styles.applicationFieldInputClass}>
                                         <input
                                             type="text"
                                             name="lSource"
@@ -846,7 +940,7 @@ const Application: FC<Step2Props> = ({
                                     </button>
                                 )}
                             </div>
-                            {index === educationEntries.length - 1 && (
+                            {index === learnEntries.length - 1 && (
                                 <div className="ml-4">
                                     <div
                                         className="h-[32px] bg-gray-100 text-white rounded hover:bg-gray-200 cursor-pointer"
@@ -869,17 +963,18 @@ const Application: FC<Step2Props> = ({
                     </dt>
                     {experienceEntries.map((experience, index) => (
                         <div key={index} className="flex ">
-                            <div className="flex-1 custom-section relative max-w-[555px]">
+                            <div className="flex-1 custom-section relative max-w-[480px]">
                                 <dd>
-                                    <div className={styles.gnewtonFieldLabelClass}>
+                                    <div className={styles.applicationQuestionLabelClass}>
                                         <label
-                                            className="font-normal capitalize"
+                                            className="font-normal normal-case"
                                             htmlFor={`ex${index + 1}_1`}
                                         >
                                             Компанийн нэр
                                         </label>
+                                        {index === 0 && <span className="gnewtonStar"><img src="https://d3leeb4r1qy96s.cloudfront.net/assets/star_5px.png" alt="*" /></span>}
                                     </div>
-                                    <div className={styles.gnewtonFieldInputClass}>
+                                    <div className={styles.applicationFieldInputClass}>
                                         <input
                                             type="text"
                                             name="comName"
@@ -887,19 +982,21 @@ const Application: FC<Step2Props> = ({
                                             onChange={(e) => handleEntryChange("experience", index, e)}
                                             maxLength={30}
                                             autoComplete="off"
+                                            required={index === 0}
                                         />
                                     </div>
                                 </dd>
                                 <dd>
-                                    <div className={styles.gnewtonQuestionLabelClass}>
+                                    <div className={styles.applicationQuestionLabelClass}>
                                         <label
-                                            className="font-normal capitalize"
+                                            className="font-normal normal-case"
                                             htmlFor={`ex${index + 1}_2`}
                                         >
                                             Үйл ажиллагааны чиглэл
                                         </label>
+                                        {index === 0 && <span className="gnewtonStar"><img src="https://d3leeb4r1qy96s.cloudfront.net/assets/star_5px.png" alt="*" /></span>}
                                     </div>
-                                    <div className={styles.gnewtonFieldInputClass}>
+                                    <div className={styles.applicationFieldInputClass}>
                                         <input
                                             type="text"
                                             name="comType"
@@ -907,19 +1004,21 @@ const Application: FC<Step2Props> = ({
                                             onChange={(e) => handleEntryChange("experience", index, e)}
                                             maxLength={30}
                                             autoComplete="off"
+                                            required={index === 0}
                                         />
                                     </div>
                                 </dd>
                                 <dd>
-                                    <div className={styles.gnewtonQuestionLabelClass}>
+                                    <div className={styles.applicationQuestionLabelClass}>
                                         <label
-                                            className="font-normal capitalize"
+                                            className="font-normal normal-case"
                                             htmlFor={`ex${index + 1}_3`}
                                         >
                                             Ажлын байрны нэр
                                         </label>
+                                        {index === 0 && <span className="gnewtonStar"><img src="https://d3leeb4r1qy96s.cloudfront.net/assets/star_5px.png" alt="*" /></span>}
                                     </div>
-                                    <div className={styles.gnewtonFieldInputClass}>
+                                    <div className={styles.applicationFieldInputClass}>
                                         <input
                                             type="text"
                                             name="comOccupation"
@@ -927,57 +1026,63 @@ const Application: FC<Step2Props> = ({
                                             onChange={(e) => handleEntryChange("experience", index, e)}
                                             maxLength={30}
                                             autoComplete="off"
+                                            required={index === 0}
                                         />
                                     </div>
                                 </dd>
                                 <dd>
-                                    <div className={styles.gnewtonQuestionLabelClass}>
+                                    <div className={styles.applicationQuestionLabelClass}>
                                         <label
-                                            className="font-normal capitalize"
+                                            className="font-normal normal-case"
                                             htmlFor={`ex${index + 1}_4`}
                                         >
                                             Гүйцэтгэж байсан ажил үүргийн жагсаалт
                                         </label>
+                                        {index === 0 && <span className="gnewtonStar"><img src="https://d3leeb4r1qy96s.cloudfront.net/assets/star_5px.png" alt="*" /></span>}
                                     </div>
-                                    <div className={styles.gnewtonFieldInputClass}>
+                                    <div className={styles.applicationFieldInputClass}>
                                         <textarea
                                             name="comWork"
                                             value={experience.comWork}
                                             onChange={(e) => handleEntryChange("experience", index, e)}
                                             rows={4}
                                             autoComplete="off"
+                                            required={index === 0}
                                         />
                                     </div>
                                 </dd>
                                 <dd>
-                                    <div className={styles.gnewtonQuestionLabelClass}>
+                                    <div className={styles.applicationQuestionLabelClass}>
                                         <label
-                                            className="font-normal capitalize"
+                                            className="font-normal normal-case"
                                             htmlFor={`ex${index + 1}_5`}
                                         >
                                             Ажлаас гарах болсон шалтгаан:
                                         </label>
+                                        {index === 0 && <span className="gnewtonStar"><img src="https://d3leeb4r1qy96s.cloudfront.net/assets/star_5px.png" alt="*" /></span>}
                                     </div>
-                                    <div className={styles.gnewtonFieldInputClass}>
+                                    <div className={styles.applicationFieldInputClass}>
                                         <textarea
                                             name="comExitReason"
                                             value={experience.comExitReason}
                                             onChange={(e) => handleEntryChange("experience", index, e)}
                                             rows={4}
                                             autoComplete="off"
+                                            required={index === 0}
                                         />
                                     </div>
                                 </dd>
                                 <dd>
-                                    <div className={styles.gnewtonQuestionLabelClass}>
+                                    <div className={styles.applicationQuestionLabelClass}>
                                         <label
-                                            className="font-normal capitalize"
+                                            className="font-normal normal-case"
                                             htmlFor={`ex${index + 1}_6`}
                                         >
                                             Ажилласан хугацаа
                                         </label>
+                                        {index === 0 && <span className="gnewtonStar"><img src="https://d3leeb4r1qy96s.cloudfront.net/assets/star_5px.png" alt="*" /></span>}
                                     </div>
-                                    <div className={styles.gnewtonFieldInputClass}>
+                                    <div className={styles.applicationFieldInputClass}>
                                         <input
                                             type="text"
                                             name="comTime"
@@ -985,19 +1090,21 @@ const Application: FC<Step2Props> = ({
                                             onChange={(e) => handleEntryChange("experience", index, e)}
                                             maxLength={30}
                                             autoComplete="off"
+                                            required={index === 0}
                                         />
                                     </div>
                                 </dd>
                                 <dd>
-                                    <div className={styles.gnewtonQuestionLabelClass}>
+                                    <div className={styles.applicationQuestionLabelClass}>
                                         <label
-                                            className="font-normal capitalize"
+                                            className="font-normal normal-case"
                                             htmlFor={`ex${index + 1}_7`}
                                         >
                                             Таны шууд удирдлагын нэр, холбоо барих утас
                                         </label>
+                                        {index === 0 && <span className="gnewtonStar"><img src="https://d3leeb4r1qy96s.cloudfront.net/assets/star_5px.png" alt="*" /></span>}
                                     </div>
-                                    <div className={styles.gnewtonFieldInputClass}>
+                                    <div className={styles.applicationFieldInputClass}>
                                         <input
                                             type="text"
                                             name="comConnection"
@@ -1005,6 +1112,7 @@ const Application: FC<Step2Props> = ({
                                             onChange={(e) => handleEntryChange("experience", index, e)}
                                             maxLength={60}
                                             autoComplete="off"
+                                            required={index === 0}
                                         />
                                     </div>
                                 </dd>
@@ -1022,7 +1130,7 @@ const Application: FC<Step2Props> = ({
                                     </button>
                                 )}
                             </div>
-                            {index === educationEntries.length - 1 && (
+                            {index === experienceEntries.length - 1 && (
                                 <div className="ml-4">
                                     <div
                                         className="h-[32px] bg-gray-100 text-white rounded hover:bg-gray-200 cursor-pointer"
@@ -1042,13 +1150,13 @@ const Application: FC<Step2Props> = ({
                 <dl>
                     <dt className={styles.gnewtonSectionTitleClass}></dt>
                     <dd>
-                        <div className={styles.gnewtonQuestionLabelClass}>
-                            <label className="font-normal capitalize" htmlFor="car_learn">
+                        <div className={styles.applicationQuestionLabelClass}>
+                            <label className="font-normal normal-case" htmlFor="car_learn">
                                 CAT тоног төхөөрөмжтэй ажиллаж байсан туршлага, сурч мэдсэн
                                 зүйлс
                             </label>
                         </div>
-                        <div className={styles.gnewtonFieldInputClass}>
+                        <div className={styles.applicationFieldInputClass}>
                             <input
                                 type="text"
                                 name="car_learn"
@@ -1060,12 +1168,13 @@ const Application: FC<Step2Props> = ({
                         </div>
                     </dd>
                     <dd>
-                        <div className={styles.gnewtonQuestionLabelClass}>
-                            <label className="font-normal capitalize" htmlFor="salary">
+                        <div className={styles.applicationQuestionLabelClass}>
+                            <label className="font-normal normal-case" htmlFor="salary">
                                 Таны цалингийн хүлээлт:
                             </label>
+                            <span className="gnewtonStar"><img src="https://d3leeb4r1qy96s.cloudfront.net/assets/star_5px.png" alt="*" /></span>
                         </div>
-                        <div className={styles.gnewtonFieldInputClass}>
+                        <div className={styles.applicationFieldInputClass}>
                             <input
                                 type="text"
                                 name="salary"
@@ -1073,16 +1182,17 @@ const Application: FC<Step2Props> = ({
                                 onChange={handleChange}
                                 maxLength={30}
                                 autoComplete="off"
+                                required
                             />
                         </div>
                     </dd>
                     <dd>
-                        <div className={styles.gnewtonFieldLabelClass}>
-                            <label className="font-normal capitalize" htmlFor="sale_learn">
+                        <div className={styles.applicationQuestionLabelClass}>
+                            <label className="font-normal normal-case" htmlFor="sale_learn">
                                 Таны борлуулалтын туршлага (Байгаа бол дурдана уу){" "}
                             </label>
                         </div>
-                        <div className={styles.gnewtonFieldInputClass}>
+                        <div className={styles.applicationFieldInputClass}>
                             <textarea
                                 name="sale_learn"
                                 rows={4}
@@ -1099,17 +1209,17 @@ const Application: FC<Step2Props> = ({
                     </dt>
                     {computerEntries.map((com, index) => (
                         <div key={index} className="flex ">
-                            <div className="flex-1 custom-section relative max-w-[555px]">
+                            <div className="flex-1 custom-section relative max-w-[480px]">
                                 <dd>
-                                    <div className={styles.gnewtonQuestionLabelClass}>
+                                    <div className={styles.applicationQuestionLabelClass}>
                                         <label
-                                            className="font-normal capitalize"
+                                            className="font-normal normal-case"
                                             htmlFor={`computer${index + 1}_1`}
                                         >
                                             Таны хамгийн сайн ажиллаж чаддаг программуудаа жагсаана уу
                                         </label>
                                     </div>
-                                    <div className={styles.gnewtonFieldInputClass}>
+                                    <div className={styles.applicationFieldInputClass}>
                                         <input
                                             type="text"
                                             name="computerName"
@@ -1134,7 +1244,7 @@ const Application: FC<Step2Props> = ({
                                     </button>
                                 )}
                             </div>
-                            {index === educationEntries.length - 1 && (
+                            {index === computerEntries.length - 1 && (
                                 <div className="ml-4">
                                     <div
                                         className="h-[32px] bg-gray-100 text-white rounded hover:bg-gray-200 cursor-pointer"
@@ -1157,70 +1267,78 @@ const Application: FC<Step2Props> = ({
                     </dt>
                     {languageEntries.map((lang, index) => (
                         <div key={index} className="flex ">
-                            <div className="flex-1 custom-section relative max-w-[555px]">
+                            <div className="flex-1 custom-section relative max-w-[480px]">
                                 <dd>
-                                    <div className={styles.gnewtonFieldLabelClass}>
+                                    <div className={styles.applicationQuestionLabelClass}>
                                         <label
-                                            className="font-normal capitalize"
+                                            className="font-normal normal-case"
                                             htmlFor={`lg${index + 1}_1`}
                                         >
                                             Гадаад хэл
                                         </label>
+                                        {index === 0 && <span className="gnewtonStar"><img src="https://d3leeb4r1qy96s.cloudfront.net/assets/star_5px.png" alt="*" /></span>}
                                     </div>
-                                    <div className={styles.gnewtonFieldInputClass}>
+                                    <div className={styles.applicationFieldInputClass}>
                                         <input
                                             type="text"
                                             name="languageName"
                                             value={lang.languageName}
-                                            onChange={(e) => handleEntryChange("computer", index, e)}
+                                            onChange={(e) => handleEntryChange("language", index, e)}
                                             maxLength={30}
                                             autoComplete="off"
+                                            required={index === 0}
                                         />
                                     </div>
                                 </dd>
                                 <dd>
-                                    <div className={styles.gnewtonFieldLabelClass}>
+                                    <div className={styles.applicationQuestionLabelClass}>
                                         <label
-                                            className="font-normal capitalize"
+                                            className="font-normal normal-case"
                                             htmlFor={`lg${index + 1}_2`}
                                         >
                                             Ярих чадвар
                                         </label>
+                                        {index === 0 && <span className="gnewtonStar"><img src="https://d3leeb4r1qy96s.cloudfront.net/assets/star_5px.png" alt="*" /></span>}
                                     </div>
-                                    <div className={styles.gnewtonFieldInputClass}>
+                                    <div className={styles.applicationFieldInputClass}>
                                         <select
                                             id={`lg${index + 1}_2`}
                                             name="languageSpeak"
                                             value={lang.languageSpeak}
                                             onChange={(e) => handleEntryChange("language", index, e)}
                                             title="Lg"
+                                            required={index === 0}
                                         >
-                                            <option value="Yes">Анхан</option>
-                                            <option value="No">Дунд</option>
-                                            <option value="No">Ахисан</option>
+                                            <option value="">-</option>
+                                            <option value="Анхан">Анхан</option>
+                                            <option value="Дунд">Дунд</option>
+                                            <option value="Ахисан">Ахисан</option>
                                         </select>
                                     </div>
                                 </dd>
                                 <dd>
-                                    <div className={styles.gnewtonFieldLabelClass}>
+                                    <div className={styles.applicationQuestionLabelClass}>
                                         <label
-                                            className="font-normal capitalize"
+                                            className="font-normal normal-case"
                                             htmlFor={`lg${index + 1}_3`}
                                         >
                                             Бичих чадвар
                                         </label>
+                                        {index === 0 && <span className="gnewtonStar"><img src="https://d3leeb4r1qy96s.cloudfront.net/assets/star_5px.png" alt="*" /></span>}
                                     </div>
-                                    <div className={styles.gnewtonFieldInputClass}>
+                                    <div className={styles.applicationFieldInputClass}>
                                         <select
                                             id={`lg${index + 1}_3`}
                                             name="languageRead"
                                             value={lang.languageRead}
                                             onChange={(e) => handleEntryChange("language", index, e)}
                                             title="Lg"
+                                            required={index === 0}
                                         >
-                                            <option value="Yes">Анхан</option>
-                                            <option value="No">Дунд</option>
-                                            <option value="No">Ахисан</option>
+                                            <option value="">-</option>
+                                            <option value="Анхан">Анхан</option>
+                                            <option value="Дунд">Дунд</option>
+                                            <option value="Ахисан">Ахисан</option>
                                         </select>
                                     </div>
                                 </dd>
@@ -1238,7 +1356,7 @@ const Application: FC<Step2Props> = ({
                                     </button>
                                 )}
                             </div>
-                            {index === educationEntries.length - 1 && (
+                            {index === languageEntries.length - 1 && (
                                 <div className="ml-4">
                                     <div
                                         className="h-[32px] bg-gray-100 text-white rounded hover:bg-gray-200 cursor-pointer"
@@ -1260,13 +1378,13 @@ const Application: FC<Step2Props> = ({
                         Мэргэжлийн бусад ур чадвар
                     </dt>
                     <dd>
-                        <div className={styles.gnewtonFieldLabelClass}>
+                        <div className={styles.applicationFieldLabelClass}>
                             <label
-                                className="font-normal capitalize"
+                                className="font-normal normal-case"
                                 htmlFor="other_talent"
                             ></label>
                         </div>
-                        <div className={styles.gnewtonFieldInputClass}>
+                        <div className={styles.applicationFieldInputClass}>
                             <textarea
                                 name="other_talent"
                                 rows={4}
@@ -1277,12 +1395,12 @@ const Application: FC<Step2Props> = ({
                         </div>
                     </dd>
                     <dd>
-                        <div className={styles.gnewtonFieldLabelClass}>
-                            <label className="font-normal capitalize" htmlFor="car_password">
+                        <div className={styles.applicationFieldLabelClass}>
+                            <label className="font-normal normal-case" htmlFor="car_password">
                                 Жолооны үнэмлэх
                             </label>
                         </div>
-                        <div className={styles.gnewtonFieldInputClass}>
+                        <div className={styles.applicationFieldInputClass}>
                             <input
                                 type="text"
                                 name="car_password"
@@ -1294,15 +1412,15 @@ const Application: FC<Step2Props> = ({
                         </div>
                     </dd>
                     <dd>
-                        <div className={styles.gnewtonFieldLabelClass}>
+                        <div className={styles.applicationFieldLabelClass}>
                             <label
-                                className="font-normal capitalize"
+                                className="font-normal normal-case"
                                 htmlFor="car_password_type"
                             >
                                 Ангилал
                             </label>
                         </div>
-                        <div className={styles.gnewtonFieldInputClass}>
+                        <div className={styles.applicationFieldInputClass}>
                             <input
                                 type="text"
                                 name="car_password_type"
@@ -1314,45 +1432,49 @@ const Application: FC<Step2Props> = ({
                         </div>
                     </dd>
                     <dd>
-                        <div className={styles.gnewtonQuestionLabelClass}>
-                            <label className="font-normal capitalize" htmlFor="career_skill1">
+                        <div className={styles.applicationQuestionLabelClass}>
+                            <label className="font-normal normal-case" htmlFor="career_skill1">
                                 Мэргэжлийн ур чадвараа өөрөө дүгнэн бичнэ үү (Өөрийн сонирхож
                                 буй ажлын байранд уялдуулан бичнэ үү)
                             </label>
+                            <span className="gnewtonStar"><img src="https://d3leeb4r1qy96s.cloudfront.net/assets/star_5px.png" alt="*" /></span>
                         </div>
-                        <div className={styles.gnewtonFieldInputClass}>
+                        <div className={styles.applicationFieldInputClass}>
                             <textarea
                                 name="career_skill1"
                                 rows={4}
                                 value={formData.career_skill1}
                                 onChange={handleChange}
                                 autoComplete="off"
+                                required
                             />
                         </div>
                     </dd>
                     <dd>
-                        <div className={styles.gnewtonQuestionLabelClass}>
-                            <label className="font-normal capitalize" htmlFor="career_skill2">
+                        <div className={styles.applicationQuestionLabelClass}>
+                            <label className="font-normal normal-case" htmlFor="career_skill2">
                                 Ажлын арга барил
                             </label>
+                            <span className="gnewtonStar"><img src="https://d3leeb4r1qy96s.cloudfront.net/assets/star_5px.png" alt="*" /></span>
                         </div>
-                        <div className={styles.gnewtonFieldInputClass}>
+                        <div className={styles.applicationFieldInputClass}>
                             <textarea
                                 name="career_skill2"
                                 rows={4}
                                 value={formData.career_skill2}
                                 onChange={handleChange}
                                 autoComplete="off"
+                                required
                             />
                         </div>
                     </dd>
                     <dd>
-                        <div className={styles.gnewtonQuestionLabelClass}>
-                            <label className="font-normal capitalize" htmlFor="hobby">
+                        <div className={styles.applicationQuestionLabelClass}>
+                            <label className="font-normal normal-case" htmlFor="hobby">
                                 Хобби
                             </label>
                         </div>
-                        <div className={styles.gnewtonFieldInputClass}>
+                        <div className={styles.applicationFieldInputClass}>
                             <textarea
                                 name="hobby"
                                 rows={4}
@@ -1363,12 +1485,12 @@ const Application: FC<Step2Props> = ({
                         </div>
                     </dd>
                     <dd>
-                        <div className={styles.gnewtonQuestionLabelClass}>
-                            <label className="font-normal capitalize" htmlFor="other_add">
+                        <div className={styles.applicationQuestionLabelClass}>
+                            <label className="font-normal normal-case" htmlFor="other_add">
                                 Нэмэлт мэдээлэл
                             </label>
                         </div>
-                        <div className={styles.gnewtonFieldInputClass}>
+                        <div className={styles.applicationFieldInputClass}>
                             <textarea
                                 name="other_add"
                                 rows={4}
@@ -1379,13 +1501,13 @@ const Application: FC<Step2Props> = ({
                         </div>
                     </dd>
                     <dd>
-                        <div className={styles.gnewtonQuestionLabelClass}>
-                            <label className="font-normal capitalize" htmlFor="job_contact">
+                        <div className={styles.applicationQuestionLabelClass}>
+                            <label className="font-normal normal-case" htmlFor="job_contact">
                                 Та манай компанийн талаарх мэдээллийг ямар эх сурвалжаас олж
                                 мэдсэн болох
                             </label>
                         </div>
-                        <div className={styles.gnewtonFieldInputClass}>
+                        <div className={styles.applicationFieldInputClass}>
                             <input
                                 type="text"
                                 name="job_contact"
@@ -1397,13 +1519,13 @@ const Application: FC<Step2Props> = ({
                         </div>
                     </dd>
                     <dd>
-                        <div className={styles.gnewtonQuestionLabelClass}>
-                            <label className="font-normal capitalize" htmlFor="wish_message">
+                        <div className={styles.applicationQuestionLabelClass}>
+                            <label className="font-normal normal-case" htmlFor="wish_message">
                                 Та Barloworld Mongolia LLC компанид яагаад ажиллах хүсэлтэй
                                 байгаа болох
                             </label>
                         </div>
-                        <div className={styles.gnewtonFieldInputClass}>
+                        <div className={styles.applicationFieldInputClass}>
                             <input
                                 type="text"
                                 name="wish_message"
@@ -1421,17 +1543,18 @@ const Application: FC<Step2Props> = ({
                     </dt>
                     {familyMembers.map((member, index) => (
                         <div key={index} className="flex ">
-                            <div className="flex-1 custom-section relative max-w-[555px]">
+                            <div className="flex-1 custom-section relative max-w-[480px]">
                                 <dd>
-                                    <div className={styles.gnewtonFieldLabelClass}>
+                                    <div className={styles.applicationQuestionLabelClass}>
                                         <label
-                                            className="font-normal capitalize"
+                                            className="font-normal normal-case"
                                             htmlFor={`f${index + 1}_1`}
                                         >
                                             Нэр
                                         </label>
+                                        {index === 0 && <span className="gnewtonStar"><img src="https://d3leeb4r1qy96s.cloudfront.net/assets/star_5px.png" alt="*" /></span>}
                                     </div>
-                                    <div className={styles.gnewtonFieldInputClass}>
+                                    <div className={styles.applicationFieldInputClass}>
                                         <input
                                             type="text"
                                             name="name"
@@ -1439,19 +1562,21 @@ const Application: FC<Step2Props> = ({
                                             onChange={(e) => handleEntryChange("family", index, e)}
                                             maxLength={30}
                                             autoComplete="off"
+                                            required={index === 0}
                                         />
                                     </div>
                                 </dd>
                                 <dd>
-                                    <div className={styles.gnewtonFieldLabelClass}>
+                                    <div className={styles.applicationQuestionLabelClass}>
                                         <label
-                                            className="font-normal capitalize"
+                                            className="font-normal normal-case"
                                             htmlFor={`f${index + 1}_2`}
                                         >
                                             Регистрийн дугаар
                                         </label>
+                                        {index === 0 && <span className="gnewtonStar"><img src="https://d3leeb4r1qy96s.cloudfront.net/assets/star_5px.png" alt="*" /></span>}
                                     </div>
-                                    <div className={styles.gnewtonFieldInputClass}>
+                                    <div className={styles.applicationFieldInputClass}>
                                         <input
                                             type="text"
                                             name="register"
@@ -1459,19 +1584,21 @@ const Application: FC<Step2Props> = ({
                                             onChange={(e) => handleEntryChange("family", index, e)}
                                             maxLength={30}
                                             autoComplete="off"
+                                            required={index === 0}
                                         />
                                     </div>
                                 </dd>
                                 <dd>
-                                    <div className={styles.gnewtonFieldLabelClass}>
+                                    <div className={styles.applicationQuestionLabelClass}>
                                         <label
-                                            className="font-normal capitalize"
+                                            className="font-normal normal-case"
                                             htmlFor={`f${index + 1}_3`}
                                         >
                                             Нас
                                         </label>
+                                        {index === 0 && <span className="gnewtonStar"><img src="https://d3leeb4r1qy96s.cloudfront.net/assets/star_5px.png" alt="*" /></span>}
                                     </div>
-                                    <div className={styles.gnewtonFieldInputClass}>
+                                    <div className={styles.applicationFieldInputClass}>
                                         <input
                                             type="text"
                                             name="age"
@@ -1479,19 +1606,21 @@ const Application: FC<Step2Props> = ({
                                             onChange={(e) => handleEntryChange("family", index, e)}
                                             maxLength={30}
                                             autoComplete="off"
+                                            required={index === 0}
                                         />
                                     </div>
                                 </dd>
                                 <dd>
-                                    <div className={styles.gnewtonFieldLabelClass}>
+                                    <div className={styles.applicationQuestionLabelClass}>
                                         <label
-                                            className="font-normal capitalize"
+                                            className="font-normal normal-case"
                                             htmlFor={`f${index + 1}_4`}
                                         >
                                             Таны хэн болох
                                         </label>
+                                        {index === 0 && <span className="gnewtonStar"><img src="https://d3leeb4r1qy96s.cloudfront.net/assets/star_5px.png" alt="*" /></span>}
                                     </div>
-                                    <div className={styles.gnewtonFieldInputClass}>
+                                    <div className={styles.applicationFieldInputClass}>
                                         <input
                                             type="text"
                                             name="relation"
@@ -1499,19 +1628,21 @@ const Application: FC<Step2Props> = ({
                                             onChange={(e) => handleEntryChange("family", index, e)}
                                             maxLength={30}
                                             autoComplete="off"
+                                            required={index === 0}
                                         />
                                     </div>
                                 </dd>
                                 <dd>
-                                    <div className={styles.gnewtonFieldLabelClass}>
+                                    <div className={styles.applicationQuestionLabelClass}>
                                         <label
-                                            className="font-normal capitalize"
+                                            className="font-normal normal-case"
                                             htmlFor={`f${index + 1}_5`}
                                         >
                                             Утасны дугаар
                                         </label>
+                                        {index === 0 && <span className="gnewtonStar"><img src="https://d3leeb4r1qy96s.cloudfront.net/assets/star_5px.png" alt="*" /></span>}
                                     </div>
-                                    <div className={styles.gnewtonFieldInputClass}>
+                                    <div className={styles.applicationFieldInputClass}>
                                         <input
                                             type="text"
                                             name="phone"
@@ -1519,19 +1650,21 @@ const Application: FC<Step2Props> = ({
                                             onChange={(e) => handleEntryChange("family", index, e)}
                                             maxLength={30}
                                             autoComplete="off"
+                                            required={index === 0}
                                         />
                                     </div>
                                 </dd>
                                 <dd>
-                                    <div className={styles.gnewtonFieldLabelClass}>
+                                    <div className={styles.applicationQuestionLabelClass}>
                                         <label
-                                            className="font-normal capitalize"
+                                            className="font-normal normal-case"
                                             htmlFor={`f${index + 1}_6`}
                                         >
                                             Ажил эрхлэлт
                                         </label>
+                                        {index === 0 && <span className="gnewtonStar"><img src="https://d3leeb4r1qy96s.cloudfront.net/assets/star_5px.png" alt="*" /></span>}
                                     </div>
-                                    <div className={styles.gnewtonFieldInputClass}>
+                                    <div className={styles.applicationFieldInputClass}>
                                         <input
                                             type="text"
                                             name="employment"
@@ -1539,6 +1672,7 @@ const Application: FC<Step2Props> = ({
                                             onChange={(e) => handleEntryChange("family", index, e)}
                                             maxLength={30}
                                             autoComplete="off"
+                                            required={index === 0}
                                         />
                                     </div>
                                 </dd>
@@ -1575,48 +1709,52 @@ const Application: FC<Step2Props> = ({
                 </dl>
                 <dl>
                     <dd>
-                        <div className={styles.gnewtonQuestionLabelClass}>
+                        <div className={styles.applicationQuestionLabelClass}>
                             <label className="capitalize" htmlFor="pain">
                                 1.Таныг ажлаа хийхэд эрсдэлд оруулж болзошгүй эрүүл мэндийн
                                 асуудал (архаг өвчин, харшил гэх мэт) байгаа юу?
                             </label>
                         </div>
-                        <div className={styles.gnewtonFieldInputClass}>
+                        <div className={styles.applicationFieldInputClass}>
                             <select
                                 id="pain"
                                 name="pain"
                                 title="Pain"
                                 value={formData.pain}
                                 onChange={handleChange}
+                                required
                             >
-                                <option value="Yes">Тийм</option>
-                                <option value="No">Үгүй</option>
+                                <option value="">-</option>
+                                <option value="Тийм">Тийм</option>
+                                <option value="Үгүй">Үгүй</option>
                             </select>
                         </div>
                     </dd>
                     <dd>
-                        <div className={styles.gnewtonQuestionLabelClass}>
+                        <div className={styles.applicationQuestionLabelClass}>
                             <label className="capitalize" htmlFor="friend_in_job">
                                 2. Танд тус компанид ажилладаг Барловорлд ашиг сонирхлын
                                 зөрчлийн бодлогод тодорхойлсон "Найз" эсвэл "дотны гэр бүлийн
                                 гишүүн" бий юу?
                             </label>
                         </div>
-                        <div className={styles.gnewtonFieldInputClass}>
+                        <div className={styles.applicationFieldInputClass}>
                             <select
                                 id="friend_in_job"
                                 name="friend_in_job"
                                 title="Friend"
                                 value={formData.friend_in_job}
                                 onChange={handleChange}
+                                required
                             >
-                                <option value="Yes">Тийм</option>
-                                <option value="No">Үгүй</option>
+                                <option value="">-</option>
+                                <option value="Тийм">Тийм</option>
+                                <option value="Үгүй">Үгүй</option>
                             </select>
                         </div>
                     </dd>
                     <dd>
-                        <div className={styles.gnewtonQuestionLabelClass}>
+                        <div className={styles.applicationQuestionLabelClass}>
                             <label
                                 className="font-normal lowercase"
                                 htmlFor="friend_in_job_text"
@@ -1636,7 +1774,7 @@ const Application: FC<Step2Props> = ({
                                 зурсан бол нэрийг нь бичнэ үү.
                             </label>
                         </div>
-                        <div className={styles.gnewtonFieldInputClass}>
+                        <div className={styles.applicationFieldInputClass}>
                             <input
                                 type="text"
                                 name="friend_in_job_text"
@@ -1648,64 +1786,68 @@ const Application: FC<Step2Props> = ({
                         </div>
                     </dd>
                     <dd>
-                        <div className={styles.gnewtonQuestionLabelClass}>
-                            <label className="capitalize" htmlFor="friend_in_job2">
+                        <div className={styles.applicationQuestionLabelClass}>
+                            <label className="capitalize" htmlFor="send_word">
                                 4. Өөр газарт томилолтоор ажиллахад бэлэн эсэх ?
                             </label>
                         </div>
-                        <div className={styles.gnewtonFieldInputClass}>
+                        <div className={styles.applicationFieldInputClass}>
                             <select
-                                id="friend_in_job2"
-                                name="friend_in_job2"
-                                title="friend_in_job2"
-                                value={formData.friend_in_job2}
+                                id="send_word"
+                                name="send_word"
+                                title="send_word"
+                                value={formData.send_word}
                                 onChange={handleChange}
+                                required
                             >
-                                <option value="Yes">Тийм</option>
-                                <option value="No">Үгүй</option>
+                                <option value="">-</option>
+                                <option value="Тийм">Тийм</option>
+                                <option value="Үгүй">Үгүй</option>
                             </select>
                         </div>
                     </dd>
                     <dd>
-                        <div className={styles.gnewtonQuestionLabelClass}>
+                        <div className={styles.applicationQuestionLabelClass}>
                             <label className="capitalize" htmlFor="biznes_travel">
                                 5.Богино хугацаанд болон хэд хэдэн бизнес аяллаар явахад бэлэн
                                 эсэх
                             </label>
                         </div>
-                        <div className={styles.gnewtonFieldInputClass}>
+                        <div className={styles.applicationFieldInputClass}>
                             <select
                                 id="biznes_travel"
                                 name="biznes_travel"
                                 title="biznes_travel"
                                 value={formData.biznes_travel}
                                 onChange={handleChange}
+                                required
                             >
-                                <option value="Yes">Тийм</option>
-                                <option value="No">Үгүй</option>
+                                <option value="">-</option>
+                                <option value="Тийм">Тийм</option>
+                                <option value="Үгүй">Үгүй</option>
                             </select>
                         </div>
                     </dd>
                     <dd>
-                        <div className={styles.gnewtonQuestionLabelClass}>
+                        <div className={styles.applicationQuestionLabelClass}>
                             <label className="capitalize" htmlFor="reasonSelect">
                                 6. Ажлын тусгай нөхцөл төлөвлөх шаардлагатай эсэх (Жишээ нь:
                                 Чөлөөний өдрөө нэмэгдүүлэх, богиносгосон цагаар ажиллах, хагас
                                 цагаар ажиллах гэх мэт)
                             </label>
                         </div>
-                        <div className={styles.gnewtonFieldInputClass}>
+                        <div className={styles.applicationFieldInputClass}>
                             <select
                                 id="reasonSelect"
                                 name="reasonSelect"
                                 title="reasonSelect"
                                 onChange={handleSelectedReasonChange}
                             >
-                                <option value="">-</option>
-                                <option value="Yes">Тийм</option>
-                                <option value="No">Үгүй</option>
+                                <option>-</option>
+                                <option value="Тийм">Тийм</option>
+                                <option value="Үгүй">Үгүй</option>
                             </select>
-                            {selectedReason === "Yes" && (
+                            {selectedReason === "Тийм" && (
                                 <textarea
                                     name="reason"
                                     rows={4}
@@ -1713,28 +1855,31 @@ const Application: FC<Step2Props> = ({
                                     className="mt-2"
                                     value={formData.reason}
                                     onChange={handleChange}
+                                    required={selectedReason === "Тийм"}
                                 />
                             )}
                         </div>
                     </dd>
                 </dl>
+
+                <br />
+                <div className="grid">
+                    <button
+                        className={`rounded-sm h-10 leading-10 cursor-pointer w-28 text-white ${isNextDisabled ? "bg-[#ccd3d8]" : "bg-[#3498db]"
+                            }`}
+                        onClick={submitForm}
+                        disabled={isNextDisabled}
+                    >
+                        Хадгалах
+                    </button>
+                    <Link
+                        href={"/"}
+                        className="text-[#666] pt-3 text-sm hover:text-[#4e4d4d]"
+                    >
+                        Буцах
+                    </Link>
+                </div>
             </form>
-            <br />
-            <div className="grid">
-                <button
-                    className={`rounded-sm h-10 leading-10 cursor-pointer w-28 text-white ${isNextDisabled ? "bg-[#ccd3d8]" : "bg-[#3498db]"
-                        }`}
-                    onClick={submitForm}
-                >
-                    Хадгалах
-                </button>
-                <Link
-                    href={"/"}
-                    className="text-[#666] pt-3 text-sm hover:text-[#4e4d4d]"
-                >
-                    Буцах
-                </Link>
-            </div>
         </div>
     );
 };

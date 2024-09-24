@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React, { FC, useState } from 'react';
 
 interface Step1Props {
@@ -12,7 +13,7 @@ interface Step1Props {
 }
 
 const Agreement: FC<Step1Props> = ({ formData, setFormData, nextStep, job }) => {
-    const [answer, setAnswer] = useState<string | null>(null);
+    const router = useRouter()
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({
@@ -20,10 +21,8 @@ const Agreement: FC<Step1Props> = ({ formData, setFormData, nextStep, job }) => 
             [e.target.name]: e.target.value,
         });
     };
-    const chooseAnswer = (response: string) => {
-        setAnswer(response);
-    };
-    const isNextDisabled = !answer || !formData.name || !formData.date
+
+    const isNextDisabled = !formData.name || !formData.date
     return (
         <div>
             <div className='questions text-sm'>
@@ -58,7 +57,7 @@ const Agreement: FC<Step1Props> = ({ formData, setFormData, nextStep, job }) => 
                     style={{ "width": "300px" }}
                 />
             </div>
-            <div className='questions text-sm'>
+            {/* <div className='questions text-sm'>
                 <div className='questionWrapper leading-6 text-sm flex'>
                     <div className='question flex-1'>
                         Та 18-аас дээш настай юу?
@@ -70,14 +69,29 @@ const Agreement: FC<Step1Props> = ({ formData, setFormData, nextStep, job }) => 
                         <div className={`gnewtonNo cursor-pointer border border-[#e67263] rounded-sm w-12 text-center bg-[#fbf5ec] ${answer != null ? 'isValid' : ''} ${answer === 'no' ? 'isSelected' : ''}`} onClick={() => chooseAnswer('no')}>Үгүй</div>
                     </div>
                 </div>
-            </div>
+            </div> */}
             <br />
-            <div className='grid'>
-                <button className={`rounded-sm h-10 leading-10 cursor-pointer w-32 text-white ${isNextDisabled ? "bg-[#ccd3d8]" : "bg-[#3498db]"}`} onClick={nextStep} disabled={isNextDisabled}>
-                    Үргэлжлүүлэх
-                </button>
-                <Link href={"/"} className='text-[#666] pt-3 text-sm hover:text-[#4e4d4d]'>Буцах</Link>
+            <div className="">
+                <div className="mb-4">
+                    <button
+                        className={`rounded-sm h-10 leading-10 cursor-pointer w-32 text-white ${isNextDisabled ? "bg-[#ccd3d8]" : "bg-[#3498db]"}`}
+                        onClick={nextStep}
+                        disabled={isNextDisabled}
+                    >
+                        Үргэлжлүүлэх
+                    </button>
+                </div>
+                <div>
+                    <button
+                        type="button"
+                        className='text-[#666] text-sm hover:text-[#4e4d4d]'
+                        onClick={() => router.back()}
+                    >
+                        Буцах
+                    </button>
+                </div>
             </div>
+
         </div>
     );
 };

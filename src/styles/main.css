@@ -1389,11 +1389,12 @@ hr {
 }
 
 .button {
-	font-size: 14px;
+	/* font-size: 14px; */
 	line-height: 1.166em;
 	font-weight: 700;
 	display: inline-block;
 	border: none;
+	border-radius: 4px;
 	text-transform: uppercase;
 	padding: 14px 12px 14px 20px;
 	position: relative;
@@ -1500,7 +1501,7 @@ hr {
 	height: 48px;
 	width: 100%
 }
-/* 
+
 @media (min-width: 400px) {
 
 	.button--primary,
@@ -1528,7 +1529,7 @@ hr {
 	.button--block {
 		width: 100%
 	}
-} */
+}
 
 .btn {
 	font-size: 16px;
@@ -1552,11 +1553,11 @@ hr {
 	text-decoration: none
 }
 
-/* .btn-primary,.btn-secondary {
+.btn-primary,.btn-secondary {
     margin-right: 16px
-} */
-
-/* .btn-primary::after,.btn-secondary::after {
+}
+/* 
+.btn-primary::after,.btn-secondary::after {
     content: "";
     position: absolute;
     top: 0;
@@ -1566,11 +1567,11 @@ hr {
     -webkit-clip-path: polygon(1px 0,100% 50%,1px 100%,0% 100%,0% 0%);
     clip-path: polygon(1px 0,100% 50%,1px 100%,0% 100%,0% 0%);
     transition: all .4s ease-in-out
-} */
+}
 
 .btn-primary::after {
 	background: #FC0
-}
+} */
 
 .btn-primary:hover::after {
 	background: #666
@@ -4064,7 +4065,7 @@ input.wpcf7-not-valid {
 
 .quick-search-layout {
 	width: 100%;
-	background-color: #fff;
+	background-color: #f5f5f5;
 	box-shadow: 0 6px 18px rgba(0, 0, 0, .1)
 }
 
@@ -4132,7 +4133,8 @@ input.wpcf7-not-valid {
 }
 
 .quick-search-field-button .btn {
-	width: calc(100% - 16px)
+	width: calc(100% - 16px);
+	height: 100%;
 }
 
 .quick-search-options-box {
@@ -4189,7 +4191,7 @@ input.wpcf7-not-valid {
 	}
 
 	.quick-search-layout {
-		position: absolute;
+		position: relative;
 		z-index: 9;
 		top: 20px;
 		left: 0
@@ -4400,7 +4402,7 @@ input.wpcf7-not-valid {
 
 .home-deals-content-wrapper {
 	position: relative;
-	padding: 50px 0 60px
+	padding: 60px 0 60px
 }
 
 .home-deals-header {
@@ -4587,13 +4589,6 @@ input.wpcf7-not-valid {
 }
 
 @media (min-width: 768px) {
-	.home-deals-content-wrapper {
-		padding: 360px 0 70px
-	}
-
-	.home-deals.flexible-home-deals .home-deals-content-wrapper {
-		padding-top: 60px
-	}
 
 	.home-deals-header {
 		text-align: left;
@@ -4638,16 +4633,9 @@ input.wpcf7-not-valid {
 }
 
 @media (min-width: 1025px) {
-	.home-deals-content-wrapper {
-		padding: 360px 0 0
-	}
 
 	.home-deals-header h2 {
 		font-size: 42px
-	}
-
-	.home-deals.flexible-home-deals .home-deals-content-wrapper {
-		padding-top: 102px
 	}
 
 	.home-deals-image {
@@ -4700,17 +4688,10 @@ input.wpcf7-not-valid {
 }
 
 @media (min-width: 1200px) {
-	.home-deals-content-wrapper {
-		padding: 310px 0 0
-	}
 
 	.home-deals-box {
 		max-height: 656px;
 		overflow: hidden
-	}
-
-	.home-deals.default-page-deals .home-deals-content-wrapper {
-		padding: 102px 0 108px
 	}
 }
 
@@ -12270,7 +12251,7 @@ ul li:before {
 	box-shadow: inset 0 0 8px #3498db;
 }
 
-.gnewtonCareerBodyClass div.dashed {
+.ApplicationBodyClass div.dashed {
 	border-top: 1px dashed #ccd3d8;
 	margin: 4px 0;
 }

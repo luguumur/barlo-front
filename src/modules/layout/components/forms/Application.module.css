@@ -14,46 +14,49 @@ dt.gnewtonSectionTitleClass {
     display: none;
 }
 
-.gnewtonCareerBodyClass {
+.ApplicationBodyClass {
     margin-left: 0;
     width: 100%;
 }
 
-.gnewtonCareerBodyClass * {
+.ApplicationBodyClass * {
     font-size: 14px;
 }
 
-.gnewtonCareerBodyClass h2,
-.gnewtonCareerBodyClass h3,
-.gnewtonCareerBodyClass h4,
-.gnewtonCareerBodyClass p,
-.gnewtonCareerBodyClass td,
-.gnewtonCareerBodyClass tr,
-.gnewtonCareerBodyClass ul,
-.gnewtonCareerBodyClass ol,
-.gnewtonCareerBodyClass li,
-.gnewtonCareerBodyClass table,
-.gnewtonCareerBodyClass dl,
-.gnewtonCareerBodyClass dd,
-.gnewtonCareerBodyClass dt,
-.gnewtonCareerBodyClass img,
-.gnewtonCareerBodyClass form,
-.gnewtonCareerBodyClass input,
-.gnewtonCareerBodyClass textarea,
-.gnewtonCareerBodyClass select {
+.ApplicationBodyClass h2,
+.ApplicationBodyClass h3,
+.ApplicationBodyClass h4,
+.ApplicationBodyClass p,
+.ApplicationBodyClass td,
+.ApplicationBodyClass tr,
+.ApplicationBodyClass ul,
+.ApplicationBodyClass ol,
+.ApplicationBodyClass li,
+.ApplicationBodyClass table,
+.ApplicationBodyClass dl,
+.ApplicationBodyClass dd,
+.ApplicationBodyClass dt,
+.ApplicationBodyClass img,
+.ApplicationBodyClass form,
+.ApplicationBodyClass input,
+.ApplicationBodyClass textarea,
+.ApplicationBodyClass select {
     padding: 0;
     white-space: normal;
 }
 
-.gnewtonCareerBodyClass dd {
+.ApplicationBodyClass textarea {
+    padding-left: 3px;
+}
+.ApplicationBodyClass dd {
     margin: 0;
 }
 
-.gnewtonCareerBodyClass img {
+.ApplicationBodyClass img {
     cursor: hand;
 }
 
-.gnewtonCareerBodyClass hr {
+.ApplicationBodyClass hr {
     background: #fff;
     border-top: 1px dashed #ccd3d8;
     color: #fff;
@@ -62,7 +65,7 @@ dt.gnewtonSectionTitleClass {
     width: 100%;
 }
 
-.gnewtonCareerBodyClass div.dashed {
+.ApplicationBodyClass div.dashed {
     border-top: 1px dashed #ccd3d8;
     margin: 4px 0;
 }
@@ -106,7 +109,7 @@ dt.gnewtonSectionTitleClass {
     top: -2px !important;
 }
 
-.gnewtonQuestionLabelClass .gnewtonStar {
+.applicationQuestionLabelClass .gnewtonStar {
     top: -4px !important;
 }
 
@@ -115,10 +118,12 @@ dt.gnewtonSectionTitleClass {
 }
 
 /* Label Layout */
-.gnewtonFieldLabelClass {
-    float: left;
-    text-align: right;
-    width: 160px;
+.applicationFieldLabelClass {
+    display: flex;
+    /* float: left; */
+    /* text-align: right; */
+
+    /* width: 160px; */
 }
 
 .gdprRemarketLabel .gnewtonStar {
@@ -139,7 +144,7 @@ dt.gnewtonSectionTitleClass {
     max-width: 700px;
 }
 
-#gnewtonGdprRemarket .gnewtonQuestionInputClass>.gnewtonFieldLabelClass {
+#gnewtonGdprRemarket .gnewtonQuestionInputClass>.applicationFieldLabelClass {
     float: none;
     text-align: left;
     width: auto;
@@ -149,50 +154,55 @@ dt.gnewtonSectionTitleClass {
     top: -2px !important;
 }
 
-#gnewtonGdprRemarket .gnewtonQuestionInputClass>.gnewtonFieldInputClass {
+#gnewtonGdprRemarket .gnewtonQuestionInputClass>.applicationFieldInputClass {
     margin-left: 0px;
 }
 
-.gnewtonFieldLabelClass label {
+.applicationFieldLabelClass label {
     padding-right: 5px;
     position: relative;
-    top: 8px;
+    /* top: 8px; */
 }
 
-.gnewtonFieldLabelClass [for=firstName],
-.gnewtonFieldLabelClass [for=lastName],
-.gnewtonFieldLabelClass [for=email],
-.gnewtonFieldLabelClass [for='mobile'],
-.gnewtonFieldLabelClass [for='state'],
-.gnewtonFieldLabelClass [for=zipCode],
-.gnewtonFieldLabelClass [for='phone'],
-.gnewtonFieldLabelClass [for=country],
-.gnewtonFieldLabelClass [for='country'],
-.gnewtonFieldLabelClass [for=address1],
-.gnewtonFieldLabelClass [for=''] {
+.applicationFieldLabelClass [for=firstName],
+.applicationFieldLabelClass [for=lastName],
+.applicationFieldLabelClass [for=email],
+.applicationFieldLabelClass [for='mobile'],
+.applicationFieldLabelClass [for='state'],
+.applicationFieldLabelClass [for=zipCode],
+.applicationFieldLabelClass [for='phone'],
+.applicationFieldLabelClass [for=country],
+.applicationFieldLabelClass [for='country'],
+.applicationFieldLabelClass [for=address1],
+.applicationFieldLabelClass [for=''] {
     padding-left: 4px;
 }
 
-.gnewtonQuestionLabelClass label {
+.applicationQuestionLabelClass {
+    display: flex;
+}
+
+.applicationQuestionLabelClass label {
     white-space: normal;
     text-align: start;
 }
 
 /* Input Layout */
-.gnewtonFieldInputClass,
+.applicationFieldInputClass,
 .gnewtonQuestionInputClass {
     position: relative;
-    margin-left: 165px;
+    /* margin-left: 165px; */
     max-width: 350px;
     overflow: hidden;
 }
 
-.gnewtonFieldInputClass input {
+.applicationFieldInputClass input {
     height: 30px;
     width: 100%;
     line-height: normal !important;
     margin-bottom: 0;
     min-width: 225px;
+    padding-left: 3px;
 }
 
 .gnewtonQuestionInputClass input {
@@ -234,18 +244,18 @@ dt.gnewtonSectionTitleClass {
 }
 
 /* Invalid Input */
-.gnewtonFieldInputClass input:invalid,
-.gnewtonFieldInputClass textarea:invalid,
-.gnewtonFieldInputClass select:invalid {
+.applicationFieldInputClass input:invalid,
+.applicationFieldInputClass textarea:invalid,
+.applicationFieldInputClass select:invalid {
     background: #fbf5ec;
     border: 1px solid #e7594a;
 }
 .gnewtonCountryClass,
-.gnewtonFieldInputClass input[name="mobile"],
+.applicationFieldInputClass input[name="mobile"],
 .gnewtonPhone,
-.gnewtonFieldInputClass input[title="From (MM/YY):"],
-.gnewtonFieldInputClass select[name="country"],
-.gnewtonFieldInputClass input[title="To (MM/YY):"] {
+.applicationFieldInputClass input[title="From (MM/YY):"],
+.applicationFieldInputClass select[name="country"],
+.applicationFieldInputClass input[title="To (MM/YY):"] {
     min-width: 0;
     width: 180px;
 }
@@ -437,11 +447,11 @@ dt.newtonStoreReset {
     cursor: pointer;
 }
 
-#gnewtonAttachmentsInfo .gnewtonFieldLabelClass .gnewtonStar {
+#gnewtonAttachmentsInfo .applicationFieldLabelClass .gnewtonStar {
     top: -2px !important;
 }
 
-#gnewtonAttachmentsInfo .gnewtonFieldLabelClass label {
+#gnewtonAttachmentsInfo .applicationFieldLabelClass label {
     position: static;
 }
 
@@ -486,13 +496,13 @@ div.filledFileInput.invalid {
     color: black;
 }
 
-.gnewtonFieldInputClass [type=file],
-.gnewtonFieldInputClass.gnewtonRequired [type=file] {
+.applicationFieldInputClass [type=file],
+.applicationFieldInputClass.gnewtonRequired [type=file] {
     color: transparent;
 }
 
-.gnewtonFieldInputClass [type=file]::-webkit-file-upload-button,
-.gnewtonFieldInputClass.gnewtonRequired [type=file]::-webkit-file-upload-button {
+.applicationFieldInputClass [type=file]::-webkit-file-upload-button,
+.applicationFieldInputClass.gnewtonRequired [type=file]::-webkit-file-upload-button {
     visibility: hidden;
 }
 
@@ -788,8 +798,8 @@ div.formBuilderBody dd {
 }
 
 /* Application Builder - Label Layout */
-div.formBuilderBody .gnewtonFieldLabelClass,
-div.formBuilderBody .gnewtonQuestionLabelClass {
+div.formBuilderBody .applicationFieldLabelClass,
+div.formBuilderBody .applicationQuestionLabelClass {
     width: auto;
     max-width: 400px;
     margin-bottom: 2px;
@@ -797,14 +807,14 @@ div.formBuilderBody .gnewtonQuestionLabelClass {
     text-align: left;
 }
 
-div.formBuilderBody .gnewtonFieldLabelClass label {
+div.formBuilderBody .applicationFieldLabelClass label {
     padding-left: auto;
     padding-right: auto;
     top: auto;
 }
 
-div.formBuilderBody .gnewtonFieldLabelClass .gnewtonStar,
-div.formBuilderBody .gnewtonQuestionLabelClass .gnewtonStar {
+div.formBuilderBody .applicationFieldLabelClass .gnewtonStar,
+div.formBuilderBody .applicationQuestionLabelClass .gnewtonStar {
     top: auto !important;
     margin-right: auto !important;
 }
@@ -813,21 +823,21 @@ div.formBuilderBody .gnewtonQuestionLabelClass .gnewtonStar {
     top: -4px !important;
 }
 
-div.formBuilderBody .gnewtonQuestionInputClass.gdprRemarketLabel>.gnewtonFieldLabelClass {
+div.formBuilderBody .gnewtonQuestionInputClass.gdprRemarketLabel>.applicationFieldLabelClass {
     text-align: left;
     width: auto;
     line-height: 30px;
 }
 
 /* Application Builder - Input Layout */
-div.formBuilderBody .gnewtonFieldInputClass,
+div.formBuilderBody .applicationFieldInputClass,
 div.formBuilderBody .gnewtonQuestionInputClass {
     margin: 0px 0 15px 0px;
     max-width: 400px;
     overflow: hidden;
 }
 
-div.formBuilderBody .gnewtonFieldInputClass input,
+div.formBuilderBody .applicationFieldInputClass input,
 div.formBuilderBody .gnewtonQuestionInputClass input {
     height: 30px;
     width: 100%;
@@ -843,8 +853,8 @@ div.formBuilderBody .gnewtonQuestionInputClass input[type=number] {
     -webkit-appearance: textfield;
 }
 
-div.formBuilderBody .gnewtonFieldInputClass input[type=checkbox],
-div.formBuilderBody .gnewtonFieldInputClass input[type=date],
+div.formBuilderBody .applicationFieldInputClass input[type=checkbox],
+div.formBuilderBody .applicationFieldInputClass input[type=date],
 div.formBuilderBody .gnewtonQuestionInputClass input[type=checkbox],
 div.formBuilderBody .gnewtonQuestionInputClass input[type=date] {
     width: auto;
@@ -854,40 +864,40 @@ div.formBuilderBody .gnewtonQuestionInputClass input[type=date] {
     margin-right: 5px;
 }
 
-div.formBuilderBody .gnewtonFieldInputClass input[type=checkbox],
+div.formBuilderBody .applicationFieldInputClass input[type=checkbox],
 div.formBuilderBody .gnewtonQuestionInputClass input[type=checkbox] {
     margin-bottom: 5px;
 }
 
-div.formBuilderBody .gnewtonFieldInputClass input[type=radio],
+div.formBuilderBody .applicationFieldInputClass input[type=radio],
 div.formBuilderBody .gnewtonQuestionInputClass input[type=radio] {
     margin-bottom: 2px;
     margin-right: 5px;
 }
 
-div.formBuilderBody .gnewtonFieldInputClass input[name="mobile"],
-div.formBuilderBody .gnewtonFieldInputClass input[name="phone"],
+div.formBuilderBody .applicationFieldInputClass input[name="mobile"],
+div.formBuilderBody .applicationFieldInputClass input[name="phone"],
 div.formBuilderBody INPUT.gnewtonPhone,
-div.formBuilderBody .gnewtonFieldInputClass input[name=""],
-div.formBuilderBody .gnewtonFieldInputClass input[title="From (MM/YY):"],
-div.formBuilderBody .gnewtonFieldInputClass input[title="Postal Code"],
-div.formBuilderBody .gnewtonFieldInputClass select[name="country"],
-div.formBuilderBody .gnewtonFieldInputClass input[title="To (MM/YY):"] {
+div.formBuilderBody .applicationFieldInputClass input[name=""],
+div.formBuilderBody .applicationFieldInputClass input[title="From (MM/YY):"],
+div.formBuilderBody .applicationFieldInputClass input[title="Postal Code"],
+div.formBuilderBody .applicationFieldInputClass select[name="country"],
+div.formBuilderBody .applicationFieldInputClass input[title="To (MM/YY):"] {
     min-width: 0;
     width: 180px;
 }
 
-div.formBuilderBody .gnewtonFieldInputClass [type=file],
-div.formBuilderBody .gnewtonFieldInputClass.gnewtonRequired [type=file] {
+div.formBuilderBody .applicationFieldInputClass [type=file],
+div.formBuilderBody .applicationFieldInputClass.gnewtonRequired [type=file] {
     color: transparent;
 }
 
-div.formBuilderBody .gnewtonFieldInputClass [type=file]::-webkit-file-upload-button,
-div.formBuilderBody .gnewtonFieldInputClass.gnewtonRequired [type=file]::-webkit-file-upload-button {
+div.formBuilderBody .applicationFieldInputClass [type=file]::-webkit-file-upload-button,
+div.formBuilderBody .applicationFieldInputClass.gnewtonRequired [type=file]::-webkit-file-upload-button {
     visibility: hidden;
 }
 
-div.formBuilderBody .gnewtonFieldInputClass select[name="candidateGdprRemarket"] {
+div.formBuilderBody .applicationFieldInputClass select[name="candidateGdprRemarket"] {
     margin: auto;
 }
 
@@ -907,12 +917,12 @@ div.formBuilderBody #gnewtonPrivacyPolicyInfo .textarea-remaining {
     display: none;
 }
 
-div.formBuilderBody.gnewtonCareerBodyClass #gnewtonHelpTextOfSubmission * {
+div.formBuilderBody.ApplicationBodyClass #gnewtonHelpTextOfSubmission * {
     font-family: inherit;
     font-size: inherit;
 }
 
-div.formBuilderBody.gnewtonCareerBodyClass .gnewtonSectionClass dl dt.gnewtonSectionTitleClass+dd * {
+div.formBuilderBody.ApplicationBodyClass .gnewtonSectionClass dl dt.gnewtonSectionTitleClass+dd * {
     font-family: inherit;
     font-size: inherit;
 }
@@ -937,7 +947,7 @@ div.formBuilderBody #gnewtonGdprRemarket.gnewtonSectionClass .gnewtonSectionTitl
     margin-bottom: 0;
 }
 
-div.formBuilderBody #gnewtonGdprRemarket.gnewtonSectionClass .gnewtonFieldInputClass {
+div.formBuilderBody #gnewtonGdprRemarket.gnewtonSectionClass .applicationFieldInputClass {
     margin-top: 0;
 }
 
@@ -998,8 +1008,9 @@ div.formBuilderBody .gnewton-disability-table {
     width: max-content;
 }
 
-.gnewtonFieldInputClass select {
+.applicationFieldInputClass select {
     height: 30px;
+    padding: 0;
     border: solid 1px #ccd3d8;
     border-radius: 2px;
     color: #4f4e59;

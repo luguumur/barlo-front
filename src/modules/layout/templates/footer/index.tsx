@@ -124,7 +124,6 @@ const Footer = () => {
       )}
       <FooterNav />
     </footer>
-
   );
 };
 

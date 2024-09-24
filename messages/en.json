@@ -3,6 +3,7 @@
     "title": "Barloworld Mongolia LLC"
   },
   "Home": {
+    "title": "Barloworld Mongolia LLC",
     "welcomeback": "Welcome Back",
     "email": "email",
     "password": "password",
@@ -143,38 +144,5 @@
     "service_support": "With 24/7 parts and service support – including full-service branches equipped with the most up-to-date diagnostic and repair equipment, factory-trained technicians, and the area’s largest fleet of field service trucks – Barloworld Machinery can be your total equipment solutions provider. You need available parts at all times to keep your heavy equipment running. Fortunately, we supply new parts through all of our facilities — as well as Barloworld Exchange components — for the days when avoiding downtime is critical. You can also purchase used, unused and reconditioned items if the cost is a factor. Trust us to provide high-quality and reliable parts that will keep your equipment running and help you save money on costly downtime. At some point, every machine needs service. Whether it’s field service, preventive maintenance or hydraulic repairs, you need a company you trust to deliver required services at the right times. Barloworld Machinery has a fleet of more than 50 field service vehicles as well as more than 200 trained service professionals ready to provide product support for your equipment from Caterpillar. Whenever you purchase new or used equipment or rent from us, we’ll develop a product support strategy with you to handle everything from changing the oil to a total machine rebuild.",
     "contact_us_today": "CONTACT US TODAY",
     "do_you_need_equipment": "Do you need equipment that delivers outstanding performance at your job site? Contact us today to learn more about us and our new, used and rental equipment as well as our parts and service"
-  },
-  "Hr": {
-    "OUR TEAM": "OUR TEAM",
-    "Service Support Division": "Service Support Division",
-    "Aftermarket Division": "Aftermarket Division",
-    "Finance Division": "Finance Division",
-    "Legal Division": "Legal Division",
-    "RUN Division": "RUN Division",
-    "Analytics and Innovation Division": "Analytics and Innovation Division",
-    "Business risk Division": "Business risk Division",
-    "REASONS TO JOIN US": "REASONS TO JOIN US",
-    "Your health is the most important.": "Your health is the most important.",
-    "A culture of safety": "A culture of safety",
-    "Health Insurance": "Health Insurance",
-    "Smart working hours (7.30-16.00)": "Smart working hours (7.30-16.00)",
-    "Attend a medical examination": "Attend a medical examination",
-    "Opportunity to meet with a psychologist for psychological counseling": "Opportunity to meet with a psychologist for psychological counseling",
-    "Sports competitions": "Sports competitions",
-    "Opportunity to learn and grow": "Opportunity to learn and grow",
-    "": "Opportunity to participate in international courses and seminars in the field of career, and improve skills through experience",
-    "Mentorship program": "Mentorship program",
-    "English speaking program": "English speaking program",
-    "Apprentice Training for CAT Accredited Technicians": "Apprentice Training for CAT Accredited Technicians",
-    "Eligibility for CAT Online Training": "Eligibility for CAT Online Training",
-    "Second language- English communication environment": "Second language- English communication environment",
-    "Internal personal and leadership training": "Internal personal and leadership training",
-    "equality_and_equal_opportunities": "Equality and equal opportunities",
-    "diversity_and_inclusion": "Diversity and Inclusion Policy (more+) (click for more information)",
-    "environment_and_sustainability": "Environment and sustainability",
-    "recycling": "Recycling",
-    "water_fuel_and": "Water, fuel and electricity consumption saving policy",
-    "contribution_to_society": "Contribution to society",
-    "addressing_society": "Addressing society, working towards children and poverty (more+) (click to see more information)"
   }
 }

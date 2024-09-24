@@ -48,7 +48,7 @@ export interface Step2Props {
 export interface jobFormData {
     obog: string;
     ner: string;
-    work_type: string;
+    work_type?: string;
     city: string;
     address: string;
     phone1: string;

@@ -20,6 +20,7 @@ const careerPage = () => {
     const router = useRouter();
     const { title } = router.query;
     const job = title ? title : null;
+    
     return (
         <>
             <Head title={"Анкет бөглөх"}></Head>

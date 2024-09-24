@@ -20,7 +20,7 @@ const About = () => {
               <h2>{homet("welcome")}</h2>
               <p>{homet("description")}</p>
               <p>
-                <a className="button button--primary" href="/about-us/">{homet("more")}</a>
+                <a className="btn btn-primary mb-4" href="/about-us/">{homet("more")}</a>
               </p>
             </div>
           </div>
