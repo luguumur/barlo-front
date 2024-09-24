@@ -111,7 +111,7 @@ const Footer = () => {
                 </div>
                 <div className="col-sm-6 form-field pb-7">
                   <button
-                    className="button button--primary button--block h-[48px] w-full"
+                    className="btn btn-primary !w-full"
                     type="submit"
                   >
                     Submit

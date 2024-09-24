@@ -62,7 +62,7 @@ const FooterNav = () => {
                   <a className="icon-youtube3" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/" aria-label="YouTube"></a>
                 </li>
               </ul>
-              <a className="button phone-number" href="tel:+97670187588" aria-label="Call us">+976 7018-7588</a>
+              <a className="btn btn-primary phone-number" href="tel:+97670187588" aria-label="Call us">+976 7018-7588</a>
             </div>
           </div>
           <div className="row">

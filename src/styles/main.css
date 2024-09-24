@@ -5790,12 +5790,13 @@ input.wpcf7-not-valid {
 }
 
 .page-sidebar .heading-title b {
-	font-size: 21px
+	font-size: 18px
 }
 
 .page-sidebar .heading-title span {
 	display: block;
-	font-family: 'SourceSansPro';
+	font-family: Calibri, Candara, Segoe, "Segoe UI", Arial, sans-serif;
+	font-size: 14px;
 	font-weight: 600
 }
 
