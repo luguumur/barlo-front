@@ -131,33 +131,6 @@ const careerPage: InferGetServerSidePropsType<typeof getServerSideProps> = (prop
             <PageHeader title={t(`careers`)} image="https://d3leeb4r1qy96s.cloudfront.net/assets/img/specials/minihr.jpg" />
             <section className="wysiwyg-section">
                 <div className="container">
-                    <h3>Манай баг хамт олон</h3>
-                    <ul >
-                        <li>Үйлчилгээ дэмжих газар</li>
-                        <li>Борлуулалт дэмжих газар</li>
-                        <li>Санхүүгийн газар</li>
-                        <li>Хуулийн хэлтэс</li>
-                        <li>Борлуулалт ба Түрээсийн газар</li>
-                        <li>Аналитик Инновацийн газар</li>
-                        <li>Бизнес эрсдлийн газар</li>
-                    </ul>
-                </div>
-            </section>
-            <section className="service-card-with-featured-image">
-                <div className="container">
-                    <h3 className="asd">Бидэнтэй нэгдэх шалтгаанууд</h3>
-                    <div className="service-card-with-featured-image__list">
-                        {HrData.map((item: any, index: any) => (
-                            <div className={item.id === 7 ? `service-card-with-featured-image__item-2` : 'service-card-with-featured-image__item'} key={index}>
-                                <img src={item.image} alt="Barloworld Mongolia" />
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            <section className="wysiwyg-section">
-                <div className="container">
                     <h3>Нээлттэй ажлын байр</h3>
                     <div className="positions">
                         {props.data.map((item: any, index: any) => (
@@ -168,6 +141,18 @@ const careerPage: InferGetServerSidePropsType<typeof getServerSideProps> = (prop
                                     </Link>
                                     <span className="position-location"> -{item.location}</span>
                                 </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+            <section className="service-card-with-featured-image">
+                <div className="container">
+                    <h3 className="asd">Бидэнтэй нэгдэх шалтгаанууд</h3>
+                    <div className="service-card-with-featured-image__list">
+                        {HrData.map((item: any, index: any) => (
+                            <div className={item.id === 7 ? `service-card-with-featured-image__item-2` : 'service-card-with-featured-image__item'} key={index}>
+                                <img src={item.image} alt="Barloworld Mongolia" />
                             </div>
                         ))}
                     </div>
