@@ -88,15 +88,9 @@ const MultiStepForm: FC<JobProps> = ({ job }) => {
     }
   }, [formData.name, job]);
 
-
-  switch (step) {
-    case 1:
-      return <Agreement formData={formData} setFormData={setFormData} nextStep={nextStep} job={job} />;
-    case 2:
-      return <Application formData={applicationFormData} setFormData={setApplicationFormData} prevStep={prevStep} job={job} submitForm={submitForm} />;
-    default:
-      return <div>Unknown step</div>;
-  }
+  return (
+    <Application formData={applicationFormData} setFormData={setApplicationFormData} prevStep={prevStep} job={job} submitForm={submitForm} />
+  )
 };
 
 export default MultiStepForm;

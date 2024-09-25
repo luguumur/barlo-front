@@ -2,6 +2,7 @@ import React, { FC, useState } from "react";
 import { FileUploader } from "react-drag-drop-files";
 import styles from "./Application.module.css";
 import Link from "next/link";
+import { useRouter } from 'next/router';
 import {
     Computer,
     Education,
@@ -24,6 +25,7 @@ const Application: FC<Step2Props> = ({
 }) => {
     const [file, setFile] = useState(null);
 
+    const router = useRouter()
     const [selectedReason, setSelectedReason] = useState<string>("");
     const [familyMembers, setFamilyMembers] = useState<FamilyMember[]>([
         { name: "", register: "", age: "", relation: "", phone: "", employment: "", },
@@ -388,9 +390,9 @@ const Application: FC<Step2Props> = ({
                 <b>{job ? job : ""}</b>
                 <br />
                 <br />
-                <p className="leading-6">
-                    Доорх талбаруудыг бөглөөд "Илгээх" товч дээр дарна уу.
-                </p>
+                <div>*Бид ажилд орох өргөдөл гаргаж, шаардлага хангасан ажил горилогчдыг үндэс, угсаа, хэл, арьсны өнгө, нас, хүйс, нийгмийн гарал байдал, хөрөнгө чинээ, эрхэлсэн ажил, албан тушаал, шашин шүтлэг, үзэл бодол, хөгжлийн бэрхшээлтэй байдал зэргээр ялгаварлан гадуурхахгүйгээр ажилд орох боломжийг тэнцүү олгодог.</div>
+                <br />
+                <div>"БИД АЖИЛТНУУДДАА ӨРСӨЛДӨХҮЙЦ ЦАЛИН, УРАМШУУЛАЛ БОЛОН АЖИЛЛАХ ТААТАЙ ОРЧИН НӨХЦӨЛИЙГ САНАЛ БОЛГОДОГ НЬ ЧАДВАРЛАГ ХҮНИЙ НӨӨЦИЙГ ТАТАН, ТОГТВОР СУУРЬШИЛТАЙ АЖИЛЛУУЛАХ ҮНДЭС БОЛДОГ"</div>
                 <br />
             </div>
             <div className="dashed border-dashed mt-1 mb-1 w-full"></div>
@@ -1863,21 +1865,26 @@ const Application: FC<Step2Props> = ({
                 </dl>
 
                 <br />
-                <div className="grid">
-                    <button
-                        className={`rounded-sm h-10 leading-10 cursor-pointer w-28 text-white ${isNextDisabled ? "bg-[#ccd3d8]" : "bg-[#3498db]"
-                            }`}
-                        onClick={submitForm}
-                        disabled={isNextDisabled}
-                    >
-                        Хадгалах
-                    </button>
-                    <Link
-                        href={"/"}
-                        className="text-[#666] pt-3 text-sm hover:text-[#4e4d4d]"
-                    >
-                        Буцах
-                    </Link>
+                <div className="">
+                    <div className="mb-4">
+                        <button
+                            className={`rounded-sm h-10 leading-10 cursor-pointer w-28 text-white ${isNextDisabled ? "bg-[#ccd3d8]" : "bg-[#3498db]"
+                                }`}
+                            onClick={submitForm}
+                            disabled={isNextDisabled}
+                        >
+                            Хадгалах
+                        </button>
+                    </div>
+                    <div>
+                        <button
+                            type="button"
+                            className='text-[#666] text-sm hover:text-[#4e4d4d]'
+                            onClick={() => router.back()}
+                        >
+                            Буцах
+                        </button>
+                    </div>
                 </div>
             </form>
         </div>
