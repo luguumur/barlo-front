@@ -80,7 +80,7 @@ h6,
 	font-weight: 700;
 	line-height: 1.16em;
 	text-transform: uppercase;
-	font-family: 'SourceSansPro', sans-serif
+	font-family: 'Source Sans Pro', sans-serif
 }
 
 h1 span,
@@ -207,7 +207,7 @@ ol {
 	padding: 0 0 12px;
 	color: #666;
 	font-weight: 400;
-	font-family: 'SourceSansPro', sans-serif
+	font-family: 'Source Sans Pro', sans-serif
 }
 
 p:last-child,
@@ -1402,7 +1402,7 @@ hr {
 	vertical-align: middle;
 	text-align: center;
 	letter-spacing: .01em;
-	font-family: 'SourceSansPro', sans-serif;
+	font-family: 'Source Sans Pro', sans-serif;
 	transition: all .4s ease-in-out
 }
 
@@ -1545,7 +1545,7 @@ hr {
 	vertical-align: middle;
 	text-align: center;
 	letter-spacing: .01em;
-	font-family: 'SourceSansPro', sans-serif;
+	font-family: 'Source Sans Pro', sans-serif;
 	transition: all .4s ease-in-out
 }
 
@@ -3027,7 +3027,7 @@ input.wpcf7-not-valid {
 	padding-right: 5px;
 	position: relative;
 	z-index: 2;
-	font-family: 'SourceSansPro', sans-serif;
+	font-family: 'Source Sans Pro', sans-serif;
 	transition: all .25s ease-out
 }
 
@@ -4098,7 +4098,7 @@ input.wpcf7-not-valid {
 
 .quick-search-field>label {
 	font-size: 17px;
-	font-family: 'SourceSansPro', sans-serif;
+	font-family: 'Source Sans Pro', sans-serif;
 	color: #1C1C1C
 }
 
@@ -4336,7 +4336,7 @@ input.wpcf7-not-valid {
 	line-height: 1.55em;
 	color: #666;
 	font-weight: 400;
-	font-family: 'SourceSansPro', sans-serif
+	font-family: 'Source Sans Pro', sans-serif
 }
 
 .type-position .page-content strong,
@@ -4813,7 +4813,7 @@ input.wpcf7-not-valid {
 	line-height: 1em;
 	padding: 12px 70px 12px 20px;
 	transition: all .4s ease-in-out;
-	font-family: 'SourceSansPro', sans-serif
+	font-family: 'Source Sans Pro', sans-serif
 }
 
 .image-button-title-wrap {
@@ -5447,7 +5447,7 @@ input.wpcf7-not-valid {
 
 .home-testimonials-slider-item-column span {
 	color: #666;
-	font-family: 'SourceSansPro', sans-serif
+	font-family: 'Source Sans Pro', sans-serif
 }
 
 .home-testimonials-slider-item-column h5 span {
@@ -5829,7 +5829,7 @@ input.wpcf7-not-valid {
 .widget-sublist-pages li.current-page-ancestor>a,
 .sublist-pages li.current-menu-item a:after {
 	content: "\bb";
-	font-family: 'SourceSansPro', sans-serif;
+	font-family: 'Source Sans Pro', sans-serif;
 	padding-left: .25em
 }
 
@@ -6338,7 +6338,7 @@ screen and (max-height:300px) {
 	background: #1e1e1e;
 	color: #fff;
 	display: block;
-	font: 600 14.03px 'SourceSansPro', sans-serif;
+	font: 600 14.03px 'Source Sans Pro', sans-serif;
 	padding: .713em 1.14em;
 	text-transform: uppercase
 }
@@ -7741,7 +7741,7 @@ span.categories a {
 .chat {
 	background: #fc0;
 	color: #000;
-	font-family: 'SourceSansPro', sans-serif;
+	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 15px;
 	font-weight: 700;
 	padding: .75em 4em .75em 1.5em;
@@ -8504,7 +8504,7 @@ input#popup_email {
 }
 
 .homepage-body .page-sidebar .heading-title {
-	font: 700 20px 'SourceSansPro';
+	font: 700 20px 'Source Sans Pro';
 	padding: .87em
 }
 
@@ -8786,7 +8786,7 @@ img.map-marker--active {
 }
 
 .slideshow .headline-container h1 {
-	font: 600 32px/1.098em 'SourceSansPro', sans-serif;
+	font: 600 32px/1.098em 'Source Sans Pro', sans-serif;
 	padding: 25px
 }
 
@@ -8796,7 +8796,7 @@ img.map-marker--active {
 }
 
 .slideshow .headline-container .button--tertiary {
-	font: 17px 'SourceSansPro', sans-serif;
+	font: 17px 'Source Sans Pro', sans-serif;
 	padding: .706em 2.059em;
 	text-transform: none
 }
@@ -8817,7 +8817,7 @@ img.map-marker--active {
 	}
 
 	.slideshow .headline-container h1 {
-		font: 600 49px/1.098em 'SourceSansPro', sans-serif;
+		font: 600 49px/1.098em 'Source Sans Pro', sans-serif;
 		padding: 33px
 	}
 
@@ -10747,7 +10747,7 @@ ul.error-page {
 
 .page-sidebar .widget_easy_sidebar_menu_widget .link__wrap a {
 	color: #1c1c1c;
-	font-family: 'SourceSansPro', sans-serif;
+	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 18px;
 	font-weight: 700;
 	line-height: normal;
@@ -10972,7 +10972,7 @@ h2.h1.hp-mast-heading {
 
 .wpcm_closest_location h6,
 .wpcm_closest_location .h6 {
-	font-family: 'SourceSansPro', sans-serif !important
+	font-family: 'Source Sans Pro', sans-serif !important
 }
 
 .service-card-with-featured-image {
