@@ -15,9 +15,10 @@ interface FormData {
 const Footer = () => {
   const router = useRouter();
   const { executeRecaptcha } = useGoogleReCaptcha();
-  const noFooterRoutes = ['/contact-us', '/signup'];
-  const showFooter = !noFooterRoutes.includes(router.pathname);
-
+  const noFooterRoutes = ['/contact-us', '/signup', '/equipment'];
+  const showFooter = !noFooterRoutes.some(route => 
+    router.pathname.startsWith(route) || router.pathname.startsWith('/equipment/')
+  );
   const initialData = {
     email: '',
   };

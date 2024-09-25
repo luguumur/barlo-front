@@ -5,6 +5,7 @@ import { Technology } from "@/data/technology";
 import { useTranslations } from "next-intl";
 import { GetStaticPropsContext } from "next";
 import Head from "@/modules/common/components/head";
+import Image from "next/image";
 
 const New = () => {
   const t = useTranslations("Menu");
@@ -26,7 +27,8 @@ const New = () => {
                     <div className="image-cards-box">
                       <a href={item.handle}>
                         <div className="card-image">
-                          <img width="600" height="500" src={item.image} className="img-responsive entered lazyloaded cover" alt={t(`${item.title}`)} data-lazy-src={item.image} data-ll-status="loaded"/>
+                          <Image fill src={item.image} alt={""}/>
+                          {/* <img width="600" height="500" src={item.image} className="img-responsive entered lazyloaded cover" alt={t(`${item.title}`)} data-lazy-src={item.image} data-ll-status="loaded"/> */}
                         </div>
                         <div className="image-card-content js-equal-heights-item h-[98px]">
                           <div className="image-card-btn">

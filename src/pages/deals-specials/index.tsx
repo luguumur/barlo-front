@@ -39,7 +39,7 @@ const DealsPage = () => {
   return (
     <>
       <Head title={t("deals_specials")}></Head>
-      <PageHeader title={t("deals_specials")} image="https://d3leeb4r1qy96s.cloudfront.net/assets/img/cta-banner-image-1536x306.jpg"/>
+      <PageHeader title={t("deals_specials")} image="https://d3leeb4r1qy96s.cloudfront.net/assets/img/cta-banner-image-1536x306.jpg" />
       <article className="page-body container post-97908 deals_specials type-deals_specials status-publish has-post-thumbnail hentry" id="page-body">
         <div className="row">
           <main className="page-content col-md-9 col-md-push-3 specials-deals">
