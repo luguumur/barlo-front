@@ -27,7 +27,7 @@ const HomeCarouselComponent: React.FC<EmblaCarouselProps> = ({ slides }) => {
                             <Image
                                 loader={myLoader}
                                 src={`${process.env.apiDomain}/file/${slide.imageurl}`}
-                                alt={`Slide ${index + 1}`}
+                                alt={`barloworld ${index + 1}`}
                                 layout='fill'
                                 objectFit="cover"
                                 priority
