@@ -11,7 +11,7 @@ const Management = () => {
     return (
         <>
         <Head title={t(`magazine`)}></Head>
-        <PageHeader title={t(`magazine`)}/>
+        <PageHeader title={t(`magazine`)} image="https://d3leeb4r1qy96s.cloudfront.net/assets/img/cta-banner-image-1536x306.jpg"/>
         <section className="services-card-section">
             <div className="container">
                 <div className="services-card-wrapper desktop">

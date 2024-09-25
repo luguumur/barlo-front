@@ -1,4 +1,5 @@
 "use client"
+import { useTranslations } from 'next-intl';
 import Image from 'next/legacy/image';
 import { useRouter } from 'next/router';
 // components/Carousel.tsx
@@ -54,6 +55,7 @@ const TestiCarousel: React.FC<Props> = ({ testi, description, image }) => {
       }
     ]
   };
+  const t = useTranslations("Menu");
   const { locale, locales, route, asPath } = useRouter();
   return (
     <div className="home-testimonials clearfix">
@@ -83,7 +85,7 @@ const TestiCarousel: React.FC<Props> = ({ testi, description, image }) => {
 
               </Slider>
             </div>
-            <a href="/testimonials" target="_self" className="btn btn-primary"> Read all testimonials </a>
+            <a href="/testimonials" target="_self" className="btn btn-primary"> {t("learnmore")} </a>
           </div>
         </div>
       </div>

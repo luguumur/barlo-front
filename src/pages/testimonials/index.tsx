@@ -41,7 +41,7 @@ const testimonials = props.data
                                   <div className="customer__desc">
                                       <p>{locale === "mn" ? item.subtitle : item.subtitle_en}</p>
                                   </div>
-                                  <a className="customer__link button button--primary" href={`/testimonials/${item.id}`}>Read more</a>
+                                  <a className="customer__link button button--primary" href={`/testimonials/${item.id}`}>{t("learnmore")}</a>
                               </div>
                           </article>
                       </div>

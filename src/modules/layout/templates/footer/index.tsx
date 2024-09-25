@@ -114,7 +114,7 @@ const Footer = () => {
                     className="btn btn-primary !w-full"
                     type="submit"
                   >
-                    Submit
+                    {home("submit")}
                   </button>
                 </div>
               </div>

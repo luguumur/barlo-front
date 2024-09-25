@@ -87,7 +87,7 @@ const NewsPage: InferGetServerSidePropsType<typeof getServerSideProps> = (props:
                     <img width="300" height="200" src={'https://webapi.barloworld.mn/file/'+item.thumbnail}className="alignleft img-responsive wp-post-image" alt="Barloworld Mongolia" decoding="async" sizes="(max-width: 300px) 100vw, 300px" /> 
                      {locale === "mn" ? item.subtitle : item.subtitle_en}
                     <p>
-                        <a className="button button--primary" href={`/news/${item.id}`} title={locale === "mn" ? item.title : item.title_en}> Read More </a>
+                        <a className="button button--primary" href={`/news/${item.id}`} title={locale === "mn" ? item.title : item.title_en}> {t("learnmore")} </a>
                     </p>
                 </div>
             </div>

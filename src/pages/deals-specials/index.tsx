@@ -20,6 +20,7 @@ const DealsPage = () => {
   } = useHomeStore();
   const { locale } = useRouter();
   const t = useTranslations("Deals");
+  const menu = useTranslations("Menu");
 
   useEffect(() => {
     (async () => {
@@ -38,7 +39,7 @@ const DealsPage = () => {
   return (
     <>
       <Head title={t("deals_specials")}></Head>
-      <PageHeader title={t("deals_specials")} />
+      <PageHeader title={t("deals_specials")} image="https://d3leeb4r1qy96s.cloudfront.net/assets/img/cta-banner-image-1536x306.jpg"/>
       <article className="page-body container post-97908 deals_specials type-deals_specials status-publish has-post-thumbnail hentry" id="page-body">
         <div className="row">
           <main className="page-content col-md-9 col-md-push-3 specials-deals">
@@ -48,7 +49,7 @@ const DealsPage = () => {
                   <a href={`/deals-specials/${item.id}`} className="deal">
                     <h2 className="post__title"> {locale === "mn" ? item.title : item.title_en} </h2>
                     <img width="2088" height="1046" src={'https://webapi.barloworld.mn/file/' + item.img_path} className="alignleft img-responsive wp-post-image" alt="Barloworld Mongolia" decoding="async" sizes="(max-width: 300px) 100vw, 300px" />
-                    <button className="button button--primary button--block"> Read More </button>
+                    <button className="button button--primary button--block"> {menu("learnmore")} </button>
                   </a>
                 </div>
               ))}

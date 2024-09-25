@@ -74,7 +74,7 @@ const Careers = () => {
         <>
 
         <Head title={t("benefits")}></Head>
-        <PageHeader title={t(`benefits`)}/>
+        <PageHeader title={t(`benefits`)} image="https://d3leeb4r1qy96s.cloudfront.net/assets/img/cta-banner-image-1536x306.jpg"/>
         <article className="page-body container page type-page status-publish hentry" id="page-body">
             <div className="row">
                 <main className="page-content col-md-9 col-md-push-3">

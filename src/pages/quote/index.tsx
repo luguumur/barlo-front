@@ -8,6 +8,7 @@ import { useRouter } from 'next/router';
 import NProgress from 'nprogress';
 import { toast } from 'react-toastify';
 import { GoogleReCaptchaProvider, useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+import Head from "@/modules/common/components/head";
 
 interface FormData {
     firstName: string;
@@ -114,7 +115,8 @@ const RequestAQuote = () => {
     };
     return (
         <>
-            <PageHeader title="Quote" image="https://d3leeb4r1qy96s.cloudfront.net/assets/img/cta-banner-image-1536x306.jpg" />
+            <Head title={t(`requestaquote`)}></Head>
+            <PageHeader title={t(`requestaquote`)} image="https://d3leeb4r1qy96s.cloudfront.net/assets/img/cta-banner-image-1536x306.jpg" />
             <article className="page-body container page type-page status-publish hentry" id="page-body">
                 <div className="row">
                     <main className="page-content col-md-9 col-md-push-3">
