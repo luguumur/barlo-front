@@ -1,6 +1,6 @@
-import PageHeader from "@modules/layout/components/page-header"
+import PageHeader from "@modules/layout/components/page-header";
 import { GetServerSideProps, GetStaticPropsContext, InferGetServerSidePropsType } from "next";
-import axios from 'axios';
+import axios from "axios";
 import https from "https";
 import Questions from "@/modules/layout/components/questions";
 import { useRouter } from "next/router";
@@ -12,12 +12,7 @@ import { toast } from "react-toastify";
 import LoadingSection from "@/modules/layout/components/LoadingSection";
 
 const DealsPage = () => {
-  const {
-    loading,
-    deals,
-    fetchDealData,
-    setLoadingState
-  } = useHomeStore();
+  const { loading, deals, fetchDealData, setLoadingState } = useHomeStore();
   const { locale } = useRouter();
   const t = useTranslations("Deals");
   const menu = useTranslations("Menu");
@@ -29,7 +24,7 @@ const DealsPage = () => {
         await fetchDealData();
         setLoadingState(false);
       } catch (error: unknown) {
-        toast.error("API Error")
+        toast.error("API Error");
       } finally {
         setLoadingState(false);
       }
@@ -39,8 +34,14 @@ const DealsPage = () => {
   return (
     <>
       <Head title={t("deals_specials")}></Head>
-      <PageHeader title={t("deals_specials")} image="https://d3leeb4r1qy96s.cloudfront.net/assets/img/cta-banner-image-1536x306.jpg" />
-      <article className="page-body container post-97908 deals_specials type-deals_specials status-publish has-post-thumbnail hentry" id="page-body">
+      <PageHeader
+        title={t("deals_specials")}
+        image="https://d3leeb4r1qy96s.cloudfront.net/assets/img/cta-banner-image-1536x306.jpg"
+      />
+      <article
+        className="page-body container post-97908 deals_specials type-deals_specials status-publish has-post-thumbnail hentry"
+        id="page-body"
+      >
         <div className="row">
           <main className="page-content col-md-9 col-md-push-3 specials-deals">
             <div className="row">
@@ -48,7 +49,15 @@ const DealsPage = () => {
                 <div key={index} className="col-sm-6 box-deals">
                   <a href={`/deals-specials/${item.id}`} className="deal">
                     <h2 className="post__title"> {locale === "mn" ? item.title : item.title_en} </h2>
-                    <img width="2088" height="1046" src={'https://webapi.barloworld.mn/file/' + item.img_path} className="alignleft img-responsive wp-post-image" alt="Barloworld Mongolia" decoding="async" sizes="(max-width: 300px) 100vw, 300px" />
+                    <img
+                      width="2088"
+                      height="1046"
+                      src={"https://webapi.barloworld.mn/file/" + item.img_path}
+                      className="alignleft img-responsive wp-post-image"
+                      alt="Barloworld Mongolia"
+                      decoding="async"
+                      sizes="(max-width: 300px) 100vw, 300px"
+                    />
                     <button className="button button--primary button--block"> {menu("learnmore")} </button>
                   </a>
                 </div>
@@ -61,15 +70,15 @@ const DealsPage = () => {
         </div>
       </article>
     </>
-  )
-}
+  );
+};
 
-export default DealsPage
+export default DealsPage;
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   return {
     props: {
-      messages: (await import(`../../../messages/${locale}.json`)).default
-    }
+      messages: (await import(`../../../messages/${locale}.json`)).default,
+    },
   };
 }
