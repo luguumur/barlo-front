@@ -1,11 +1,12 @@
 export const Technology = [
-    {
-        id: 1,
-        title: 'sos',
-        handle: '/technology/sos',
-        image: 'https://www.barloworld.mn/images/uploads2/2020-09-18-09-30-40wae__L7A3652.JPG',
-        youtube: '<iframe width="100%" height="490" src="https://www.youtube.com/embed/--I4ehPRPGo?wmode=transparent" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>',
-        content: `### S·O·S үйлчилгээ гэж юу вэ?
+  {
+    id: 1,
+    title: "sos",
+    handle: "/technology/sos",
+    image: "https://www.barloworld.mn/images/uploads2/2020-09-18-09-30-40wae__L7A3652.JPG",
+    youtube:
+      '<iframe width="100%" height="490" src="https://www.youtube.com/embed/--I4ehPRPGo?wmode=transparent" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>',
+    content: `### S·O·S үйлчилгээ гэж юу вэ?
 
 ![](http://www.barloworld.mn/images/uploads2/2020-09-18-09-30-40wae__L7A3652.JPG)
 
@@ -89,14 +90,16 @@ CAT дилер нь тоног төхөөрөмжийн менежментийн
 CАТ эсвэл бусад машин үйлдвэрлэгчээс үл хамаарч хөдөлгүүр болон машины талаар манай багийнхан хэнээс ч илүү мэдлэгтэй. Дэлхий дээр тархан байрласан S·O·S лабораториудад шинжлэгддэг дээжний 25%-ийг САТ бус техникээс авсан байдаг. Тиймээс холимог баазад тохирох хамгийн зөв шийдэл нь S·O·S үйлчилгээ юм.  
   
 БҮХ ТӨРЛИЙН ТОС, ХӨРГӨЛТИЙН ШИНГЭНИЙГ ШИНЖИЛНЭ  
-SOS лаборатори нь генератороос авхуулаад дамжуулах хоолой, уул уурхайн хүнд даацын техник, усан онгоц гэх мэт бүх төрлийн машин тоног төхөөрөмжийн бүх төрлийн тос болон хөргөлтийн шингэнийг шинжилдэг.`
-    },{
-        id: 2,
-        title: 'miningt',
-        handle: '/technology/miningt',
-        image: 'https://www.barloworld.mn/images/uploads2/2020-09-18-01-27-03wae_Picture1.jpg',
-        youtube: '<iframe width="100%" height="490" src="https://www.youtube.com/embed/1UEJcy20q-8?wmode=transparent" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>',
-        content: `### Уул уурхайн технологи
+SOS лаборатори нь генератороос авхуулаад дамжуулах хоолой, уул уурхайн хүнд даацын техник, усан онгоц гэх мэт бүх төрлийн машин тоног төхөөрөмжийн бүх төрлийн тос болон хөргөлтийн шингэнийг шинжилдэг.`,
+  },
+  {
+    id: 2,
+    title: "miningt",
+    handle: "/technology/miningt",
+    image: "https://www.barloworld.mn/images/uploads2/2020-09-18-01-27-03wae_Picture1.jpg",
+    youtube:
+      '<iframe width="100%" height="490" src="https://www.youtube.com/embed/1UEJcy20q-8?wmode=transparent" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>',
+    content: `### Уул уурхайн технологи
 
 ![](http://www.barloworld.mn/images/uploads2/2020-09-18-01-27-03wae_Picture1.jpg)  
 
@@ -268,14 +271,16 @@ Cat® аппликешинээ яг одоо татаад техник тоно�
 DSS бол Катерпиллараас гаргасан эрсдэлийн менежментийн иж бүрэн шийдлийн нэг хэсэг бөгөөд, ХҮН БҮР ӨДӨР БҮР ГЭРТЭЭ АЮУЛГҮЙ ХАРИХ боломжийг ажилчдад олгодог эрсдэлээс хамгаалах процесс юм.
 
   
-![](http://www.barloworld.mn/images/uploads2/2020-12-15-05-44-02wae_Picture8.jpg)`
-    },{
-        id: 3,
-        title: 'trimble',
-        handle: '/technology/trimble',
-        image: 'https://www.barloworld.mn/images/uploads2/2020-09-22-01-38-38wae_Picture1.jpg',
-        youtube: '<iframe width="100%" height="490" src="https://www.youtube.com/embed/7N67uuLaPwc?wmode=transparent" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>',
-        content: `### Барилгын технологи
+![](http://www.barloworld.mn/images/uploads2/2020-12-15-05-44-02wae_Picture8.jpg)`,
+  },
+  {
+    id: 3,
+    title: "trimble",
+    handle: "/technology/trimble",
+    image: "https://www.barloworld.mn/images/uploads2/2020-09-22-01-38-38wae_Picture1.jpg",
+    youtube:
+      '<iframe width="100%" height="490" src="https://www.youtube.com/embed/7N67uuLaPwc?wmode=transparent" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>',
+    content: `### Барилгын технологи
 
 ![](http://www.barloworld.mn/images/uploads2/2020-09-22-01-38-38wae_Picture1.jpg) Бид Зам, барилгын ажил гүйцэтгэгч нарт хамгийн найдвартай, бат бөх, олон улсын стандартад нийцсэн дэвшилтэт технологиуд болох:  
 
@@ -314,19 +319,21 @@ SPS /Замын хэмжилтийн GPS төхөөрөмж/ - Дэлхийн х
   
 Trimble®-ийн эдгээр дэвшилтэт технологиудыг 2012 оноос хойш өдгөө Монголын зам болон дэд бүтцийн 10 гаруй томоохон төслүүд дээр үр бүтээлтэй ашиглаж байгаа бөгөөд нийт 700 гаруй км урт замыг эдгээр технологиудын тусламжтайгаар барьсан байна. Түүнчлэн эдгээр технологийн шийдлүүд нь ажлын бүтээмжийг 50-70% нэмэгдүүлдэг юм.  
   
-[Брошюр үзэх](https://www.barloworld.mn/uploads/Technology/Load_Rite _Product_brochure.pdf)`
-    },{
-        id: 4,
-        title: 'metro',
-        handle: '/technology/metro',
-        image: 'https://www.barloworld.mn/images/uploads2/2020-09-22-01-18-10wae_Picture1.jpg',
-        youtube: '<iframe width="100%" height="490" src="https://www.youtube.com/embed/YwtmA4uUbSc?wmode=transparent" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>',
-        content: `### Багажны тохиргоо
+[Брошюр үзэх](https://www.barloworld.mn/uploads/Technology/Load_Rite _Product_brochure.pdf)`,
+  },
+  {
+    id: 4,
+    title: "metro",
+    handle: "/technology/metro",
+    image: "https://www.barloworld.mn/images/uploads2/2020-09-22-01-18-10wae_Picture1.jpg",
+    youtube:
+      '<iframe width="100%" height="490" src="https://www.youtube.com/embed/YwtmA4uUbSc?wmode=transparent" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>',
+    content: `### Багажны тохиргоо
 
 ![](http://www.barloworld.mn/images/uploads2/2020-09-22-01-18-10wae_Picture1.jpg)  
 
 Машин тоног төхөөрөмжийн эд ангийн чангалгаа нь тохирсон хэмжээнд байх нь маш чухал ба чангалгаа хэт чанга байх нь хугарах, гулзайх, чангалгаа хэт бага байх нь тухайн эд ангийн холбоосыг мултарч, сулрах, гээгдэх аюулд хүргэдэг.  
   
-Вагнер Ази Тоног Төхөөрөмж компани нь багажны дахин тохируулгын үйлчилгээг Монголд анх удаа нэвтрүүлсэн ба Oлон улсын ISO-6789 стандартын дагуу AНУ-д үйлдвэрлэгдсэн өндөр нарийвчлал бүхий орчин үеийн дэвшилт технологиор хийгдсэн Motorized loader TTC2800-загварын хэмжилт тохиргооны багажаар 99.75% нарийвчлалтайгаар хэмжилт тохируулга хийж байна. Мэргэжлийн операторууд чанарын өндөр түвшинд 1-2000 ft-lb хүртэлх хэмжээтэй чангалгааны багажинд тохируулга үйлчилгээ хийдэг.`
-    }
-]
+Вагнер Ази Тоног Төхөөрөмж компани нь багажны дахин тохируулгын үйлчилгээг Монголд анх удаа нэвтрүүлсэн ба Oлон улсын ISO-6789 стандартын дагуу AНУ-д үйлдвэрлэгдсэн өндөр нарийвчлал бүхий орчин үеийн дэвшилт технологиор хийгдсэн Motorized loader TTC2800-загварын хэмжилт тохиргооны багажаар 99.75% нарийвчлалтайгаар хэмжилт тохируулга хийж байна. Мэргэжлийн операторууд чанарын өндөр түвшинд 1-2000 ft-lb хүртэлх хэмжээтэй чангалгааны багажинд тохируулга үйлчилгээ хийдэг.`,
+  },
+];

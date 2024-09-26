@@ -1,20 +1,20 @@
-import React, { FC, useEffect, useState } from 'react';
-import Agreement from './agreement-form';
-import Application from './application-form';
-import { defaultJobFormData, jobFormData } from '@/lib/interface';
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
-import NProgress from 'nprogress';
-import { toast } from 'react-toastify';
-import axios from 'axios';
+import React, { FC, useEffect, useState } from "react";
+import Agreement from "./agreement-form";
+import Application from "./application-form";
+import { defaultJobFormData, jobFormData } from "@/lib/interface";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import NProgress from "nprogress";
+import { toast } from "react-toastify";
+import axios from "axios";
 
 interface JobProps {
-  job: string | string[] | null
+  job: string | string[] | null;
 }
 const MultiStepForm: FC<JobProps> = ({ job }) => {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
-    name: '',
-    date: ''
+    name: "",
+    date: "",
   });
 
   const [applicationFormData, setApplicationFormData] = useState<jobFormData>(defaultJobFormData);
@@ -24,54 +24,55 @@ const MultiStepForm: FC<JobProps> = ({ job }) => {
 
   const { executeRecaptcha } = useGoogleReCaptcha();
 
-  const submitForm = async () => {
-    console.log('Form submitted:', formData);
-    console.log('Form submitted:', applicationFormData);
-    NProgress.start();
+  const submitForm = async (e: React.FormEvent<HTMLButtonElement>) => {
+    e.preventDefault(); // Prevent default form submission
+
+    console.log("Form submitted:", formData);
+    console.log("Application form data:", applicationFormData);
+
+    NProgress.start(); // Show loading indicator
+
     try {
       if (!executeRecaptcha) {
-        console.log("not available to execute recaptcha")
+        console.log("Recaptcha not available");
+        NProgress.done();
         return;
       }
-      const gRecaptchaToken = await executeRecaptcha('inquirySubmit');
-      const response = await axios({
-        method: "post",
-        url: "/api/recaptchaSubmit",
-        data: {
-          gRecaptchaToken,
-        },
-        headers: {
-          Accept: "application/json, text/plain, */*",
-          "Content-Type": "application/json",
-        },
+
+      // Execute reCAPTCHA to get the token
+      const gRecaptchaToken = await executeRecaptcha("inquirySubmit");
+
+      // Send token to backend for validation
+      const recaptchaResponse = await axios.post("/api/recaptchaSubmit", {
+        gRecaptchaToken,
       });
-      if (response?.data?.success === true) {
-        const response = await axios.post(`/api/hr`, {
-          headers: {
-            'Content-Type': 'application/json', // Example header
-          },
-          data: JSON.stringify(applicationFormData)
+
+      // Check if reCAPTCHA was successful
+      if (recaptchaResponse?.data?.success) {
+        const response = await axios.post("/api/hr", {
+          data: applicationFormData, // Send form data
+          headers: { "Content-Type": "application/json" },
         });
-        if (response.status == 200) {
-          NProgress.done();
-          toast.success(`Амжилттай илгээгдлээ. Баярлалаа`);
-          setApplicationFormData(defaultJobFormData);
-          setFormData({ name: '', date: '' });
+
+        if (response.status === 200) {
+          toast.success("Амжилттай илгээгдлээ. Баярлалаа");
+          // setApplicationFormData(defaultJobFormData);
+          // setFormData({ name: "", date: "" });
         } else {
-          NProgress.done();
-          toast.error(`Мэдээлэл олдохгүй байна.`);
+          toast.error("Мэдээлэл олдохгүй байна.");
         }
       } else {
-        console.log(`Failure with score: ${response?.data?.score}`);
-        toast.error(`Recaptcha error`);
-        NProgress.done();
+        console.log(`Recaptcha failed with score: ${recaptchaResponse?.data?.score}`);
+        toast.error("Recaptcha error");
       }
-    } catch (error: any) {
-      console.log(error)
-      toast.error(`error`);
-      NProgress.done();
+    } catch (error) {
+      console.error("Error during form submission:", error);
+      toast.error("Submission error, please try again later.");
+    } finally {
+      NProgress.done(); // Hide loading indicator
     }
   };
+
   useEffect(() => {
     if (formData.name) {
       setApplicationFormData((prevData) => ({
@@ -89,8 +90,14 @@ const MultiStepForm: FC<JobProps> = ({ job }) => {
   }, [formData.name, job]);
 
   return (
-    <Application formData={applicationFormData} setFormData={setApplicationFormData} prevStep={prevStep} job={job} submitForm={submitForm} />
-  )
+    <Application
+      formData={applicationFormData}
+      setFormData={setApplicationFormData}
+      prevStep={prevStep}
+      job={job}
+      submitForm={submitForm}
+    />
+  );
 };
 
 export default MultiStepForm;
