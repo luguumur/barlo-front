@@ -31,7 +31,7 @@ const Parts: InferGetServerSidePropsType<typeof getServerSideProps> = (props: an
       <article className="page-body container page type-page status-publish hentry" id="page-body">
         <div className="row">
           <main className="page-content col-md-9 col-md-push-3">
-            {/* <div className="post__date-categories">
+            <div className="post__date-categories">
               <span>{data.created_at.split("T")[0]}</span>
               <span className="pull--right push--right">
                 <b>Categories:</b>{" "}
@@ -40,7 +40,7 @@ const Parts: InferGetServerSidePropsType<typeof getServerSideProps> = (props: an
                 </span>
               </span>
             </div>
-            <div>{data.content && <Markdown>{locale === "mn" ? data.content : data.content_en}</Markdown>}</div> */}
+            <div>{data.content && <Markdown>{locale === "mn" ? data.content : data.content_en}</Markdown>}</div>
           </main>
 
           <NewsBeside category={props.category} />
