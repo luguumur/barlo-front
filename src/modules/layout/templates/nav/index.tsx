@@ -1,19 +1,18 @@
-"use client"
+"use client";
 
-import Link from "next/link"
+import Link from "next/link";
 import { useTranslations } from "next-intl";
-import LanguageSwitcher from "@/modules/layout/components/i18n/LanguageSwitcher"
+import LanguageSwitcher from "@/modules/layout/components/i18n/LanguageSwitcher";
 
-import { HeaderData } from "@/data/menu"
-import { GetStaticPropsContext } from "next"
+import { HeaderData } from "@/data/menu";
+import { GetStaticPropsContext } from "next";
 
 import FX from "@/lib/util/custom-fx";
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import Image from "next/legacy/image";
 import Button from "@/modules/common/components/button";
 
 const Nav = () => {
-
   const homet = useTranslations("Menu");
 
   useEffect(() => {
@@ -23,8 +22,8 @@ const Nav = () => {
   }, []);
 
   const initialData: any = {
-    search: '',
-  }
+    search: "",
+  };
 
   interface FormData {
     search: string;
@@ -37,15 +36,29 @@ const Nav = () => {
       ...prevFormData,
       [name]: value,
     }));
-  }
+  };
 
   return (
     <>
       <div className="mobile-search-form clearfix">
         <form className="search-form" action="/" method="get" role="search">
-          <input className="search-form--field" type="search" title="Search" value={formData.search} onChange={handleChange} placeholder="Find what you're looking for" aria-label="When autocomplete results are available use up and down arrows to review and enter to go to the desired page. Touch device users, explore by touch or with swipe gestures." />
+          <input
+            className="search-form--field"
+            type="search"
+            title="Search"
+            value={formData.search}
+            onChange={handleChange}
+            placeholder="Find what you're looking for"
+            aria-label="When autocomplete results are available use up and down arrows to review and enter to go to the desired page. Touch device users, explore by touch or with swipe gestures."
+          />
           <button className="absolute pr-0 right-[8px] top-[10%] h-[17px] w-[17px]" aria-label="icon-search">
-            <Image src="https://d3leeb4r1qy96s.cloudfront.net/assets/img/icon-search.png" height={17} width={17} alt="icon-search" priority />
+            <Image
+              src="https://d3leeb4r1qy96s.cloudfront.net/assets/img/icon-search.png"
+              height={17}
+              width={17}
+              alt="icon-search"
+              priority
+            />
           </button>
         </form>
       </div>
@@ -55,14 +68,18 @@ const Nav = () => {
             <div className="row">
               <div className="col-xxs-7 col-xs-6 col-sm-4 col-md-3 ">
                 <div className="page-header--logo h-14">
-                  <Link href="https://barlo-front.vercel.app/">
+                  <Link href="https://barloworld.mn/">
                     <Image width="208" height="56" className="site-logo" src="/logo.jpg" alt="Barloworld Mongolia" />
                   </Link>
                 </div>
               </div>
               <div className="col-xxs-5 col-xs-6 col-sm-8 col-md-9 text--right pull--right header-top-right-section">
                 <div className="header-right-top">
-                  <Link href={"https://click.callpro.mn/mbifA6W5F03wSWFs5anFx1IM6p6RkA6r4G1GanpO"} target="_blank" className="inline-block hidden-xxs hidden-xs hidden-sm pr-5">
+                  <Link
+                    href={"https://click.callpro.mn/mbifA6W5F03wSWFs5anFx1IM6p6RkA6r4G1GanpO"}
+                    target="_blank"
+                    className="inline-block hidden-xxs hidden-xs hidden-sm pr-5"
+                  >
                     <div className="sc-17sh5d6-0 hVYMdc telcocom-call-component">
                       <button type="button">
                         <span className="flex justify-center items-center">
@@ -104,9 +121,7 @@ const Nav = () => {
                           />
                         </button>
                       </form>
-
                     </div>
-
                   </div>
                   <nav className="nav--top-menu hidden-xxs hidden-xs hidden-sm">
                     <ul id="menu-top-menu" className="menu">
@@ -135,7 +150,10 @@ const Nav = () => {
                     </ul>
                   </nav>
 
-                  <button className="js-mobile-trigger-button--menu mobile-trigger-button mobile-trigger-button--menu hidden-md hidden-lg" aria-label="Menu">
+                  <button
+                    className="js-mobile-trigger-button--menu mobile-trigger-button mobile-trigger-button--menu hidden-md hidden-lg"
+                    aria-label="Menu"
+                  >
                     <span className="icon-menu"></span>
                   </button>
                 </div>
@@ -153,7 +171,10 @@ const Nav = () => {
                             <span className="sub-menu-toggle icon-chevron-down hidden-md hidden-lg"></span>
                             <ul className="sub-menu">
                               {item.sub?.map((item: any, i: any) => (
-                                <li key={i} className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-${item.id}`}>
+                                <li
+                                  key={i}
+                                  className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-${item.id}`}
+                                >
                                   <Link href={item.handle}>{homet(`${item.title}`)}</Link>
                                 </li>
                               ))}
@@ -170,16 +191,15 @@ const Nav = () => {
         </div>
       </header>
     </>
-  )
-}
+  );
+};
 
-export default Nav
+export default Nav;
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
-
   return {
     props: {
-      messages: (await import(`../../../../../messages/${locale}.json`)).default
-    }
+      messages: (await import(`../../../../../messages/${locale}.json`)).default,
+    },
   };
 }
