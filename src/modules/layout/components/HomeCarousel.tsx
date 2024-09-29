@@ -5,6 +5,7 @@ import styles from "./HomeCarousel.module.css";
 import { DotButton, useDotButton } from "./EmblaCarouselDotButton";
 import Image from "next/image";
 import { relative } from "path";
+import LoadingSection from "./LoadingSection";
 
 interface EmblaCarouselProps {
   slides: any[];
@@ -17,6 +18,9 @@ const HomeCarouselComponent: React.FC<EmblaCarouselProps> = ({ slides }) => {
   const myLoader = ({ src, width, quality }: any) => {
     return `${src}?w=${width}&q=${quality || 75}`;
   };
+
+  if (!slides) return <LoadingSection />;
+
   return (
     <section className="masthead">
       <div className={styles.embla} ref={emblaRef}>
