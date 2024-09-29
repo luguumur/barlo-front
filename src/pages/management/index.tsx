@@ -4,6 +4,8 @@ import { useTranslations } from "next-intl";
 import { GetStaticPropsContext } from "next";
 import Image from "next/image";
 import Head from "@/modules/common/components/head";
+import Footer from "@/modules/layout/templates/footer";
+import Nav from "@/modules/layout/templates/nav";
 
 const Management = () => {
   const imageLoader = ({ src, width }: { src: any; width: any }) => {
@@ -13,6 +15,7 @@ const Management = () => {
   return (
     <>
       <Head title={t(`board`)}></Head>
+      <Nav />
       <PageHeader title={t(`board`)} image="https://d3leeb4r1qy96s.cloudfront.net/assets/img/hr/management.jpg" />
       <article className="page-body container page type-page status-publish hentry">
         <div className="container">
@@ -56,6 +59,7 @@ const Management = () => {
           </div>
         </div>
       </article>
+      <Footer />
     </>
   );
 };

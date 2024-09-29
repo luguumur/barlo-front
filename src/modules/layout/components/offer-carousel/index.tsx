@@ -1,18 +1,18 @@
-"use client"
-import React, { useEffect, useRef } from 'react';
-import Slider from 'react-slick';
-import Image from 'next/image'
-import { useTranslations } from 'next-intl';
+"use client";
+import React, { useEffect, useRef } from "react";
+import Slider from "react-slick";
+import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 type Props = {
-  deals?: any
-  locale?: any
-  description?: string | null
-  image?: string | null
-}
-const imageLoader = ({ src, width }: { src: any, width: any }) => {
-  return `https://webapi.barloworld.mn/file/${src}`
-}
+  deals?: any;
+  locale?: any;
+  description?: string | null;
+  image?: string | null;
+};
+const imageLoader = ({ src, width }: { src: any; width: any }) => {
+  return `https://webapi.barloworld.mn/file/${src}`;
+};
 
 const OfferCarousel: React.FC<Props> = ({ deals, description, locale, image }) => {
   const sliderRef = useRef<Slider | null>(null);
@@ -32,7 +32,7 @@ const OfferCarousel: React.FC<Props> = ({ deals, description, locale, image }) =
     slidesToShow: 1,
     slidesToScroll: 1,
     waitForAnimate: false,
-    className: 'home-deals-box js-home-deals-slider',
+    className: "home-deals-box js-home-deals-slider",
   };
   return (
     <section className="home-deals">
@@ -40,7 +40,13 @@ const OfferCarousel: React.FC<Props> = ({ deals, description, locale, image }) =
         <div className="container">
           <div className="home-deals-header">
             <h2>{t("deals_specials")}</h2>
-            <a href="/deals-specials/" target="_self" className="home-deals-header__link hidden-xs-down">VIEW ALL DEALS &amp; SPECIALS <span className="icon-chevron-right"></span>
+            <a
+              href="/deals-specials/"
+              target="_self"
+              className="home-deals-header__link hidden-xs-down uppercase font-bold"
+            >
+              {t("view_all")}
+              <span className="pl-1 icon-chevron-right"></span>
             </a>
           </div>
           <Slider ref={(slider) => (sliderRef.current = slider)} {...settings} role="listbox" aria-label="Deals slider">
@@ -53,22 +59,22 @@ const OfferCarousel: React.FC<Props> = ({ deals, description, locale, image }) =
                   tabIndex={0}
                 >
                   <div className="home-deals-item-box clearfix">
-                    <div className="home-deals-image h-[400px]">
+                    <div className="home-deals-image">
                       <Image
-                        priority
-                        loader={imageLoader}
-                        src={deal.img_path}
-                        width={400}
-                        height={400}
                         alt={deal.title}
-                        className="img-responsive entered lazyloaded"
+                        src={deal.img_path}
+                        width={500}
+                        height={500}
+                        priority
+                        sizes="50vw"
+                        loader={imageLoader}
                       />
                     </div>
                     <div className="home-deals-content">
                       <h3>{locale == "mn" ? deal.title : deal.title_en}</h3>
                       <p>{deal.subtitle}</p>
                       <a href={`/deals-specials/${deal.id}`} className="btn btn-primary" tabIndex={index}>
-                        VIEW DEAL
+                        {t("view")}
                       </a>
                     </div>
                   </div>

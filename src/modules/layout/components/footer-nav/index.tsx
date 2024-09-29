@@ -1,6 +1,5 @@
-"use client"
+"use client";
 
-import clsx from "clsx";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { GetStaticPropsContext } from "next";
@@ -17,28 +16,28 @@ const FooterNav = () => {
             <div className="col-md-7 col-sm-9">
               <nav className="nav--footer">
                 <ul className="menu">
-                  <li >
+                  <li>
                     <Link href="/equipment/new">{menut("new")}</Link>
                   </li>
-                  <li >
+                  <li>
                     <Link href="/equipment/used">{menut("used")}</Link>
                   </li>
-                  <li >
+                  <li>
                     <Link href="/equipment/rental">{menut("rent")}</Link>
                   </li>
-                  <li >
+                  <li>
                     <Link href="/parts">{menut("parts")}</Link>
                   </li>
-                  <li >
+                  <li>
                     <Link href="/service">{menut("service")}</Link>
                   </li>
-                  <li >
+                  <li>
                     <Link href="/technology">{menut("technology")}</Link>
                   </li>
-                  <li >
+                  <li>
                     <Link href="/about-us">{menut("about")}</Link>
                   </li>
-                  <li >
+                  <li>
                     <Link href="/careers">{menut("hr")}</Link>
                   </li>
                 </ul>
@@ -47,22 +46,54 @@ const FooterNav = () => {
             <div className="col-md-5 col-sm-3">
               <ul className="page-footer__social social-links hidden-xs hidden-sm clearfix">
                 <li>
-                  <a className="icon-facebook" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/" aria-label="Facebook"></a>
+                  <a
+                    className="icon-facebook"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.facebook.com/"
+                    aria-label="Facebook"
+                  ></a>
                 </li>
                 <li>
-                  <a className="icon-twitter" target="_blank" rel="noopener noreferrer" href="https://twitter.com/" aria-label="Twitter"></a>
+                  <a
+                    className="icon-twitter"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://twitter.com/"
+                    aria-label="Twitter"
+                  ></a>
                 </li>
                 <li>
-                  <a className="icon-instagram" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/" aria-label="Instagram"></a>
+                  <a
+                    className="icon-instagram"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.instagram.com/"
+                    aria-label="Instagram"
+                  ></a>
                 </li>
                 <li>
-                  <a className="icon-linkedin2" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/" aria-label="LinkedIn"></a>
+                  <a
+                    className="icon-linkedin2"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.linkedin.com/"
+                    aria-label="LinkedIn"
+                  ></a>
                 </li>
                 <li>
-                  <a className="icon-youtube3" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/" aria-label="YouTube"></a>
+                  <a
+                    className="icon-youtube3"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.youtube.com/"
+                    aria-label="YouTube"
+                  ></a>
                 </li>
               </ul>
-              <a className="btn btn-primary phone-number" href="tel:+97670187588" aria-label="Call us">+976 7018-7588</a>
+              <a className="btn btn-primary phone-number" href="tel:+97670187588" aria-label="Call us">
+                +976 7018-7588
+              </a>
             </div>
           </div>
           <div className="row">
@@ -70,10 +101,14 @@ const FooterNav = () => {
               <nav className="nav--footer-secondary clearfix">
                 <ul id="menu-footer-menu-1" className="menu">
                   <li className="menu-item">
-                    <Link href="/careers" aria-current="page">{homet("workat")}</Link>
+                    <Link href="/careers" aria-current="page">
+                      {homet("workat")}
+                    </Link>
                   </li>
                   <li className="menu-item">
-                    <Link href="/management" aria-current="page">{homet("board")}</Link>
+                    <Link href="/management" aria-current="page">
+                      {homet("board")}
+                    </Link>
                   </li>
                   <li className="menu-item">
                     <Link href="/news?category=clx2mg66j0000mgwl9dou6ek8">{homet("social")}</Link>
@@ -92,10 +127,10 @@ const FooterNav = () => {
                 <div className="page-footer__google-translate"></div>
                 <ul>
                   <li>
-                    <Link href="/locations">Locations</Link>
+                    <Link href="/locations">{homet("locations")}</Link>
                   </li>
                   <li className="hidden-xxs">
-                    <Link href="/contact-us">Contact Us</Link>
+                    <Link href="/contact-us">{homet("contact")}</Link>
                   </li>
                 </ul>
               </div>
@@ -117,7 +152,7 @@ export default FooterNav;
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   return {
     props: {
-      messages: (await import(`../../../../../messages/${locale}.json`)).default
-    }
+      messages: (await import(`../../../../../messages/${locale}.json`)).default,
+    },
   };
 }

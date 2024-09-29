@@ -8,6 +8,8 @@ import { useHomeStore } from "@/lib/util/store";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
 import LoadingSection from "@/modules/layout/components/LoadingSection";
+import Footer from "@/modules/layout/templates/footer";
+import Nav from "@/modules/layout/templates/nav";
 
 const Management = () => {
   const { loading, magazine, fetchMagazineData, setLoadingState } = useHomeStore();
@@ -29,6 +31,7 @@ const Management = () => {
   return (
     <>
       <Head title={t(`magazine`)}></Head>
+      <Nav />
       <PageHeader
         title={t(`magazine`)}
         image="https://d3leeb4r1qy96s.cloudfront.net/assets/img/cta-banner-image-1536x306.jpg"
@@ -52,6 +55,7 @@ const Management = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </>
   );
 };

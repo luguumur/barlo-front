@@ -10,6 +10,8 @@ import { useTranslations } from "next-intl";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
 import LoadingSection from "@/modules/layout/components/LoadingSection";
+import Footer from "@/modules/layout/templates/footer";
+import Nav from "@/modules/layout/templates/nav";
 
 const DealsPage = () => {
   const { loading, deals, fetchDealData, setLoadingState } = useHomeStore();
@@ -34,6 +36,7 @@ const DealsPage = () => {
   return (
     <>
       <Head title={t("deals_specials")}></Head>
+      <Nav />
       <PageHeader
         title={t("deals_specials")}
         image="https://d3leeb4r1qy96s.cloudfront.net/assets/img/cta-banner-image-1536x306.jpg"
@@ -69,6 +72,7 @@ const DealsPage = () => {
           </aside>
         </div>
       </article>
+      <Footer />
     </>
   );
 };

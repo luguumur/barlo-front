@@ -35,7 +35,10 @@ const QuickSearch: React.FC<Props> = ({ model = [], owner = [], location = [] })
     });
 
     const queryString = searchParams.toString();
-    router.push(`/search?${queryString}`).then(() => setIsLoading(false)).catch(() => setIsLoading(false));
+    router
+      .push(`/search?${queryString}`)
+      .then(() => setIsLoading(false))
+      .catch(() => setIsLoading(false));
   };
 
   return (

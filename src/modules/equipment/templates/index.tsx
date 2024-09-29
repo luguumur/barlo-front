@@ -1,38 +1,35 @@
-"use client"
+"use client";
 
-import usePreviews from "@lib/hooks/use-previews"
-import {
-  ProductCategoryWithChildren,
-  getProductsByCategoryHandle,
-} from "@lib/data"
-import getNumberOfSkeletons from "@lib/util/get-number-of-skeletons"
-import repeat from "@lib/util/repeat"
-import React, { useEffect, useState } from "react"
-import Link from "next/link"
-import UnderlineLink from "@modules/common/components/underline-link"
-import { notFound } from "next/navigation"
-import { useTranslations } from "next-intl"
-import PageHeader from "@modules/layout/components/page-header"
-import Beside from "@modules/layout/components/beside-menu"
-import { EquipmentData } from "@data/equipment"
-import Tabs from "@modules/layout/components/tabs"
-import { Component } from "react"
-import Slider from "react-slick"
-import DetailsTab from "@modules/layout/components/detail-tabs"
-import { GetStaticPropsContext } from "next"
-import { MenuData } from "@/data/home"
-import Image from 'next/image'
-import Head from "@/modules/common/components/head"
-import EmblaCarouselComponent from "@/modules/layout/components/EmblaCarousel"
-import styles from '../../../modules/layout/components/EmblaCarousel.module.css';
+import usePreviews from "@lib/hooks/use-previews";
+import { ProductCategoryWithChildren, getProductsByCategoryHandle } from "@lib/data";
+import getNumberOfSkeletons from "@lib/util/get-number-of-skeletons";
+import repeat from "@lib/util/repeat";
+import React, { useEffect, useState } from "react";
+import Link from "next/link";
+import UnderlineLink from "@modules/common/components/underline-link";
+import { notFound } from "next/navigation";
+import { useTranslations } from "next-intl";
+import PageHeader from "@modules/layout/components/page-header";
+import Beside from "@modules/layout/components/beside-menu";
+import { EquipmentData } from "@data/equipment";
+import Tabs from "@modules/layout/components/tabs";
+import { Component } from "react";
+import Slider from "react-slick";
+import DetailsTab from "@modules/layout/components/detail-tabs";
+import { GetStaticPropsContext } from "next";
+import { MenuData } from "@/data/home";
+import Image from "next/image";
+import Head from "@/modules/common/components/head";
+import EmblaCarouselComponent from "@/modules/layout/components/EmblaCarousel";
+import styles from "../../../modules/layout/components/EmblaCarousel.module.css";
 
 type EquipmentTemplateProps = {
-  equipment: any
-}
+  equipment: any;
+};
 
-const imageLoader = ({ src, width }: { src: any, width: any }) => {
-  return `${process.env.apiDomain}/file/${src}`
-}
+const imageLoader = ({ src, width }: { src: any; width: any }) => {
+  return `${process.env.apiDomain}/file/${src}`;
+};
 
 type MachineCheckboxProps = {
   machine: any;
@@ -47,7 +44,10 @@ const MachineCheckbox: React.FC<MachineCheckboxProps> = ({ machine, isSelected, 
   };
   return (
     <>
-      <li data-bind="css: {'scl-selected': isSelected, 'scl-locked': !isEnabled(), 'scl-highlighted': machine.IsHighlighted}" className="scl-selected scl-locked">
+      <li
+        data-bind="css: {'scl-selected': isSelected, 'scl-locked': !isEnabled(), 'scl-highlighted': machine.IsHighlighted}"
+        className="scl-selected scl-locked"
+      >
         <input
           type="checkbox"
           checked={isSelected}
@@ -134,7 +134,7 @@ const AttributeComparisonTable: React.FC<{ products: Product[] }> = ({ products 
   const combinedAttributes = new Map<string, AttributeValue[]>();
 
   const addAttributes = (attributes: AttributeValue[], productId: string) => {
-    attributes.forEach(attr => {
+    attributes.forEach((attr) => {
       const key = attr.attribute.id;
       if (!combinedAttributes.has(key)) {
         combinedAttributes.set(key, []);
@@ -143,19 +143,20 @@ const AttributeComparisonTable: React.FC<{ products: Product[] }> = ({ products 
     });
   };
 
-  products.forEach(product => addAttributes(product.attribute_values, product.id));
+  products.forEach((product) => addAttributes(product.attribute_values, product.id));
 
   return (
     <>
-      <h1 >Compare</h1>
+      <h1>Compare</h1>
       <table>
         <thead>
           <tr>
             <th>&nbsp;</th>
-            {products.map(product => (
+            {products.map((product) => (
               <>
                 <th key={product.id} className="text-center">
-                  <span>CATERPILLAR</span><br />
+                  <span>CATERPILLAR</span>
+                  <br />
                   <span className="scl-font-bold">{product.name}</span>
                 </th>
               </>
@@ -164,21 +165,30 @@ const AttributeComparisonTable: React.FC<{ products: Product[] }> = ({ products 
         </thead>
         <tbody className="scl-section">
           <tr>
-            <th colSpan={99} data-bind="click: toggleExpansion, css: {'scl-expanded': expanded}" className="scl-expanded">
+            <th
+              colSpan={99}
+              data-bind="click: toggleExpansion, css: {'scl-expanded': expanded}"
+              className="scl-expanded"
+            >
               <span>Driveline</span>
             </th>
           </tr>
         </tbody>
         <tbody className="data">
-          {Array.from(combinedAttributes.values()).map(attrs => {
+          {Array.from(combinedAttributes.values()).map((attrs) => {
             return (
               <tr key={attrs[0].attribute.id} className="scl-data-row">
                 <th className="scl-modelAttrData">{attrs[0].attribute.name}</th>
-                {products.map(product => {
-                  const attr = attrs.find(a => a.product_id === product.id);
+                {products.map((product) => {
+                  const attr = attrs.find((a) => a.product_id === product.id);
                   return (
                     <td className="scl-attrval text-center" key={product.id}>
-                      {attr?.string_value || attr?.int_value || attr?.decimal_value || attr?.boolean_value || attr?.datetime_value || "-"}
+                      {attr?.string_value ||
+                        attr?.int_value ||
+                        attr?.decimal_value ||
+                        attr?.boolean_value ||
+                        attr?.datetime_value ||
+                        "-"}
                     </td>
                   );
                 })}
@@ -193,67 +203,25 @@ const AttributeComparisonTable: React.FC<{ products: Product[] }> = ({ products 
 
 const EquipmentTemplate: React.FC<EquipmentTemplateProps> = ({ equipment }) => {
   const t = useTranslations("Menu");
-  const equipmentt = useTranslations("Equipment");
 
-  const { data: equipmentDetail, products: compareModels } = equipment
+  const { data: equipmentDetail, products: compareModels } = equipment;
   const sortedItems = compareModels.sort((a: any, b: any) => {
     if (a.id === equipmentDetail.id) return -1;
     if (b.id === equipmentDetail.id) return 1;
     return 0;
   });
 
-  const sliderSettings = {
-    arrows: false,
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    adaptiveHeight: false,
-    className: "equipment-detail"
-  };
-
-  const tabs = [
-    {
-      title: 'icon-camera',
-      image: (
-        <div className={styles.carouselWrapper}>
-          <EmblaCarouselComponent alt={equipmentDetail?.name_en} main={equipmentDetail?.img_path} slides={equipmentDetail?.images} />
-        </div>
-      ),
-      content: (
-        <div>
-        </div>
-      ),
-    },
-    {
-      title: 'icon-play',
-      image: equipmentDetail?.video_link,
-      content: (
-        <div>
-        </div>
-      ),
-    },
-    {
-      title: 'icon-360',
-      image: equipmentDetail?.model_3d,
-      content: (
-        <div>
-        </div>
-      ),
-    },
-  ];
-
   const [selections, setSelections] = useState<{ [key: string]: boolean }>({});
-  const [enabledStates, setEnabledStates] = useState<{ [key: string]: boolean }>({});
 
   const handleCheckboxChange = (id: any, checked: boolean) => {
-    setSelections(prevSelections => ({ ...prevSelections, [id]: checked }));
+    setSelections((prevSelections) => ({ ...prevSelections, [id]: checked }));
   };
 
   const getSelectedModels = () => {
     const defaultModel = [equipmentDetail];
-    const selectedModels = compareModels.filter((model: any) => selections[model.id] && model.id !== equipmentDetail.id);
+    const selectedModels = compareModels.filter(
+      (model: any) => selections[model.id] && model.id !== equipmentDetail.id
+    );
     const limitedProducts = [...defaultModel, ...selectedModels].slice(0, 5);
     return limitedProducts;
   };
@@ -263,25 +231,51 @@ const EquipmentTemplate: React.FC<EquipmentTemplateProps> = ({ equipment }) => {
     setIsVisible(!isVisible);
   };
 
+  const tabs = [
+    {
+      title: "icon-camera",
+      image: (
+        <div className={styles.carouselWrapper}>
+          <EmblaCarouselComponent
+            alt={equipmentDetail?.name_en}
+            main={equipmentDetail?.img_path}
+            slides={equipmentDetail?.images}
+          />
+        </div>
+      ),
+      content: <div></div>,
+    },
+    {
+      title: "icon-play",
+      image: equipmentDetail?.video_link,
+      content: <div></div>,
+    },
+    {
+      title: "icon-360",
+      image: equipmentDetail?.model_3d,
+      content: <div></div>,
+    },
+  ];
+
   const detailsTab = [
     {
-      title: 'Specifications',
+      title: "Specifications",
       image: {},
       content: equipmentDetail?.attribute_values,
     },
     {
-      title: 'Benefits and Features',
+      title: "Benefits and Features",
       image: {},
       content: equipmentDetail?.description,
     },
     {
-      title: 'Compare Models',
+      title: "Compare Models",
       image: {},
       content: (
         <div className="specCheckLite">
-          <div className="scl-screen" id="sclMachineSelectionScreen" >
+          <div className="scl-screen" id="sclMachineSelectionScreen">
             <button className="scl-button scl-button-compare " onClick={toggleVisibility}>
-              {isVisible ? 'Select' : 'Compare'}
+              {isVisible ? "Select" : "Compare"}
             </button>
           </div>
           {isVisible ? (
@@ -293,7 +287,7 @@ const EquipmentTemplate: React.FC<EquipmentTemplateProps> = ({ equipment }) => {
           ) : (
             <>
               <div id="sclMachineSelectionScreen" className="scl-screen">
-                <h1 >Compare</h1>
+                <h1>Compare</h1>
                 <h2 data-bind="text: subTitle">Select Models to Compare (Maximum of 5)</h2>
                 <div id="sclAttributeSelection" data-bind="css: { sclDisabled: comparisonAttributes().length <= 1 }">
                   {/* <label htmlFor="attributeSelect" data-bind="text: comparisonAttrLabel">Closest Comparison By: </label>
@@ -313,7 +307,9 @@ const EquipmentTemplate: React.FC<EquipmentTemplateProps> = ({ equipment }) => {
                 <div id="sclMachineSelection">
                   <div id="sclInternalMachineSelectPane" className="scl-machineSelectPane">
                     <div className="scl-paneHead">
-                      <span className="scl-title" data-bind="text: internalMachines.title">CATERPILLAR Models</span>
+                      <span className="scl-title" data-bind="text: internalMachines.title">
+                        CATERPILLAR Models
+                      </span>
                       <ul>
                         {sortedItems.map((item: any, index: any) => (
                           <div key={item.id}>
@@ -334,14 +330,16 @@ const EquipmentTemplate: React.FC<EquipmentTemplateProps> = ({ equipment }) => {
           )}
         </div>
       ),
-    }
+    },
   ];
-
 
   return (
     <>
       <Head title={equipmentDetail?.name} />
-      <PageHeader title={equipmentDetail?.name} />
+      <PageHeader
+        title={equipmentDetail?.name}
+        image="https://d3leeb4r1qy96s.cloudfront.net/assets/img/cta-banner-image-1536x306.jpg"
+      />
       <article className="page-body container page type-page status-publish hentry" id="page-body">
         <div className="row">
           <main className="page-content col-md-9 col-md-push-3">
@@ -351,7 +349,12 @@ const EquipmentTemplate: React.FC<EquipmentTemplateProps> = ({ equipment }) => {
                 <div className="product__overview"></div>
               </div>
               <div className="col-xs-6 col-md-5">
-                <Link href={`/quote?equipment=${equipmentDetail?.name}`} className="button button--primary button--block">Request a Quote</Link>
+                <Link
+                  href={`/quote?equipment=${equipmentDetail?.name}`}
+                  className="button button--primary button--block"
+                >
+                  Request a Quote
+                </Link>
                 {/* <ul className="product__actions">
               <li>
                 <a href="#" target="_blank" rel="nofollow">
@@ -376,17 +379,15 @@ const EquipmentTemplate: React.FC<EquipmentTemplateProps> = ({ equipment }) => {
         </div>
       </article>
     </>
-  )
-}
+  );
+};
 
-
-
-export default EquipmentTemplate
+export default EquipmentTemplate;
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   return {
     props: {
-      messages: (await import(`../../../../messages/${locale}.json`)).default
-    }
+      messages: (await import(`../../../../messages/${locale}.json`)).default,
+    },
   };
 }

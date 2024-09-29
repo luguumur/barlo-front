@@ -1,19 +1,22 @@
-import { GetStaticPropsContext } from 'next';
-import QuickSearch from '@/modules/home/components/quick-search';
-import Specials from '@/modules/home/components/specials';
-import About from '@/modules/home/components/about';
-import Cta from '@/modules/home/components/cta';
-import Head from '@/modules/common/components/head';
-import { toast } from 'react-toastify';
-import LoadingSection from '@/modules/layout/components/LoadingSection';
-import SkeletonLoader from '@/modules/layout/components/SkeletonLoader';
-import HomeCarouselComponent from '@/modules/layout/components/HomeCarousel';
-import OfferCarousel from '@/modules/layout/components/offer-carousel';
-import TestiCarousel from '@/modules/layout/components/testimonials-carousel';
-import { useHomeStore } from '../lib/util/store';
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
-import { useTranslations } from 'next-intl';
+import { GetStaticPropsContext } from "next";
+import dynamic from "next/dynamic";
+import Head from "@/modules/common/components/head";
+import { toast } from "react-toastify";
+import LoadingSection from "@/modules/layout/components/LoadingSection";
+import { useHomeStore } from "../lib/util/store";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
+import { useTranslations } from "next-intl";
+import Footer from "@/modules/layout/templates/footer";
+import Nav from "@/modules/layout/templates/nav";
+
+const QuickSearch = dynamic(() => import("@/modules/home/components/quick-search"));
+const Specials = dynamic(() => import("@/modules/home/components/specials"));
+const About = dynamic(() => import("@/modules/home/components/about"));
+const Cta = dynamic(() => import("@/modules/home/components/cta"));
+const HomeCarouselComponent = dynamic(() => import("@/modules/layout/components/HomeCarousel"));
+const OfferCarousel = dynamic(() => import("@/modules/layout/components/offer-carousel"));
+const TestiCarousel = dynamic(() => import("@/modules/layout/components/testimonials-carousel"));
 
 const Index = () => {
   const {
@@ -48,7 +51,8 @@ const Index = () => {
           fetchOwnerData(),
           fetchTestimonialsData(),
         ]);
-      } catch {
+      } catch (error) {
+        console.error(error); // Log the error for debugging
         toast.error("API Error");
       } finally {
         setLoadingState(false);
@@ -62,14 +66,16 @@ const Index = () => {
 
   return (
     <>
-      <Head title={t('title').toString()} />
-      {mastheads.data ? <HomeCarouselComponent slides={mastheads.data} /> : <SkeletonLoader />}
+      <Head title={t("title").toString()} />
+      <Nav />
+      <HomeCarouselComponent slides={mastheads.data} />
       <QuickSearch model={model.data} owner={owner.data} location={location.data} />
       <OfferCarousel deals={deals.data} locale={locale} />
       <Specials />
       <About />
-      {testimonials && <TestiCarousel testi={testimonials.data} locale={locale} />}
+      <TestiCarousel testi={testimonials.data} locale={locale} />
       <Cta />
+      <Footer />
     </>
   );
 };

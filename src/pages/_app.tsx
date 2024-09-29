@@ -1,64 +1,43 @@
-import { AppProps } from 'next/app';
-import { useRouter } from 'next/router';
-import { NextIntlClientProvider, IntlErrorCode } from 'next-intl';
+import { AppProps } from "next/app";
+import { useRouter } from "next/router";
+import { NextIntlClientProvider } from "next-intl";
+import { useEffect } from "react";
+import NProgress from "nprogress";
+import { ToastContainer } from "react-toastify";
 
-import Script from "next/script";
-import "../styles/globals.css"
-import '../styles/icons.css';
-import '../styles/main.css';
-import PageLayout from './components/PageLayout';
-import NProgress from 'nprogress';
-import '../styles/nprogress-custom.css';
-import { Router } from 'next/router';
-import { useEffect } from 'react';
-import 'selectric';
-// import 'magnific-popup/dist/magnific-popup.css';
-// import 'jquery-selectric/public/selectric.css';
+import GoogleCaptchaWrapper from "./googleCaptchaWrapper";
 
-Router.events.on('routeChangeStart', (url, { shallow }) => {
-  if (!shallow) {
-    NProgress.start();
-  }
-});
-
-Router.events.on('routeChangeComplete', (url, { shallow }) => {
-  if (!shallow) {
-    NProgress.done();
-  }
-});
-
-Router.events.on('routeChangeError', (url, { shallow }) => {
-  if (!shallow) {
-    NProgress.done();
-  }
-});
-
-declare global {
-  interface Window {
-    $: typeof import('jquery'); // This will declare a global $ variable as jQuery
-  }
-}
+import "../styles/globals.css";
+import "../styles/icons.css";
+import "../styles/main.css";
+import "../styles/nprogress-custom.css";
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
-  const timeZone = 'Asia/Ulaanbaatar';
+  const timeZone = "Asia/Ulaanbaatar";
 
   useEffect(() => {
-    // Load jQuery globally
-    if (typeof window !== 'undefined') {
-      window.$ = require('jquery');
-    }
-  }, []);
+    const handleRouteChangeStart = () => NProgress.start();
+    const handleRouteChangeComplete = () => NProgress.done();
+    const handleRouteChangeError = () => NProgress.done();
+
+    router.events.on("routeChangeStart", handleRouteChangeStart);
+    router.events.on("routeChangeComplete", handleRouteChangeComplete);
+    router.events.on("routeChangeError", handleRouteChangeError);
+
+    return () => {
+      router.events.off("routeChangeStart", handleRouteChangeStart);
+      router.events.off("routeChangeComplete", handleRouteChangeComplete);
+      router.events.off("routeChangeError", handleRouteChangeError);
+    };
+  }, [router.events]);
 
   return (
-    <NextIntlClientProvider
-      locale={router.locale}
-      messages={pageProps.messages}
-      timeZone={timeZone}
-    >
-      <PageLayout>
+    <NextIntlClientProvider locale={router.locale || "mn"} messages={pageProps.messages} timeZone={timeZone}>
+      <GoogleCaptchaWrapper>
         <Component {...pageProps} />
-      </PageLayout>
+        <ToastContainer position="top-right" autoClose={3000} className="font-light text-[13px]" />
+      </GoogleCaptchaWrapper>
     </NextIntlClientProvider>
   );
 }

@@ -16,6 +16,8 @@ import Questions from "@/modules/layout/components/questions";
 import NewsBeside from "@/modules/layout/components/news-menu";
 import Markdown from "react-markdown";
 import Head from "@/modules/common/components/head";
+import Footer from "@/modules/layout/templates/footer";
+import Nav from "@/modules/layout/templates/nav";
 
 const Parts: InferGetServerSidePropsType<typeof getServerSideProps> = (props: any) => {
   const t = useTranslations("Menu");
@@ -24,6 +26,7 @@ const Parts: InferGetServerSidePropsType<typeof getServerSideProps> = (props: an
   return (
     <>
       <Head title={data.title}></Head>
+      <Nav />
       <PageHeader
         title={data.title}
         image="https://d3leeb4r1qy96s.cloudfront.net/assets/img/cta-banner-image-1536x306.jpg"
@@ -46,6 +49,7 @@ const Parts: InferGetServerSidePropsType<typeof getServerSideProps> = (props: an
           <NewsBeside category={props.category} />
         </div>
       </article>
+      <Footer />
     </>
   );
 };

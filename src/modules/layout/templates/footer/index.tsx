@@ -1,10 +1,10 @@
 import FooterNav from "@/modules/layout/components/footer-nav";
-import { GetStaticPropsContext } from "next";
+import { GetServerSidePropsContext, GetStaticPropsContext } from "next";
 import { useState } from "react";
-import { toast } from 'react-toastify';
-import NProgress from 'nprogress';
-import { GoogleReCaptchaProvider, useGoogleReCaptcha } from 'react-google-recaptcha-v3';
-import axios from 'axios';
+import { toast } from "react-toastify";
+import NProgress from "nprogress";
+import { GoogleReCaptchaProvider, useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import axios from "axios";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/router";
 
@@ -15,19 +15,19 @@ interface FormData {
 const Footer = () => {
   const router = useRouter();
   const { executeRecaptcha } = useGoogleReCaptcha();
-  const noFooterRoutes = ['/contact-us', '/signup', '/equipment'];
-  const showFooter = !noFooterRoutes.some(route => 
-    router.pathname.startsWith(route) || router.pathname.startsWith('/equipment/')
+  const noFooterRoutes = ["/contact-us", "/signup", "/equipment"];
+  const showFooter = !noFooterRoutes.some(
+    (route) => router.pathname.startsWith(route) || router.pathname.startsWith("/equipment/")
   );
   const initialData = {
-    email: '',
+    email: "",
   };
 
   const [formData, setFormData] = useState<FormData>(initialData);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData(prevFormData => ({
+    setFormData((prevFormData) => ({
       ...prevFormData,
       [name]: value,
     }));
@@ -39,54 +39,60 @@ const Footer = () => {
 
     if (!executeRecaptcha) {
       console.log("Recaptcha not available");
-      toast.error('Recaptcha service is unavailable.');
+      toast.error("Recaptcha service is unavailable.");
       NProgress.done();
       return;
     }
 
     try {
-      const gRecaptchaToken = await executeRecaptcha('inquirySubmit');
-      const recaptchaResponse = await axios.post("/api/recaptchaSubmit", {
-        gRecaptchaToken,
-      }, {
-        headers: {
-          Accept: "application/json, text/plain, */*",
-          "Content-Type": "application/json",
+      const gRecaptchaToken = await executeRecaptcha("inquirySubmit");
+      const recaptchaResponse = await axios.post(
+        "/api/recaptchaSubmit",
+        {
+          gRecaptchaToken,
         },
-      });
+        {
+          headers: {
+            Accept: "application/json, text/plain, */*",
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       if (recaptchaResponse?.data?.success) {
-        const emailResponse = await axios.post(`/api/email`, {
-          email: formData.email,
-        }, {
-          headers: {
-            'Content-Type': 'application/json',
+        const emailResponse = await axios.post(
+          `/api/email`,
+          {
+            email: formData.email,
           },
-        });
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
         if (emailResponse.status === 200) {
-          toast.success('Successfully submitted. Thank you!');
+          toast.success("Successfully submitted. Thank you!");
         } else {
-          toast.error('Failed to submit information.');
+          toast.error("Failed to submit information.");
         }
       } else {
-        toast.error('Recaptcha validation failed.');
+        toast.error("Recaptcha validation failed.");
       }
     } catch (error) {
-      toast.error('Something went wrong.');
+      toast.error("Something went wrong.");
     } finally {
       NProgress.done();
     }
   };
-
-  const home = useTranslations("Home");
-
+  const t = useTranslations("Home");
   return (
     <footer>
       {showFooter && (
         <div className="container pt-7">
           <div className="col-md-6 h-[48px] flex items-center">
-            <span className="text-sm">{home("connect_your_email")}</span>
+            <span className="text-sm">{t("connect_your_email")}</span>
           </div>
           <form
             onSubmit={handleSubmit}
@@ -111,11 +117,8 @@ const Footer = () => {
                   />
                 </div>
                 <div className="col-sm-6 form-field pb-7">
-                  <button
-                    className="btn btn-primary !w-full"
-                    type="submit"
-                  >
-                    {home("submit")}
+                  <button className="btn btn-primary !w-full" type="submit">
+                    {t("submit")}
                   </button>
                 </div>
               </div>
@@ -131,9 +134,15 @@ const Footer = () => {
 export default Footer;
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
+  let messages;
+  try {
+    messages = await import(`../../../../../messages/${locale}.json`);
+  } catch (e) {
+    messages = await import(`../../../../../messages/en.json`);
+  }
   return {
     props: {
-      messages: (await import(`../../../../../messages/${locale}.json`)).default
-    }
+      messages: messages,
+    },
   };
 }

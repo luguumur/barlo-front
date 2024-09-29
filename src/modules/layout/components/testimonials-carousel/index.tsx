@@ -1,16 +1,16 @@
-"use client"
-import { useTranslations } from 'next-intl';
-import Image from 'next/legacy/image';
-import { useRouter } from 'next/router';
+"use client";
+import { useTranslations } from "next-intl";
+import Image from "next/legacy/image";
+import { useRouter } from "next/router";
 // components/Carousel.tsx
-import React, { useEffect, useRef } from 'react';
-import Slider from 'react-slick';
+import React, { useEffect, useRef } from "react";
+import Slider from "react-slick";
 type Props = {
-  testi?: any
-  locale?: any
-  description?: string | null
-  image?: string | null
-}
+  testi?: any;
+  locale?: any;
+  description?: string | null;
+  image?: string | null;
+};
 const TestiCarousel: React.FC<Props> = ({ testi, description, image }) => {
   const sliderRef = useRef<Slider | null>(null);
 
@@ -35,25 +35,25 @@ const TestiCarousel: React.FC<Props> = ({ testi, description, image }) => {
           slidesToShow: 2,
           slidesToScroll: 2,
           infinite: true,
-          dots: true
-        }
+          dots: true,
+        },
       },
       {
         breakpoint: 770,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          initialSlide: 1
-        }
+          initialSlide: 1,
+        },
       },
       {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
   const t = useTranslations("Menu");
   const { locale, locales, route, asPath } = useRouter();
@@ -61,7 +61,15 @@ const TestiCarousel: React.FC<Props> = ({ testi, description, image }) => {
     <div className="home-testimonials clearfix">
       <div className="home-testimonials-wrapper clearfix">
         <div className="home-testimonials-banner hidden-md-down">
-          <Image priority width={831} height={625} src="https://d3leeb4r1qy96s.cloudfront.net/assets/img/test.jpg" className="img-responsive entered lazyloaded" alt="Barloworld Mongolia" />
+          <Image
+            priority
+            width={831}
+            height={625}
+            src="https://d3leeb4r1qy96s.cloudfront.net/assets/img/test.jpg"
+            className="img-responsive entered lazyloaded"
+            alt="Barloworld Mongolia"
+            loading={"eager"}
+          />
         </div>
         <div className="home-testimonials-right-panel">
           <div className="home-testimonials-header">
@@ -71,21 +79,25 @@ const TestiCarousel: React.FC<Props> = ({ testi, description, image }) => {
           </div>
           <div className="home-testimonials-slider-wrapper">
             <div className="home-testimonials-slider home-testimonials-slider-homepage slick-initialized slick-slider">
-              <Slider {...settings} className='p-0'>
+              <Slider {...settings} className="p-0">
                 {testi?.map((item: any, index: any) => (
-                  <div key={index} className='h-[400px]'>
+                  <div key={index} className="h-[370px] !w-[350px]">
                     <div className="home-testimonials-slider-item-column z-10">
-                      <div className='text-sm mb-5 text-[#1C1C1C]'>{locale === "mn" ? item.title : item.title_en}</div>
+                      <div className="text-sm mb-5 text-[#1C1C1C]">
+                        {locale === "mn" ? item.subtitle : item.subtitle_en}
+                      </div>
                       <span className="title-wrap pb-5 font-bold text-[17px] text-[#666] uppercase">
-                        <span>—</span> {locale === "mn" ? item.subtitle : item.subtitle_en}
+                        <span>—{locale === "mn" ? item.title : item.title_en}</span>
                       </span>
                     </div>
                   </div>
                 ))}
-
               </Slider>
             </div>
-            <a href="/testimonials" target="_self" className="btn btn-primary"> {t("learnmore")} </a>
+            <a href="/testimonials" target="_self" className="btn btn-primary">
+              {" "}
+              {t("learnmore")}{" "}
+            </a>
           </div>
         </div>
       </div>

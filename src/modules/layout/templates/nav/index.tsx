@@ -197,9 +197,15 @@ const Nav = () => {
 export default Nav;
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
+  let messages;
+  try {
+    messages = await import(`../../../../../messages/${locale}.json`);
+  } catch (e) {
+    messages = await import(`../../../../../messages/en.json`);
+  }
   return {
     props: {
-      messages: (await import(`../../../../../messages/${locale}.json`)).default,
+      messages: messages,
     },
   };
 }
