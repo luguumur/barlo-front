@@ -29,7 +29,7 @@ const Job: InferGetServerSidePropsType<typeof getServerSideProps> = (props: any)
             <Markdown>{locale === "mn" ? props.job.description : props.job.description_en}</Markdown>
             <Link
               href={`/application?title=${locale === "mn" ? props.job.title : props.job.title_en}`}
-              className="button button--primary"
+              className="btn btn-primary"
               type="submit"
             >
               Анкет илгээх
