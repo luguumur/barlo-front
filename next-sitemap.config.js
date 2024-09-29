@@ -1,4 +1,4 @@
 module.exports = {
-    siteUrl: 'https://barloworld.mn',
-    generateRobotsTxt: true,
+  siteUrl: "https://www.barloworld.mn",
+  generateRobotsTxt: true,
 };

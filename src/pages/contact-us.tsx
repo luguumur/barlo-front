@@ -221,9 +221,7 @@ const Contact = () => {
           </main>
         </div>
       </section>
-      <div className="pb-40">
-        <img src="https://d3leeb4r1qy96s.cloudfront.net/assets/img/hr/location.png" alt="Barloworld Mongolia" />
-      </div>
+      <img src="https://d3leeb4r1qy96s.cloudfront.net/assets/img/hr/location.png" alt="Barloworld Mongolia" />
       <Footer />
     </>
   );

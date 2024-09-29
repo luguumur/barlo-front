@@ -68,7 +68,7 @@ const Nav = () => {
             <div className="row">
               <div className="col-xxs-7 col-xs-6 col-sm-4 col-md-3 ">
                 <div className="page-header--logo h-14">
-                  <Link href="https://barloworld.mn/">
+                  <Link href="https://www.barloworld.mn/">
                     <Image width="208" height="56" className="site-logo" src="/logo.jpg" alt="Barloworld Mongolia" />
                   </Link>
                 </div>
