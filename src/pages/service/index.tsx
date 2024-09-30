@@ -7,10 +7,15 @@ import { useTranslations } from "next-intl";
 import { GetStaticPropsContext } from "next";
 import Head from "@/modules/common/components/head";
 import Nav from "@/modules/layout/templates/nav";
+import Image from "next/image";
 import Footer from "@/modules/layout/templates/footer";
+import me from "../../../public/assets/img/service/location.jpg";
 
 const Parts = () => {
   const t = useTranslations("Menu");
+  const myLoader = ({ src, width, quality }: any) => {
+    return `${src}?w=${width}&q=${quality || 75}`;
+  };
   return (
     <>
       <Head title={t(`service`)}></Head>
@@ -47,9 +52,12 @@ const Parts = () => {
               <div className="service-card-with-featured-image__item" key={index}>
                 <article className="service-card-with-featured-image__card">
                   <a className="service-card-with-featured-image__link" href={item.handle}>
-                    <div className="service-card-with-featured-image__image"></div>
+                    <div className="service-card-with-featured-image__image">
+                      {/* <img src={item.image} alt="" /> */}
+                      <Image loader={myLoader} fill src={item.image} alt={item.title} />
+                    </div>
                     <div className="service-card-with-featured-image__content">
-                      <h5>{item.title}</h5>
+                      <h5>{t(`${item.title}`)}</h5>
                       <span className="icon">
                         <span></span>
                       </span>
@@ -81,9 +89,23 @@ const Parts = () => {
           <h3 id="load-bank-testing">
             More choice to keep<br></br> your business moving
           </h3>
-          <p>Таны бизнесийг зогсолтгүй урагшлах сонголтууд.</p>
+          <p>Таны бизнесийн зогсолтгүй урагшлах сонголтууд.</p>
         </div>
       </section>
+      <section className="wysiwyg-section">
+        <div className="container">
+          <Image
+            src={me}
+            sizes="100vw"
+            alt="Barloworld Mongolia"
+            style={{
+              width: "100%",
+              height: "auto",
+            }}
+          />
+        </div>
+      </section>
+
       <Footer />
     </>
   );
