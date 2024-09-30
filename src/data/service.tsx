@@ -179,7 +179,7 @@ CAT үндсэн эд ангиуд нь дахин сэргээн засварл
     id: 6,
     title: "cva",
     handle: "/service/cva",
-    image: "http://webnew.barloworld.mn/images/uploads2/SERVICE20211108.jpg",
+    image: "/assets/img/service/CVA.jpg",
     youtube: "",
     content: `**CVA гэж юу бэ?  
   

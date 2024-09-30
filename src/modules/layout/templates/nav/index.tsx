@@ -130,7 +130,7 @@ const Nav = () => {
                         </Link>
                       </li> */}
                       <li className="menu-item menu-item-type-post_type menu-item-object-page">
-                        <Link href="/about-us" aria-label="About Us">
+                        <Link href="/about" aria-label="About Us">
                           {homet("about")}
                         </Link>
                       </li>

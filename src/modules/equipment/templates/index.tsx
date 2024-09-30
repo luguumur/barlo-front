@@ -349,10 +349,7 @@ const EquipmentTemplate: React.FC<EquipmentTemplateProps> = ({ equipment }) => {
                 <div className="product__overview"></div>
               </div>
               <div className="col-xs-6 col-md-5">
-                <Link
-                  href={`/quote?equipment=${equipmentDetail?.name}`}
-                  className="button button--primary button--block"
-                >
+                <Link href={`/quote?equipment=${equipmentDetail?.name}`} className="btn btn-primary button--block">
                   Request a Quote
                 </Link>
                 {/* <ul className="product__actions">

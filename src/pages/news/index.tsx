@@ -104,7 +104,7 @@ const NewsPage: InferGetServerSidePropsType<typeof getServerSideProps> = (props:
                 {locale === "mn" ? item.subtitle : item.subtitle_en}
                 <p>
                   <a
-                    className="button button--primary"
+                    className="btn btn-primary"
                     href={`/news/${item.id}`}
                     title={locale === "mn" ? item.title : item.title_en}
                   >

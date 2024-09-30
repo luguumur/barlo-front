@@ -35,7 +35,7 @@ const FooterNav = () => {
                     <Link href="/technology">{menut("technology")}</Link>
                   </li>
                   <li>
-                    <Link href="/about-us">{menut("about")}</Link>
+                    <Link href="/about">{menut("about")}</Link>
                   </li>
                   <li>
                     <Link href="/careers">{menut("hr")}</Link>

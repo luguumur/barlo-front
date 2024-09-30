@@ -138,7 +138,7 @@ const Search: InferGetServerSidePropsType<typeof getServerSideProps> = (props: a
                           <dd>{item.attribute_values.length > 0 ? item.attribute_values[0].string_value : ""} </dd>
                         </div>
                       </dl>
-                      <button className="button button--primary text--left">View Details</button>
+                      <button className="btn btn-primary text--left">View Details</button>
                     </figcaption>
                   </Link>
                 ))}

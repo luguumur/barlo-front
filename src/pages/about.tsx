@@ -147,7 +147,7 @@ const About = () => {
                             <h2>{about("contact_us_today")}</h2>
                             <p>{about("do_you_need_equipment")} </p>
                             <p>
-                                <a className="button button--primary" href="contact-us/">Contact Us For More Info</a>
+                                <a className="btn btn-primary" href="contact-us/">Contact Us For More Info</a>
                             </p> */}
               </main>
             </div>

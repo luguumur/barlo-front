@@ -36,7 +36,7 @@ const Parts = () => {
           <div className="row">
             <div className="col-sm-5 form-field">
               <a href="/assets/pdf/ProductSupportServiceBrochure.pdf" target="blank">
-                <button className="button button--primary button--block" type="submit">
+                <button className="btn btn-primary button--block" type="submit">
                   брошур үзэх
                 </button>
               </a>

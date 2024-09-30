@@ -9,6 +9,8 @@ import {
   apiTestimonials,
 } from "@/services/home/HomeServices";
 import { create } from "zustand";
+import { ImageProps } from "../interface";
+import getBase64ImageUrl from "./generateBlurPlaceholder";
 
 interface PaymentStore {
   paymentData: any | null;
@@ -43,7 +45,18 @@ export const useHomeStore = create<PaymentStore>((set) => ({
   fetchMastHeadData: async () => {
     set({ loading: true });
     try {
-      const mastData = await apiMastheads<any>().then(({ data }) => data);
+      const mastData: any = await apiMastheads<any>().then(({ data }) => data);
+      // console.log(mastData);
+      // const blurImagePromises = mastData.map((image: any) => {
+      //   return getBase64ImageUrl(image.imageurl);
+      // });
+      // const imagesWithBlurDataUrls = await Promise.all(blurImagePromises);
+
+      // let reducedResults: ImageProps[] = [];
+      // for (let i = 0; i < reducedResults.length; i++) {
+      //   reducedResults[i].blurDataUrl = imagesWithBlurDataUrls[i];
+      // }
+      // console.log(reducedResults);
       set({
         mastheads: {
           data: mastData,

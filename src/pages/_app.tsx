@@ -12,6 +12,8 @@ import "../styles/icons.css";
 import "../styles/main.css";
 import "../styles/nprogress-custom.css";
 
+import "react-toastify/dist/ReactToastify.css";
+
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const timeZone = "Asia/Ulaanbaatar";
@@ -36,8 +38,8 @@ export default function App({ Component, pageProps }: AppProps) {
     <NextIntlClientProvider locale={router.locale || "mn"} messages={pageProps.messages} timeZone={timeZone}>
       <GoogleCaptchaWrapper>
         <Component {...pageProps} />
-        <ToastContainer position="top-right" autoClose={3000} className="font-light text-[13px]" />
       </GoogleCaptchaWrapper>
+      <ToastContainer position="top-right" autoClose={3000} className="font-light text-[13px]" />
     </NextIntlClientProvider>
   );
 }

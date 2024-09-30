@@ -211,7 +211,7 @@ const Contact = () => {
                 </div>
                 <div className="row form-row">
                   <div className="col-sm-5 form-field">
-                    <button className="button button--primary button--block" type="submit">
+                    <button className="btn btn-primary button--block" type="submit">
                       Submit
                     </button>
                   </div>

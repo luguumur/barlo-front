@@ -368,7 +368,7 @@ const Application: FC<Step2Props> = ({ formData, setFormData, prevStep, submitFo
   const emptyFields = getEmptyFields(formData);
   const isNextDisabled = emptyFields.length > 0;
 
-  console.log("Empty fields:", emptyFields);
+  // console.log("Empty fields:", emptyFields);
   return (
     <div className={styles.gnewtonCareerBodyClass}>
       <div className="">

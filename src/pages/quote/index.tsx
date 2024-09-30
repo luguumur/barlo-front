@@ -279,7 +279,7 @@ const RequestAQuote = () => {
                     <input className="wpcf7-form-control wpcf7-currentpage" type="hidden" name="currentpage" />
                     <div className="row">
                       <div className="col-md-6 form-row">
-                        <button className="button button--primary button--block" type="submit">
+                        <button className="btn btn-primary button--block" type="submit">
                           Submit
                         </button>
                       </div>

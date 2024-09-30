@@ -65,7 +65,7 @@ const Types: InferGetServerSidePropsType<typeof getServerSideProps> = (props: an
                           </div>
                         ))}
                     </dl>
-                    <button className="button button--primary text--left">View Details</button>
+                    <button className="btn btn-primary text--left">View Details</button>
                   </figcaption>
                 </Link>
               ))}

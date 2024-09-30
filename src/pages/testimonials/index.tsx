@@ -51,7 +51,7 @@ const Testimonial: InferGetServerSidePropsType<typeof getServerSideProps> = (pro
                           <div className="customer__desc">
                             <p>{locale === "mn" ? item.subtitle : item.subtitle_en}</p>
                           </div>
-                          <a className="customer__link button button--primary" href={`/testimonials/${item.id}`}>
+                          <a className="customer__link btn btn-primary" href={`/testimonials/${item.id}`}>
                             {t("learnmore")}
                           </a>
                         </div>

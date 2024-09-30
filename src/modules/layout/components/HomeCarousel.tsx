@@ -33,11 +33,15 @@ const HomeCarouselComponent: React.FC<EmblaCarouselProps> = ({ slides }) => {
                 alt={`barloworld Mongolia ${index + 1}`}
                 quality={75}
                 fill
-                priority // Keep this to prioritize loading
-                loading="eager" // Consider keeping this if the image is critical
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Adjust sizes for better responsiveness
+                priority
+                loading={index < 2 ? "eager" : "lazy"}
+                sizes="(max-width: 640px) 100vw,
+    (max-width: 1280px) 50vw,
+    (max-width: 1536px) 33vw,
+    25vw"
                 style={{
                   objectFit: "cover",
+                  transform: "translate3d(0, 0, 0)",
                 }}
               />
             </div>

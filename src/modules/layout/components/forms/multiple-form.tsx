@@ -27,8 +27,8 @@ const MultiStepForm: FC<JobProps> = ({ job }) => {
   const submitForm = async (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault(); // Prevent default form submission
 
-    console.log("Form submitted:", formData);
-    console.log("Application form data:", applicationFormData);
+    // console.log("Form submitted:", formData);
+    // console.log("Application form data:", applicationFormData);
 
     NProgress.start(); // Show loading indicator
 
@@ -56,8 +56,8 @@ const MultiStepForm: FC<JobProps> = ({ job }) => {
 
         if (response.status === 200) {
           toast.success("Амжилттай илгээгдлээ. Баярлалаа");
-          // setApplicationFormData(defaultJobFormData);
-          // setFormData({ name: "", date: "" });
+          setApplicationFormData(defaultJobFormData);
+          setFormData({ name: "", date: "" });
         } else {
           toast.error("Мэдээлэл олдохгүй байна.");
         }

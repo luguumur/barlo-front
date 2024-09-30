@@ -1,6 +1,6 @@
-import appConfig from '@/configs/app.config';
-import BaseService from './BaseService';
-import type { AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios';
+import appConfig from "@/configs/app.config";
+import BaseService from "./BaseService";
+import type { AxiosRequestConfig, AxiosResponse, AxiosError } from "axios";
 
 const ApiService = {
   fetchData<Response = unknown, Request = Record<string, unknown> | FormData>(param: AxiosRequestConfig<Request>) {
@@ -13,7 +13,7 @@ const ApiService = {
           reject(errors);
         });
     });
-  }
+  },
 };
 
 export default ApiService;

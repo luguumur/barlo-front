@@ -61,7 +61,7 @@ const DealsPage = () => {
                       decoding="async"
                       sizes="(max-width: 300px) 100vw, 300px"
                     />
-                    <button className="button button--primary button--block"> {menu("learnmore")} </button>
+                    <button className="btn btn-primary button--block"> {menu("learnmore")} </button>
                   </a>
                 </div>
               ))}
