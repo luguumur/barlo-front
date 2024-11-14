@@ -182,7 +182,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     method: "get",
     rejectUnauthorized: false,
     maxBodyLength: Infinity,
-    url: `${process.env.apiDomain}/jobs`,
+    url: `${process.env.apiDomain}/jobs?status=ACTIVE`,
     headers: {},
   };
   const careers = await instance.request(config);
