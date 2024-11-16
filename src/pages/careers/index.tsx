@@ -16,6 +16,7 @@ import { GoogleReCaptchaProvider, useGoogleReCaptcha } from "react-google-recapt
 import { HrData } from "@/data/hr";
 import Footer from "@/modules/layout/templates/footer";
 import Nav from "@/modules/layout/templates/nav";
+import moment from "moment";
 
 interface FormData {
   name: string;
@@ -134,13 +135,32 @@ const careerPage: InferGetServerSidePropsType<typeof getServerSideProps> = (prop
         <div className="container">
           <h3>Нээлттэй ажлын байр</h3>
           <div className="positions">
+            <div className="mt-5 mb-3 rounded-2xl py-4 bg-[#dfe4ee] flex justify-between md:grid grid-cols-8">
+              <span className="md:block md:col-span-4">Албан тушаал</span>
+              <span className="hidden md:block md:col-span-2 text-center">Нээлтийн огноо</span>
+              <span className="col-span-2 flex justify-center">Хаалтын огноо</span>
+            </div>
             {props.data.map((item: any, index: any) => (
-              <div key={index} className="row position" data-location="La Vergne, TN">
-                <div className="col-xxs-12">
-                  <Link href={"/careers/" + item.id} className="position-link">
-                    {locale === "mn" ? `${index + 1}. ${item.title}` : `${index + 1}. ${item.title_en}`}
-                  </Link>
-                  <span className="position-location"> -{item.location}</span>
+              <div key={index} className="w-full border rounded-xl cursor-pointer border-greyScale-5 mb-2">
+                <div className="py-4 grid grid-cols-8 items-center gap-6">
+                  <div className="col-span-6 md:col-span-4">
+                    <div className="text-base font-semibold">
+                      <Link href={`/careers/${item.id}`} className="position-link">
+                        {locale === "mn" ? item.title : item.title_en}
+                      </Link>
+                    </div>
+                  </div>
+
+                  <div className="hidden md:block lg:block md:col-span-2">
+                    <div className="md:flex gap-4 justify-center">
+                      <div>{moment(item.start_date).format("YYYY.MM.DD")}</div>
+                    </div>
+                  </div>
+                  <div className="col-span-2 md:col-span-2 flex justify-end md:justify-center gap-6">
+                    <div className="md:flex gap-4 ">
+                      <div>{moment(item.end_date).format("YYYY.MM.DD")}</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
@@ -186,9 +206,22 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     headers: {},
   };
   const careers = await instance.request(config);
+  const careerList = careers.data;
+
+  // // Sort the careers array by start_date
+  const sortedCareers = careerList.sort((a: any, b: any) => {
+    // Convert start_date strings to Date objects
+    const dateA: any = new Date(a.start_date as string);
+    const dateB: any = new Date(b.start_date as string);
+
+    return dateB - dateA;
+  });
+
+  // console.log(sortedCareers);
+  // // console.log(sortedCareers.data.start_date);
   return {
     props: {
-      data: careers?.data,
+      data: sortedCareers,
       messages: (await import(`../../../messages/${context.locale}.json`)).default,
     },
   };

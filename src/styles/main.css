@@ -10241,14 +10241,14 @@ ul.error-page {
   display: none !important;
 }
 
-.hidden {
-  display: none !important;
-  visibility: hidden !important;
-}
-
+/* .hidden {
+  display: none ;
+  visibility: hidden;
+} */
+/* 
 .invisible {
   visibility: hidden !important;
-}
+} */
 
 .text-hide {
   font: 0/0 a;

@@ -26,6 +26,9 @@ const Job: InferGetServerSidePropsType<typeof getServerSideProps> = (props: any)
       <article className="page-body container page type-position status-publish hentry" id="page-body">
         <div className="row">
           <main className="page-content col-md-9 col-md-push-3">
+            <div className="widget-even widget-2 black widget wpcm_closest_location text-center py-10">
+              <h5 className="font-bold ">{locale === "mn" ? props.job.title : props.job.title_en}</h5>
+            </div>
             <Markdown>{locale === "mn" ? props.job.description : props.job.description_en}</Markdown>
             <Link
               href={`/application?title=${locale === "mn" ? props.job.title : props.job.title_en}`}
