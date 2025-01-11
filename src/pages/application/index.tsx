@@ -12,7 +12,7 @@ import { HeaderData } from "@/data/menu";
 import MultiStepForm from "@/modules/layout/components/forms/multiple-form";
 import Footer from "@/modules/layout/templates/footer";
 import Nav from "@/modules/layout/templates/nav";
-import { AboutMenuData } from "@/data/aboutmenu";
+import { AboutMenuData } from "@/data/aboutMenu";
 import { useSearchParams } from "next/navigation";
 
 import router, { useRouter } from "next/router";

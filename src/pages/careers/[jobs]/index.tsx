@@ -11,7 +11,7 @@ import Head from "@/modules/common/components/head";
 import Link from "next/link";
 import Footer from "@/modules/layout/templates/footer";
 import Nav from "@/modules/layout/templates/nav";
-import { AboutMenuData } from "@/data/aboutmenu";
+import { AboutMenuData } from "@/data/aboutMenu";
 
 const Job: InferGetServerSidePropsType<typeof getServerSideProps> = (props: any) => {
   const t = useTranslations("Menu");

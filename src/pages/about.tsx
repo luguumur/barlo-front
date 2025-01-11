@@ -6,7 +6,7 @@ import Head from "@/modules/common/components/head";
 import { GetStaticPropsContext } from "next";
 import Nav from "@/modules/layout/templates/nav";
 import Footer from "@/modules/layout/templates/footer";
-import { AboutMenuData } from "@/data/aboutmenu";
+import { AboutMenuData } from "@/data/aboutMenu";
 
 const About = () => {
   const t = useTranslations("Home");
