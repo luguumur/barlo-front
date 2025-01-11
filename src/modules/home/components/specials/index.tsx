@@ -6,7 +6,7 @@ const Specials = () => {
   const t = useTranslations("Home");
 
   return (
-    <section className="image-button">
+    <section className="mb-9">
       <div className="image-button-graphics-right">
         <Image
           src={"https://d3leeb4r1qy96s.cloudfront.net/assets/img/graphics4.webp"}
@@ -36,8 +36,8 @@ const Specials = () => {
           <div className="col-md-12">
             <div className="row js-image-button" role="toolbar">
               {MenuData.map((item, index) => (
-                <div key={index} className="col-md-3 col-sm-6">
-                  <div className="image-button-item">
+                <div key={index} className="col-md-3 col-sm-6 mb-6">
+                  <div className="image-button-item min-h-[242px]">
                     <a href={`/${item.handle}`} target="_self">
                       <div className="image-container relative w-full h-[242px]">
                         <Image
