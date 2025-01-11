@@ -1,18 +1,18 @@
-"use client"
-import { useParams, usePathname } from "next/navigation"
+"use client";
+import { useParams, usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
 
-import { GetStaticPropsContext } from "next"
-import Questions from "../questions"
+import { GetStaticPropsContext } from "next";
+import Questions from "../questions";
 type Props = {
-    title?: string,
-    menu?: any,
-    translate: string
-}
+  title?: string;
+  menu?: any;
+  translate: string;
+};
 
 const Beside = (props: Props) => {
-  const pathname = usePathname()
-  let translat1e = props.translate
+  const pathname = usePathname();
+  let translat1e = props.translate;
   const translate = useTranslations(translat1e);
   return (
     <aside className="page-sidebar col-md-3 col-md-pull-9">
@@ -20,25 +20,31 @@ const Beside = (props: Props) => {
         <h5>{props.title}</h5>
         <nav className="sublist-pages">
           <ul id="menu-main-navigation-1" className="menu">
-          {props.menu.map((item: any, index: any) => (
-              <li key={index} id={`menu-item-${item.id}`} className={`menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children ${item.handle == pathname ? 'current-menu-item page_item current_page_item' : ''}`}>
-                  <a href={item.handle}>{translate(`${item.title}`)}</a>
+            {props.menu.map((item: any, index: any) => (
+              <li
+                key={index}
+                id={`menu-item-${item.id}`}
+                className={`menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children ${
+                  item.handle == pathname ? "current-menu-item page_item current_page_item" : ""
+                }`}
+              >
+                <a href={item.handle}>{translate(`${item.title}`)}</a>
               </li>
-          ))}
+            ))}
           </ul>
         </nav>
       </div>
-      <Questions/>
-    </aside>  
-  )
-}
+      <Questions />
+    </aside>
+  );
+};
 
-export default Beside
+export default Beside;
 
-export async function getStaticProps({locale}: GetStaticPropsContext) {
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
   return {
     props: {
-      messages: (await import(`../../../../../messages/${locale}.json`)).default
-    }
+      messages: (await import(`../../../../../messages/${locale}.json`)).default,
+    },
   };
 }

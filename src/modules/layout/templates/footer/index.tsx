@@ -89,43 +89,43 @@ const Footer = () => {
   const t = useTranslations("Home");
   return (
     <footer>
-      {showFooter && (
-        <div className="container pt-7">
-          <div className="col-md-6 h-[48px] flex items-center">
-            <span className="text-sm">{t("connect_your_email")}</span>
-          </div>
-          <form
-            onSubmit={handleSubmit}
-            className="wpcf7-form init"
-            id="emailForm"
-            aria-label="email form"
-            data-status="init"
-          >
-            <div className="col-md-6">
-              <div className="row">
-                <div className="col-sm-6 form-field pb-7">
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="wpcf7-form-control wpcf7-text wpcf7-validates-as-required h-[48px] w-full bg-white text-gray-800 placeholder-gray-500"
-                    placeholder="Цахим хаяг"
-                    aria-required="true"
-                    aria-label="email input"
-                    required
-                  />
-                </div>
-                <div className="col-sm-6 form-field pb-7">
-                  <button className="btn btn-primary !w-full" type="submit">
+      <div className="min-h-12">
+        {showFooter && (
+          <div className="container py-7 ">
+            <div className="flex flex-col sm:flex-row items-center justify-between w-full">
+              <span className="text-sm pb-6 sm:pb-0">{t("connect_your_email")}</span>
+              <form
+                onSubmit={handleSubmit}
+                className="w-full sm:w-2/4" // Added specific widths for larger screens
+                id="emailForm"
+                aria-label="email form"
+                data-status="init"
+              >
+                <div className="flex flex-col sm:flex-row w-full gap-4 justify-end">
+                  {" "}
+                  {/* Changed from row to flex with gap */}
+                  <div className="w-full sm:w-1/2">
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="w-full wpcf7-form-control wpcf7-text wpcf7-validates-as-required h-[48px] bg-white text-gray-800 placeholder-gray-500 transition-all duration-300"
+                      placeholder={t("email")}
+                      aria-required="true"
+                      aria-label="email input"
+                      required
+                    />
+                  </div>
+                  <button className="btn btn-primary w-full transition-all duration-300" type="submit">
                     {t("submit")}
                   </button>
                 </div>
-              </div>
+              </form>
             </div>
-          </form>
-        </div>
-      )}
+          </div>
+        )}
+      </div>
       <FooterNav />
     </footer>
   );

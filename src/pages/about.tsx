@@ -6,6 +6,7 @@ import Head from "@/modules/common/components/head";
 import { GetStaticPropsContext } from "next";
 import Nav from "@/modules/layout/templates/nav";
 import Footer from "@/modules/layout/templates/footer";
+import { AboutMenuData } from "@/data/aboutmenu";
 
 const About = () => {
   const t = useTranslations("Home");
@@ -35,45 +36,13 @@ const About = () => {
                             <a href="/management">
                               <div className="card-image"></div>
                               <div className="image-card-content js-equal-heights-item h-[98px]">
+                                <h2>{t("board")}</h2>
                                 <div className="image-card-btn">
                                   <span className="image-card-btn-text">{menu("learnmore")}</span>
                                   <div className="image-card-btn-clippy">
                                     <span className="icon-right"></span>
                                   </div>
                                 </div>
-                                <h3>{t("board")}</h3>
-                              </div>
-                            </a>
-                          </div>
-                        </div>
-                        <div className="col-sm-6">
-                          <div className="image-cards-box">
-                            <a href="/news">
-                              <div className="card-image"></div>
-                              <div className="image-card-content js-equal-heights-item h-[98px]">
-                                <div className="image-card-btn">
-                                  <span className="image-card-btn-text">{menu("learnmore")}</span>
-                                  <div className="image-card-btn-clippy">
-                                    <span className="icon-right"></span>
-                                  </div>
-                                </div>
-                                <h3>{menu("news_event")}</h3>
-                              </div>
-                            </a>
-                          </div>
-                        </div>
-                        <div className="col-sm-6">
-                          <div className="image-cards-box">
-                            <a href="/testimonials">
-                              <div className="card-image"></div>
-                              <div className="image-card-content js-equal-heights-item h-[98px]">
-                                <div className="image-card-btn">
-                                  <span className="image-card-btn-text">{menu("learnmore")}</span>
-                                  <div className="image-card-btn-clippy">
-                                    <span className="icon-right"></span>
-                                  </div>
-                                </div>
-                                <h3>{menu("testimonials")}</h3>
                               </div>
                             </a>
                           </div>
@@ -83,45 +52,78 @@ const About = () => {
                             <a href="/careers">
                               <div className="card-image"></div>
                               <div className="image-card-content js-equal-heights-item h-[98px]">
+                                <h2>{menu("careers")}</h2>
                                 <div className="image-card-btn">
                                   <span className="image-card-btn-text">{menu("learnmore")}</span>
                                   <div className="image-card-btn-clippy">
                                     <span className="icon-right"></span>
                                   </div>
                                 </div>
-                                <h3>{menu("careers")}</h3>
                               </div>
                             </a>
                           </div>
                         </div>
-                        {/* <div className="col-sm-6">
-                                                <div className="image-cards-box">
-                                                    <a href="/benefits">
-                                                        <div className="card-image"></div>
-                                                        <div className="image-card-content js-equal-heights-item h-[98px]">
-                                                            <div className="image-card-btn">
-                                                                <span className="image-card-btn-text">{menu("learnmore")}</span>
-                                                                <div className="image-card-btn-clippy">
-                                                                    <span className="icon-right"></span>
-                                                                </div>
-                                                            </div>
-                                                            <h3>{menu("employee_benefits")}</h3>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </div> */}
+                        <div className="col-sm-6">
+                          <div className="image-cards-box">
+                            <a href="/news">
+                              <div className="card-image"></div>
+                              <div className="image-card-content js-equal-heights-item h-[98px]">
+                                <h2>{menu("news_event")}</h2>
+                                <div className="image-card-btn">
+                                  <span className="image-card-btn-text">{menu("learnmore")}</span>
+                                  <div className="image-card-btn-clippy">
+                                    <span className="icon-right"></span>
+                                  </div>
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                        </div>
+                        <div className="col-sm-6">
+                          <div className="image-cards-box">
+                            <a href="/testimonials">
+                              <div className="card-image"></div>
+                              <div className="image-card-content js-equal-heights-item h-[98px]">
+                                <h2>{menu("testimonials")}</h2>
+                                <div className="image-card-btn">
+                                  <span className="image-card-btn-text">{menu("learnmore")}</span>
+                                  <div className="image-card-btn-clippy">
+                                    <span className="icon-right"></span>
+                                  </div>
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                        </div>
+
+                        <div className="col-sm-6">
+                          <div className="image-cards-box">
+                            <a href="/magazine">
+                              <div className="card-image"></div>
+                              <div className="image-card-content js-equal-heights-item h-[98px]">
+                                <h2>{t("magazine")}</h2>
+                                <div className="image-card-btn">
+                                  <span className="image-card-btn-text">{menu("learnmore")}</span>
+                                  <div className="image-card-btn-clippy">
+                                    <span className="icon-right"></span>
+                                  </div>
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                        </div>
                         <div className="col-sm-6">
                           <div className="image-cards-box">
                             <a href="/contact-us/">
                               <div className="card-image"></div>
                               <div className="image-card-content js-equal-heights-item h-[98px]">
+                                <h2>{t("contact")}</h2>
                                 <div className="image-card-btn">
                                   <span className="image-card-btn-text">{menu("learnmore")}</span>
                                   <div className="image-card-btn-clippy">
                                     <span className="icon-right"></span>
                                   </div>
                                 </div>
-                                <h3>{t("contact")}</h3>
                               </div>
                             </a>
                           </div>
@@ -152,7 +154,7 @@ const About = () => {
               </main>
             </div>
           </main>
-          <Beside menu={HeaderData} title={t(`about`)} translate="Menu" />
+          <Beside menu={AboutMenuData} title={t(`about`)} translate="Menu" />
         </div>
       </article>
       <Footer />

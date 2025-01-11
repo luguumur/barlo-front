@@ -34,6 +34,7 @@ const Management = () => {
       <Nav />
       <PageHeader
         title={t(`magazine`)}
+        sub={{ title: t(`about`), handle: "/about" }}
         image="https://d3leeb4r1qy96s.cloudfront.net/assets/img/cta-banner-image-1536x306.jpg"
       />
       <section className="services-card-section">

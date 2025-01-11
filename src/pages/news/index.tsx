@@ -68,6 +68,7 @@ const NewsPage: InferGetServerSidePropsType<typeof getServerSideProps> = (props:
       <Nav />
       <PageHeader
         title={t(`news`)}
+        sub={{ title: t(`about`), handle: "/about" }}
         image="https://d3leeb4r1qy96s.cloudfront.net/assets/img/cta-banner-image-1536x306.jpg"
       />
       <article className="page-body container page type-page status-publish hentry" id="page-body">

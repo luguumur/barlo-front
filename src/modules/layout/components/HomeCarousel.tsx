@@ -33,12 +33,11 @@ const HomeCarouselComponent: React.FC<EmblaCarouselProps> = ({ slides }) => {
                 alt={`barloworld Mongolia ${index + 1}`}
                 quality={75}
                 fill
-                priority
-                loading={index < 2 ? "eager" : "lazy"}
-                sizes="(max-width: 640px) 100vw,
-    (max-width: 1280px) 50vw,
-    (max-width: 1536px) 33vw,
-    25vw"
+                priority={index === 0} // Only prioritize the first image
+                loading={index === 0 ? "eager" : "lazy"}
+                sizes="100vw" // Simplified sizes as it's a full-width carousel
+                placeholder="blur" // Add blur placeholder
+                blurDataURL={`data:image/svg+xml;base64,...`} // Add appropriate blur data
                 style={{
                   objectFit: "cover",
                   transform: "translate3d(0, 0, 0)",

@@ -63,11 +63,12 @@ const OfferCarousel: React.FC<Props> = ({ deals, description, locale, image }) =
                       <Image
                         alt={deal.title}
                         src={deal.img_path}
-                        width={500}
-                        height={500}
+                        width={800}
+                        height={600}
                         priority
-                        sizes="50vw"
+                        sizes="(max-width: 768px) 100vw, 800px"
                         loader={imageLoader}
+                        className="object-cover w-full h-full"
                       />
                     </div>
                     <div className="home-deals-content">

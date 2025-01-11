@@ -1991,9 +1991,9 @@ html.flexbox {
   align-items: stretch;
 }
 
-.slick-slide > div {
+/* .slick-slide > div {
   height: 470px;
-}
+} */
 
 .equipment-detail > div {
   height: 500px;
@@ -3073,9 +3073,9 @@ input.wpcf7-not-valid {
     margin-right: 0;
   }
 
-  .header-top-right-section {
+  /* .header-top-right-section {
     margin-top: 9px;
-  }
+  } */
 
   .header-right-top {
     display: flex;
@@ -3084,9 +3084,9 @@ input.wpcf7-not-valid {
     justify-content: right;
   }
 
-  .page-header.active .header-top-right-section {
+  /* .page-header.active .header-top-right-section {
     margin-top: 3px;
-  }
+  } */
 
   .header-login {
     margin-bottom: 1px;
@@ -3300,16 +3300,16 @@ input.wpcf7-not-valid {
   padding-right: 0;
 }
 
-@media (min-width: 1366px) {
+/* @media (min-width: 1366px) {
   .nav--top-menu li {
     padding: 0 1em;
   }
-}
+} */
 
 .nav--primary {
   border-top: 1px solid #e2e2e2;
   display: none;
-  margin-top: 0.833em;
+  margin-top: 15px;
 }
 
 .nav--primary ul {
@@ -4132,7 +4132,6 @@ input.wpcf7-not-valid {
 }
 
 .quick-search-field-button .btn {
-  width: calc(100% - 16px);
   height: 100%;
 }
 
@@ -7581,8 +7580,16 @@ span.categories a {
   margin-bottom: 35px;
   text-align: center;
 }
+.nav--footer-secondary {
+  text-align: center;
+}
 
 .nav--footer li {
+  display: inline-block;
+  padding: 0 0.5em;
+}
+
+.nav--footer-secondary li {
   display: inline-block;
   padding: 0 0.5em;
 }
@@ -7619,7 +7626,7 @@ span.categories a {
 }
 
 .page-footer__social {
-  margin-bottom: 35px;
+  margin-bottom: 24px;
 }
 
 .page-footer__social li a {
@@ -7654,7 +7661,6 @@ span.categories a {
 }
 
 .nav--footer-secondary li {
-  float: left;
   padding-right: 20px;
   /* width: 30% */
 }

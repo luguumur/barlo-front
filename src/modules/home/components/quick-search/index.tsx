@@ -90,11 +90,12 @@ const QuickSearch: React.FC<Props> = ({ model = [], owner = [], location = [] })
                         aria-required="true"
                       >
                         <option value="all">{t("all")}</option>
-                        {model?.map((item, index) => (
+                        <option value="aa">All</option>
+                        {/* {model?.map((item, index) => (
                           <option className="selectric-items" key={index} value={item.string_value}>
                             {item.string_value}
                           </option>
-                        ))}
+                        ))} */}
                       </select>
                     </div>
                   </div>

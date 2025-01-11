@@ -20,6 +20,7 @@ interface FormData {
 const Contact = () => {
   const { executeRecaptcha } = useGoogleReCaptcha();
   const t = useTranslations("Home");
+  const t2 = useTranslations("Contact");
   const initialData: any = {
     name: "",
     email: "",
@@ -125,7 +126,7 @@ const Contact = () => {
               >
                 <div className="row form-row">
                   <div className="col-sm-6 form-field">
-                    <label>Name*</label>
+                    <label>{t2("name")}*</label>
                     <span className="wpcf7-form-control-wrap" data-name="name">
                       <input
                         type="text"
@@ -138,7 +139,7 @@ const Contact = () => {
                     </span>
                   </div>
                   <div className="col-sm-6 form-field">
-                    <label>Email*</label>
+                    <label>{t2("email")}*</label>
                     <span className="wpcf7-form-control-wrap" data-name="email">
                       <input
                         type="email"
@@ -153,7 +154,7 @@ const Contact = () => {
                 </div>
                 <div className="row form-row">
                   <div className="col-sm-6 form-field">
-                    <label>Phone</label>
+                    <label>{t2("phone")}</label>
                     <span className="wpcf7-form-control-wrap" data-name="phone">
                       <input
                         type="text"
@@ -171,7 +172,7 @@ const Contact = () => {
                     </span>
                   </div>
                   <div className="col-sm-6 form-field">
-                    <label>Subject</label>
+                    <label>{t2("subject")}</label>
                     <span className="wpcf7-form-control-wrap" data-name="subject">
                       <div className="selectric-wrapper selectric-wpcf7-form-control selectric-wpcf7-select">
                         <select
@@ -182,14 +183,13 @@ const Contact = () => {
                           required
                         >
                           <option value="">-</option>
-                          <option value="New Machines">New Machines</option>
-                          <option value="Used Machines">Used Machines</option>
-                          <option value="Power Systems">Power Systems</option>
-                          <option value="Parts">Parts</option>
-                          <option value="Service">Service</option>
-                          <option value="Solar">Solar</option>
-                          <option value="Technology">Technology</option>
-                          <option value="Other">Other</option>
+                          <option value={t2("new_machines")}>{t2("new_machines")}</option>
+                          <option value={t2("used_machines")}>{t2("used_machines")}</option>
+                          <option value={t2("power_systems")}>{t2("power_systems")}</option>
+                          <option value={t2("parts")}>{t2("parts")}</option>
+                          <option value={t2("service")}>{t2("service")}</option>
+                          <option value={t2("technology")}>{t2("technology")}</option>
+                          <option value={t2("other")}>{t2("other")}</option>
                         </select>
                       </div>
                     </span>
@@ -197,7 +197,7 @@ const Contact = () => {
                 </div>
                 <div className="row form-row">
                   <div className="col-sm-12 form-field">
-                    <label>Question/Comment*</label>
+                    <label>{t2("question_comment")}*</label>
                     <span className="wpcf7-form-control-wrap" data-name="comment">
                       <textarea
                         name="comment"
@@ -212,7 +212,7 @@ const Contact = () => {
                 <div className="row form-row">
                   <div className="col-sm-5 form-field">
                     <button className="btn btn-primary button--block" type="submit">
-                      Submit
+                      {t2("submit")}
                     </button>
                   </div>
                 </div>

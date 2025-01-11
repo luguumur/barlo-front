@@ -16,7 +16,11 @@ const Management = () => {
     <>
       <Head title={t(`board`)}></Head>
       <Nav />
-      <PageHeader title={t(`board`)} image="https://d3leeb4r1qy96s.cloudfront.net/assets/img/hr/management.jpg" />
+      <PageHeader
+        title={t(`board`)}
+        sub={{ title: t(`about`), handle: "/about" }}
+        image="https://d3leeb4r1qy96s.cloudfront.net/assets/img/hr/management.jpg"
+      />
       <article className="page-body container page type-page status-publish hentry">
         <div className="container">
           <h2>{t(`board`)}</h2>

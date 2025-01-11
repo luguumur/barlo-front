@@ -33,11 +33,11 @@ const About = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-6">
-            <div className="home-about-right-panel">
-              <h2>{homet("welcome")}</h2>
-              <p>{homet("description")}</p>
+            <div className="home-about-right-panel min-h-[200px]">
+              <h2 className="min-h-[32px]">{homet("welcome")}</h2>
+              <p className="min-h-[96px]">{homet("description")}</p>
               <p>
-                <a className="btn btn-primary mb-4" href="/about/">
+                <a className="btn btn-primary mb-4 min-w-[120px] inline-block" href="/about/">
                   {homet("more")}
                 </a>
               </p>

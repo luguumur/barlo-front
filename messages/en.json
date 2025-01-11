@@ -48,7 +48,8 @@
     "do_you_need_equipment": "Do you need equipment that delivers outstanding performance at your job site? Contact us today to learn more about us and our new, used and rental equipment as well as our parts and service.",
     "connect_your_email": "If you want to receive the latest information, please enter your email address.",
     "submit": "Submit",
-    "locations": "Locations"
+    "locations": "Locations",
+    "testimonials": "Hear From Our Customers"
   },
   "Deals": {
     "deals_specials": "Deals & Specials",
@@ -66,6 +67,7 @@
     "equipmentSearch": "Equipment search"
   },
   "Menu": {
+    "magazine": "Magazine",
     "learnmore": "Learn more",
     "home": "Home",
     "new": "New",
@@ -148,5 +150,31 @@
     "service_support": "With 24/7 parts and service support – including full-service branches equipped with the most up-to-date diagnostic and repair equipment, factory-trained technicians, and the area’s largest fleet of field service trucks – Barloworld Machinery can be your total equipment solutions provider. You need available parts at all times to keep your heavy equipment running. Fortunately, we supply new parts through all of our facilities — as well as Barloworld Exchange components — for the days when avoiding downtime is critical. You can also purchase used, unused and reconditioned items if the cost is a factor. Trust us to provide high-quality and reliable parts that will keep your equipment running and help you save money on costly downtime. At some point, every machine needs service. Whether it’s field service, preventive maintenance or hydraulic repairs, you need a company you trust to deliver required services at the right times. Barloworld Machinery has a fleet of more than 50 field service vehicles as well as more than 200 trained service professionals ready to provide product support for your equipment from Caterpillar. Whenever you purchase new or used equipment or rent from us, we’ll develop a product support strategy with you to handle everything from changing the oil to a total machine rebuild.",
     "contact_us_today": "CONTACT US TODAY",
     "do_you_need_equipment": "Do you need equipment that delivers outstanding performance at your job site? Contact us today to learn more about us and our new, used and rental equipment as well as our parts and service"
+  },
+  "Questions": {
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Message",
+    "submit": "Submit",
+    "questions": "Questions?",
+    "get_in_touch_today": "Get In Touch Today"
+  },
+  "Contact": {
+    "title": "Contact us",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "subject": "Subject",
+    "message": "Message",
+    "question_comment": "Question/Comment",
+    "submit": "Submit",
+    "new_machines": "New Machines",
+    "used_machines": "Used Machines",
+    "power_systems": "Power Systems",
+    "parts": "Parts",
+    "service": "Service",
+    "technology": "Technology",
+    "other": "Other"
   }
 }

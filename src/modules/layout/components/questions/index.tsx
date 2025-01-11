@@ -7,6 +7,7 @@ import NProgress from "nprogress";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { GoogleReCaptchaProvider, useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import { useTranslations } from "next-intl";
 
 interface FormData {
   name: string;
@@ -15,6 +16,7 @@ interface FormData {
 }
 
 const Questions = () => {
+  const t = useTranslations("Questions");
   const { executeRecaptcha } = useGoogleReCaptcha();
   const initialData = {
     email: "",
@@ -82,8 +84,8 @@ const Questions = () => {
   return (
     <div className="widget-even widget-2 widget widget_black_studio_tinymce" id="black-studio-tinymce-2">
       <h6 className="heading-title accent">
-        <b>Questions?</b>
-        <span>Get In Touch Today</span>
+        <b>{t("questions")}</b>
+        <span>{t("get_in_touch_today")}</span>
       </h6>
       <div className="textwidget">
         <p></p>
@@ -101,7 +103,7 @@ const Questions = () => {
           >
             <div className="row">
               <div className="col-xs-6 col-md-12 form-row">
-                <label>Your Name*</label>
+                <label>{t("name")}*</label>
                 <span className="wpcf7-form-control-wrap" data-name="your-name">
                   <input
                     value={formData.name}
@@ -112,11 +114,12 @@ const Questions = () => {
                     type="text"
                     name="name"
                     required
+                    placeholder={t("name")}
                   />
                 </span>
               </div>
               <div className="col-xs-6 col-md-12 form-row">
-                <label>Email*</label>
+                <label>{t("email")}*</label>
                 <span className="wpcf7-form-control-wrap" data-name="email">
                   <input
                     value={formData.email}
@@ -127,13 +130,14 @@ const Questions = () => {
                     type="email"
                     name="email"
                     required
+                    placeholder={t("email")}
                   />
                 </span>
               </div>
             </div>
             <div className="row">
               <div className="col-md-12 form-row">
-                <label>Message</label>
+                <label>{t("message")}</label>
                 <span className="wpcf7-form-control-wrap" data-name="message">
                   <textarea
                     value={formData.message}
@@ -142,14 +146,15 @@ const Questions = () => {
                     aria-invalid="false"
                     name="message"
                     required
+                    placeholder={t("message")}
                   ></textarea>
                 </span>
               </div>
             </div>
             <div className="row">
               <div className="col-xs-6 col-md-12 form-row">
-                <button className="btn btn-primary button--block" type="submit">
-                  Submit
+                <button className="btn btn-primary button--block !w-full" type="submit">
+                  {t("submit")}
                 </button>
               </div>
             </div>

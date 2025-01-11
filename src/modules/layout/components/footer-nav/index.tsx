@@ -42,69 +42,8 @@ const FooterNav = () => {
                   </li>
                 </ul>
               </nav>
-            </div>
-            <div className="col-md-5 col-sm-3">
-              <ul className="page-footer__social social-links hidden-xs hidden-sm clearfix">
-                <li>
-                  <a
-                    className="icon-facebook"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://www.facebook.com/"
-                    aria-label="Facebook"
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    className="icon-twitter"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://twitter.com/"
-                    aria-label="Twitter"
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    className="icon-instagram"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://www.instagram.com/"
-                    aria-label="Instagram"
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    className="icon-linkedin2"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://www.linkedin.com/"
-                    aria-label="LinkedIn"
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    className="icon-youtube3"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://www.youtube.com/"
-                    aria-label="YouTube"
-                  ></a>
-                </li>
-              </ul>
-              <a className="btn btn-primary phone-number" href="tel:+97670187588" aria-label="Call us">
-                +976 7018-7588
-              </a>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-md-4 hidden-xxs hidden-xs hidden-sm">
               <nav className="nav--footer-secondary clearfix">
-                <ul id="menu-footer-menu-1" className="menu">
-                  <li className="menu-item">
-                    <Link href="/careers" aria-current="page">
-                      {homet("workat")}
-                    </Link>
-                  </li>
+                <ul id="menu-footer-menu-1" className="menu text-sm sm:text-base mb-9 float-start">
                   <li className="menu-item">
                     <Link href="/management" aria-current="page">
                       {homet("board")}
@@ -122,21 +61,62 @@ const FooterNav = () => {
                 </ul>
               </nav>
             </div>
-            <div className="col-sm-8 col-sm-push-4 col-md-4 col-md-push-4 col-lg-5 col-lg-push-3">
-              <div className="page-footer__extra-links clearfix">
-                <div className="page-footer__google-translate"></div>
-                <ul>
-                  <li>
-                    <Link href="/locations">{homet("locations")}</Link>
-                  </li>
-                  <li className="hidden-xxs">
-                    <Link href="/contact-us">{homet("contact")}</Link>
-                  </li>
-                </ul>
-              </div>
+            <div className="col-md-5 col-sm-3">
+              <ul className="page-footer__social social-links hidden-xs hidden-sm clearfix">
+                <li className="mr-6 sm:mr-0">
+                  <a
+                    className="icon-facebook"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.facebook.com/BarloworldMongolia"
+                    aria-label="Facebook"
+                  ></a>
+                </li>
+                <li className="mr-6 sm:mr-0">
+                  <a
+                    className="icon-twitter"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://x.com/BarloworldMN"
+                    aria-label="Twitter"
+                  ></a>
+                </li>
+                <li className="mr-6 sm:mr-0">
+                  <a
+                    className="icon-instagram"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.instagram.com/barloworldmongolia"
+                    aria-label="Instagram"
+                  ></a>
+                </li>
+                <li className="mr-6 sm:mr-0">
+                  <a
+                    className="icon-linkedin2"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.linkedin.com/company/barloworldmongolia"
+                    aria-label="LinkedIn"
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    className="icon-youtube3"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.youtube.com/@BarloworldMongolia"
+                    aria-label="YouTube"
+                  ></a>
+                </li>
+              </ul>
+              <a className="btn btn-primary phone-number" href="tel:+97670187588" aria-label="Call us">
+                +976 7018-7588
+              </a>
             </div>
-            <div className="col-sm-4 col-sm-pull-8 col-md-4 col-md-pull-4 col-lg-3 col-lg-pull-5">
-              <p className="page-footer__copyright bg-[#474d59]" aria-label="Copyright information">
+          </div>
+          <div className="row">
+            <div className="col-sm-12">
+              <p className="page-footer__copyright bg-[#474d59] text-white" aria-label="Copyright information">
                 Copyright © 2024 Barloworld Mongolia. <br /> All Rights Reserved
               </p>
             </div>

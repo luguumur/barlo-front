@@ -56,37 +56,36 @@ const TestiCarousel: React.FC<Props> = ({ testi, description, image }) => {
     ],
   };
   const t = useTranslations("Menu");
+  const home = useTranslations("Home");
   const { locale, locales, route, asPath } = useRouter();
   return (
     <div className="home-testimonials clearfix">
       <div className="home-testimonials-wrapper clearfix">
-        <div className="home-testimonials-banner hidden-md-down">
+        <div className="home-testimonials-banner hidden-md-down relative aspect-[831/625] w-full">
           <Image
             priority
-            width={831}
-            height={625}
             src="https://d3leeb4r1qy96s.cloudfront.net/assets/img/test.jpg"
-            className="img-responsive entered lazyloaded"
+            className="img-responsive object-cover"
             alt="Barloworld Mongolia"
-            loading={"eager"}
+            sizes="100vw"
+            layout="fill"
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
           />
         </div>
         <div className="home-testimonials-right-panel">
           <div className="home-testimonials-header">
-            <h2>
-              <span>Hear From</span> Our Customers
-            </h2>
+            <h2>{home("testimonials")}</h2>
           </div>
           <div className="home-testimonials-slider-wrapper">
             <div className="home-testimonials-slider home-testimonials-slider-homepage slick-initialized slick-slider">
               <Slider {...settings} className="p-0">
                 {testi?.map((item: any, index: any) => (
-                  <div key={index} className="h-[370px] !w-[350px]">
+                  <div key={index} className="h-[300px] md:h-[370px] w-full md:!w-[350px]">
                     <div className="home-testimonials-slider-item-column z-10">
-                      <div className="text-sm mb-5 text-[#1C1C1C]">
+                      <div className="text-xs md:text-sm mb-3 md:mb-5 text-[#1C1C1C]">
                         {locale === "mn" ? item.subtitle : item.subtitle_en}
                       </div>
-                      <span className="title-wrap pb-5 font-bold text-[17px] text-[#666] uppercase">
+                      <span className="title-wrap pb-3 md:pb-5 font-bold text-[15px] md:text-[17px] text-[#666] uppercase">
                         <span>—{locale === "mn" ? item.title : item.title_en}</span>
                       </span>
                     </div>

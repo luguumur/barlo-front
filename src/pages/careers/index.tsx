@@ -130,38 +130,48 @@ const careerPage: InferGetServerSidePropsType<typeof getServerSideProps> = (prop
     <>
       <Head title={t(`careers`)}></Head>
       <Nav />
-      <PageHeader title={t(`careers`)} image="https://d3leeb4r1qy96s.cloudfront.net/assets/img/specials/minihr.jpg" />
+      <PageHeader
+        title={t(`careers`)}
+        sub={{ title: t(`about`), handle: "/about" }}
+        image="https://d3leeb4r1qy96s.cloudfront.net/assets/img/specials/minihr.jpg"
+      />
       <section className="wysiwyg-section">
         <div className="container">
           <h3>Нээлттэй ажлын байр</h3>
           <div className="positions">
-            <div className="mt-5 mb-3 rounded-2xl py-4 bg-[#dfe4ee] flex justify-between md:grid grid-cols-8">
-              <span className="md:block md:col-span-4">Албан тушаал</span>
-              <span className="hidden md:block md:col-span-2 text-center">Нээлтийн огноо</span>
-              <span className="col-span-2 flex justify-center">Хаалтын огноо</span>
-            </div>
-            {props.data.map((item: any, index: any) => (
-              <div key={index} className="w-full border rounded-xl cursor-pointer border-greyScale-5 mb-2">
-                <div className="py-4 grid grid-cols-8 items-center gap-6">
-                  <div className="col-span-6 md:col-span-4">
-                    <div className="text-base font-semibold">
-                      <Link href={`/careers/${item.id}`} className="position-link">
-                        {locale === "mn" ? item.title : item.title_en}
-                      </Link>
-                    </div>
+            <div className="mt-5 mb-3 rounded-2xl py-4 bg-[#dfe4ee]">
+              <div className="container px-4">
+                <div className="grid grid-cols-12 gap-4">
+                  <div className="col-span-12 md:col-span-6">
+                    <span className="font-medium">Албан тушаал</span>
                   </div>
-
-                  <div className="hidden md:block lg:block md:col-span-2">
-                    <div className="md:flex gap-4 justify-center">
-                      <div>{moment(item.start_date).format("YYYY.MM.DD")}</div>
-                    </div>
+                  <div className="col-span-12 md:col-span-3">
+                    <span className="font-medium">Нээлтийн огноо</span>
                   </div>
-                  <div className="col-span-2 md:col-span-2 flex justify-end md:justify-center gap-6">
-                    <div className="md:flex gap-4 ">
-                      <div>{moment(item.end_date).format("YYYY.MM.DD")}</div>
-                    </div>
+                  <div className="col-span-12 md:col-span-3">
+                    <span className="font-medium">Хаалтын огноо</span>
                   </div>
                 </div>
+              </div>
+            </div>
+
+            {props.data.map((item: any, index: any) => (
+              <div key={index} className="mb-4">
+                <Link href={`/careers/${item.id}`} className="block hover:bg-gray-50">
+                  <div className="border rounded-xl p-4">
+                    <div className="grid grid-cols-12 gap-4 items-center">
+                      <div className="col-span-12 md:col-span-6">
+                        <h3 className="text-base font-semibold">{locale === "mn" ? item.title : item.title_en}</h3>
+                      </div>
+                      <div className="col-span-12 md:col-span-3">
+                        <div className="text-sm text-gray-600">{moment(item.start_date).format("YYYY.MM.DD")}</div>
+                      </div>
+                      <div className="col-span-12 md:col-span-3">
+                        <div className="text-sm text-gray-600">{moment(item.end_date).format("YYYY.MM.DD")}</div>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
               </div>
             ))}
           </div>

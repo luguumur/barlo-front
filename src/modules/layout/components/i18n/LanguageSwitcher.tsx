@@ -10,7 +10,7 @@ export default function LocaleSwitcher() {
   const otherLocale = locales?.find((cur) => cur !== locale);
 
   return (
-    <Link href={asPath} locale={otherLocale} className="locale">
+    <Link href={asPath} locale={otherLocale} className="locale text-black bg-white hover:bg-gray-100">
       {t("switchLocale", { locale: otherLocale })}
     </Link>
   );

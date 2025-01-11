@@ -11,6 +11,7 @@ import Head from "@/modules/common/components/head";
 import Link from "next/link";
 import Footer from "@/modules/layout/templates/footer";
 import Nav from "@/modules/layout/templates/nav";
+import { AboutMenuData } from "@/data/aboutmenu";
 
 const Job: InferGetServerSidePropsType<typeof getServerSideProps> = (props: any) => {
   const t = useTranslations("Menu");
@@ -21,6 +22,7 @@ const Job: InferGetServerSidePropsType<typeof getServerSideProps> = (props: any)
       <Nav />
       <PageHeader
         title={locale === "mn" ? props.job.title : props.job.title_en}
+        sub={{ title: t(`careers`), handle: "/careers" }}
         image="https://d3leeb4r1qy96s.cloudfront.net/assets/img/cta-banner-image-1536x306.jpg"
       />
       <article className="page-body container page type-position status-publish hentry" id="page-body">
@@ -32,13 +34,13 @@ const Job: InferGetServerSidePropsType<typeof getServerSideProps> = (props: any)
             <Markdown>{locale === "mn" ? props.job.description : props.job.description_en}</Markdown>
             <Link
               href={`/application?title=${locale === "mn" ? props.job.title : props.job.title_en}`}
-              className="btn btn-primary"
+              className="btn btn-primary mb-16"
               type="submit"
             >
               Анкет илгээх
             </Link>
           </main>
-          <Beside menu={HeaderData} title={t("home")} translate="Menu" />
+          <Beside menu={AboutMenuData} title={t("careers")} translate="Menu" />
         </div>
       </article>
       <Footer />
