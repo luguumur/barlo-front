@@ -10,7 +10,6 @@ import { GetStaticPropsContext } from "next";
 import FX from "@/lib/util/custom-fx";
 import React, { useEffect, useState } from "react";
 import Image from "next/legacy/image";
-import Button from "@/modules/common/components/button";
 
 const Nav = () => {
   const homet = useTranslations("Menu");
