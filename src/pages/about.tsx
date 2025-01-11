@@ -36,7 +36,7 @@ const About = () => {
                             <a href="/management">
                               <div className="card-image"></div>
                               <div className="image-card-content js-equal-heights-item h-[98px]">
-                                <h2>{t("board")}</h2>
+                                <h3>{t("board")}</h3>
                                 <div className="image-card-btn">
                                   <span className="image-card-btn-text">{menu("learnmore")}</span>
                                   <div className="image-card-btn-clippy">
@@ -52,7 +52,7 @@ const About = () => {
                             <a href="/careers">
                               <div className="card-image"></div>
                               <div className="image-card-content js-equal-heights-item h-[98px]">
-                                <h2>{menu("careers")}</h2>
+                                <h3>{menu("careers")}</h3>
                                 <div className="image-card-btn">
                                   <span className="image-card-btn-text">{menu("learnmore")}</span>
                                   <div className="image-card-btn-clippy">
@@ -68,7 +68,7 @@ const About = () => {
                             <a href="/news">
                               <div className="card-image"></div>
                               <div className="image-card-content js-equal-heights-item h-[98px]">
-                                <h2>{menu("news_event")}</h2>
+                                <h3>{menu("news_event")}</h3>
                                 <div className="image-card-btn">
                                   <span className="image-card-btn-text">{menu("learnmore")}</span>
                                   <div className="image-card-btn-clippy">
@@ -84,7 +84,7 @@ const About = () => {
                             <a href="/testimonials">
                               <div className="card-image"></div>
                               <div className="image-card-content js-equal-heights-item h-[98px]">
-                                <h2>{menu("testimonials")}</h2>
+                                <h3>{menu("testimonials")}</h3>
                                 <div className="image-card-btn">
                                   <span className="image-card-btn-text">{menu("learnmore")}</span>
                                   <div className="image-card-btn-clippy">
@@ -101,7 +101,7 @@ const About = () => {
                             <a href="/magazine">
                               <div className="card-image"></div>
                               <div className="image-card-content js-equal-heights-item h-[98px]">
-                                <h2>{t("magazine")}</h2>
+                                <h3>{t("magazine")}</h3>
                                 <div className="image-card-btn">
                                   <span className="image-card-btn-text">{menu("learnmore")}</span>
                                   <div className="image-card-btn-clippy">
@@ -117,7 +117,7 @@ const About = () => {
                             <a href="/contact-us/">
                               <div className="card-image"></div>
                               <div className="image-card-content js-equal-heights-item h-[98px]">
-                                <h2>{t("contact")}</h2>
+                                <h3>{t("contact")}</h3>
                                 <div className="image-card-btn">
                                   <span className="image-card-btn-text">{menu("learnmore")}</span>
                                   <div className="image-card-btn-clippy">
@@ -135,7 +135,7 @@ const About = () => {
                 <section>
                   <img src="https://d3leeb4r1qy96s.cloudfront.net/assets/img/hr/home.png" alt="Barloworld Mongolia" />
                 </section>
-                {/* <h2>{about("what_we_offer")}</h2>
+                {/* <h3>{about("what_we_offer")}</h2>
                             <p>{about("health_insurance")} <br />
                             </p>
                             <h3>{about("new_equipment")}</h3>
@@ -146,7 +146,7 @@ const About = () => {
                             <p>{about("if_you_want_to")}</p>
                             <h3>{about("parts_and_service")}</h3>
                             <p>{about("service_support")}</p>
-                            <h2>{about("contact_us_today")}</h2>
+                            <h3>{about("contact_us_today")}</h2>
                             <p>{about("do_you_need_equipment")} </p>
                             <p>
                                 <a className="btn btn-primary" href="contact-us/">Contact Us For More Info</a>

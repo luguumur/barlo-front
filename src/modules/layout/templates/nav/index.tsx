@@ -102,7 +102,7 @@ const Nav = () => {
                     target="_blank"
                     className="inline-block hidden-xxs hidden-xs hidden-sm pr-5"
                   >
-                    <div className="sc-17sh5d6-0 hVYMdc telcocom-call-component">
+                    <div className="sc-17sh5d6-0 hVYMdc telcocom-call-component z-10">
                       <button type="button">
                         <span className="flex justify-center items-center">
                           <img width={12} height={12} src="/phone.svg" alt="phone" />
