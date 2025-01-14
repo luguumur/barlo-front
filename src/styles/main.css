@@ -6332,7 +6332,7 @@ img.mfp-img {
   background: #1e1e1e;
   color: #fff;
   display: block;
-  font: 600 14.03px "Source Sans Pro", sans-serif;
+  font: 600 14.03px "Inter", sans-serif;
   padding: 0.713em 1.14em;
   text-transform: uppercase;
 }
@@ -8787,7 +8787,7 @@ img.map-marker--active {
 }
 
 .slideshow .headline-container h1 {
-  font: 600 32px/1.098em "Source Sans Pro", sans-serif;
+  font: 600 32px/1.098em "Inter", sans-serif;
   padding: 25px;
 }
 
@@ -8797,7 +8797,7 @@ img.map-marker--active {
 }
 
 .slideshow .headline-container .button--tertiary {
-  font: 17px "Source Sans Pro", sans-serif;
+  font: 17px "Inter", sans-serif;
   padding: 0.706em 2.059em;
   text-transform: none;
 }
@@ -8818,7 +8818,7 @@ img.map-marker--active {
   }
 
   .slideshow .headline-container h1 {
-    font: 600 49px/1.098em "Source Sans Pro", sans-serif;
+    font: 600 49px/1.098em "Inter", sans-serif;
     padding: 33px;
   }
 
@@ -10972,7 +10972,7 @@ h2.h1.hp-mast-heading {
 
 .wpcm_closest_location h6,
 .wpcm_closest_location .h6 {
-  font-family: "Source Sans Pro", sans-serif !important;
+  font-family: "Inter", sans-serif !important;
 }
 
 .service-card-with-featured-image {

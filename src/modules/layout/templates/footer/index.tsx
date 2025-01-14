@@ -1,6 +1,6 @@
 import FooterNav from "@/modules/layout/components/footer-nav";
 import { GetServerSidePropsContext, GetStaticPropsContext } from "next";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import NProgress from "nprogress";
 import { GoogleReCaptchaProvider, useGoogleReCaptcha } from "react-google-recaptcha-v3";
@@ -38,19 +38,21 @@ const Footer = () => {
     NProgress.start();
 
     if (!executeRecaptcha) {
-      console.log("Recaptcha not available");
       toast.error("Recaptcha service is unavailable.");
       NProgress.done();
       return;
     }
 
     try {
+      // Verify recaptcha
       const gRecaptchaToken = await executeRecaptcha("inquirySubmit");
+      if (!gRecaptchaToken) {
+        throw new Error("Failed to generate reCAPTCHA token");
+      }
+
       const recaptchaResponse = await axios.post(
         "/api/recaptchaSubmit",
-        {
-          gRecaptchaToken,
-        },
+        { gRecaptchaToken },
         {
           headers: {
             Accept: "application/json, text/plain, */*",
@@ -59,29 +61,28 @@ const Footer = () => {
         }
       );
 
-      if (recaptchaResponse?.data?.success) {
-        const emailResponse = await axios.post(
-          `/api/email`,
-          {
-            email: formData.email,
-          },
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
+      if (!recaptchaResponse?.data?.success) {
+        throw new Error("Recaptcha validation failed");
+      }
 
-        if (emailResponse.status === 200) {
-          toast.success("Successfully submitted. Thank you!");
-        } else {
-          toast.error("Failed to submit information.");
+      const emailResponse = await axios.post(
+        `/api/email`,
+        { email: formData.email },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
         }
+      );
+
+      if (emailResponse.status === 200) {
+        toast.success("Successfully submitted. Thank you!");
+        setFormData(initialData); // Reset form after successful submission
       } else {
-        toast.error("Recaptcha validation failed.");
+        throw new Error("Failed to submit information");
       }
     } catch (error) {
-      toast.error("Something went wrong.");
+      toast.error(error instanceof Error ? error.message : "Something went wrong.");
     } finally {
       NProgress.done();
     }
