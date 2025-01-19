@@ -17,6 +17,8 @@ import { HrData } from "@/data/hr";
 import Footer from "@/modules/layout/templates/footer";
 import Nav from "@/modules/layout/templates/nav";
 import moment from "moment";
+import Image from "next/image";
+import { HrCareerData, HrEducationData, HrInfoData } from "./careerData";
 
 interface FormData {
   name: string;
@@ -126,6 +128,7 @@ const careerPage: InferGetServerSidePropsType<typeof getServerSideProps> = (prop
       NProgress.done();
     }
   };
+
   return (
     <>
       <Head title={t(`careers`)}></Head>
@@ -137,7 +140,121 @@ const careerPage: InferGetServerSidePropsType<typeof getServerSideProps> = (prop
       />
       <section className="wysiwyg-section">
         <div className="container">
-          <h3>Нээлттэй ажлын байр</h3>
+          <h2 className="text-3xl font-bold mb-8">Бидэнтэй нэгдэх шалтгаан</h2>
+          <div className="mb-12">
+            <h3 className="text-2xl font-semibold mb-4">1. Таны эрүүл мэнд хамгаас чухал</h3>
+          </div>
+          <div className="service-card-with-featured-image__list !m-0">
+            {HrInfoData.map((item: any, index: any) => (
+              <div
+                className={`service-card flex ${
+                  index % 2 === 0 ? "flex-row" : "flex-row-reverse"
+                } items-center gap-8 mb-8`}
+                key={index}
+              >
+                <div className="w-1/2">
+                  <h4 className="text-xl font-semibold mb-4">{item.title}</h4>
+                  <p className="text-gray-600">{item.description}</p>
+                </div>
+                <div className="w-1/2">
+                  <img src={item.image} alt="Barloworld Mongolia" className="w-full h-auto rounded-lg" />
+                </div>
+              </div>
+            ))}
+          </div>
+          <hr />
+          <div className="mb-12">
+            <h3 className="text-2xl font-semibold mb-4">2. СУРЧ ХӨГЖИХ БОЛОМЖ</h3>
+          </div>
+          <div className="service-card-with-featured-image__list !m-0">
+            {HrEducationData.map((item: any, index: any) => (
+              <div
+                className={`service-card flex ${
+                  index % 2 === 0 ? "flex-row" : "flex-row-reverse"
+                } items-center gap-8 mb-8`}
+                key={index}
+              >
+                <div className="w-1/2">
+                  <h4 className="text-xl font-semibold mb-4">{item.title}</h4>
+                  <p className="text-gray-600">{item.description}</p>
+                </div>
+                <div className="w-1/2">
+                  <img src={item.image} alt="Barloworld Mongolia" className="w-full h-auto rounded-lg" />
+                </div>
+              </div>
+            ))}
+          </div>
+          <hr />
+          <div className="mb-12">
+            <h3 className="text-2xl font-semibold mb-4">3. ТЭГШ ЭРХ, ТЭГШ БОЛОМЖ</h3>
+          </div>
+          <div className="service-card-with-featured-image__list !m-0">
+            {HrCareerData.map((item: any, index: any) => (
+              <div
+                className={`service-card flex ${
+                  index % 2 === 0 ? "flex-row" : "flex-row-reverse"
+                } items-center gap-8 mb-8`}
+                key={index}
+              >
+                <div className="w-1/2">
+                  <h4 className="text-xl font-semibold mb-4">{item.title}</h4>
+                  <p className="text-gray-600">{item.description}</p>
+                </div>
+                <div className="w-1/2">
+                  <img src={item.image} alt="Barloworld Mongolia" className="w-full h-auto rounded-lg" />
+                </div>
+              </div>
+            ))}
+          </div>
+          <hr />
+          <div className="mb-12">
+            <h3 className="text-2xl font-semibold mb-4">4. БАЙГАЛЬ ОРЧИН, ТОГТВОРТОЙ БАЙДАЛ</h3>
+          </div>
+          <div className="space-y-6">
+            <div className="bg-gray-50 p-6 rounded-lg">
+              <h4 className="text-xl font-semibold mb-4">Барловорлдын тогтвортой байдлын зорилго:</h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                {[
+                  { icon: "⚡", text: "Цахилгааны хэрэглээ" },
+                  { icon: "💧", text: "Ус хэрэглээ" },
+                  { icon: "⛽", text: "Түлшний хэрэглээ" },
+                  { icon: "♻️", text: "Хог хаягдлыг бууруулах" },
+                ].map((item, index) => (
+                  <div key={index} className="flex items-center p-4 bg-white rounded-lg shadow-sm">
+                    <span className="text-2xl mr-3">{item.icon}</span>
+                    <span className="font-medium">{item.text}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="bg-gray-50 p-6 rounded-lg">
+              <h4 className="text-xl font-semibold mb-4">Zero waste бодлого</h4>
+              <div className="bg-white p-4 rounded-lg shadow-sm">
+                <p className="text-gray-700 leading-relaxed">
+                  Хог хаягдлыг бууруулах бодлогын хүрээнд хогоо ангилан, цугларсан хог хаягдлыг ангиллын дагуу пресслэж,
+                  дахин боловсруулах үйлдвэрт хүргүүлдэг. Химийн бодисын сав баглаа боодол, химийн бодистой арчих
+                  материал, химийн бодисоор бохирдсон хөрс гм аюултай хог хаягдлыг энэ төрлийг хаягдлыг устгах тусгай
+                  зөвшөөрөл бүхий байгууллагад өгч устгуулдаг.
+                </p>
+              </div>
+            </div>
+          </div>
+          <hr />
+          <div className="mb-12">
+            <h3 className="text-2xl font-semibold mb-4">5. НИЙГЭМДЭЭ ОРУУЛЖ БУЙ ХУВЬ НЭМЭР</h3>
+          </div>
+        </div>
+      </section>
+      <section className="wysiwyg-section">
+        <div className="container">
+          <h3>2. СОНГОН ШАЛГАРУУЛАЛТЫН ҮЕ ШАТУУД</h3>
+          <Image src="/assets/img/careers/Picture14.png" alt="Barloworld Mongolia" width={1000} height={1000} />
+        </div>
+      </section>
+      <section className="wysiwyg-section">
+        <div className="container">
+          <h3>3. Нээлттэй ажлын байр</h3>
           <div className="positions">
             <div className="mt-5 mb-3 rounded-2xl py-4 bg-[#dfe4ee]">
               <div className="container px-4">
@@ -179,7 +296,6 @@ const careerPage: InferGetServerSidePropsType<typeof getServerSideProps> = (prop
       </section>
       <section className="service-card-with-featured-image">
         <div className="container">
-          <h3 className="asd">Бидэнтэй нэгдэх шалтгаанууд</h3>
           <div className="service-card-with-featured-image__list">
             {HrData.map((item: any, index: any) => (
               <div

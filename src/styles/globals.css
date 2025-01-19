@@ -214,72 +214,6 @@
     U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 } */
 
-/* 
-@font-face {
-  font-display: swap;
-  font-family: 'Source Sans Pro';
-  font-style: normal;
-  font-weight: 400;
-  src: url(/fonts/6xK3dSBYKcSV-LCoeQqfX1RYOo3qNa7lqDY.woff2) format('woff2');
-  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Source Sans Pro';
-  font-style: normal;
-  font-weight: 400;
-  src: url(/fonts/6xK3dSBYKcSV-LCoeQqfX1RYOo3qPK7lqDY.woff2) format('woff2');
-  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Source Sans Pro';
-  font-style: normal;
-  font-weight: 600;
-  src: url(/fonts/6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwmhduz8A.woff2) format('woff2');
-  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F
-}
-
-
-@font-face {
-  font-display: swap;
-  font-family: 'Source Sans Pro';
-  font-style: normal;
-  font-weight: 700;
-  src: url(/fonts/6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwmhduz8A.woff2) format('woff2');
-  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Source Sans Pro';
-  font-style: normal;
-  font-weight: 700;
-  src: url(/fonts/6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwkxduz8A.woff2) format('woff2');
-  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Source Sans Pro';
-  font-style: normal;
-  font-weight: 900;
-  src: url(/fonts/6xKydSBYKcSV-LCoeQqfX1RYOo3iu4nwmhduz8A.woff2) format('woff2');
-  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Source Sans Pro';
-  font-style: normal;
-  font-weight: 900;
-  src: url(/fonts/6xKydSBYKcSV-LCoeQqfX1RYOo3iu4nwkxduz8A.woff2) format('woff2');
-  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116
-}
-  */
-
 @font-face {
   font-display: swap;
   font-family: "Source Sans Pro";
@@ -333,76 +267,104 @@
   src: url(/fonts/UniversLTCYR-67BoldCond-Huyagaa.ttf) format("woff2");
   unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
-
 /* 
 @font-face {
   font-display: swap;
-  font-family: "Inter";
+  font-family: "Source Sans Pro";
   font-style: normal;
   font-weight: 100;
-  src: url("/fonts/Inter/static/Inter_18pt-Thin.ttf") format("truetype");
+  src: url("/fonts/Inter/static/Inter_18pt-Thin.ttf") format("woff2");
 }
 
 @font-face {
   font-display: swap;
-  font-family: "Inter";
+  font-family: "Source Sans Pro";
   font-style: normal;
   font-weight: 200;
-  src: url("/fonts/Inter/static/Inter_18pt-ExtraLight.ttf") format("truetype");
+  src: url("/fonts/Inter/static/Inter_18pt-ExtraLight.ttf") format("woff2");
 }
 
 @font-face {
   font-display: swap;
-  font-family: "Inter";
+  font-family: "Source Sans Pro";
   font-style: normal;
   font-weight: 300;
-  src: url("/fonts/Inter/static/Inter_18pt-Light.ttf") format("truetype");
+  src: url("/fonts/Inter/static/Inter_18pt-Light.ttf") format("woff2");
 }
 
 @font-face {
   font-display: swap;
-  font-family: "Inter";
+  font-family: "Source Sans Pro";
   font-style: normal;
   font-weight: 400;
-  src: url("/fonts/Inter/static/Inter_18pt-Regular.ttf") format("truetype");
+  src: url("/fonts/Inter/static/Inter_18pt-Regular.ttf") format("woff2");
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
 }
 
 @font-face {
   font-display: swap;
-  font-family: "Inter";
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/Inter/woff/Inter-Regular.woff2") format("woff2");
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Source Sans Pro";
   font-style: normal;
   font-weight: 500;
-  src: url("/fonts/Inter/static/Inter_18pt-Medium.ttf") format("truetype");
+  src: url("/fonts/Inter/woff/Inter-Medium.woff2") format("woff2");
 }
 
 @font-face {
   font-display: swap;
-  font-family: "Inter";
+  font-family: "Source Sans Pro";
   font-style: normal;
   font-weight: 600;
-  src: url("/fonts/Inter/static/Inter_18pt-SemiBold.ttf") format("truetype");
+  src: url("/fonts/Inter/woff/Inter-SemiBold.woff2") format("woff2");
 }
 
 @font-face {
   font-display: swap;
-  font-family: "Inter";
+  font-family: "Source Sans Pro";
   font-style: normal;
   font-weight: 700;
-  src: url("/fonts/Inter/static/Inter_18pt-Bold.ttf") format("truetype");
+  src: url("/fonts/Inter/woff/Inter-Bold.woff2") format("woff2");
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
 }
 
 @font-face {
   font-display: swap;
-  font-family: "Inter";
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/Inter/woff/Inter-Bold.woff2") format("woff2");
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Source Sans Pro";
   font-style: normal;
   font-weight: 800;
-  src: url("/fonts/Inter/static/Inter_18pt-ExtraBold.ttf") format("truetype");
+  src: url("/fonts/Inter/woff/Inter-ExtraBold.woff2") format("woff2");
 }
 
 @font-face {
   font-display: swap;
-  font-family: "Inter";
+  font-family: "Source Sans Pro";
   font-style: normal;
   font-weight: 900;
-  src: url("/fonts/Inter/static/Inter_18pt-Black.ttf") format("truetype");
+  src: url("/fonts/Inter/woff/Inter-Black.woff2") format("woff2");
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-display: swap;
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 900;
+  src: url("/fonts/Inter/woff/Inter-Black.woff2") format("woff2");
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 } */
