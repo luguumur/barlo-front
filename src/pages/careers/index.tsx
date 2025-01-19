@@ -18,7 +18,7 @@ import Footer from "@/modules/layout/templates/footer";
 import Nav from "@/modules/layout/templates/nav";
 import moment from "moment";
 import Image from "next/image";
-import { HrCareerData, HrEducationData, HrInfoData } from "./careerData";
+import { HrCareerData, HrEducationData, HrInfoData } from "../../lib/data/careerData";
 
 interface FormData {
   name: string;
