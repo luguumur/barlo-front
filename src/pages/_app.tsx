@@ -13,10 +13,12 @@ import "../styles/main.css";
 import "../styles/nprogress-custom.css";
 
 import "react-toastify/dist/ReactToastify.css";
+// ... existing code ...
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const timeZone = "Asia/Ulaanbaatar";
+  const messages = pageProps.messages || {};
 
   useEffect(() => {
     const handleRouteChangeStart = () => NProgress.start();
@@ -35,7 +37,7 @@ export default function App({ Component, pageProps }: AppProps) {
   }, [router.events]);
 
   return (
-    <NextIntlClientProvider locale={router.locale || "mn"} messages={pageProps.messages} timeZone={timeZone}>
+    <NextIntlClientProvider locale={router.locale || "mn"} messages={messages} timeZone={timeZone}>
       <GoogleCaptchaWrapper>
         <Component {...pageProps} />
       </GoogleCaptchaWrapper>

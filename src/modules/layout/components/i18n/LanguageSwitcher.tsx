@@ -4,14 +4,15 @@ import { useTranslations } from "next-intl";
 import { GetStaticPropsContext } from "next";
 
 export default function LocaleSwitcher() {
-  const t = useTranslations("LocaleSwitcher");
-
-  const { locale, locales, route, asPath } = useRouter();
+  const { locale, locales, asPath } = useRouter();
   const otherLocale = locales?.find((cur) => cur !== locale);
+
+  // Simple text display based on current locale
+  const switchText = locale === "en" ? "mn" : "en";
 
   return (
     <Link href={asPath} locale={otherLocale} className="locale text-black bg-white hover:bg-gray-100">
-      {t("switchLocale", { locale: otherLocale })}
+      {switchText}
     </Link>
   );
 }

@@ -12,8 +12,8 @@ type Props = {
 
 const Beside = (props: Props) => {
   const pathname = usePathname();
-  let translat1e = props.translate;
-  const translate = useTranslations(translat1e);
+  let translate = props.translate;
+  const t = useTranslations(translate);
   return (
     <aside className="page-sidebar col-md-3 col-md-pull-9">
       <div className="widget-even widget-2 black widget wpcm_closest_location">
@@ -28,7 +28,7 @@ const Beside = (props: Props) => {
                   item.handle == pathname ? "current-menu-item page_item current_page_item" : ""
                 }`}
               >
-                <a href={item.handle}>{translate(`${item.title}`)}</a>
+                <a href={item.handle}>{t(`${item.title}`)}</a>
               </li>
             ))}
           </ul>
@@ -41,10 +41,16 @@ const Beside = (props: Props) => {
 
 export default Beside;
 
-export async function getStaticProps({ locale }: GetStaticPropsContext) {
-  return {
-    props: {
-      messages: (await import(`../../../../../messages/${locale}.json`)).default,
-    },
-  };
-}
+// export async function getStaticProps({ locale }: GetStaticPropsContext) {
+//   let messages;
+//   try {
+//     messages = (await import(`../../../../../messages/${locale}.json`)).default;
+//   } catch (error) {
+//     messages = {};
+//   }
+//   return {
+//     props: {
+//       messages,
+//     },
+//   };
+// }

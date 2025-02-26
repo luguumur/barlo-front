@@ -1,24 +1,14 @@
 "use client";
 
-import usePreviews from "@lib/hooks/use-previews";
-import { ProductCategoryWithChildren, getProductsByCategoryHandle } from "@lib/data";
-import getNumberOfSkeletons from "@lib/util/get-number-of-skeletons";
-import repeat from "@lib/util/repeat";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
-import UnderlineLink from "@modules/common/components/underline-link";
-import { notFound } from "next/navigation";
 import { useTranslations } from "next-intl";
 import PageHeader from "@modules/layout/components/page-header";
 import Beside from "@modules/layout/components/beside-menu";
-import { EquipmentData } from "@data/equipment";
 import Tabs from "@modules/layout/components/tabs";
-import { Component } from "react";
-import Slider from "react-slick";
 import DetailsTab from "@modules/layout/components/detail-tabs";
 import { GetStaticPropsContext } from "next";
 import { MenuData } from "@/data/home";
-import Image from "next/image";
 import Head from "@/modules/common/components/head";
 import EmblaCarouselComponent from "@/modules/layout/components/EmblaCarousel";
 import styles from "../../../modules/layout/components/EmblaCarousel.module.css";
@@ -202,8 +192,6 @@ const AttributeComparisonTable: React.FC<{ products: Product[] }> = ({ products 
 };
 
 const EquipmentTemplate: React.FC<EquipmentTemplateProps> = ({ equipment }) => {
-  const t = useTranslations("Menu");
-
   const { data: equipmentDetail, products: compareModels } = equipment;
   const sortedItems = compareModels.sort((a: any, b: any) => {
     if (a.id === equipmentDetail.id) return -1;
@@ -382,9 +370,15 @@ const EquipmentTemplate: React.FC<EquipmentTemplateProps> = ({ equipment }) => {
 export default EquipmentTemplate;
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
+  let messages;
+  try {
+    messages = (await import(`../../../../messages/${locale}.json`)).default;
+  } catch (error) {
+    messages = {};
+  }
   return {
     props: {
-      messages: (await import(`../../../../messages/${locale}.json`)).default,
+      messages,
     },
   };
 }

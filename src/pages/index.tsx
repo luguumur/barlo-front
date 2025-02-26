@@ -83,9 +83,15 @@ const Index = () => {
 export default Index;
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
+  let messages;
+  try {
+    messages = (await import(`../../messages/${locale}.json`)).default;
+  } catch (error) {
+    messages = {};
+  }
   return {
     props: {
-      messages: (await import(`../../messages/${locale}.json`)).default,
+      messages,
     },
   };
 }

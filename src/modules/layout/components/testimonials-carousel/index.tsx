@@ -65,11 +65,10 @@ const TestiCarousel: React.FC<Props> = ({ testi, description, image }) => {
           <Image
             priority
             src="https://d3leeb4r1qy96s.cloudfront.net/assets/img/test.jpg"
-            className="img-responsive object-cover"
+            className="img-responsive object-cover w-full h-full"
             alt="Barloworld Mongolia"
             sizes="100vw"
             layout="fill"
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
           />
         </div>
         <div className="home-testimonials-right-panel">
