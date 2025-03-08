@@ -45,8 +45,8 @@ const Head: React.FC<HeadProps> = ({ title, description, image }) => {
       <link rel="preconnect" href="https://fonts.gstatic.com" />
       <link rel="preconnect" href="https://www.google.com" />
       {/* Analytics */}
-      {/* <Analytics /> */}
-      <GoogleAnalytics gaId={process.env.googleAnalyticsId || ""} />
+      <Analytics />
+      {/* <GoogleAnalytics gaId={process.env.googleAnalyticsId || ""} /> */}
     </NextHead>
   );
 };
