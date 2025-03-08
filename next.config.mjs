@@ -67,6 +67,7 @@ const nextConfig = {
     apiDomain: "https://webapi.barloworld.mn",
     apikey: "woLpyQc02j4uUtLJj8OIy4oHXCTKnsQT6PklmPOj",
     capchakey: "6LcY_fwpAAAAAG_ZfRJurEfGYEjS4WgwwuEFvRXq",
+    googleAnalyticsId: "G-6Q1HFNCHC5",
   },
   typescript: {
     ignoreBuildErrors: true,
