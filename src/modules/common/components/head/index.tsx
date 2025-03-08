@@ -45,8 +45,19 @@ const Head: React.FC<HeadProps> = ({ title, description, image }) => {
       <link rel="preconnect" href="https://fonts.gstatic.com" />
       <link rel="preconnect" href="https://www.google.com" />
       {/* Analytics */}
-      <Analytics />
-      {/* <GoogleAnalytics gaId={process.env.googleAnalyticsId || ""} /> */}
+      {/* <Analytics /> */}
+      <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.googleAnalyticsId}`}></script>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${process.env.googleAnalyticsId}');
+            `,
+        }}
+      />
+      {/* <GoogleAnalytics gaId="G-6Q1HFNCHC5" /> */}
     </NextHead>
   );
 };
