@@ -50,7 +50,18 @@ const Head: React.FC<HeadProps> = ({ title, description, image }) => {
       <link rel="preconnect" href="https://www.google.com" />
 
       {/* Analytics */}
-      <Analytics />
+      {/* <Analytics /> */}
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-6Q1HFNCHC5"></script>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-6Q1HFNCHC5');
+            `,
+        }}
+      />
     </NextHead>
   );
 };
