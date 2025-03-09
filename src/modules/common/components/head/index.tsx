@@ -46,8 +46,8 @@ const Head: React.FC<HeadProps> = ({ title, description, image }) => {
       <link rel="preconnect" href="https://www.google.com" />
       {/* Analytics */}
       {/* <Analytics /> */}
-      <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.googleAnalyticsId}`}></script>
-      <script
+      <Script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.googleAnalyticsId}`}></Script>
+      <Script
         dangerouslySetInnerHTML={{
           __html: `
               window.dataLayer = window.dataLayer || [];

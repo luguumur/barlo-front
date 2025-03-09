@@ -13,6 +13,7 @@ import Nav from "@/modules/layout/templates/nav";
 
 const Management = () => {
   const { loading, magazine, fetchMagazineData, setLoadingState } = useHomeStore();
+  console.log(magazine);
   const t = useTranslations("Home");
   useEffect(() => {
     (async () => {
@@ -40,19 +41,21 @@ const Management = () => {
       <section className="services-card-section">
         <div className="container">
           <div className="services-card-wrapper desktop">
-            {magazine.data?.map((item: any, index: number) => (
-              <a key={index} className="hover:bg-white rounded mb-5 pb-2" href={item.url} target="blank_">
-                <div className="px-5 max-w-[255px]">
-                  <span className="text-[22px] text-[#ffcc03]">{item.title}</span>
-                  <img
-                    className="content-center services-card-img-icon"
-                    src={`https://d3leeb4r1qy96s.cloudfront.net/${item.image}`}
-                    alt={item.title}
-                  />
-                  <span className="services-card-title text-right text-gray-500 text-[15px]">{item.date}</span>
-                </div>
-              </a>
-            ))}
+            {magazine.data
+              ?.sort((a: any, b: any) => a.number - b.number) // Sort by number before mapping
+              .map((item: any, index: number) => (
+                <a key={index} className="hover:bg-white rounded mb-5 pb-2" href={item.url} target="blank_">
+                  <div className="px-5 max-w-[255px]">
+                    <span className="text-[22px] text-[#ffcc03]">{item.title}</span>
+                    <img
+                      className="content-center services-card-img-icon"
+                      src={`https://webapi.barloworld.mn/file/${item.image}`}
+                      alt={item.title}
+                    />
+                    <span className="services-card-title text-right text-gray-500 text-[15px]">{item.date}</span>
+                  </div>
+                </a>
+              ))}
           </div>
         </div>
       </section>
