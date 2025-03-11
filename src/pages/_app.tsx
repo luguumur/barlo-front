@@ -13,6 +13,7 @@ import "../styles/main.css";
 import "../styles/nprogress-custom.css";
 
 import "react-toastify/dist/ReactToastify.css";
+import { GoogleAnalytics } from "@next/third-parties/google";
 // ... existing code ...
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -40,6 +41,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <NextIntlClientProvider locale={router.locale || "mn"} messages={messages} timeZone={timeZone}>
       <GoogleCaptchaWrapper>
         <Component {...pageProps} />
+        <GoogleAnalytics gaId="G-6Q1HFNCHC5" />
       </GoogleCaptchaWrapper>
       <ToastContainer position="top-right" autoClose={3000} className="font-light text-[13px]" />
     </NextIntlClientProvider>

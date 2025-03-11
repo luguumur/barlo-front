@@ -47,7 +47,7 @@ const Head: React.FC<HeadProps> = ({ title, description, image }) => {
       {/* Analytics */}
       {/* <Analytics /> */}
 
-      <Script
+      {/* <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.googleAnalyticsId}`}
         strategy="afterInteractive"
       />
@@ -58,8 +58,7 @@ const Head: React.FC<HeadProps> = ({ title, description, image }) => {
           gtag('js', new Date());
           gtag('config', '${process.env.googleAnalyticsId}');
         `}
-      </Script>
-      {/* <GoogleAnalytics gaId="G-6Q1HFNCHC5" /> */}
+      </Script> */}
     </NextHead>
   );
 };
