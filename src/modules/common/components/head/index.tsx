@@ -46,17 +46,19 @@ const Head: React.FC<HeadProps> = ({ title, description, image }) => {
       <link rel="preconnect" href="https://www.google.com" />
       {/* Analytics */}
       {/* <Analytics /> */}
-      <Script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.googleAnalyticsId}`}></Script>
+
       <Script
-        dangerouslySetInnerHTML={{
-          __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${process.env.googleAnalyticsId}');
-            `,
-        }}
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.googleAnalyticsId}`}
+        strategy="afterInteractive"
       />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${process.env.googleAnalyticsId}');
+        `}
+      </Script>
       {/* <GoogleAnalytics gaId="G-6Q1HFNCHC5" /> */}
     </NextHead>
   );

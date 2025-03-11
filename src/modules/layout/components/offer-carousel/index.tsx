@@ -23,7 +23,7 @@ const OfferCarousel: React.FC<Props> = ({ deals, description, locale, image }) =
       sliderRef.current.slickPlay();
     }
   }, []);
-
+  console.log(deals);
   const settings: any = {
     dots: false,
     fade: true,
