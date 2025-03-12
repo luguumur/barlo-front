@@ -14,7 +14,6 @@ const New = () => {
   const myLoader = ({ src, width, quality }: any) => {
     return `${src}?w=${width}&q=${quality || 75}`;
   };
-  console.log(Technology);
   return (
     <>
       <Head title={t(`technology`)}></Head>
