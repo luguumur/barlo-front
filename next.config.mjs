@@ -54,7 +54,7 @@ const nextConfig = {
         protocol: "https",
         hostname: "d3leeb4r1qy96s.cloudfront.net",
         port: "",
-        pathname: "/assets/**",
+        pathname: "/**",
       },
       {
         protocol: "https",
@@ -63,6 +63,7 @@ const nextConfig = {
         pathname: "/**",
       },
     ],
+    unoptimized: true,
   },
   env: {
     apiDomain: "https://webapi.barloworld.mn",
