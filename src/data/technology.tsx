@@ -3,7 +3,7 @@ export const Technology = [
     id: 1,
     title: "sos",
     handle: "/technology/sos",
-    image: "https://www.barloworld.mn/images/uploads2/2020-09-18-09-30-40wae__L7A3652.JPG",
+    image: "https://d3leeb4r1qy96s.cloudfront.net/pages/Technology_1_Sos_Lab.jpg",
     youtube:
       '<iframe width="100%" height="490" src="https://www.youtube.com/embed/--I4ehPRPGo?wmode=transparent" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>',
     content: `### S·O·S үйлчилгээ гэж юу вэ?
@@ -96,7 +96,7 @@ SOS лаборатори нь генератороос авхуулаад дам
     id: 2,
     title: "miningt",
     handle: "/technology/miningt",
-    image: "https://www.barloworld.mn/images/uploads2/2020-09-18-01-27-03wae_Picture1.jpg",
+    image: "https://d3leeb4r1qy96s.cloudfront.net/pages/Technology_2_Mining_tech.jpg",
     youtube:
       '<iframe width="100%" height="490" src="https://www.youtube.com/embed/1UEJcy20q-8?wmode=transparent" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>',
     content: `### Уул уурхайн технологи
@@ -277,7 +277,7 @@ DSS бол Катерпиллараас гаргасан эрсдэлийн ме
     id: 3,
     title: "trimble",
     handle: "/technology/trimble",
-    image: "https://www.barloworld.mn/images/uploads2/2020-09-22-01-38-38wae_Picture1.jpg",
+    image: "https://d3leeb4r1qy96s.cloudfront.net/pages/Technology_3_Trimble.jpg",
     youtube:
       '<iframe width="100%" height="490" src="https://www.youtube.com/embed/7N67uuLaPwc?wmode=transparent" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>',
     content: `### Барилгын технологи
@@ -325,7 +325,7 @@ Trimble®-ийн эдгээр дэвшилтэт технологиудыг 2012
     id: 4,
     title: "metro",
     handle: "/technology/metro",
-    image: "https://www.barloworld.mn/images/uploads2/2020-09-22-01-18-10wae_Picture1.jpg",
+    image: "https://d3leeb4r1qy96s.cloudfront.net/pages/Technology_4_Metrology.jpg",
     youtube:
       '<iframe width="100%" height="490" src="https://www.youtube.com/embed/YwtmA4uUbSc?wmode=transparent" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>',
     content: `### Багажны тохиргоо

@@ -3,7 +3,7 @@ export const ServiceData = [
     id: 1,
     title: "machine",
     handle: "/service/machine",
-    image: "/assets/img/service/machine.jpg",
+    image: "https://d3leeb4r1qy96s.cloudfront.net/pages/Service_1_Machine_shop.jpg",
     youtube: "",
     content: `![](http://webnew.barloworld.mn/images/uploads2/Cover_ff.jpg)  
 **  
@@ -22,7 +22,7 @@ export const ServiceData = [
     id: 2,
     title: "main",
     handle: "/service/main",
-    image: "/assets/img/service/main.jpg",
+    image: "https://d3leeb4r1qy96s.cloudfront.net/pages/Service_2_Mainshop.jpg",
     youtube: "",
     content: `*   **Засвар үйлчилгээний хэлтэс**
 
@@ -75,7 +75,7 @@ export const ServiceData = [
     id: 3,
     title: "component",
     handle: "/service/component",
-    image: "/assets/img/service/crc.jpg",
+    image: "https://d3leeb4r1qy96s.cloudfront.net/pages/Service_3_CRC.jpg",
     youtube:
       '<iframe width="100%" height="490" src="https://www.youtube.com/embed/uv1jU85pxgs?wmode=transparent" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>',
     content: `**Агрегат засварын төв**
@@ -88,7 +88,7 @@ export const ServiceData = [
     id: 4,
     title: "field",
     handle: "/service/field",
-    image: "/assets/img/service/service.jpg",
+    image: "https://d3leeb4r1qy96s.cloudfront.net/pages/Service_4_Field.jpg",
     youtube: "",
     content: `**ДУУДЛАГЫН ЗАСВАР**  
 Манай дуудлагын засварын үйлчилгээ нь Улаанбаатарт төвтэй, Монгол улсын аль ч хэсэгт богино хугацаанд дуудлагаар очиж засвар үйлчилгээ үзүүлдэг 24 цагийн хөдөлгөөнт шуурхай үйлчилгээ юм. Засвар үйлчилгээний үндсэн тоноглол багаж хэрэгслээр бүрэн тоноглогдсон туулах чадвар сайтай тусгай автомашин хөлөглөсөн өргөн туршлага, өндөр мэдлэг, зэрэглэлтэй механикууд жилийн аль ч улиралд, дуудсан газарт тань хүрч очин үйлчилж таны машины эвдрэл гэмтлийг оношлон засварлана.  
@@ -179,7 +179,7 @@ CAT үндсэн эд ангиуд нь дахин сэргээн засварл
     id: 6,
     title: "cva",
     handle: "/service/cva",
-    image: "/assets/img/service/CVA.jpg",
+    image: "https://d3leeb4r1qy96s.cloudfront.net/pages/Service_6_CVA.jpg",
     youtube: "",
     content: `**CVA гэж юу бэ?  
   

@@ -18,6 +18,7 @@ const imageLoader = ({ src, width }: { src: any; width: any }) => {
 
 const Types: InferGetServerSidePropsType<typeof getServerSideProps> = (props: any) => {
   const t = useTranslations("Menu");
+  console.log(props.data);
   return (
     <>
       <Head title={t(`d${props.title}`)}></Head>
@@ -34,18 +35,27 @@ const Types: InferGetServerSidePropsType<typeof getServerSideProps> = (props: an
                 <div className="flexible-image-cards-header"></div>
                 <div className="flexible-image-cards-listing">
                   <div className="row js-equal-heights">
-                    {props.data &&
+                    {props.data && props.data.length > 0 ? (
                       props.data.map((item: any, index: any) => (
                         <div key={index} className="col-sm-4">
                           <div className="image-cards-box">
                             <Link href={props.basePath + "/" + item.id}>
                               <div className="card-image">
-                                {item.img_path && (
+                                {item.img_path ? (
                                   <Image
                                     priority
                                     loader={imageLoader}
-                                    src={item.img_path}
+                                    src={`${process.env.apiDomain}/file/${item.img_path}`}
                                     alt={item.name}
+                                    width={600}
+                                    height={500}
+                                    className="img-responsive entered lazyloaded"
+                                  />
+                                ) : (
+                                  <Image
+                                    priority
+                                    src="/empty-image.jpg"
+                                    alt="No image available"
                                     width={600}
                                     height={500}
                                     className="img-responsive entered lazyloaded"
@@ -64,7 +74,12 @@ const Types: InferGetServerSidePropsType<typeof getServerSideProps> = (props: an
                             </Link>
                           </div>
                         </div>
-                      ))}
+                      ))
+                    ) : (
+                      <div className="col-sm-12">
+                        <p className="text-center">No items found.</p>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

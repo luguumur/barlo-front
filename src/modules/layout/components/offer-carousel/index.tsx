@@ -61,7 +61,7 @@ const OfferCarousel: React.FC<Props> = ({ deals, description, locale, image }) =
                     <div className="home-deals-image">
                       <Image
                         alt={deal.title}
-                        src={deal.img_path}
+                        src={`${process.env.apiDomain}/file/${deal.img_path}`}
                         width={800}
                         height={600}
                         priority

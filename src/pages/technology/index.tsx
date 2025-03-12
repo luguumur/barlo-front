@@ -11,6 +11,10 @@ import Footer from "@/modules/layout/templates/footer";
 
 const New = () => {
   const t = useTranslations("Menu");
+  const myLoader = ({ src, width, quality }: any) => {
+    return `${src}?w=${width}&q=${quality || 75}`;
+  };
+  console.log(Technology);
   return (
     <>
       <Head title={t(`technology`)}></Head>
@@ -28,8 +32,19 @@ const New = () => {
                       <div key={index} className="col-sm-4">
                         <div className="image-cards-box">
                           <a href={item.handle}>
+                            {/* <div className="card-image">
+                              <Image loader={myLoader} fill src={item.image} alt={item.title} />
+                            </div> */}
                             <div className="card-image">
-                              <Image fill src={item.image} alt={""} />
+                              <img
+                                width="600"
+                                height="500"
+                                src={item.image}
+                                className="img-responsive entered lazyloaded cover"
+                                alt={t(`${item.title}`)}
+                                data-lazy-src={item.image}
+                                data-ll-status="loaded"
+                              />
                             </div>
                             <div className="image-card-content js-equal-heights-item h-[98px]">
                               <div className="image-card-btn">
