@@ -46,7 +46,7 @@ const Types: InferGetServerSidePropsType<typeof getServerSideProps> = (props: an
                   <figure className="card__primary-info">
                     <Image
                       loader={imageLoader}
-                      src={item.img_path}
+                      src={`${process.env.apiDomain}/file/${item.img_path}`}
                       priority
                       alt={item.name}
                       width={600}
