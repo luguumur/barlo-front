@@ -30,10 +30,10 @@ const nextConfig = {
           key: "Content-Security-Policy",
           value: [
             "default-src 'self';",
-            "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/ https://www.googletagmanager.com https://www.google-analytics.com;",
+            "script-src nonce-{SERVER-GENERATED-NONCE} 'self' 'unsafe-inline' 'unsafe-eval' https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/ https://www.googletagmanager.com https://www.google-analytics.com ;",
             "style-src 'self' 'unsafe-inline';",
-            "img-src 'self' data: https: http: https://www.google-analytics.com https://www.gstatic.com https://d3leeb4r1qy96s.cloudfront.net;",
-            "connect-src 'self' https://webapi.barloworld.mn https://www.google-analytics.com https://d3leeb4r1qy96s.cloudfront.net;",
+            "img-src 'self' data: https: http: https://www.google-analytics.com https://www.gstatic.com https://d3leeb4r1qy96s.cloudfront.net www.googletagmanager.com;",
+            "connect-src 'self' https://webapi.barloworld.mn https://www.google-analytics.com https://d3leeb4r1qy96s.cloudfront.net www.googletagmanager.com;",
             "font-src 'self' https://fonts.gstatic.com;",
             "frame-src 'self' https://www.google.com/ https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/ https://www.youtube.com https://www.youtube-nocookie.com;",
             "media-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://d3leeb4r1qy96s.cloudfront.net;",
