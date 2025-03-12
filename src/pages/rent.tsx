@@ -28,62 +28,58 @@ const About = () => {
                 <div className="text-[20px] indent-0 font-light">RENTAL OFFICE LOCATION</div>
               </span>
             </div>
-            <div className="grid grid-cols-4 gap-1">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <div className="text-center">
                 <div className="relative group">
                   <img
                     src="https://d3leeb4r1qy96s.cloudfront.net/assets/img/specials/GDC_Main_011_5_11zon.png"
                     alt="Image 1"
-                    className="mx-auto opacity-70 group-hover:opacity-100 transition-opacity duration-300 "
+                    className="w-full mx-auto opacity-70 group-hover:opacity-100 transition-opacity duration-300"
                   />
                 </div>
-                <p className="bg-[#ad0f0e] text-white p-5 h-[100px]">
-                  ӨМНӨГОВЬ АЙМАГ, ЦОГЦЭЦИЙ СУМ
-                  <br /> <strong>GDC САЛБАР</strong>
+                <p className="bg-[#ad0f0e] text-white p-4 min-h-[100px] flex flex-col justify-center">
+                  <span>ӨМНӨГОВЬ АЙМАГ, ЦОГЦЭЦИЙ СУМ</span>
+                  <strong>GDC САЛБАР</strong>
                 </p>
-                <p></p>
               </div>
               <div className="text-center">
                 <div className="relative group">
                   <img
                     src="https://d3leeb4r1qy96s.cloudfront.net/assets/img/specials/22_branch_041_11zon.png"
                     alt="Image 2"
-                    className="mx-auto opacity-70 group-hover:opacity-100 transition-opacity duration-300 "
+                    className="w-full mx-auto opacity-70 group-hover:opacity-100 transition-opacity duration-300"
                   />
                 </div>
-                <p className="bg-[#ad0f0e] text-white pt-5 h-[100px]">
-                  УЛААНБААТАР ХОТ, СХДҮҮРЭГ
-                  <br /> <strong>22-ЫН ТОВЧОО САЛБАР</strong>
+                <p className="bg-[#ad0f0e] text-white p-4 min-h-[100px] flex flex-col justify-center">
+                  <span>УЛААНБААТАР ХОТ, СХДҮҮРЭГ</span>
+                  <strong>22-ЫН ТОВЧОО САЛБАР</strong>
                 </p>
-                <p></p>
               </div>
               <div className="text-center">
                 <div className="relative group">
                   <img
                     src="https://d3leeb4r1qy96s.cloudfront.net/assets/img/specials/Khanbogd_01_2_11zon.png"
                     alt="Image 3"
-                    className="mx-auto opacity-70 group-hover:opacity-100 transition-opacity duration-300 "
+                    className="w-full mx-auto opacity-70 group-hover:opacity-100 transition-opacity duration-300"
                   />
                 </div>
-                <p className="bg-[#ad0f0e] text-white pt-5 h-[100px]">
-                  ӨМНӨГОВЬ АЙМАГ, ХАНБОГД СУМ
-                  <br /> <strong>ХАНБОГД САЛБАР</strong>{" "}
+                <p className="bg-[#ad0f0e] text-white p-4 min-h-[100px] flex flex-col justify-center">
+                  <span>ӨМНӨГОВЬ АЙМАГ, ХАНБОГД СУМ</span>
+                  <strong>ХАНБОГД САЛБАР</strong>
                 </p>
-                <p></p>
               </div>
               <div className="text-center">
                 <div className="relative group">
                   <img
                     src="https://d3leeb4r1qy96s.cloudfront.net/assets/img/specials/rental_office_02_3_11zon.png"
                     alt="Image 4"
-                    className="mx-auto opacity-70 group-hover:opacity-100 transition-opacity duration-300 "
+                    className="w-full mx-auto opacity-70 group-hover:opacity-100 transition-opacity duration-300"
                   />
                 </div>
-                <p className="bg-[#ad0f0e] text-white pt-5 h-[100px]">
-                  УЛААНБААТАР ХОТ, БГДҮҮРЭГ
-                  <br /> <strong>ТҮРЭЭСИЙН ТӨВ САЛБАР</strong>
+                <p className="bg-[#ad0f0e] text-white p-4 min-h-[100px] flex flex-col justify-center">
+                  <span>УЛААНБААТАР ХОТ, БГДҮҮРЭГ</span>
+                  <strong>ТҮРЭЭСИЙН ТӨВ САЛБАР</strong>
                 </p>
-                <p></p>
               </div>
             </div>
           </div>

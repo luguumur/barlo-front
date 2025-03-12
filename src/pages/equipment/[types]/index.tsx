@@ -77,7 +77,7 @@ const Types: InferGetServerSidePropsType<typeof getServerSideProps> = (props: an
                       ))
                     ) : (
                       <div className="col-sm-12">
-                        <p className="text-center">No items found.</p>
+                        <p className="text-center"></p>
                       </div>
                     )}
                   </div>
