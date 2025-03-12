@@ -117,7 +117,7 @@ const FooterNav = () => {
           <div className="row">
             <div className="col-sm-12">
               <p className="page-footer__copyright bg-[#474d59] text-white" aria-label="Copyright information">
-                Copyright © 2024 Barloworld Mongolia. <br /> All Rights Reserved
+                Copyright © 2025 Barloworld Mongolia. <br /> All Rights Reserved
               </p>
             </div>
           </div>

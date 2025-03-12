@@ -41,7 +41,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <NextIntlClientProvider locale={router.locale || "mn"} messages={messages} timeZone={timeZone}>
       <GoogleCaptchaWrapper>
         <Component {...pageProps} />
-        <GoogleAnalytics gaId="G-6Q1HFNCHC5" />
+        <GoogleAnalytics gaId="G-2CDSCRM91G" />
       </GoogleCaptchaWrapper>
       <ToastContainer position="top-right" autoClose={3000} className="font-light text-[13px]" />
     </NextIntlClientProvider>

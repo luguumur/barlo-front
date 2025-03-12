@@ -3,7 +3,7 @@ export const PartsData = [
     id: 1,
     title: "drive",
     handle: "/parts/drive",
-    image: "https://d3leeb4r1qy96s.cloudfront.net/assets/img/parts/menu-used-parts.jpg.webp",
+    image: "https://d3leeb4r1qy96s.cloudfront.net/pages/Parts_1_Powertrain.jpg",
     youtube: "",
     content: `Дэлхий даяар бүх төрлийн ажлын талбарт Cat тоног төхөөрөмжүүд нь захын дамжуулагч болон хурдны хайрцгийн тусламжтайгаар хүч дамжуулж урагш хөдлөн, газар шорооны ажил хийдэг.
 
@@ -47,7 +47,7 @@ Cat хүч дамжуулах эд анги нь дараах ачааллыг �
     id: 2,
     title: "undercarriage",
     handle: "/parts/undercarriage",
-    image: "https://d3leeb4r1qy96s.cloudfront.net/assets/img/parts/Undercarriage.png",
+    image: "https://d3leeb4r1qy96s.cloudfront.net/pages/Parts_2_GET.jpg",
     youtube:
       '<iframe width="1020" height="590" src="https://www.youtube.com/embed/JIcqePEw138?wmode=transparent" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>',
     content: `Катерпиллар® нь 100 гаруй жилийн турш гинжит явах эд анги бүхий машины сэлбэг хэрэгслийг зохион бүтээж, үйлдвэрлэж ирсэн. Бид таны машиныг ямар нөхцөлд илүү бүтээмжтэй, үр ашигтай ажиллуулахыг сайн мэднэ.
@@ -86,7 +86,7 @@ Cat хүч дамжуулах эд анги нь дараах ачааллыг �
     id: 3,
     title: "engine",
     handle: "/parts/engine",
-    image: "https://d3leeb4r1qy96s.cloudfront.net/assets/img/parts/partstore.jpg.webp",
+    image: "https://d3leeb4r1qy96s.cloudfront.net/pages/Parts_3_Engine.jpg",
     youtube:
       '<iframe width="1020" height="590" src="https://www.youtube.com/embed/afTprU56Yag?wmode=transparent" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>',
     content: `**ХӨДӨЛГҮҮРИЙН АЖИЛЛАГААГ САЙЖРУУЛАХ ОРИГИНАЛ, ЧАНАРТАЙ СЭЛБЭГ**
@@ -145,7 +145,7 @@ Cat сэлбэгүүд нь Cat хөдөлгүүрт төгс таарч ажи�
     id: 4,
     title: "filters",
     handle: "/parts/filters",
-    image: "https://d3leeb4r1qy96s.cloudfront.net/assets/img/parts/parts.jpg.webp",
+    image: "https://d3leeb4r1qy96s.cloudfront.net/pages/Parts_4_GET.jpg",
     youtube:
       '<iframe width="1020" height="590" src="https://www.youtube.com/embed/QI0MrzP1gbA?wmode=transparent" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>',
     content: `**Шингэн**
@@ -166,7 +166,7 @@ Cat шингэний зууралдах чанар нь бусад шингэн�
     id: 5,
     title: "ground",
     handle: "/parts/ground",
-    image: "https://s7d2.scene7.com/is/image/Caterpillar/CM20200803-7d970-4b60a?wid=600&hei=500&op_sharpen=1&qlt=100",
+    image: "https://d3leeb4r1qy96s.cloudfront.net/pages/Parts_5_FiltersFluids.jpg",
     youtube:
       '<iframe width="1020" height="590" src="https://www.youtube.com/embed/uRXCGFesvDk?wmode=transparent" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>',
     content: `
@@ -206,7 +206,7 @@ Caterpillar нь бүтээмжийг хамгийн өндөрт түвшинд
     id: 1,
     title: "online",
     handle: "https://parts.cat.com/en/catcorp",
-    image: "https://d3leeb4r1qy96s.cloudfront.net/assets/img/parts/menu-partstore.jpg.webp",
+    image: "https://d3leeb4r1qy96s.cloudfront.net/pages/Parts_6_PCC.jpg",
     content: `<></>`,
   },
 ];

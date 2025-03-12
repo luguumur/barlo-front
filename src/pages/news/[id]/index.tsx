@@ -1,18 +1,10 @@
-import Beside from "@modules/layout/components/beside-menu";
 import PageHeader from "@modules/layout/components/page-header";
-import { HeaderData } from "@data/menu";
-import { PartsData } from "@data/parts";
 
 import { useTranslations } from "next-intl";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
-import { ServiceData } from "@/data/service";
-import { Technology } from "@/data/technology";
-import { Testimonials } from "@/data/testimonials";
-import { News } from "@/data/news";
 import axios from "axios";
 import https from "https";
 import { useRouter } from "next/router";
-import Questions from "@/modules/layout/components/questions";
 import NewsBeside from "@/modules/layout/components/news-menu";
 import Markdown from "react-markdown";
 import Head from "@/modules/common/components/head";
@@ -22,7 +14,7 @@ import Nav from "@/modules/layout/templates/nav";
 const Parts: InferGetServerSidePropsType<typeof getServerSideProps> = (props: any) => {
   const t = useTranslations("Menu");
   const data = props.data;
-  const { locale, locales, route, asPath } = useRouter();
+  const { locale } = useRouter();
   return (
     <>
       <Head title={data.title}></Head>

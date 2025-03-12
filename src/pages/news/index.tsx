@@ -1,7 +1,6 @@
 import Beside from "@modules/layout/components/beside-menu";
 import PageHeader from "@modules/layout/components/page-header";
 import { HeaderData } from "@data/menu";
-import { PartsData } from "@data/parts";
 
 import { useTranslations } from "next-intl";
 import { GetServerSideProps, GetStaticPropsContext, InferGetServerSidePropsType } from "next";
