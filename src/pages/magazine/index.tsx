@@ -13,7 +13,6 @@ import Nav from "@/modules/layout/templates/nav";
 
 const Management = () => {
   const { loading, magazine, fetchMagazineData, setLoadingState } = useHomeStore();
-  console.log(magazine);
   const t = useTranslations("Home");
   useEffect(() => {
     (async () => {
@@ -42,7 +41,7 @@ const Management = () => {
         <div className="container">
           <div className="services-card-wrapper desktop">
             {magazine.data
-              ?.sort((a: any, b: any) => a.number - b.number) // Sort by number before mapping
+              ?.sort((a: any, b: any) => b.number - a.number) // Sort by number before mapping
               .map((item: any, index: number) => (
                 <a key={index} className="hover:bg-white rounded mb-5 pb-2" href={item.url} target="blank_">
                   <div className="px-5 max-w-[255px]">
