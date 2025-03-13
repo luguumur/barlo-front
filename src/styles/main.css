@@ -2117,6 +2117,7 @@ html.flexbox {
 }
 
 .slick-dots {
+  display: none !important;
   position: absolute;
   bottom: -45px;
   display: block;
@@ -2137,6 +2138,7 @@ html.flexbox {
 }
 
 .slick-dots li button {
+  display: none !important;
   font-size: 0;
   line-height: 0;
   display: block;
